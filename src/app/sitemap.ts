@@ -1,0 +1,50 @@
+import type { MetadataRoute } from "next";
+import { LIQUIVIDA_DRIPS } from "@/lib/invita/liquivida-drips";
+import { HEALTHCARE_CLINICS } from "@/lib/invita/healthcare-network";
+import { getSiteUrl } from "@/lib/seo";
+
+const STATIC_ROUTES = [
+  "",
+  "/about",
+  "/iv-therapy",
+  "/add-ons",
+  "/faq",
+  "/contact",
+  "/membership",
+  "/locations",
+  "/for-clinics",
+  "/healthcare-network",
+  "/book",
+  "/privacy",
+  "/terms",
+  "/dna",
+  "/science",
+];
+
+export default function sitemap(): MetadataRoute.Sitemap {
+  const base = getSiteUrl();
+  const now = new Date();
+
+  const staticEntries: MetadataRoute.Sitemap = STATIC_ROUTES.map((path) => ({
+    url: `${base}${path}`,
+    lastModified: now,
+    changeFrequency: path === "" ? "weekly" : "monthly",
+    priority: path === "" ? 1 : path === "/iv-therapy" || path === "/book" ? 0.9 : 0.7,
+  }));
+
+  const dripEntries: MetadataRoute.Sitemap = LIQUIVIDA_DRIPS.map((drip) => ({
+    url: `${base}/iv-therapy/${drip.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.8,
+  }));
+
+  const clinicEntries: MetadataRoute.Sitemap = HEALTHCARE_CLINICS.map((clinic) => ({
+    url: `${base}/healthcare-network/${clinic.slug}`,
+    lastModified: now,
+    changeFrequency: "monthly",
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...dripEntries, ...clinicEntries];
+}

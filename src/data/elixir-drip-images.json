@@ -1,0 +1,114 @@
+{
+  "scrapedAt": "2026-07-04",
+  "source": "https://theelixirclinic.com/iv-drip-landing-page/",
+  "drips": {
+    "vip-signature": {
+      "local": "/images/drips/vip-signature.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-150704.png",
+      "filename": "Screenshot-2022-11-15-at-150704.png"
+    },
+    "anti-aging": {
+      "local": "/images/drips/anti-aging.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-150128.png",
+      "filename": "Screenshot-2022-11-15-at-150128.png"
+    },
+    "immunity": {
+      "local": "/images/drips/immunity.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145705.png",
+      "filename": "Screenshot-2022-11-15-at-145705.png"
+    },
+    "hair-skin-nails": {
+      "local": "/images/drips/hair-skin-nails.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145810.png",
+      "filename": "Screenshot-2022-11-15-at-145810.png"
+    },
+    "gut-health": {
+      "local": "/images/drips/gut-health.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145837.png",
+      "filename": "Screenshot-2022-11-15-at-145837.png"
+    },
+    "fitness-recovery": {
+      "local": "/images/drips/fitness-recovery.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145926.png",
+      "filename": "Screenshot-2022-11-15-at-145926.png"
+    },
+    "libido-enhancer": {
+      "local": "/images/drips/libido-enhancer.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145635.png",
+      "filename": "Screenshot-2022-11-15-at-145635.png"
+    },
+    "motherhood": {
+      "local": "/images/drips/motherhood.jpg",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/MOTHERHOOD-VITADRIP-icon.jpg",
+      "filename": "MOTHERHOOD-VITADRIP-icon.jpg"
+    },
+    "diet-detox": {
+      "local": "/images/drips/diet-detox.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-150009.png",
+      "filename": "Screenshot-2022-11-15-at-150009.png"
+    },
+    "the-recharger": {
+      "local": "/images/drips/the-recharger.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-150910.png",
+      "filename": "Screenshot-2022-11-15-at-150910.png"
+    },
+    "menopause-support": {
+      "local": "/images/drips/menopause-support.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Frame-3554.png",
+      "filename": "Frame-3554.png"
+    },
+    "radiance": {
+      "local": "/images/drips/radiance.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-150635.png",
+      "filename": "Screenshot-2022-11-15-at-150635.png"
+    },
+    "hydration": {
+      "local": "/images/drips/hydration.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145741.png",
+      "filename": "Screenshot-2022-11-15-at-145741.png"
+    },
+    "mood-enhancer": {
+      "local": "/images/drips/mood-enhancer.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145358.png",
+      "filename": "Screenshot-2022-11-15-at-145358.png"
+    },
+    "immune-booster": {
+      "local": "/images/drips/immune-booster.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145705.png",
+      "filename": "Screenshot-2022-11-15-at-145705.png"
+    },
+    "liver-cleanse": {
+      "local": "/images/drips/liver-cleanse.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145527.png",
+      "filename": "Screenshot-2022-11-15-at-145527.png"
+    },
+    "antioxidant": {
+      "local": "/images/drips/antioxidant.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-150100.png",
+      "filename": "Screenshot-2022-11-15-at-150100.png"
+    },
+    "life-drip": {
+      "local": "/images/drips/life-drip.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145603.png",
+      "filename": "Screenshot-2022-11-15-at-145603.png"
+    }
+  },
+  "tiers": {
+    "Signature": {
+      "local": "/images/drips/tiers/signature.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-150704.png"
+    },
+    "Wellness": {
+      "local": "/images/drips/tiers/wellness.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145705.png"
+    },
+    "Performance": {
+      "local": "/images/drips/tiers/performance.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-145926.png"
+    },
+    "Beauty": {
+      "local": "/images/drips/tiers/beauty.png",
+      "remote": "https://theelixirclinic.com/wp-content/uploads/2022/11/Screenshot-2022-11-15-at-150635.png"
+    }
+  }
+}

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="120" height="120" viewBox="0 0 120 120" fill="none">
+  <rect width="120" height="120" rx="16" fill="#FAF7F2"/>
+  <rect x="1" y="1" width="118" height="118" rx="15" stroke="#C4956A" stroke-opacity="0.35"/>
+  <path d="M60 28L72 52H84L68 62L74 86L60 72L46 86L52 62L36 52H48L60 28Z" fill="#B8965A" fill-opacity="0.45"/>
+  <text x="60" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#8B7355">Invita Network</text>
+</svg>

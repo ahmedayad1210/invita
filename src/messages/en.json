@@ -1,0 +1,168 @@
+{
+  "brand": {
+    "name": "Invita",
+    "tagline": "Iraq's Leading IV Therapy Company",
+    "city": "Baghdad"
+  },
+  "nav": {
+    "home": "Home",
+    "ivTherapy": "IV Drips",
+    "forClinics": "For Clinics",
+    "howItWorks": "How It Works",
+    "addOns": "Add-Ons",
+    "dnaLab": "DNA Lab",
+    "membership": "Membership",
+    "book": "Reserve Your Appointment",
+    "about": "About",
+    "faq": "FAQ",
+    "account": "Account",
+    "login": "Sign in",
+    "logout": "Sign out"
+  },
+  "cta": {
+    "bookSession": "Book Your Wellness Session",
+    "startConsultation": "Start Your Consultation",
+    "speakMedicalTeam": "Speak with Our Medical Team",
+    "findRightIv": "Find the Right IV Drip",
+    "reserveAppointment": "Reserve Your Appointment",
+    "requestAssessment": "Request Your Free Assessment",
+    "exploreDrips": "Explore IV Drips",
+    "continueJourney": "Continue Your Journey",
+    "whatHappensNext": "A clinician will confirm your protocol within 24 hours."
+  },
+  "hero": {
+    "eyebrow": "Iraq's First Officially Registered IV Therapy Brand",
+    "title": "The company behind",
+    "titleEm": "IV therapy in Iraq.",
+    "subtitle": "Official Iraqi medical wellness company. International standards. Serving patients, clinics, medical centres, and physicians nationwide — powered by Liquivida®.",
+    "ctaPrimary": "Find the Right IV Drip",
+    "ctaSecondary": "For Clinics & Partners"
+  },
+  "trust": {
+    "licensed": "Licensed medical professionals",
+    "liquivida": "Official Liquivida® USA distributor",
+    "privateSuite": "Private infusion suite · Al-Mansour",
+    "assessment": "Complimentary assessment before every session",
+    "sterile": "Medical-grade sterile preparation",
+    "supervision": "Clinician supervision throughout",
+    "credentialsTitle": "Medical credibility you can feel",
+    "credentialsLead": "Every detail — from consultation to infusion — is designed for safety, discretion, and results."
+  },
+  "about": {
+    "eyebrow": "The company standard",
+    "title": "Iraq's IV therapy authority — powered by Liquivida®.",
+    "body1": "Invita is Iraq's first officially registered IV therapy brand. We manufacture and distribute premium clinical IV formulas under international pharmaceutical standards — for patients and for the clinics, hospitals, and physicians who trust us nationwide.",
+    "body2": "We are not a beauty spa, vitamin bar, or influencer brand. We are a serious healthcare company — clinical education, administration protocols, regulatory compliance, and reliable supply included.",
+    "callout": "Official Liquivida® partner · American IV Association verified · Serving Iraq's healthcare network."
+  },
+  "transformation": {
+    "eyebrow": "Your journey",
+    "title": "From consultation to clarity",
+    "lead": "Three quiet moments that define the Invita experience.",
+    "step1Title": "Arrive",
+    "step1Body": "Step into a calm private suite. Refreshments. No waiting room chaos.",
+    "step2Title": "Consult",
+    "step2Body": "A 15-minute medical assessment shapes your protocol — never one-size-fits-all.",
+    "step3Title": "Transform",
+    "step3Body": "Feel energy, clarity, and radiance — often within the same afternoon."
+  },
+  "pillars": {
+    "ivTitle": "IV Drips",
+    "ivDesc": "18 Liquivida® formulas for immunity, energy, beauty, and recovery.",
+    "dnaTitle": "Genomic Intelligence",
+    "dnaDesc": "DNA panels with private interpretation — nutrition, longevity, and pharmacogenomics."
+  },
+  "book": {
+    "eyebrow": "Begin your wellness journey",
+    "title": "Reserve your consultation",
+    "subtitle": "You are not buying a product. You are beginning a medically guided wellness experience — with a complimentary assessment before any treatment.",
+    "stepService": "Your protocol",
+    "stepClinician": "Your clinician",
+    "stepSchedule": "Your visit",
+    "stepIntake": "Your health profile",
+    "stepConfirm": "Confirm & arrive",
+    "trustNote": "Licensed professionals · Private suite · Liquivida® USA formulas"
+  },
+  "intake": {
+    "title": "Clinical intake",
+    "goals": "Your wellness goals",
+    "allergies": "Known allergies",
+    "medications": "Current medications",
+    "conditions": "Medical conditions",
+    "pregnant": "I am currently pregnant"
+  },
+  "account": {
+    "appointments": "Appointments",
+    "dnaResults": "DNA results",
+    "noResults": "No DNA results yet."
+  },
+  "footer": {
+    "disclaimer": "All treatments are administered by licensed medical professionals. Invita operates in full compliance with Iraqi Ministry of Health regulations.",
+    "copyright": "Invita — Baghdad's Official Liquivida® USA Distributor.",
+    "advancedServices": "Advanced Services",
+    "company": "Company",
+    "ivTherapy": "IV Therapy",
+    "wellnessUpdates": "Wellness updates"
+  },
+  "footerCta": {
+    "title": "Ready to work with Iraq's IV therapy leader?",
+    "body": "Patients — reserve your consultation. Clinics — join our nationwide partner network.",
+    "cta": "Book Your Wellness Session",
+    "ctaB2b": "Become a Partner"
+  },
+  "pricing": {
+    "disclaimer": "Price includes a complimentary medical assessment. Your clinician may recommend adjustments based on your individual needs.",
+    "from": "From"
+  },
+  "celebrity": {
+    "eyebrow": "Global wellness",
+    "title": "Celebrities worldwide love IV therapy",
+    "lead": "From athletes and performers to wellness leaders — IV nutrient therapy has become a trusted ritual for energy, recovery, and radiance.",
+    "note": "Trusted by public figures and wellness leaders at leading IV clinics across the Middle East."
+  },
+  "leadCapture": {
+    "title": "Receive a complimentary wellness assessment",
+    "body": "Speak with our medical team before any treatment. We will help you find the right protocol for your goals.",
+    "cta": "Speak with Our Medical Team",
+    "success": "Thank you — our concierge will contact you within 24 hours."
+  },
+  "faq": {
+    "title": "Questions, answered with clarity",
+    "viewAll": "View all questions"
+  },
+  "common": {
+    "skipToContent": "Skip to content",
+    "whatsapp": "WhatsApp",
+    "call": "Call"
+  },
+  "notFound": {
+    "title": "This page isn't available.",
+    "body": "Let us guide you back to Invita — Baghdad's premier IV wellness suite.",
+    "cta": "Return Home"
+  },
+  "pages": {
+    "ivHub": {
+      "title": "IV Drip Menu",
+      "lead": "Eighteen Liquivida® USA formulas — each begins with a private medical consultation.",
+      "cta": "Start Your Consultation",
+      "ctaHint": "Not sure which drip is right for you? We will recommend the ideal protocol."
+    },
+    "about": {
+      "title": "About Invita",
+      "lead": "Iraq's leading IV therapy company — serving patients and healthcare providers with international clinical standards.",
+      "teamTitle": "Your medical team",
+      "teamLead": "Licensed professionals dedicated to clinical safety and evidence-based protocols.",
+      "cta": "Reserve Your Appointment"
+    },
+    "membership": {
+      "cta": "Request a Membership Consultation"
+    },
+    "dna": {
+      "cta": "Speak with Our Medical Team"
+    },
+    "contact": {
+      "title": "We would love to hear from you.",
+      "cta": "Send Your Message"
+    }
+  }
+}

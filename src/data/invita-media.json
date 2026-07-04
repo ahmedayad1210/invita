@@ -1,0 +1,622 @@
+{
+  "source": "/Users/ahmedalnuaimi/Downloads/invita dump",
+  "generatedBy": "scripts/ingest-invita-dump.py",
+  "infographics": [
+    {
+      "id": "iv-01",
+      "type": "infographic",
+      "source": "I V 1.jpg",
+      "path": "/images/invita/infographics/iv-01.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-10",
+      "type": "infographic",
+      "source": "I V 10.jpg",
+      "path": "/images/invita/infographics/iv-10.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-11",
+      "type": "infographic",
+      "source": "I V 11.jpg",
+      "path": "/images/invita/infographics/iv-11.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-12",
+      "type": "infographic",
+      "source": "I V 12.jpg",
+      "path": "/images/invita/infographics/iv-12.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-13",
+      "type": "infographic",
+      "source": "I V 13.jpg",
+      "path": "/images/invita/infographics/iv-13.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-14",
+      "type": "infographic",
+      "source": "I V 14.jpg",
+      "path": "/images/invita/infographics/iv-14.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-15",
+      "type": "infographic",
+      "source": "I V 15.jpg",
+      "path": "/images/invita/infographics/iv-15.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-16",
+      "type": "infographic",
+      "source": "I V 16.jpg",
+      "path": "/images/invita/infographics/iv-16.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-17",
+      "type": "infographic",
+      "source": "I V 17.jpg",
+      "path": "/images/invita/infographics/iv-17.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-18",
+      "type": "infographic",
+      "source": "I V 18.jpg",
+      "path": "/images/invita/infographics/iv-18.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-02",
+      "type": "infographic",
+      "source": "I V 2.jpg",
+      "path": "/images/invita/infographics/iv-02.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-04",
+      "type": "infographic",
+      "source": "I V 4.jpg",
+      "path": "/images/invita/infographics/iv-04.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-05",
+      "type": "infographic",
+      "source": "I V 5.jpg",
+      "path": "/images/invita/infographics/iv-05.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-06",
+      "type": "infographic",
+      "source": "I V 6.jpg",
+      "path": "/images/invita/infographics/iv-06.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-07",
+      "type": "infographic",
+      "source": "I V 7.jpg",
+      "path": "/images/invita/infographics/iv-07.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-08",
+      "type": "infographic",
+      "source": "I V 8.jpg",
+      "path": "/images/invita/infographics/iv-08.webp",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "id": "iv-09",
+      "type": "infographic",
+      "source": "I V 9.jpg",
+      "path": "/images/invita/infographics/iv-09.webp",
+      "width": 1080,
+      "height": 1080
+    }
+  ],
+  "clinicPhotos": [
+    {
+      "id": "photo-2026-03-09-12-27-30",
+      "type": "clinic",
+      "source": "PHOTO-2026-03-09-12-27-30.jpg",
+      "path": "/images/invita/clinic/photo-2026-03-09-12-27-30.webp",
+      "width": 1096,
+      "height": 724
+    },
+    {
+      "id": "photo-2026-03-23-20-54-07-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-03-23-20-54-07 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-03-23-20-54-07-2.webp",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "id": "photo-2026-04-22-20-25-52-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-22-20-25-52 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-22-20-25-52-2.webp",
+      "width": 1176,
+      "height": 1600
+    },
+    {
+      "id": "photo-2026-04-22-20-25-52-3",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-22-20-25-52 3.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-22-20-25-52-3.webp",
+      "width": 1200,
+      "height": 1220
+    },
+    {
+      "id": "photo-2026-04-22-20-25-52",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-22-20-25-52.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-22-20-25-52.webp",
+      "width": 1200,
+      "height": 1204
+    },
+    {
+      "id": "photo-2026-04-22-21-08-56-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-22-21-08-56 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-22-21-08-56-2.webp",
+      "width": 1024,
+      "height": 1028
+    },
+    {
+      "id": "photo-2026-04-23-02-07-20-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-23-02-07-20 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-23-02-07-20-2.webp",
+      "width": 928,
+      "height": 1142
+    },
+    {
+      "id": "photo-2026-04-23-02-07-21-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-23-02-07-21 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-23-02-07-21-2.webp",
+      "width": 928,
+      "height": 1152
+    },
+    {
+      "id": "photo-2026-04-23-02-07-21-5",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-23-02-07-21 5.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-23-02-07-21-5.webp",
+      "width": 928,
+      "height": 1152
+    },
+    {
+      "id": "photo-2026-04-23-02-17-09-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-23-02-17-09 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-23-02-17-09-2.webp",
+      "width": 928,
+      "height": 1152
+    },
+    {
+      "id": "photo-2026-04-24-02-32-00-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-24-02-32-00 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-24-02-32-00-2.webp",
+      "width": 1078,
+      "height": 1068
+    },
+    {
+      "id": "photo-2026-04-24-02-32-00-3",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-24-02-32-00 3.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-24-02-32-00-3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-04-24-02-32-00-4",
+      "type": "clinic",
+      "source": "PHOTO-2026-04-24-02-32-00 4.jpg",
+      "path": "/images/invita/clinic/photo-2026-04-24-02-32-00-4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-09-17-37-44",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-09-17-37-44.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-09-17-37-44.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-56-23-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-56-23 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-56-23-2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-56-23",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-56-23.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-56-23.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-56-24-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-56-24 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-56-24-2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-56-24-3",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-56-24 3.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-56-24-3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-56-24",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-56-24.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-56-24.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-56-25-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-56-25 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-56-25-2.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-56-25-3",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-56-25 3.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-56-25-3.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-56-25-4",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-56-25 4.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-56-25-4.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-56-25",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-56-25.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-56-25.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-05-20-12-58-18",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-58-18.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-58-18.webp",
+      "width": 1024,
+      "height": 1031
+    },
+    {
+      "id": "photo-2026-05-20-12-58-19-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-58-19 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-58-19-2.webp",
+      "width": 1024,
+      "height": 1031
+    },
+    {
+      "id": "photo-2026-05-20-12-58-19-3",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-58-19 3.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-58-19-3.webp",
+      "width": 1024,
+      "height": 1031
+    },
+    {
+      "id": "photo-2026-05-20-12-58-19-4",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-58-19 4.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-58-19-4.webp",
+      "width": 1024,
+      "height": 1031
+    },
+    {
+      "id": "photo-2026-05-20-12-58-19",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-58-19.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-58-19.webp",
+      "width": 1024,
+      "height": 1031
+    },
+    {
+      "id": "photo-2026-05-20-12-58-20-2",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-58-20 2.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-58-20-2.webp",
+      "width": 1024,
+      "height": 1031
+    },
+    {
+      "id": "photo-2026-05-20-12-58-20-3",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-58-20 3.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-58-20-3.webp",
+      "width": 1024,
+      "height": 1031
+    },
+    {
+      "id": "photo-2026-05-20-12-58-20-4",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-58-20 4.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-58-20-4.webp",
+      "width": 1024,
+      "height": 1031
+    },
+    {
+      "id": "photo-2026-05-20-12-58-20",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-12-58-20.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-12-58-20.webp",
+      "width": 981,
+      "height": 988
+    },
+    {
+      "id": "photo-2026-05-20-13-17-20",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-13-17-20.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-13-17-20.webp",
+      "width": 1200,
+      "height": 920
+    },
+    {
+      "id": "photo-2026-05-20-13-18-44",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-13-18-44.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-13-18-44.webp",
+      "width": 590,
+      "height": 1280
+    },
+    {
+      "id": "photo-2026-05-20-13-20-47",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-20-13-20-47.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-20-13-20-47.webp",
+      "width": 736,
+      "height": 1600
+    },
+    {
+      "id": "photo-2026-05-29-04-27-30",
+      "type": "clinic",
+      "source": "PHOTO-2026-05-29-04-27-30.jpg",
+      "path": "/images/invita/clinic/photo-2026-05-29-04-27-30.webp",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "id": "photo-2026-06-01-16-40-59",
+      "type": "clinic",
+      "source": "PHOTO-2026-06-01-16-40-59.jpg",
+      "path": "/images/invita/clinic/photo-2026-06-01-16-40-59.webp",
+      "width": 1080,
+      "height": 1080
+    }
+  ],
+  "featured": [
+    {
+      "role": "hero",
+      "path": "/images/invita/hero.webp",
+      "source": "AJM06177-scaled (1).jpg",
+      "width": 1920,
+      "height": 1536
+    },
+    {
+      "role": "productStillLife",
+      "path": "/images/invita/product-still-life.webp",
+      "source": "PHOTO-2026-04-24-02-32-00.jpg",
+      "width": 1024,
+      "height": 1024
+    },
+    {
+      "role": "wellnessLounge",
+      "path": "/images/invita/wellness-lounge.webp",
+      "source": "image.png",
+      "width": 1400,
+      "height": 933
+    }
+  ],
+  "brand": {
+    "source": "/Users/ahmedalnuaimi/Downloads/invita dump/Invita IV",
+    "colors": [
+      {
+        "hex": "#0F2341",
+        "path": "/images/invita/brand/colors/#0F2341.png"
+      },
+      {
+        "hex": "#A0B1DD",
+        "path": "/images/invita/brand/colors/#A0B1DD.png"
+      },
+      {
+        "hex": "#D9B344",
+        "path": "/images/invita/brand/colors/#D9B344.png"
+      },
+      {
+        "hex": "#F0EDE4",
+        "path": "/images/invita/brand/colors/#F0EDE4.png"
+      }
+    ],
+    "logos": [
+      {
+        "id": "logo-icon-navy-png",
+        "path": "/images/invita/brand/logo-icon-navy.png",
+        "source": "Logotype/PNG/Prancheta 1.png",
+        "role": "icon-navy"
+      },
+      {
+        "id": "logo-icon-gold-png",
+        "path": "/images/invita/brand/logo-icon-gold.png",
+        "source": "Logotype/PNG/Prancheta 9.png",
+        "role": "icon-gold"
+      },
+      {
+        "id": "logo-wordmark-navy-png",
+        "path": "/images/invita/brand/logo-wordmark-navy.png",
+        "source": "Logotype/PNG/Prancheta 14.png",
+        "role": "wordmark-navy"
+      },
+      {
+        "id": "logo-wordmark-ivory-png",
+        "path": "/images/invita/brand/logo-wordmark-ivory.png",
+        "source": "Logotype/PNG/Prancheta 11.png",
+        "role": "wordmark-ivory"
+      },
+      {
+        "id": "logo-wordmark-gold-png",
+        "path": "/images/invita/brand/logo-wordmark-gold.png",
+        "source": "Logotype/PNG/Prancheta 12.png",
+        "role": "wordmark-gold"
+      },
+      {
+        "id": "logo-wordmark-periwinkle-png",
+        "path": "/images/invita/brand/logo-wordmark-periwinkle.png",
+        "source": "Logotype/PNG/Prancheta 13.png",
+        "role": "wordmark-periwinkle"
+      },
+      {
+        "id": "logo-stack-dark-png",
+        "path": "/images/invita/brand/logo-stack-dark.png",
+        "source": "Logotype/PNG/Prancheta 9.png",
+        "role": "stack-dark"
+      },
+      {
+        "id": "logo-stack-navy-png",
+        "path": "/images/invita/brand/logo-stack-navy.png",
+        "source": "Logotype/PNG/Prancheta 15.png",
+        "role": "stack-navy"
+      },
+      {
+        "id": "logo-stack-ivory-png",
+        "path": "/images/invita/brand/logo-stack-ivory.png",
+        "source": "Logotype/PNG/Prancheta 17.png",
+        "role": "stack-ivory"
+      },
+      {
+        "id": "brand-capsules-png",
+        "path": "/images/invita/brand/brand-capsules.png",
+        "source": "Aplications/Prancheta 21_1.png",
+        "role": "brand-capsules"
+      }
+    ]
+  },
+  "resources": [
+    {
+      "id": "invita-safety-101-pdf",
+      "path": "/resources/invita-safety-101.pdf",
+      "sizeMb": 0.9,
+      "source": "invita 101 safety.pdf"
+    },
+    {
+      "id": "invita-catalogue-pdf",
+      "path": "/resources/invita-catalogue.pdf",
+      "sizeMb": 24.1,
+      "source": "catalouge invita .pdf"
+    },
+    {
+      "id": "invita-iv-brochure-pdf",
+      "path": "/resources/invita-iv-brochure.pdf",
+      "sizeMb": 6.9,
+      "source": "iv brochure 2.pdf"
+    },
+    {
+      "id": "invita-normal-saline-pdf",
+      "path": "/resources/invita-normal-saline.pdf",
+      "sizeMb": 0.3,
+      "source": "INVITA IV DRIPS – 500ml Normal Saline v2.pdf"
+    },
+    {
+      "id": "iso-13485-pdf",
+      "path": "/resources/iso-13485.pdf",
+      "sizeMb": 0.8,
+      "source": "Invita IV/regulatory iso/KAPSAM-SAGLIK-ISO-13485-.pdf"
+    },
+    {
+      "id": "iso-14001-pdf",
+      "path": "/resources/iso-14001.pdf",
+      "sizeMb": 0.7,
+      "source": "Invita IV/regulatory iso/Kapsam-Saglik-ISO-14001.pdf"
+    }
+  ],
+  "reels": [
+    {
+      "id": "reel-01",
+      "path": "/media/reels/reel-01.mp4",
+      "source": "AQMpXqXVbFi7bEDGUrpKYfxTUYsc_wzn7w8dV_KpJ9VDt18ahug0ElVb8brx4MD.mp4",
+      "sizeMb": 1.1
+    },
+    {
+      "id": "reel-02",
+      "path": "/media/reels/reel-02.mp4",
+      "source": "AQNbE7gfGaD_6Q0Mv0Z_hxk8MLgnuBvzD55lrrzauEOrtGIQP3Usbypt4viHKISWrdwJBN.mp4",
+      "sizeMb": 2.3
+    },
+    {
+      "id": "reel-03",
+      "path": "/media/reels/reel-03.mp4",
+      "source": "AQP81b4gmt9SwhC1oMysGalwoQadkEVqjghhpSmvq4uvrzKW0kr43ev1lrOxJ69aX4fce76R1b.mp4",
+      "sizeMb": 3.5
+    },
+    {
+      "id": "reel-04",
+      "path": "/media/reels/reel-04.mp4",
+      "source": "AQNPlIc8mINu5iOhJn1uWMIwgid1kPHtrBkbheyNrwIvFEHuFIt47NCfjq_d9KI.mp4",
+      "sizeMb": 4.0
+    },
+    {
+      "id": "reel-05",
+      "path": "/media/reels/reel-05.mp4",
+      "source": "AQPg2jbm6_bam_fHYG7VOmPpfw7K5bkQQMzwxboC_K5cTskRE5ewL7l2Fd9PxoL.mp4",
+      "sizeMb": 4.7
+    },
+    {
+      "id": "reel-06",
+      "path": "/media/reels/reel-06.mp4",
+      "source": "AQP5BePDzOXGVVikmBreIKgzYgOUTfkuO3Kka_JwftuqOCS_hlKrxEsUIU80njGzxJ0.mp4",
+      "sizeMb": 6.2
+    }
+  ]
+}
