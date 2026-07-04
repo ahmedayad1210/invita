@@ -72,7 +72,7 @@ export default function RegisterPage() {
     <>
       <AuthForm
         title="Create your account"
-        subtitle="Join Invita and begin your ritual."
+        subtitle="Join Invita and start your wellness journey."
         footer={
           <>
             Already have an account?{" "}
@@ -90,8 +90,9 @@ export default function RegisterPage() {
           style={{ display: "flex", flexDirection: "column", gap: "1.125rem" }}
         >
           <div>
-            <label className="label-sevres">Full Name *</label>
+            <label className="label-sevres" htmlFor="register-name">Full Name *</label>
             <input
+              id="register-name"
               className="input-sevres"
               type="text"
               placeholder="Your full name"
@@ -103,8 +104,9 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="label-sevres">Email Address *</label>
+            <label className="label-sevres" htmlFor="register-email">Email Address *</label>
             <input
+              id="register-email"
               className="input-sevres"
               type="email"
               placeholder="your@email.com"
@@ -116,11 +118,12 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="label-sevres">Phone (optional)</label>
+            <label className="label-sevres" htmlFor="register-phone">Phone (optional)</label>
             <input
+              id="register-phone"
               className="input-sevres"
               type="tel"
-              placeholder="+91 98200 00000"
+              placeholder="+964 770 000 0000"
               value={form.phone}
               onChange={update("phone")}
               autoComplete="tel"
@@ -128,8 +131,9 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="label-sevres">Password *</label>
+            <label className="label-sevres" htmlFor="register-password">Password *</label>
             <input
+              id="register-password"
               className="input-sevres"
               type="password"
               placeholder="Min. 6 characters"
@@ -141,8 +145,9 @@ export default function RegisterPage() {
           </div>
 
           <div>
-            <label className="label-sevres">Confirm Password *</label>
+            <label className="label-sevres" htmlFor="register-confirm">Confirm Password *</label>
             <input
+              id="register-confirm"
               className="input-sevres"
               type="password"
               placeholder="Repeat your password"
@@ -190,11 +195,11 @@ export default function RegisterPage() {
             }}
           >
             By creating an account you agree to our{" "}
-            <Link href="#" style={{ color: "#C4956A" }}>
+            <Link href="/terms" style={{ color: "#C4956A" }}>
               Terms of Service
             </Link>{" "}
             and{" "}
-            <Link href="#" style={{ color: "#C4956A" }}>
+            <Link href="/privacy" style={{ color: "#C4956A" }}>
               Privacy Policy
             </Link>
             .

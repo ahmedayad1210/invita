@@ -1,11 +1,11 @@
 # Invita — Ultra-Luxury IV Drips + DNA Lab
 
-Standalone Next.js site for **Invita**, separate from Sahar Healthcare.
+Standalone Next.js site for **Invita**, separate from [Sahar Healthcare](https://github.com/ahmedayad1210/sahar-healthcare).
 
 ## Stack
 
 - Next.js 16 · React 19 · TypeScript · Tailwind CSS 4
-- Supabase (auth, bookings, DNA orders)
+- Supabase (auth, bookings, DNA orders, leads)
 - Bilingual EN/AR via `LocaleContext`
 
 ## Setup
@@ -16,12 +16,28 @@ npm install
 npm run dev
 ```
 
+### Media assets (required before deploy)
+
+Brand photography and fonts are not committed. On a machine with the Invita asset dump:
+
+```bash
+# Default: ~/Downloads/invita dump — or set INVITA_DUMP
+npm run ingest:dump
+npm run scrape:instagram   # optional
+npm run process:celebrities  # optional, when photos are approved
+```
+
+See `docs/invita-design-language.md` for how assets are framed (`MediaFrame` / `MediaImage`).
+
 ### Supabase
 
 1. Create a **dedicated** Supabase project for Invita (not Sahar).
-2. Run `supabase/schema.sql` in the SQL editor.
-3. Run `supabase/invita-extensions.sql` for DNA orders.
-4. Add keys to `.env.local`.
+2. Run migrations in order:
+   - `supabase/schema.sql`
+   - `supabase/invita-extensions.sql`
+   - `supabase/leads.sql`
+   - `supabase/certifications.sql`
+3. Add keys to `.env.local` (see `.env.local.example`).
 
 ## Routes
 
@@ -35,10 +51,12 @@ npm run dev
 | `/account` | Appointments + DNA results |
 | `/admin` | Staff dashboard |
 
+## Deploy (Netlify)
+
+Production deploy uses Netlify + `@netlify/plugin-nextjs`. See **`docs/DEPLOY-NETLIFY.md`** and **`docs/LAUNCH.md`** for the full checklist.
+
+Canonical production URL: set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_APP_URL` to your live domain (e.g. `https://invitadrips.com`).
+
 ## Template credit
 
-Booking UX forked from [Sèvres](https://github.com/AftabAhmed-max/sevres) (MIT-style open source portfolio template), fully rebranded for Invita.
-
-## Deploy
-
-Deploy to Vercel with domain `invitadrips.com`. Set all env vars from `.env.local.example`.
+Booking UX forked from [Sèvres](https://github.com/AftabAhmed-max/sevres), fully rebranded for Invita.

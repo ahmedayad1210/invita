@@ -136,7 +136,7 @@
 }
 
 .pillar-card-accent {
-  background: #1a1a1a;
+  background: #2C1810;
   color: #f0ede4;
 }
 
@@ -333,7 +333,7 @@
   font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 300;
-  color: #1a1a1a;
+  color: #2C1810;
   letter-spacing: 0.08em;
   text-decoration: none;
   flex-shrink: 0;
@@ -386,7 +386,7 @@
 
 .lead-capture {
   padding: 4rem 1.5rem;
-  background: #1a1a1a;
+  background: #2C1810;
   color: #f0ede4;
 }
 
@@ -524,7 +524,7 @@
   font-family: var(--font-serif);
   font-size: 1.25rem;
   cursor: pointer;
-  color: #1a1a1a;
+  color: #2C1810;
 }
 
 .faq-answer {

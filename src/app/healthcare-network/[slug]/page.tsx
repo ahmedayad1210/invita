@@ -110,7 +110,6 @@ export default async function ClinicProfilePage({ params }: Props) {
                 </div>
               ))}
             </div>
-            <p className="clinic-placeholder-note">Placeholder images — replace with clinic photography.</p>
           </section>
 
           {/* Doctors */}
@@ -127,7 +126,7 @@ export default async function ClinicProfilePage({ params }: Props) {
               </ul>
             ) : (
               <p className="text-muted">
-                Doctor profiles available on request — placeholder for future updates.
+                Doctor profiles available on request.
               </p>
             )}
           </section>
@@ -191,7 +190,7 @@ export default async function ClinicProfilePage({ params }: Props) {
                 </li>
               )}
               {!clinic.website && !clinic.instagram && !clinic.facebook && (
-                <li className="text-muted">Contact details — placeholder for future updates.</li>
+                <li className="text-muted">Contact the clinic directly for details.</li>
               )}
             </ul>
           </section>

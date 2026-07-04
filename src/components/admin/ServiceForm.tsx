@@ -91,7 +91,7 @@ export default function ServiceForm({
           <input
             className={`input-sevres ${errors.name ? "input-error" : ""}`}
             type="text"
-            placeholder="e.g. Balayage & Highlights"
+            placeholder="e.g. VIP Signature IV Protocol"
             value={form.name}
             onChange={update("name")}
             required
@@ -137,7 +137,7 @@ export default function ServiceForm({
             {errors.duration && <p className="error-text">{errors.duration}</p>}
           </div>
           <div>
-            <label className="label-sevres">Price (₹) *</label>
+            <label className="label-sevres">Price (IQD) *</label>
             <input
               className={`input-sevres ${errors.price ? "input-error" : ""}`}
               type="number"

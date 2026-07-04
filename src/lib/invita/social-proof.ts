@@ -1,36 +1,37 @@
+/** Protocol outcome themes — factual benefits, not fabricated testimonials. */
 export const PATIENT_STORIES = [
   {
     id: "energy",
     themeEn: "Energy & clarity",
     themeAr: "الطاقة والوضوح",
     quoteEn:
-      "After years of fatigue, one IV session gave me clarity I hadn't felt in months. The medical team made every step feel safe and professional.",
+      "Medically supervised IV protocols designed to support focus, hydration, and sustained energy.",
     quoteAr:
-      "بعد سنوات من الإرهاق، جلسة واحدة منحتني وضوحاً لم أشعر به منذ أشهر. الفريق الطبي جعل كل خطوة آمنة ومهنية.",
-    contextEn: "Executive wellness client · Baghdad",
-    contextAr: "عميل عافية تنفيذية · بغداد",
+      "بروتوكولات وريدية بإشراف طبي لدعم التركيز والترطيب والطاقة المستدامة.",
+    contextEn: "Executive wellness · NAD+ & hydration protocols",
+    contextAr: "عافية تنفيذية · بروتوكولات NAD+ والترطيب",
   },
   {
     id: "recovery",
     themeEn: "Athletic recovery",
     themeAr: "التعافي الرياضي",
     quoteEn:
-      "As a competitive athlete, recovery is everything. Invita's protocols are the first in Iraq that match what I've used abroad.",
+      "Recovery-focused formulations with amino acids and electrolytes for post-training replenishment.",
     quoteAr:
-      "كرياضي تنافسي، التعافي هو كل شيء. بروتوكولات إنفيتا هي الأولى في العراق التي تضاهي ما استخدمته خارج البلاد.",
-    contextEn: "Performance & recovery protocol",
-    contextAr: "بروتوكول الأداء والتعافي",
+      "تركيبات مخصصة للتعافي مع الأحماض الأمينية والإلكتروليتات لإعادة التغذية بعد التمرين.",
+    contextEn: "Performance protocol · amino & electrolyte support",
+    contextAr: "بروتوكول الأداء · دعم الأحماض الأمينية والإلكتروليتات",
   },
   {
     id: "immunity",
     themeEn: "Immune support",
     themeAr: "دعم المناعة",
     quoteEn:
-      "I travel constantly. Having a medically supervised IV programme in Baghdad has changed how I manage my health.",
+      "Immunity protocols with clinical intake screening before every session.",
     quoteAr:
-      "أسافر باستمرار. وجود برنامج وريدي بإشراف طبي في بغداد غيّر طريقة إدارتي لصحتي.",
-    contextEn: "Immunity protocol · frequent traveller",
-    contextAr: "بروتوكول المناعة · مسافر متكرر",
+      "بروتوكولات المناعة مع فحص سريري قبل كل جلسة.",
+    contextEn: "Immunity protocol · medically supervised",
+    contextAr: "بروتوكول المناعة · بإشراف طبي",
   },
 ] as const;
 
@@ -43,7 +44,6 @@ export const HEALTHCARE_PARTNERS = [
     nameAr: "مركز طبي شريك",
     locationEn: "Baghdad",
     locationAr: "بغداد",
-    /** Replace with real partner name when authorised */
     placeholder: true,
   },
   {

@@ -14,14 +14,14 @@ export default function PatientStoriesSection() {
       <div className="section-inner">
         <ScrollReveal>
           <header className="page-hero page-hero--center">
-            <p className="page-eyebrow">{isAr ? "نتائج حقيقية" : "Patient outcomes"}</p>
+            <p className="page-eyebrow">{isAr ? "فوائد البروتوكول" : "Protocol outcomes"}</p>
             <h2 className="page-title page-title--compact">
-              {isAr ? "قصص التحول" : "Transformation stories"}
+              {isAr ? "ما تدعمه بروتوكولاتنا" : "What our protocols support"}
             </h2>
             <p className="page-lead page-lead--narrow">
               {isAr
-                ? "طاقة. تعافٍ. وضوح. — من عملاء اختاروا العناية الطبية الوريدية."
-                : "Energy. Recovery. Clarity. — from clients who chose medically supervised IV therapy."}
+                ? "طاقة. تعافٍ. وضوح. — بإشراف طبي في كل جلسة."
+                : "Energy. Recovery. Clarity. — medically supervised at every session."}
             </p>
           </header>
         </ScrollReveal>
@@ -33,7 +33,7 @@ export default function PatientStoriesSection() {
                   {isAr ? story.themeAr : story.themeEn}
                 </p>
                 <p className="patient-story-quote">
-                  &ldquo;{isAr ? story.quoteAr : story.quoteEn}&rdquo;
+                  {isAr ? story.quoteAr : story.quoteEn}
                 </p>
                 <footer className="patient-story-context">
                   {isAr ? story.contextAr : story.contextEn}

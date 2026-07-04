@@ -51,7 +51,7 @@ export default function LoginPage() {
     <>
       <AuthForm
         title="Welcome back"
-        subtitle="Sign in to manage your bookings and rituals."
+        subtitle="Sign in to manage your appointments and IV protocols."
         footer={
           <>
             Don&apos;t have an account?{" "}
@@ -69,8 +69,9 @@ export default function LoginPage() {
           style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
         >
           <div>
-            <label className="label-sevres">Email Address</label>
+            <label className="label-sevres" htmlFor="login-email">Email Address</label>
             <input
+              id="login-email"
               className="input-sevres"
               type="email"
               placeholder="your@email.com"
@@ -90,7 +91,7 @@ export default function LoginPage() {
                 marginBottom:   "0.5rem",
               }}
             >
-              <label className="label-sevres" style={{ marginBottom: 0 }}>
+              <label className="label-sevres" style={{ marginBottom: 0 }} htmlFor="login-password">
                 Password
               </label>
               <Link
@@ -105,6 +106,7 @@ export default function LoginPage() {
               </Link>
             </div>
             <input
+              id="login-password"
               className="input-sevres"
               type="password"
               placeholder="••••••••"

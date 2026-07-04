@@ -44,7 +44,7 @@ export function formatTimeLabel(time: string): string {
 // e.g. "Saturday, 14 June 2025"
 export function formatDateLabel(dateStr: string): string {
   const date = new Date(dateStr + "T00:00:00");
-  return date.toLocaleDateString("en-IN", {
+  return date.toLocaleDateString("en-IQ", {
     weekday: "long",
     day: "numeric",
     month: "long",
@@ -56,7 +56,7 @@ export function formatDateLabel(dateStr: string): string {
 // e.g. "Sat, 14 Jun"
 export function formatDateShort(dateStr: string): string {
   const date = new Date(dateStr + "T00:00:00");
-  return date.toLocaleDateString("en-IN", {
+  return date.toLocaleDateString("en-IQ", {
     weekday: "short",
     day: "numeric",
     month: "short",
@@ -257,16 +257,16 @@ export const DAY_LABELS_FULL = [
 
 // ─────────────────────────────────────────────
 // PRICE FORMATTER
-// Formats a number as Indian Rupees
-// e.g. 3500 → "₹3,500"
+// Formats a number as Iraqi Dinar (IQD)
+// e.g. 350000 → "350,000 IQD"
 // ─────────────────────────────────────────────
 
 export function formatPrice(amount: number): string {
-  return new Intl.NumberFormat("en-IN", {
-    style:    "currency",
-    currency: "INR",
+  const formatted = new Intl.NumberFormat("en-IQ", {
     maximumFractionDigits: 0,
   }).format(amount);
+
+  return `${formatted} IQD`;
 }
 
 // ─────────────────────────────────────────────

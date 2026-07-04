@@ -116,8 +116,9 @@ export default function ForgotPasswordPage() {
         style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
       >
         <div>
-          <label className="label-sevres">Email Address</label>
+          <label className="label-sevres" htmlFor="forgot-email">Email Address</label>
           <input
+            id="forgot-email"
             className="input-sevres"
             type="email"
             placeholder="your@email.com"

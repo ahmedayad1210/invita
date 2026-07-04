@@ -2,24 +2,6 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
-const ARTICLES = [
-  {
-    slug: "nad-longevity",
-    title: "Why NAD+ matters for cellular energy",
-    excerpt: "A clinician's guide to what NAD+ does — and who benefits most.",
-  },
-  {
-    slug: "dna-nutrition",
-    title: "Nutrigenomics: beyond generic diet advice",
-    excerpt: "How genetic markers shape supplementation and meal planning.",
-  },
-  {
-    slug: "iv-safety",
-    title: "IV therapy safety — what we screen for",
-    excerpt: "Contraindications, clinical oversight, and why intake matters.",
-  },
-];
-
 export const metadata = {
   title: "Journal",
   robots: { index: false, follow: false },
@@ -39,12 +21,15 @@ export default function JournalPage() {
         </header>
 
         <div className="section-inner journal-list">
-          {ARTICLES.map((article) => (
-            <article key={article.slug} className="journal-card">
-              <h2>{article.title}</h2>
-              <p>{article.excerpt}</p>
-            </article>
-          ))}
+          <article className="journal-card">
+            <h2>Articles coming soon</h2>
+            <p>
+              We are preparing editorial content on NAD+, nutrigenomics, and IV
+              safety. In the meantime, explore our{" "}
+              <Link href="/science">science hub</Link> or{" "}
+              <Link href="/faq">FAQ</Link>.
+            </p>
+          </article>
         </div>
       </main>
       <Footer />

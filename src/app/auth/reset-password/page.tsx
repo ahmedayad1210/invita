@@ -205,8 +205,9 @@ function ResetPasswordContent() {
         }}
       >
         <div>
-          <label className="label-sevres">New Password</label>
+          <label className="label-sevres" htmlFor="reset-password">New Password</label>
           <input
+            id="reset-password"
             className="input-sevres"
             type="password"
             placeholder="••••••••"
@@ -221,8 +222,9 @@ function ResetPasswordContent() {
         </div>
 
         <div>
-          <label className="label-sevres">Confirm Password</label>
+          <label className="label-sevres" htmlFor="reset-confirm">Confirm Password</label>
           <input
+            id="reset-confirm"
             className="input-sevres"
             type="password"
             placeholder="••••••••"

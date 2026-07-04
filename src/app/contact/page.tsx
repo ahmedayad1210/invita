@@ -111,7 +111,7 @@ export default function ContactPage() {
                     marginBottom: "2rem",
                   }}
                 >
-                  Studio information
+                  Clinic information
                 </h2>
 
                 <div
@@ -258,8 +258,9 @@ export default function ContactPage() {
                   style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}
                 >
                   <div>
-                    <label className="label-sevres">Full Name *</label>
+                    <label className="label-sevres" htmlFor="contact-name">Full Name *</label>
                     <input
+                      id="contact-name"
                       className="input-sevres"
                       type="text"
                       placeholder="Your name"
@@ -269,8 +270,9 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="label-sevres">Email Address *</label>
+                    <label className="label-sevres" htmlFor="contact-email">Email Address *</label>
                     <input
+                      id="contact-email"
                       className="input-sevres"
                       type="email"
                       placeholder="your@email.com"
@@ -280,18 +282,20 @@ export default function ContactPage() {
                     />
                   </div>
                   <div>
-                    <label className="label-sevres">Phone (optional)</label>
+                    <label className="label-sevres" htmlFor="contact-phone">Phone (optional)</label>
                     <input
+                      id="contact-phone"
                       className="input-sevres"
                       type="tel"
-                      placeholder="+91 98200 00000"
+                      placeholder="+964 770 000 0000"
                       value={form.phone}
                       onChange={(e) => setForm((p) => ({ ...p, phone: e.target.value }))}
                     />
                   </div>
                   <div>
-                    <label className="label-sevres">Message *</label>
+                    <label className="label-sevres" htmlFor="contact-message">Message *</label>
                     <textarea
+                      id="contact-message"
                       className="input-sevres"
                       rows={5}
                       placeholder="How can we help you?"
