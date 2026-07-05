@@ -229,9 +229,11 @@ def ingest_brand(catalog: dict) -> None:
         colors_dir = base / "Colors"
         if colors_dir.exists():
             for swatch in sorted(colors_dir.glob("#*.png")):
-                dest = brand_out / "colors" / swatch.name
+                hex_name = swatch.stem.lstrip("#")
+                dest_name = f"{hex_name}.png"
+                dest = brand_out / "colors" / dest_name
                 save_png_copy(swatch, dest)
-                colors.append({"hex": swatch.stem, "path": f"/images/invita/brand/colors/{swatch.name}"})
+                colors.append({"hex": swatch.stem, "path": f"/images/invita/brand/colors/{dest_name}"})
             break
 
     catalog["brand"] = {
