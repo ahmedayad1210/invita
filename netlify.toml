@@ -5,7 +5,7 @@
 [build.environment]
   NODE_VERSION = "22"
   NEXT_TELEMETRY_DISABLED = "1"
-  NEXT_PUBLIC_SITE_URL = "https://invita.netlify.app"
+  NEXT_PUBLIC_SITE_URL = "https://jovial-pothos-93cec9.netlify.app"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
