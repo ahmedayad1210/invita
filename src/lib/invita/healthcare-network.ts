@@ -3,6 +3,10 @@
  * Reference data only; not exclusive partnerships or sponsorships.
  */
 
+import { getClinicPhotoPaths } from "./local-media";
+
+const CLINIC_PHOTO_PATHS = getClinicPhotoPaths();
+
 export const CLINIC_SPECIALTIES = [
   "medical-center",
   "dermatology",
@@ -42,6 +46,8 @@ export type HealthcareClinic = {
   facebook?: string;
   notesEn?: string;
   notesAr?: string;
+  /** Show on homepage preview when true (auto-set when uploaded cover exists). */
+  featured?: boolean;
   logo: string;
   cover: string;
   gallery: string[];
@@ -116,23 +122,33 @@ const DEFAULT_PRODUCTS = [
   "Medical representative support",
 ];
 
+let _clinicPhotoIndex = 0;
+
 function clinic(
   input: Omit<
     HealthcareClinic,
-    "logo" | "cover" | "gallery" | "productsUsed" | "doctors"
+    "logo" | "cover" | "gallery" | "productsUsed" | "doctors" | "featured"
   > & {
     logo?: string;
     cover?: string;
     gallery?: string[];
     productsUsed?: string[];
     doctors?: HealthcareClinic["doctors"];
+    featured?: boolean;
   }
 ): HealthcareClinic {
+  const index = _clinicPhotoIndex++;
+  const uploadedCover = CLINIC_PHOTO_PATHS[index];
+  const hasUpload = Boolean(uploadedCover);
+
   return {
     ...input,
+    featured: input.featured ?? hasUpload,
     logo: input.logo ?? PLACEHOLDER_LOGO,
-    cover: input.cover ?? PLACEHOLDER_COVER,
-    gallery: input.gallery ?? PLACEHOLDER_GALLERY,
+    cover: input.cover ?? uploadedCover ?? PLACEHOLDER_COVER,
+    gallery: input.gallery ?? (hasUpload
+      ? [uploadedCover, ...PLACEHOLDER_GALLERY.slice(0, 2)]
+      : PLACEHOLDER_GALLERY),
     productsUsed: input.productsUsed ?? DEFAULT_PRODUCTS,
     doctors: input.doctors ?? [],
   };
@@ -881,10 +897,15 @@ export function getRelatedClinics(
 export function filterClinics(options: {
   query?: string;
   specialty?: ClinicSpecialty | "all";
-  sort?: "alpha" | "newest";
+  sort?: "alpha" | "newest" | "featured";
+  featuredOnly?: boolean;
 }): HealthcareClinic[] {
   let results = [...HEALTHCARE_CLINICS];
   const q = options.query?.trim().toLowerCase();
+
+  if (options.featuredOnly) {
+    results = results.filter((c) => c.featured);
+  }
 
   if (q) {
     results = results.filter(
@@ -903,6 +924,12 @@ export function filterClinics(options: {
 
   if (options.sort === "newest") {
     results.sort((a, b) => b.cooperationSince - a.cooperationSince);
+  } else if (options.sort === "featured") {
+    results.sort((a, b) => {
+      const featuredDiff = Number(b.featured) - Number(a.featured);
+      if (featuredDiff !== 0) return featuredDiff;
+      return b.cooperationSince - a.cooperationSince;
+    });
   } else {
     results.sort((a, b) => a.name.localeCompare(b.name));
   }

@@ -20,11 +20,37 @@ export async function GET() {
       );
     }
 
-    const { data, error } = await supabase
+    let { data, error } = await supabase
       .from("profiles")
       .select("*")
       .eq("id", user.id)
       .single();
+
+    // Profile missing (trigger lag or legacy account) — create from auth metadata.
+    if (error?.code === "PGRST116") {
+      const insertPayload = {
+        id:        user.id,
+        full_name: (user.user_metadata?.full_name as string | undefined)?.trim() || "",
+        email:     user.email ?? "",
+        phone:     (user.user_metadata?.phone as string | undefined)?.trim() || null,
+      };
+
+      const { data: created, error: insertError } = await supabase
+        .from("profiles")
+        .upsert(insertPayload as never)
+        .select("*")
+        .single();
+
+      if (insertError) {
+        return NextResponse.json(
+          { success: false, error: insertError.message },
+          { status: 500 }
+        );
+      }
+
+      data = created;
+      error = null;
+    }
 
     if (error) {
       return NextResponse.json(

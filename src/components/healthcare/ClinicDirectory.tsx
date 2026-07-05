@@ -16,6 +16,7 @@ import {
 import { useLocale } from "@/contexts/LocaleContext";
 
 const PER_PAGE = 12;
+const PREVIEW_COUNT = 12;
 
 type Props = {
   showStats?: boolean;
@@ -39,11 +40,17 @@ export default function ClinicDirectory({
   const [selectedSlug, setSelectedSlug] = useState<string | null>(null);
 
   const filtered = useMemo(
-    () => filterClinics({ query, specialty, sort }),
-    [query, specialty, sort]
+    () =>
+      filterClinics({
+        query,
+        specialty,
+        sort: preview ? "featured" : sort,
+        featuredOnly: preview,
+      }),
+    [query, specialty, sort, preview]
   );
 
-  const perPage = preview ? 8 : initialPerPage;
+  const perPage = preview ? PREVIEW_COUNT : initialPerPage;
   const paginated = useMemo(
     () => paginateClinics(filtered, page, perPage),
     [filtered, page, perPage]
@@ -67,6 +74,7 @@ export default function ClinicDirectory({
     <div className="clinic-directory">
       {showStats && <NetworkStatsBar />}
 
+      {!preview && (
       <div className="clinic-directory-toolbar">
         <label className="clinic-search">
           <Search size={18} aria-hidden="true" />
@@ -94,35 +102,42 @@ export default function ClinicDirectory({
           </select>
         </div>
       </div>
+      )}
 
-      <div className="clinic-filters" role="tablist" aria-label={isAr ? "تصفية التخصص" : "Filter by specialty"}>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={specialty === "all"}
-          className={`clinic-filter-btn${specialty === "all" ? " is-active" : ""}`}
-          onClick={() => handleFilterChange("all")}
-        >
-          {isAr ? "الكل" : "All"}
-        </button>
-        {CLINIC_SPECIALTIES.map((key) => (
+      {!preview && (
+        <div className="clinic-filters" role="tablist" aria-label={isAr ? "تصفية التخصص" : "Filter by specialty"}>
           <button
-            key={key}
             type="button"
             role="tab"
-            aria-selected={specialty === key}
-            className={`clinic-filter-btn${specialty === key ? " is-active" : ""}`}
-            onClick={() => handleFilterChange(key)}
+            aria-selected={specialty === "all"}
+            className={`clinic-filter-btn${specialty === "all" ? " is-active" : ""}`}
+            onClick={() => handleFilterChange("all")}
           >
-            {isAr ? SPECIALTY_LABELS[key].ar : SPECIALTY_LABELS[key].en}
+            {isAr ? "الكل" : "All"}
           </button>
-        ))}
-      </div>
+          {CLINIC_SPECIALTIES.map((key) => (
+            <button
+              key={key}
+              type="button"
+              role="tab"
+              aria-selected={specialty === key}
+              className={`clinic-filter-btn${specialty === key ? " is-active" : ""}`}
+              onClick={() => handleFilterChange(key)}
+            >
+              {isAr ? SPECIALTY_LABELS[key].ar : SPECIALTY_LABELS[key].en}
+            </button>
+          ))}
+        </div>
+      )}
 
       <p className="clinic-directory-count">
-        {isAr
-          ? `${paginated.total} مقدّم رعاية صحية`
-          : `${paginated.total} healthcare providers`}
+        {preview
+          ? isAr
+            ? `${paginated.total} عيادة مميزة`
+            : `${paginated.total} featured clinics`
+          : isAr
+            ? `${paginated.total} مقدّم رعاية صحية`
+            : `${paginated.total} healthcare providers`}
       </p>
 
       <div className={`clinic-directory-layout${showMap && !preview ? " clinic-directory-layout--with-map" : ""}`}>

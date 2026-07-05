@@ -205,10 +205,10 @@ export const ADMIN = {
 } as const;
 
 export const FEATURED_SERVICE_NAMES = [
-  "VIP Signature Drip",
-  "Radiance",
-  "Immunity",
-  "Life Drip",
+  "Energy Boost",
+  "Immune Boost",
+  "Skin Radiance",
+  "NAD+",
 ] as const;
 
 export const GALLERY_IMAGES = [

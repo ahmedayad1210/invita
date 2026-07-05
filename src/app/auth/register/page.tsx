@@ -18,6 +18,7 @@ export default function RegisterPage() {
   });
   const [error, setError] = useState<string | null>(null);
   const [toast, setToast] = useState<string | null>(null);
+  const [pendingVerification, setPendingVerification] = useState(false);
 
   const { signUp, loading, user, initialized } = useAuth();
   const router = useRouter();
@@ -56,6 +57,12 @@ export default function RegisterPage() {
 
     if (!result.success) {
       setError(result.error ?? "Registration failed.");
+      return;
+    }
+
+    if (result.needsEmailConfirmation) {
+      setPendingVerification(true);
+      setToast("Account created. Check your email to verify before signing in.");
       return;
     }
 
@@ -157,6 +164,34 @@ export default function RegisterPage() {
               required
             />
           </div>
+
+          {pendingVerification && (
+            <div
+              style={{
+                padding:         "0.875rem 1rem",
+                backgroundColor: "rgba(15,35,65,0.06)",
+                border:          "1px solid rgba(15,35,65,0.12)",
+                borderRadius:    "0.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "'DM Sans', sans-serif",
+                  fontSize:   "0.875rem",
+                  color:      "#2C1810",
+                  lineHeight: 1.65,
+                  margin:     0,
+                }}
+              >
+                We sent a verification link to <strong>{form.email}</strong>.
+                Please confirm your email, then{" "}
+                <Link href="/auth/login" style={{ color: "#C4956A", fontWeight: 500 }}>
+                  sign in
+                </Link>
+                .
+              </p>
+            </div>
+          )}
 
           {error && (
             <div

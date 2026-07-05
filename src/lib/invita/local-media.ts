@@ -41,6 +41,11 @@ export function getGalleryPhotos(limit = 12): MediaItem[] {
   return (INVITA_MEDIA.clinicPhotos ?? []).slice(0, limit);
 }
 
+/** Uploaded clinic photography from the Invita dump — used for covers & featured cards. */
+export function getClinicPhotoPaths(): string[] {
+  return (INVITA_MEDIA.clinicPhotos ?? []).map((item) => item.path);
+}
+
 export function getAllInfographics(): MediaItem[] {
   return INVITA_MEDIA.infographics ?? [];
 }

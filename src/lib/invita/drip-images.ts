@@ -13,6 +13,14 @@ export function getDripImage(slug: string): string | undefined {
   return DRIP_IMAGE_CATALOG.drips[slug]?.local;
 }
 
+/** Resolve icon for a catalogue drip (slug may differ from image catalog key). */
+export function getProtocolDripImage(
+  slug: string,
+  imageSlug?: string
+): string | undefined {
+  return getDripImage(imageSlug ?? slug);
+}
+
 export function getTierImage(tier: string): string | undefined {
   return DRIP_IMAGE_CATALOG.tiers[tier]?.local;
 }

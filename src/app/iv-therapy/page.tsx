@@ -4,13 +4,13 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LiquividaBadge from "@/components/brand/LiquividaBadge";
 import { LIQUIVIDA_DRIPS } from "@/lib/invita/liquivida-drips";
-import { getDripImage, DRIP_IMAGE_FALLBACK } from "@/lib/invita/drip-images";
+import { getProtocolDripImage, DRIP_IMAGE_FALLBACK } from "@/lib/invita/drip-images";
 import { getDripPriceIqd } from "@/lib/invita/pricing";
 import { formatIqd } from "@/lib/format";
 
 export const metadata = {
   title: "IV Drips",
-  description: "18 Liquivida® USA IV drip formulas — official distributor in Baghdad.",
+  description: "11 Invita catalogue IV drip formulas — official Liquivida® USA distributor in Baghdad.",
 };
 
 export default function IvTherapyPage() {
@@ -22,7 +22,7 @@ export default function IvTherapyPage() {
           <LiquividaBadge variant="block" />
           <h1 className="page-title">IV Drip Menu</h1>
           <p className="page-lead page-lead--narrow">
-            Eighteen Liquivida® USA formulas — each begins with a private medical consultation.
+            Eleven Invita catalogue formulas — each begins with a private medical consultation.
           </p>
         </header>
 
@@ -31,7 +31,7 @@ export default function IvTherapyPage() {
             <Link key={drip.slug} href={`/iv-therapy/${drip.slug}`} className="protocol-card">
               <div className="protocol-card-icon">
                 <Image
-                  src={getDripImage(drip.slug) ?? DRIP_IMAGE_FALLBACK}
+                  src={getProtocolDripImage(drip.slug, drip.imageSlug) ?? DRIP_IMAGE_FALLBACK}
                   alt=""
                   width={120}
                   height={120}

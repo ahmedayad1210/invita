@@ -5,7 +5,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import JsonLd from "@/components/seo/JsonLd";
 import { getLiquividaDrip } from "@/lib/invita/liquivida-drips";
-import { getDripImage, DRIP_IMAGE_FALLBACK } from "@/lib/invita/drip-images";
+import { getProtocolDripImage, DRIP_IMAGE_FALLBACK } from "@/lib/invita/drip-images";
 import { getDripPriceIqd } from "@/lib/invita/pricing";
 import { formatIqd, PRICING_DISCLAIMER_EN } from "@/lib/format";
 import { dripProcedureJsonLd } from "@/lib/seo";
@@ -50,7 +50,7 @@ export default async function DripDetailPage({ params }: Props) {
         <div className="section-inner detail-layout detail-layout--drip">
           <div className="drip-detail-visual">
             <Image
-              src={getDripImage(slug) ?? DRIP_IMAGE_FALLBACK}
+              src={getProtocolDripImage(slug, drip.imageSlug) ?? DRIP_IMAGE_FALLBACK}
               alt={drip.name}
               width={280}
               height={280}

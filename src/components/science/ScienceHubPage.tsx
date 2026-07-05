@@ -92,6 +92,16 @@ export default function ScienceHubPage() {
         {tab === "overview" && (
           <div className="science-overview">
             <ScrollReveal>
+              <div className="science-intro-band">
+                <p>
+                  {isAr
+                    ? "محتوى تعليمي سريري من Invita — GMP معتمد، ISO مختبر، بإشراف Liquivida® USA."
+                    : "Clinical education from Invita — GMP-certified, ISO-tested formulations supervised by Liquivida® USA."}
+                </p>
+              </div>
+            </ScrollReveal>
+
+            <ScrollReveal>
               <header className="science-section-head">
                 <Sparkles size={20} aria-hidden="true" />
                 <div>
@@ -184,8 +194,8 @@ export default function ScienceHubPage() {
         )}
 
         {tab === "nad" && (
-          <ScrollReveal>
-            <div className="science-nad">
+          <div className="science-nad">
+            <ScrollReveal>
               <header className="science-nad-header">
                 <FlaskConical size={28} aria-hidden="true" />
                 <div>
@@ -211,7 +221,7 @@ export default function ScienceHubPage() {
               </aside>
 
               <div className="science-nad-cta">
-                <Link href="/iv-therapy/anti-aging" className="btn-secondary">
+                <Link href="/iv-therapy/nad-plus" className="btn-secondary">
                   {isAr ? "بروتوكولات NAD+ في Invita" : "Invita NAD+ protocols"}
                   <ChevronRight size={16} aria-hidden="true" />
                 </Link>
@@ -224,21 +234,19 @@ export default function ScienceHubPage() {
                   {isAr ? "تحميل المراجعة العلمية" : "Download scientific review"}
                 </a>
               </div>
-            </div>
-          </ScrollReveal>
-        )}
+            </ScrollReveal>
 
-        {tab === "nad" && (
-          <ScienceInfographics
-            isAr={isAr}
-            title={{
-              en: "NAD+ visual guides",
-              ar: "أدلة NAD+ التعليمية",
-            }}
-            ids={["iv-07", "iv-08", "iv-09"]}
-            limit={3}
-            featured
-          />
+            <ScienceInfographics
+              isAr={isAr}
+              title={{
+                en: "NAD+ visual guides",
+                ar: "أدلة NAD+ التعليمية",
+              }}
+              ids={["iv-07", "iv-08", "iv-09"]}
+              limit={3}
+              featured
+            />
+          </div>
         )}
 
         {tab === "safety" && (

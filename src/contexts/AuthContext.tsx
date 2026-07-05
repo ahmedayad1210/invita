@@ -40,6 +40,8 @@ export interface AuthActions {
 export interface AuthResult {
   success: boolean;
   error?:  string;
+  /** True when Supabase requires email verification before sign-in. */
+  needsEmailConfirmation?: boolean;
 }
 
 export type UseAuthReturn = AuthState & AuthActions;
@@ -176,18 +178,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         if (signUpError) return { success: false, error: mapAuthError(signUpError.message) };
         if (!data.user)  return { success: false, error: "Registration failed. Please try again." };
 
-        const { error: profileError } = await supabase
-          .from("profiles")
-          .upsert({
-            id:        data.user!.id,
-            full_name: fullName.trim(),
-            email:     email.trim().toLowerCase(),
-            phone:     phone?.trim() ?? null,
-          } as never);
+        // Profile is created by handle_new_user trigger — no client upsert (fails without session).
+        const needsEmailConfirmation = !data.session;
 
-        if (profileError) console.error("Profile insert error:", profileError.message);
-
-        return { success: true };
+        return { success: true, needsEmailConfirmation };
       } catch {
         return { success: false, error: "An unexpected error occurred. Please try again." };
       } finally {
