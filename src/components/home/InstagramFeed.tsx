@@ -62,8 +62,9 @@ export default function InstagramFeed() {
               <Image
                 src={profile.profileImage}
                 alt={profile.displayName}
-                width={88}
-                height={88}
+                width={176}
+                height={176}
+                quality={92}
                 className="instagram-profile-image"
               />
             </div>
@@ -155,8 +156,8 @@ export default function InstagramFeed() {
           </div>
           <p className="instagram-scrape-note">
             {isAr
-              ? `${scrapedCount} من ${profile.postsCount} منشوراً على الملف`
-              : `${scrapedCount} of ${profile.postsCount} posts from profile`}
+              ? `${scrapedCount} من ${profile.postsCount} · WebP${profile.stats?.avgPhotoWidth ? ` · صور ~${profile.stats.avgPhotoWidth}px` : ""}`
+              : `${scrapedCount} of ${profile.postsCount} · HQ WebP${profile.stats?.avgPhotoWidth ? ` · photos ~${profile.stats.avgPhotoWidth}px` : ""}`}
           </p>
         </div>
 
@@ -175,8 +176,10 @@ export default function InstagramFeed() {
                 <Image
                   src={post.image}
                   alt={caption || `@${profile.handle}`}
-                  width={640}
-                  height={640}
+                  width={post.imageWidth ?? 1080}
+                  height={post.imageHeight ?? 1080}
+                  quality={92}
+                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
                   style={{ objectFit: "cover", width: "100%", height: "100%" }}
                 />
                 <TypeBadge type={post.type} isAr={isAr} />

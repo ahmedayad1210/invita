@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "scrape:instagram": "node scripts/scrape-instagram.mjs",
+    "scrape:instagram:hq": "node scripts/scrape-instagram.mjs --hq-only",
     "scrape:elixir-drips": "node scripts/scrape-elixir-drip-images.mjs",
     "process:celebrities": "python3 scripts/process-celebrity-images.py",
     "ingest:dump": "python3 scripts/ingest-invita-dump.py"
@@ -41,6 +42,7 @@
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "dotenv": "^17.4.2",
+    "sharp": "^0.35.3",
     "tailwindcss": "^4.1.4",
     "typescript": "^5"
   },

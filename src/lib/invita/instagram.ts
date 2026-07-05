@@ -13,6 +13,9 @@ export type InstagramPost = {
   type: "photo" | "carousel" | "reel" | "video";
   url: string;
   image: string;
+  imageWidth?: number | null;
+  imageHeight?: number | null;
+  imageBytes?: number | null;
   captionEn: string;
   captionAr: string;
   likes?: number | null;
@@ -59,7 +62,11 @@ export type InstagramProfile = {
     photos: number;
     carousels: number;
     totalOnProfile: number;
+    avgImageWidth?: number;
+    avgPhotoWidth?: number;
   };
+  imageFormat?: string;
+  imageQuality?: number;
 };
 
 export const INSTAGRAM_PROFILE = raw as InstagramProfile;
