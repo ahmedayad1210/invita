@@ -12,7 +12,7 @@ import {
   type InstagramPost,
 } from "@/lib/invita/instagram";
 
-const INITIAL_VISIBLE = 8;
+const INITIAL_VISIBLE = 6;
 
 type Filter = "all" | "reels" | "posts";
 

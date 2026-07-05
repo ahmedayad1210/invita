@@ -5,7 +5,8 @@
 [build.environment]
   NODE_VERSION = "22"
   NEXT_TELEMETRY_DISABLED = "1"
-  NEXT_PUBLIC_SITE_URL = "https://jovial-pothos-93cec9.netlify.app"
+  NEXT_PUBLIC_SITE_URL = "https://invitadrips.com"
+  NEXT_PUBLIC_APP_URL = "https://invitadrips.com"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
@@ -18,7 +19,22 @@
 [[headers]]
   for = "/images/*"
   [headers.values]
+    Cache-Control = "public, max-age=604800, stale-while-revalidate=86400"
+
+[[headers]]
+  for = "/fonts/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/resources/*"
+  [headers.values]
     Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/media/*"
+  [headers.values]
+    Cache-Control = "public, max-age=604800"
 
 [functions]
   node_bundler = "esbuild"

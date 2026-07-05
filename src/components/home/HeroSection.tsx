@@ -19,6 +19,7 @@ export default function HeroSection() {
             alt="Invita — Iraq's leading IV therapy company"
             fill
             priority
+            quality={75}
             sizes="100vw"
             className="asset-frame__image"
             style={{ objectFit: "cover", objectPosition: "center 30%" }}

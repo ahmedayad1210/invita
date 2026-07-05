@@ -1,3 +1,5 @@
+import { Suspense } from "react";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import HeroSection from "@/components/home/HeroSection";
@@ -7,18 +9,39 @@ import ScienceSpotlightSection from "@/components/home/ScienceSpotlightSection";
 import ServicesPreview from "@/components/home/ServicesPreview";
 import AboutLiquividaSection from "@/components/home/AboutLiquividaSection";
 import HowItWorks from "@/components/home/HowItWorks";
-import InvitaGallerySection from "@/components/home/InvitaGallerySection";
 import CertificationsSection from "@/components/home/CertificationsSection";
-import ProfessionalTrainingSection from "@/components/home/ProfessionalTrainingSection";
-import HealthcarePartnersSection from "@/components/home/HealthcarePartnersSection";
-import ClinicSpotlightSection from "@/components/home/ClinicSpotlightSection";
-import PatientStoriesSection from "@/components/home/PatientStoriesSection";
-import InstagramFeed from "@/components/home/InstagramFeed";
 import LeadCaptureBanner from "@/components/home/LeadCaptureBanner";
 import FaqPreview from "@/components/home/FaqPreview";
 import FooterCtaBanner from "@/components/home/FooterCtaBanner";
+import SectionSkeleton from "@/components/patterns/SectionSkeleton";
 import JsonLd from "@/components/seo/JsonLd";
 import { localBusinessJsonLd } from "@/lib/seo";
+
+/** Below-fold sections — code-split so hero + menu preview first */
+const InvitaGallerySection = dynamic(
+  () => import("@/components/home/InvitaGallerySection"),
+  { loading: () => <SectionSkeleton minHeight="20rem" /> }
+);
+const ProfessionalTrainingSection = dynamic(
+  () => import("@/components/home/ProfessionalTrainingSection"),
+  { loading: () => <SectionSkeleton minHeight="14rem" /> }
+);
+const HealthcarePartnersSection = dynamic(
+  () => import("@/components/home/HealthcarePartnersSection"),
+  { loading: () => <SectionSkeleton minHeight="16rem" /> }
+);
+const ClinicSpotlightSection = dynamic(
+  () => import("@/components/home/ClinicSpotlightSection"),
+  { loading: () => <SectionSkeleton minHeight="14rem" /> }
+);
+const PatientStoriesSection = dynamic(
+  () => import("@/components/home/PatientStoriesSection"),
+  { loading: () => <SectionSkeleton minHeight="12rem" /> }
+);
+const InstagramFeed = dynamic(
+  () => import("@/components/home/InstagramFeed"),
+  { loading: () => <SectionSkeleton minHeight="18rem" /> }
+);
 
 export default function HomePage() {
   return (
@@ -34,7 +57,9 @@ export default function HomePage() {
         <AboutLiquividaSection />
         <HowItWorks />
         <InvitaGallerySection />
-        <CertificationsSection />
+        <Suspense fallback={<SectionSkeleton minHeight="14rem" />}>
+          <CertificationsSection />
+        </Suspense>
         <ProfessionalTrainingSection variant="homepage" />
         <HealthcarePartnersSection />
         <ClinicSpotlightSection />

@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import "./globals.css";
 import "./invita-pages.css";
 import "./invita-premium.css";
-import "./science-hub.css";
 import "./invita-assets.css";
 import { INVITA } from "@/lib/constants";
 import { getSiteUrl } from "@/lib/seo";
@@ -32,7 +31,7 @@ const siteUrl = getSiteUrl();
 
 const cormorant = Cormorant_Garamond({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600", "700"],
+  weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
   display: "swap",

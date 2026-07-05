@@ -2206,3 +2206,23 @@ html, body {
     font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
   }
 }
+
+/* Below-fold section placeholders (dynamic imports) */
+.section-skeleton {
+  margin: 0 auto;
+  max-width: var(--section-inner-max, 72rem);
+  border-radius: var(--radius-card);
+  background: linear-gradient(
+    90deg,
+    rgba(15, 35, 65, 0.04) 0%,
+    rgba(15, 35, 65, 0.08) 50%,
+    rgba(15, 35, 65, 0.04) 100%
+  );
+  background-size: 200% 100%;
+  animation: section-skeleton-shimmer 1.4s ease-in-out infinite;
+}
+
+@keyframes section-skeleton-shimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}

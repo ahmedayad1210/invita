@@ -1,8 +1,10 @@
 "use client";
 
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import ScrollReveal from "@/components/patterns/ScrollReveal";
+import LazyWhenVisible from "@/components/patterns/LazyWhenVisible";
 import MediaFrame from "@/components/patterns/MediaFrame";
 import MediaImage from "@/components/patterns/MediaImage";
 import { useLocale } from "@/contexts/LocaleContext";
@@ -15,11 +17,15 @@ import {
   LOCAL_IMAGES,
 } from "@/lib/invita/local-media";
 
+const INITIAL_REELS = 3;
+
 export default function InvitaGallerySection() {
   const { locale } = useLocale();
   const isAr = locale === "ar";
+  const [reelsVisible, setReelsVisible] = useState(INITIAL_REELS);
   const editorialPhotos = getClinicPhotosByIds(EDITORIAL_CLINIC_PHOTO_IDS);
-  const reels = getReels().slice(0, 6);
+  const allReels = getReels();
+  const reels = allReels.slice(0, reelsVisible);
   const featurePhoto = editorialPhotos[0];
   const stackPhotos = editorialPhotos.slice(1, 3);
 
@@ -91,11 +97,11 @@ export default function InvitaGallerySection() {
           </ScrollReveal>
         ) : null}
 
-        {GALLERY_TOPIC_ROWS.map((row) => {
+        {GALLERY_TOPIC_ROWS.map((row, rowIndex) => {
           const items = getInfographicsByIds(row.ids);
           if (items.length === 0) return null;
-          return (
-            <ScrollReveal key={row.id}>
+          const rowContent = (
+            <ScrollReveal>
               <h3 className="invita-gallery-subtitle">
                 {isAr ? row.labelAr : row.labelEn}
               </h3>
@@ -115,29 +121,59 @@ export default function InvitaGallerySection() {
               </div>
             </ScrollReveal>
           );
+
+          if (rowIndex === 0) {
+            return <div key={row.id}>{rowContent}</div>;
+          }
+
+          return (
+            <LazyWhenVisible
+              key={row.id}
+              minHeight="12rem"
+              fallback={<div className="section-skeleton" style={{ minHeight: "12rem" }} aria-hidden="true" />}
+            >
+              {rowContent}
+            </LazyWhenVisible>
+          );
         })}
 
-        {reels.length > 0 ? (
-          <ScrollReveal>
-            <h3 className="invita-gallery-subtitle">{isAr ? "من الاستوديو" : "Studio reels"}</h3>
-            <div className="invita-gallery-reels">
-              {reels.map((reel, i) => (
-                <MediaFrame
-                  key={reel.id}
-                  variant="reel"
-                  label={isAr ? `ريل ${i + 1}` : `Reel ${i + 1}`}
-                >
-                  <video
-                    src={reel.path}
-                    controls
-                    playsInline
-                    preload="metadata"
-                    aria-label={isAr ? "فيديو Invita" : "Invita studio reel"}
-                  />
-                </MediaFrame>
-              ))}
-            </div>
-          </ScrollReveal>
+        {allReels.length > 0 ? (
+          <LazyWhenVisible
+            minHeight="14rem"
+            fallback={<div className="section-skeleton" style={{ minHeight: "14rem" }} aria-hidden="true" />}
+          >
+            <ScrollReveal>
+              <h3 className="invita-gallery-subtitle">{isAr ? "من الاستوديو" : "Studio reels"}</h3>
+              <div className="invita-gallery-reels">
+                {reels.map((reel, i) => (
+                  <MediaFrame
+                    key={reel.id}
+                    variant="reel"
+                    label={isAr ? `ريل ${i + 1}` : `Reel ${i + 1}`}
+                  >
+                    <video
+                      src={reel.path}
+                      controls
+                      playsInline
+                      preload="metadata"
+                      aria-label={isAr ? "فيديو Invita" : "Invita studio reel"}
+                    />
+                  </MediaFrame>
+                ))}
+              </div>
+              {reelsVisible < allReels.length && (
+                <div className="invita-gallery-reels-more">
+                  <button
+                    type="button"
+                    className="btn-secondary btn-sm"
+                    onClick={() => setReelsVisible((n) => Math.min(n + 3, allReels.length))}
+                  >
+                    {isAr ? "عرض المزيد من الريلز" : "Show more reels"}
+                  </button>
+                </div>
+              )}
+            </ScrollReveal>
+          </LazyWhenVisible>
         ) : null}
       </div>
     </section>

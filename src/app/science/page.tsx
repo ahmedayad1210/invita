@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ScienceHubPage from "@/components/science/ScienceHubPage";
+import "../science-hub.css";
 
 export const metadata: Metadata = {
   title: "Science & Resources",
