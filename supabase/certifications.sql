@@ -62,12 +62,15 @@ ALTER TABLE public.certificates ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.certificate_verification_slots ENABLE ROW LEVEL SECURITY;
 ALTER TABLE public.certificate_timeline ENABLE ROW LEVEL SECURITY;
 
+DROP POLICY IF EXISTS "Public read certificates" ON public.certificates;
 CREATE POLICY "Public read certificates"
   ON public.certificates FOR SELECT USING (true);
 
+DROP POLICY IF EXISTS "Public read verification slots" ON public.certificate_verification_slots;
 CREATE POLICY "Public read verification slots"
   ON public.certificate_verification_slots FOR SELECT USING (true);
 
+DROP POLICY IF EXISTS "Public read timeline" ON public.certificate_timeline;
 CREATE POLICY "Public read timeline"
   ON public.certificate_timeline FOR SELECT USING (true);
 
