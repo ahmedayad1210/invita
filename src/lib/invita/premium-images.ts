@@ -10,14 +10,16 @@ const highlightPaths = HIGHLIGHT_INFOGRAPHICS.map(
 ).filter(Boolean) as string[];
 
 export const PREMIUM_IMAGES = {
-  /** Product still life — on-brand hero (espresso / ivory / gold) */
-  hero: LOCAL_IMAGES.productStillLife,
-  clinicInterior: LOCAL_IMAGES.productStillLife,
+  /** Lifestyle hero from dump (AJM06177-scaled) */
+  hero: LOCAL_IMAGES.hero,
+  clinicInterior: LOCAL_IMAGES.wellnessLounge,
   wellnessLounge: LOCAL_IMAGES.wellnessLounge,
-  medicalCare: LOCAL_IMAGES.productStillLife,
-  ivTreatment: highlightPaths[0] ?? LOCAL_IMAGES.productStillLife,
+  medicalCare: LOCAL_IMAGES.hero,
+  ivTreatment: highlightPaths[0] ?? LOCAL_IMAGES.hero,
   transformation: LOCAL_IMAGES.wellnessLounge,
   lifestyle: LOCAL_IMAGES.hero,
+  /** Product still life for formulary / about sections */
+  productStillLife: LOCAL_IMAGES.productStillLife,
   benefits: highlightPaths.length >= 3
     ? highlightPaths.slice(0, 3)
     : [LOCAL_IMAGES.productStillLife, LOCAL_IMAGES.wellnessLounge, LOCAL_IMAGES.brandCapsules],

@@ -4,8 +4,12 @@
  */
 
 import { getClinicPhotoPaths } from "./local-media";
+import { CURATED_CLINIC_PHOTO_IDS } from "./content-curation";
 
 const CLINIC_PHOTO_PATHS = getClinicPhotoPaths();
+const CURATED_COVER_PATHS = new Set(
+  CURATED_CLINIC_PHOTO_IDS.map((id) => `/images/invita/clinic/${id}.webp`)
+);
 
 export const CLINIC_SPECIALTIES = [
   "medical-center",
@@ -143,7 +147,7 @@ function clinic(
 
   return {
     ...input,
-    featured: input.featured ?? hasUpload,
+    featured: input.featured ?? (hasUpload && CURATED_COVER_PATHS.has(uploadedCover)),
     logo: input.logo ?? PLACEHOLDER_LOGO,
     cover: input.cover ?? uploadedCover ?? PLACEHOLDER_COVER,
     gallery: input.gallery ?? (hasUpload

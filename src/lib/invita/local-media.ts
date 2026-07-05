@@ -37,6 +37,22 @@ export function getInfographic(id: string): MediaItem | undefined {
   return INVITA_MEDIA.infographics?.find((item) => item.id === id);
 }
 
+export function getInfographicsByIds(ids: readonly string[]): MediaItem[] {
+  return ids
+    .map((id) => getInfographic(id))
+    .filter((item): item is MediaItem => Boolean(item));
+}
+
+export function getClinicPhoto(id: string): MediaItem | undefined {
+  return INVITA_MEDIA.clinicPhotos?.find((item) => item.id === id);
+}
+
+export function getClinicPhotosByIds(ids: readonly string[]): MediaItem[] {
+  return ids
+    .map((id) => getClinicPhoto(id))
+    .filter((item): item is MediaItem => Boolean(item));
+}
+
 export function getGalleryPhotos(limit = 12): MediaItem[] {
   return (INVITA_MEDIA.clinicPhotos ?? []).slice(0, limit);
 }

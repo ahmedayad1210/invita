@@ -1,8 +1,10 @@
 "use client";
 
 import Link from "next/link";
+import { ArrowDownToLine } from "lucide-react";
 import ScrollReveal from "@/components/patterns/ScrollReveal";
 import { PROFESSIONAL_TRAINING_ITEMS } from "@/lib/invita/b2b-content";
+import { PARTNER_RESOURCES } from "@/lib/invita/content-curation";
 import { useLocale } from "@/contexts/LocaleContext";
 
 type Props = {
@@ -29,8 +31,8 @@ export default function ProfessionalTrainingSection({ variant = "homepage" }: Pr
             </h2>
             <p className="page-lead page-lead--narrow">
               {isAr
-                ? "إنفيتا توفّر تعليماً سريرياً وبروتوكولات وإرشادات سلامة لكل شريك — لضمان جودة متسقة في كل مرفق."
-                : "Invita provides clinical education, protocols, and safety guidance for every partner — ensuring consistent quality at every facility."}
+                ? "Safety 101، كتalog المنتجات، وشهادات ISO — كل ما يحتاجه شريكك للبدء."
+                : "Safety 101, product catalogue, and ISO certifications — everything your partner facility needs to get started."}
             </p>
           </header>
         </ScrollReveal>
@@ -44,6 +46,36 @@ export default function ProfessionalTrainingSection({ variant = "homepage" }: Pr
             </ScrollReveal>
           ))}
         </div>
+
+        <ScrollReveal>
+          <div className="partner-resources">
+            <h3 className="partner-resources-title">
+              {isAr ? "مراجع للشركاء" : "Partner resources"}
+            </h3>
+            <div className="partner-resources-grid">
+              {PARTNER_RESOURCES.map((resource) => (
+                <a
+                  key={resource.id}
+                  href={resource.path}
+                  className="partner-resource-card"
+                  download
+                >
+                  <ArrowDownToLine size={18} aria-hidden="true" />
+                  <div>
+                    <p className="partner-resource-name">
+                      {isAr ? resource.titleAr : resource.titleEn}
+                    </p>
+                    <p className="partner-resource-desc">
+                      {isAr ? resource.descAr : resource.descEn}
+                    </p>
+                  </div>
+                  <span className="partner-resource-size">{resource.size}</span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </ScrollReveal>
+
         {variant === "homepage" ? (
           <div className="cta-band">
             <Link href="/for-clinics#training" className="btn-secondary">

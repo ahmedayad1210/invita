@@ -16,7 +16,7 @@ import {
 import { useLocale } from "@/contexts/LocaleContext";
 
 const PER_PAGE = 12;
-const PREVIEW_COUNT = 12;
+const PREVIEW_COUNT = 8;
 
 type Props = {
   showStats?: boolean;

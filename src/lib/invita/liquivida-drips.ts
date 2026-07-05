@@ -1,7 +1,11 @@
+import { DRIP_INFOGRAPHIC_IDS } from "./content-curation";
+
 export type LiquividaDrip = {
   slug: string;
   /** Maps to category icon in elixir-drip-images.json */
   imageSlug: string;
+  /** Studio infographic from Invita dump (I V *.jpg) */
+  infographicId?: string;
   name: string;
   tagline: string;
   tier: "Signature" | "Wellness" | "Performance" | "Beauty";
@@ -18,9 +22,18 @@ export const LIQUIVIDA = {
   distributorAr: "موزّع رسمي · Liquivida® USA",
 } as const;
 
+function drip(
+  entry: Omit<LiquividaDrip, "infographicId"> & { infographicId?: string }
+): LiquividaDrip {
+  return {
+    ...entry,
+    infographicId: entry.infographicId ?? DRIP_INFOGRAPHIC_IDS[entry.slug],
+  };
+}
+
 /** Invita catalogue — 11 GMP-certified Liquivida® protocols (Safety 101 / product catalogue). */
 export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
-  {
+  drip({
     slug: "energy-boost",
     imageSlug: "the-recharger",
     name: "Energy Boost",
@@ -28,8 +41,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Wellness",
     description:
       "Designed for patients who feel run-down — busy professionals, parents, or those recovering from illness. Weekly sessions for 4–6 weeks, then monthly maintenance.",
-  },
-  {
+  }),
+  drip({
     slug: "jet-fuel",
     imageSlug: "life-drip",
     name: "Jet Fuel",
@@ -37,8 +50,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Performance",
     description:
       "Mental and physical performance enhancement for athletes pre-event, jet lag recovery, exam prep, or demanding work sprints. Sustained focus and stamina.",
-  },
-  {
+  }),
+  drip({
     slug: "immune-boost",
     imageSlug: "immune-booster",
     name: "Immune Boost",
@@ -46,8 +59,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Wellness",
     description:
       "High-dose vitamin C immune support at the first sign of a cold, or prophylactically during winter. Quick ~30-minute infusion for rapid reinforcement.",
-  },
-  {
+  }),
+  drip({
     slug: "sport-endurance-recovery",
     imageSlug: "fitness-recovery",
     name: "Sport Endurance & Recovery",
@@ -55,8 +68,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Performance",
     description:
       "For athletes and active individuals — rehydrate, replenish nutrients, and reduce muscle soreness after competition or heavy training.",
-  },
-  {
+  }),
+  drip({
     slug: "skin-radiance",
     imageSlug: "radiance",
     name: "Skin Radiance",
@@ -64,8 +77,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Beauty",
     description:
       "Improves complexion and tone — popular before weddings and photoshoots. Often paired with dermatology treatments for holistic skin results.",
-  },
-  {
+  }),
+  drip({
     slug: "hair-skin-nails",
     imageSlug: "hair-skin-nails",
     name: "Hair, Skin & Nails",
@@ -73,8 +86,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Beauty",
     description:
       "Targets hair thickness, nail strength, and skin health — ideal for postpartum shedding or brittle nails. Weekly or biweekly for 4–6 sessions.",
-  },
-  {
+  }),
+  drip({
     slug: "nad-plus",
     imageSlug: "anti-aging",
     name: "NAD+",
@@ -82,8 +95,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Signature",
     description:
       "750 mg NAD+ infused slowly over ~90 minutes for anti-aging and cellular repair. Multi-week protocols available — titrated for comfort by our clinicians.",
-  },
-  {
+  }),
+  drip({
     slug: "weight-management",
     imageSlug: "diet-detox",
     name: "Weight Management",
@@ -91,8 +104,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Wellness",
     description:
       "Adjunct to diet and exercise — optimises metabolism and preserves lean muscle. Not a stand-alone weight-loss solution; clinician-guided alongside your plan.",
-  },
-  {
+  }),
+  drip({
     slug: "vitamin-d3-boost",
     imageSlug: "hydration",
     name: "Vitamin D3 Boost",
@@ -100,8 +113,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Wellness",
     description:
       "D3 + calcium infusion for bone health — one session can raise vitamin D levels for several months. Ideal when oral supplementation is insufficient.",
-  },
-  {
+  }),
+  drip({
     slug: "myers-cocktail",
     imageSlug: "vip-signature",
     name: "Myers Cocktail",
@@ -109,8 +122,8 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Signature",
     description:
       "Broad-spectrum protocol for chronic fatigue, fibromyalgia, migraines, muscle spasms, allergies, and general wellness. Monthly or bi-monthly maintenance.",
-  },
-  {
+  }),
+  drip({
     slug: "glutathione-detox",
     imageSlug: "liver-cleanse",
     name: "Glutathione Detox",
@@ -118,7 +131,7 @@ export const LIQUIVIDA_DRIPS: LiquividaDrip[] = [
     tier: "Wellness",
     description:
       "Glutathione-rich infusion for detoxification and oxidative stress. Prepared in amber bags with light-protected handling per Invita Safety 101 protocols.",
-  },
+  }),
 ];
 
 export function getLiquividaDrip(slug: string): LiquividaDrip | undefined {

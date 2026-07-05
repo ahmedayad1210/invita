@@ -1,37 +1,48 @@
-/** Protocol outcome themes — factual benefits, not fabricated testimonials. */
+/** Protocol outcome themes — from Invita patient education materials (not testimonials). */
 export const PATIENT_STORIES = [
   {
     id: "energy",
-    themeEn: "Energy & clarity",
-    themeAr: "الطاقة والوضوح",
+    themeEn: "Energy & mental clarity",
+    themeAr: "الطاقة والوضوح الذهني",
     quoteEn:
-      "Medically supervised IV protocols designed to support focus, hydration, and sustained energy.",
+      "B-complex, magnesium, and vitamin C delivered IV — supporting metabolism and focus when oral supplements fall short.",
     quoteAr:
-      "بروتوكولات وريدية بإشراف طبي لدعم التركيز والترطيب والطاقة المستدامة.",
-    contextEn: "Executive wellness · NAD+ & hydration protocols",
-    contextAr: "عافية تنفيذية · بروتوكولات NAD+ والترطيب",
+      "مجموعة B والمغنيسيوم وفيتامين C وريدياً — لدعم الأيض والتركيز عندما تفشل المكملات الفموية.",
+    contextEn: "Energy Boost · Jet Fuel · Myers Cocktail",
+    contextAr: "Energy Boost · Jet Fuel · Myers Cocktail",
+  },
+  {
+    id: "skin",
+    themeEn: "Skin radiance & beauty",
+    themeAr: "إشراق البشرة والجمال",
+    quoteEn:
+      "Glutathione, biotin, and antioxidant protocols for complexion — popular before weddings, photoshoots, and dermatology treatments.",
+    quoteAr:
+      "بروتوكولات الجلوتاثيون والبيوتين ومضادات الأكسدة للبشرة — شائعة قبل الأعراس والتصوير وعلاجات الجلدية.",
+    contextEn: "Skin Radiance · Hair, Skin & Nails · Glutathione Detox",
+    contextAr: "Skin Radiance · Hair, Skin & Nails · Glutathione Detox",
   },
   {
     id: "recovery",
     themeEn: "Athletic recovery",
     themeAr: "التعافي الرياضي",
     quoteEn:
-      "Recovery-focused formulations with amino acids and electrolytes for post-training replenishment.",
+      "Amino acids and electrolytes for post-training replenishment — rehydrate and reduce muscle soreness after competition.",
     quoteAr:
-      "تركيبات مخصصة للتعافي مع الأحماض الأمينية والإلكتروليتات لإعادة التغذية بعد التمرين.",
-    contextEn: "Performance protocol · amino & electrolyte support",
-    contextAr: "بروتوكول الأداء · دعم الأحماض الأمينية والإلكتروليتات",
+      "أحماض أمينية وإلكتروليتات لإعادة التغذية بعد التمرين — ترطيب وتقليل ألم العضلات بعد المنافسة.",
+    contextEn: "Sport Endurance & Recovery · Jet Fuel",
+    contextAr: "Sport Endurance & Recovery · Jet Fuel",
   },
   {
     id: "immunity",
-    themeEn: "Immune support",
-    themeAr: "دعم المناعة",
+    themeEn: "Immune reinforcement",
+    themeAr: "تعزيز المناعة",
     quoteEn:
-      "Immunity protocols with clinical intake screening before every session.",
+      "High-dose vitamin C at the first sign of illness — with clinical intake screening before every session per Safety 101.",
     quoteAr:
-      "بروتوكولات المناعة مع فحص سريري قبل كل جلسة.",
-    contextEn: "Immunity protocol · medically supervised",
-    contextAr: "بروتوكول المناعة · بإشراف طبي",
+      "فيتامين C بجرعة عالية عند أول علامات المرض — مع فحص سريري قبل كل جلسة وفق Safety 101.",
+    contextEn: "Immune Boost · pre-infusion checklist",
+    contextAr: "Immune Boost · قائمة ما قبل الإعطاء",
   },
 ] as const;
 

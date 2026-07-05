@@ -209,6 +209,10 @@ export const FEATURED_SERVICE_NAMES = [
   "Immune Boost",
   "Skin Radiance",
   "NAD+",
+  "Jet Fuel",
+  "Sport Endurance & Recovery",
+  "Myers Cocktail",
+  "Glutathione Detox",
 ] as const;
 
 export const GALLERY_IMAGES = [

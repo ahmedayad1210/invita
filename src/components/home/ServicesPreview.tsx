@@ -2,278 +2,96 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Clock } from "lucide-react";
-import { FEATURED_SERVICE_NAMES, SEED_SERVICES } from "@/lib/constants";
+import { HOMEPAGE_DRIP_SLUGS } from "@/lib/invita/content-curation";
 import { LIQUIVIDA_DRIPS } from "@/lib/invita/liquivida-drips";
-import { formatPrice, formatDuration } from "@/lib/time-slots";
+import { getDripPriceIqd } from "@/lib/invita/pricing";
+import { getProtocolDripImage, DRIP_IMAGE_FALLBACK } from "@/lib/invita/drip-images";
+import { getInfographic } from "@/lib/invita/local-media";
+import { formatIqd } from "@/lib/format";
+import { formatDuration } from "@/lib/time-slots";
 
-const DRIP_SLUG_BY_NAME = Object.fromEntries(
-  LIQUIVIDA_DRIPS.map((drip) => [drip.name, drip.slug]),
-);
-
-const FEATURED_SERVICES = FEATURED_SERVICE_NAMES.map((name) => {
-  const seed = SEED_SERVICES.find((s) => s.name === name);
-  if (!seed) return null;
-  return {
-    id: DRIP_SLUG_BY_NAME[name] ?? name,
-    name: seed.name,
-    category: seed.category,
-    duration: seed.duration,
-    price: seed.price,
-    description: seed.description,
-  };
-}).filter(Boolean) as Array<{
-  id: string;
-  name: string;
-  category: string;
-  duration: number;
-  price: number;
-  description: string;
-}>;
-
-const CATEGORY_LABELS: Record<string, string> = {
-  "iv-therapy": "IV Therapy",
-  dna: "DNA Lab",
-};
-
-const CATEGORY_COLORS: Record<string, string> = {
-  "iv-therapy": "#C4956A",
-  dna: "#B8965A",
-};
+const HOMEPAGE_DRIPS = HOMEPAGE_DRIP_SLUGS.map((slug) =>
+  LIQUIVIDA_DRIPS.find((d) => d.slug === slug)
+).filter(Boolean) as typeof LIQUIVIDA_DRIPS;
 
 export default function ServicesPreview() {
-  const services = FEATURED_SERVICES;
-
   return (
-    <section
-      style={{
-        backgroundColor: "#FFFFFF",
-        padding:         "7rem 0",
-      }}
-    >
+    <section className="services-preview section-padding" style={{ backgroundColor: "#FFFFFF" }}>
       <div className="container-invita">
-        {/* Header */}
-        <div
-          style={{
-            display:        "flex",
-            alignItems:     "flex-end",
-            justifyContent: "space-between",
-            marginBottom:   "3.5rem",
-            flexWrap:       "wrap",
-            gap:            "1rem",
-          }}
-        >
+        <div className="services-preview-header">
           <div>
-            <span className="eyebrow">Treatment Menu</span>
-            <h2
-              style={{
-                fontFamily:   "'Cormorant Garamond', Georgia, serif",
-                fontSize:     "clamp(2rem, 4vw, 3.25rem)",
-                fontWeight:   400,
-                color:        "#2C1810",
-                lineHeight:   1.15,
-              }}
-            >
-              Liquivida® IV drips
+            <span className="eyebrow">Invita Catalogue</span>
+            <h2 className="services-preview-title">
+              11 Liquivida® protocols
             </h2>
+            <p className="services-preview-lead">
+              From your product catalogue — each begins with a private medical consultation.
+            </p>
           </div>
-          <Link
-            href="/iv-therapy"
-            style={{
-              display:       "inline-flex",
-              alignItems:    "center",
-              gap:           "0.375rem",
-              fontFamily:    "'DM Sans', sans-serif",
-              fontSize:      "0.8125rem",
-              fontWeight:    500,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
-              color:         "#C4956A",
-              transition:    "gap 0.3s ease",
-              whiteSpace:    "nowrap",
-            }}
-            onMouseEnter={(e) => (e.currentTarget.style.gap = "0.625rem")}
-            onMouseLeave={(e) => (e.currentTarget.style.gap = "0.375rem")}
-          >
-            View all services <ArrowRight size={14} />
+          <Link href="/iv-therapy" className="services-preview-link">
+            View all 11 <ArrowRight size={14} />
           </Link>
         </div>
 
-        {/* Grid */}
-        <div
-          className="services-preview-grid"
-          style={{
-            display:             "grid",
-            gridTemplateColumns: "repeat(4, 1fr)",
-            gap:                 "1.25rem",
-          }}
-        >
-          {services.map((service, i) => (
-              <div
-                key={service.id}
-                className="invita-card"
-                style={{
-                  display:       "flex",
-                  flexDirection: "column",
-                  cursor:        "default",
-                }}
+        <div className="services-preview-grid services-preview-grid--rich">
+          {HOMEPAGE_DRIPS.map((drip) => {
+            const infographic = drip.infographicId
+              ? getInfographic(drip.infographicId)
+              : undefined;
+            const iconSrc =
+              getProtocolDripImage(drip.slug, drip.imageSlug) ?? DRIP_IMAGE_FALLBACK;
+            const price = getDripPriceIqd(drip.slug);
+
+            return (
+              <Link
+                key={drip.slug}
+                href={`/iv-therapy/${drip.slug}`}
+                className="services-preview-card"
               >
-                {/* Colour bar */}
-                <div
-                  style={{
-                    height:          "3px",
-                    backgroundColor: CATEGORY_COLORS[service.category] ?? "#C4956A",
-                    opacity:         0.6,
-                  }}
-                />
-
-                <div style={{ padding: "1.75rem 1.5rem", flex: 1, display: "flex", flexDirection: "column" }}>
-                  {/* Number + category */}
-                  <div
-                    style={{
-                      display:        "flex",
-                      justifyContent: "space-between",
-                      alignItems:     "center",
-                      marginBottom:   "1rem",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily:    "'Cormorant Garamond', Georgia, serif",
-                        fontSize:      "2rem",
-                        fontWeight:    300,
-                        color:         "rgba(196,149,106,0.25)",
-                        lineHeight:    1,
-                      }}
-                    >
-                      0{i + 1}
-                    </span>
-                    <span
-                      style={{
-                        fontFamily:    "'DM Sans', sans-serif",
-                        fontSize:      "0.6rem",
-                        fontWeight:    500,
-                        letterSpacing: "0.15em",
-                        textTransform: "uppercase",
-                        color:         "#C4956A",
-                      }}
-                    >
-                      {CATEGORY_LABELS[service.category] ?? service.category}
-                    </span>
-                  </div>
-
-                  {/* Name */}
-                  <h3
-                    style={{
-                      fontFamily:   "'Cormorant Garamond', Georgia, serif",
-                      fontSize:     "1.375rem",
-                      fontWeight:   400,
-                      color:        "#2C1810",
-                      lineHeight:   1.3,
-                      marginBottom: "0.625rem",
-                    }}
-                  >
-                    {service.name}
-                  </h3>
-
-                  {/* Description */}
-                  {service.description && (
-                    <p
-                      style={{
-                        fontFamily:   "'DM Sans', sans-serif",
-                        fontSize:     "0.875rem",
-                        color:        "#8B7355",
-                        lineHeight:   1.7,
-                        flex:         1,
-                        marginBottom: "1.25rem",
-                      }}
-                    >
-                      {service.description}
-                    </p>
+                <div className="services-preview-card-visual">
+                  {infographic ? (
+                    <Image
+                      src={infographic.path}
+                      alt=""
+                      width={200}
+                      height={200}
+                      className="services-preview-infographic"
+                      sizes="120px"
+                    />
+                  ) : (
+                    <Image
+                      src={iconSrc}
+                      alt=""
+                      width={80}
+                      height={80}
+                      className="services-preview-icon"
+                    />
                   )}
-
-                  {/* Footer */}
-                  <div
-                    style={{
-                      display:        "flex",
-                      justifyContent: "space-between",
-                      alignItems:     "center",
-                      paddingTop:     "1rem",
-                      borderTop:      "1px solid rgba(196,149,106,0.1)",
-                      marginTop:      "auto",
-                    }}
-                  >
+                  <span className="services-preview-tier">{drip.tier}</span>
+                </div>
+                <div className="services-preview-card-body">
+                  <h3>{drip.name}</h3>
+                  <p>{drip.tagline}</p>
+                  <div className="services-preview-card-footer">
                     <div>
-                      <span
-                        style={{
-                          fontFamily:   "'Cormorant Garamond', Georgia, serif",
-                          fontSize:     "1.375rem",
-                          fontWeight:   500,
-                          color:        "#2C1810",
-                        }}
-                      >
-                        {formatPrice(service.price)}
+                      <span className="services-preview-price">{formatIqd(price)}</span>
+                      <span className="services-preview-duration">
+                        <Clock size={11} aria-hidden="true" />
+                        {formatDuration(drip.slug === "nad-plus" ? 90 : 45)}
                       </span>
-                      <div
-                        style={{
-                          display:    "flex",
-                          alignItems: "center",
-                          gap:        "0.25rem",
-                          marginTop:  "0.125rem",
-                        }}
-                      >
-                        <Clock size={11} color="#8B7355" />
-                        <span
-                          style={{
-                            fontFamily: "'DM Sans', sans-serif",
-                            fontSize:   "0.75rem",
-                            color:      "#8B7355",
-                          }}
-                        >
-                          {formatDuration(service.duration)}
-                        </span>
-                      </div>
                     </div>
-
-                    <Link
-                      href={`/iv-therapy/${DRIP_SLUG_BY_NAME[service.name] ?? service.id}`}
-                      style={{
-                        display:         "inline-flex",
-                        alignItems:      "center",
-                        justifyContent:  "center",
-                        width:           "36px",
-                        height:          "36px",
-                        borderRadius:    "9999px",
-                        backgroundColor: "rgba(44,24,16,0.06)",
-                        color:           "#2C1810",
-                        transition:      "all 0.3s ease",
-                      }}
-                      onMouseEnter={(e) => {
-                        e.currentTarget.style.backgroundColor = "#2C1810";
-                        e.currentTarget.style.color           = "#FAF7F2";
-                      }}
-                      onMouseLeave={(e) => {
-                        e.currentTarget.style.backgroundColor = "rgba(44,24,16,0.06)";
-                        e.currentTarget.style.color           = "#2C1810";
-                      }}
-                    >
+                    <span className="services-preview-arrow" aria-hidden="true">
                       <ArrowRight size={15} />
-                    </Link>
+                    </span>
                   </div>
                 </div>
-              </div>
-            ))}
+              </Link>
+            );
+          })}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 1024px) {
-          .services-preview-grid { grid-template-columns: repeat(2,1fr) !important; }
-        }
-        @media (max-width: 640px) {
-          .services-preview-grid { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 }

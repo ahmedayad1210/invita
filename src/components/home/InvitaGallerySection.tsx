@@ -7,9 +7,10 @@ import MediaFrame from "@/components/patterns/MediaFrame";
 import MediaImage from "@/components/patterns/MediaImage";
 import { useLocale } from "@/contexts/LocaleContext";
 import { infographicLabel } from "@/lib/invita/asset-labels";
+import { EDITORIAL_CLINIC_PHOTO_IDS, GALLERY_TOPIC_ROWS } from "@/lib/invita/content-curation";
 import {
-  getAllInfographics,
-  getGalleryPhotos,
+  getClinicPhotosByIds,
+  getInfographicsByIds,
   getReels,
   LOCAL_IMAGES,
 } from "@/lib/invita/local-media";
@@ -17,11 +18,10 @@ import {
 export default function InvitaGallerySection() {
   const { locale } = useLocale();
   const isAr = locale === "ar";
-  const infographics = getAllInfographics().slice(0, 8);
-  const photos = getGalleryPhotos(6);
-  const reels = getReels().slice(0, 4);
-  const featurePhoto = photos[0];
-  const stackPhotos = photos.slice(1, 3);
+  const editorialPhotos = getClinicPhotosByIds(EDITORIAL_CLINIC_PHOTO_IDS);
+  const reels = getReels().slice(0, 6);
+  const featurePhoto = editorialPhotos[0];
+  const stackPhotos = editorialPhotos.slice(1, 3);
 
   return (
     <section className="invita-gallery section-padding" aria-labelledby="invita-gallery-heading">
@@ -30,8 +30,13 @@ export default function InvitaGallerySection() {
           <header className="page-hero page-hero--center">
             <p className="page-eyebrow">{isAr ? "العلم والجمال" : "Science & craft"}</p>
             <h2 id="invita-gallery-heading" className="page-title page-title--compact">
-              {isAr ? "العافية الوريدية، بصياغة فاخرة" : "IV wellness, editorially framed"}
+              {isAr ? "17 دليلاً تعليمياً من استوديو Invita" : "17 clinical guides from Invita studio"}
             </h2>
+            <p className="page-lead page-lead--narrow">
+              {isAr
+                ? "محتوى مرئي من ملفاتك — مرتب حسب الموضوع: NAD+، المناعة، الجمال، الطاقة، والأسس السريرية."
+                : "Visual content from your uploads — organised by topic: NAD+, immunity, beauty, energy, and clinical foundations."}
+            </p>
           </header>
           <div className="invita-gallery-lead-card">
             <div className="invita-gallery-brand-mark">
@@ -47,8 +52,8 @@ export default function InvitaGallerySection() {
             </div>
             <p>
               {isAr
-                ? "محتوى تعليمي وتصوير منتجات من استوديو Invita — مقدّم بأسلوب العيادات الفاخرة."
-                : "Educational studio content and product photography — presented in Invita's calm, clinical-luxury voice."}
+                ? "GMP معتمد · ISO مختبر · Liquivida® USA — كل دليل يُستخدم في تدريب الشركاء."
+                : "GMP-certified · ISO-tested · Liquivida® USA — every guide is used in partner training."}
             </p>
             <Link href="/science" className="btn-secondary">
               {isAr ? "العلم والمراجع" : "Science & resources"}
@@ -86,6 +91,32 @@ export default function InvitaGallerySection() {
           </ScrollReveal>
         ) : null}
 
+        {GALLERY_TOPIC_ROWS.map((row) => {
+          const items = getInfographicsByIds(row.ids);
+          if (items.length === 0) return null;
+          return (
+            <ScrollReveal key={row.id}>
+              <h3 className="invita-gallery-subtitle">
+                {isAr ? row.labelAr : row.labelEn}
+              </h3>
+              <div className="invita-gallery-infographics" role="list">
+                {items.map((item) => (
+                  <MediaImage
+                    key={item.id}
+                    src={item.path}
+                    alt={infographicLabel(item.id, isAr ? "ar" : "en")}
+                    variant="infographic"
+                    label={infographicLabel(item.id, isAr ? "ar" : "en")}
+                    width={540}
+                    height={540}
+                    sizes="(max-width: 640px) 45vw, 220px"
+                  />
+                ))}
+              </div>
+            </ScrollReveal>
+          );
+        })}
+
         {reels.length > 0 ? (
           <ScrollReveal>
             <h3 className="invita-gallery-subtitle">{isAr ? "من الاستوديو" : "Studio reels"}</h3>
@@ -104,47 +135,6 @@ export default function InvitaGallerySection() {
                     aria-label={isAr ? "فيديو Invita" : "Invita studio reel"}
                   />
                 </MediaFrame>
-              ))}
-            </div>
-          </ScrollReveal>
-        ) : null}
-
-        <ScrollReveal>
-          <h3 className="invita-gallery-subtitle">
-            {isAr ? "محتوى تعليمي" : "Clinical education"}
-          </h3>
-          <div className="invita-gallery-infographics" role="list">
-            {infographics.map((item) => (
-              <MediaImage
-                key={item.id}
-                src={item.path}
-                alt={infographicLabel(item.id, isAr ? "ar" : "en")}
-                variant="infographic"
-                label={infographicLabel(item.id, isAr ? "ar" : "en")}
-                width={540}
-                height={540}
-                sizes="(max-width: 640px) 45vw, 220px"
-              />
-            ))}
-          </div>
-        </ScrollReveal>
-
-        {photos.length > 3 ? (
-          <ScrollReveal>
-            <h3 className="invita-gallery-subtitle">
-              {isAr ? "العيادة والمنتجات" : "Clinic & product"}
-            </h3>
-            <div className="invita-gallery-infographics" role="list">
-              {photos.slice(3, 7).map((photo) => (
-                <MediaImage
-                  key={photo.id}
-                  src={photo.path}
-                  alt={isAr ? "Invita" : "Invita creative"}
-                  variant="infographic"
-                  fill
-                  sizes="(max-width: 640px) 45vw, 220px"
-                  objectPosition="center top"
-                />
               ))}
             </div>
           </ScrollReveal>

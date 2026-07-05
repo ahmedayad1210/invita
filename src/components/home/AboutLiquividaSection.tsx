@@ -14,7 +14,7 @@ export default function AboutLiquividaSection() {
       <div className="section-inner about-liquivida-grid">
         <ScrollReveal className="about-liquivida-image about-liquivida-img-wrap">
           <MediaImage
-            src={PREMIUM_IMAGES.clinicInterior}
+            src={PREMIUM_IMAGES.productStillLife}
             alt="Invita — Iraq's leading IV therapy company"
             variant="inline"
             width={640}
