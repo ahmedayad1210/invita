@@ -24,10 +24,17 @@ The site is **live and functional** on the custom domain. All primary routes ret
 
 ### Requires manual action (Netlify / Supabase dashboard)
 
-1. **Netlify env vars** — Import updated `netlify.env` or set `NEXT_PUBLIC_SITE_URL` and `NEXT_PUBLIC_APP_URL` to `https://invitadrips.com`, then **trigger redeploy**. Until then, sitemap/OG may still show the old Netlify subdomain.
-2. **Supabase Auth** — Site URL: `https://invitadrips.com`  
-   Redirect URLs: `https://invitadrips.com/auth/callback`, `https://invitadrips.com/auth/**`
-3. **Rotate secrets** if any keys were shared in chat (service role, admin JWT).
+1. **Supabase Auth** — follow **`docs/SUPABASE-AUTH-SETUP.md`** (Site URL + redirect URLs for `invitadrips.com`)
+2. **Rotate secrets** if any keys were shared in chat (service role, admin JWT).
+
+### Added 2026-07-06
+
+| Area | Change |
+|------|--------|
+| Auth | `/auth/callback` route for email confirmation PKCE flow |
+| Auth | `emailRedirectTo` on sign-up |
+| Instagram | Scrape expanded to **49 posts** (25 reels) |
+| Docs | `docs/SUPABASE-AUTH-SETUP.md` step-by-step guide |
 
 ---
 
@@ -74,7 +81,7 @@ All 8 partner PDFs under `/resources/*.pdf` return **200**.
 | Category drip images | ✅ Via `imageSlug` / elixir mapping |
 | Homepage gallery | ✅ 17 infographics by topic |
 | Featured clinics | ✅ 8 curated (not all 37) |
-| Instagram feed | ✅ 28 HQ WebP posts scraped (145 on profile; API pagination limited) |
+| Instagram feed | ✅ 49 HQ WebP posts scraped (146 on profile; pagination ongoing) |
 | Celebrity placeholders | ⏳ Gradient placeholders until real assets approved |
 | Journal | ⏳ Coming soon (`noindex`) |
 | Certification QR numbers | ⏳ Awaiting real registration data |

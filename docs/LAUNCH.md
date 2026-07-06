@@ -7,8 +7,8 @@ Use this after code is ready and before pointing a custom domain.
 - [x] Custom domain live: **https://invitadrips.com**
 - [x] All primary routes return 200
 - [x] Partner PDFs under `/resources/` verified
-- [ ] Netlify dashboard env: `NEXT_PUBLIC_SITE_URL` / `NEXT_PUBLIC_APP_URL` = `https://invitadrips.com` + redeploy
-- [ ] Supabase auth Site URL + redirect URLs for custom domain
+- [x] Netlify dashboard env: `NEXT_PUBLIC_SITE_URL` / `NEXT_PUBLIC_APP_URL` = `https://invitadrips.com` + redeploy
+- [ ] Supabase auth Site URL + redirect URLs — see **`docs/SUPABASE-AUTH-SETUP.md`**
 - [ ] Full manual QA (booking, leads, admin login)
 
 See **`docs/LAUNCH-EVALUATION.md`** for the full audit report.

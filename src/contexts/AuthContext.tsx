@@ -164,10 +164,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     ): Promise<AuthResult> => {
       setLoading(true);
       try {
+        const appOrigin =
+          process.env.NEXT_PUBLIC_APP_URL?.replace(/\/$/, "") ||
+          (typeof window !== "undefined" ? window.location.origin : "");
+
         const { data, error: signUpError } = await supabase.auth.signUp({
           email:    email.trim().toLowerCase(),
           password,
           options: {
+            emailRedirectTo: appOrigin ? `${appOrigin}/auth/callback` : undefined,
             data: {
               full_name: fullName.trim(),
               phone:     phone?.trim() ?? null,
