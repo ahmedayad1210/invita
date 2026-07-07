@@ -13,5 +13,4 @@ ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS referral_code TEXT;
 ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS referred_by UUID REFERENCES public.profiles(id);
 ALTER TABLE public.profiles ADD COLUMN IF NOT EXISTS referral_credits INTEGER NOT NULL DEFAULT 0;
 
-CREATE UNIQUE INDEX IF NOT EXISTS profiles_referral_code_key ON public.profiles(referral_code);
-CREATE INDEX IF NOT EXISTS profiles_referral_code_idx ON public.profiles(referral_code);
+CREATE UNIQUE INDEX IF NOT EXISTS profiles_referral_code_idx ON public.profiles(referral_code);
