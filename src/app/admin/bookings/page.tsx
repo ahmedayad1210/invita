@@ -3,6 +3,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import BookingsTable from "@/components/admin/BookingsTable";
+import AdminBookingsCalendar from "@/components/admin/AdminBookingsCalendar";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import type { BookingWithDetails } from "@/lib/supabase/types";
 
@@ -10,6 +11,7 @@ export default function AdminBookingsPage() {
   const [bookings,   setBookings]   = useState<BookingWithDetails[]>([]);
   const [loading,    setLoading]    = useState(true);
   const [filterDate, setFilterDate] = useState("");
+  const [view, setView] = useState<"table" | "calendar">("table");
 
   const fetchData = useCallback(async () => {
     setLoading(true);
@@ -103,13 +105,31 @@ export default function AdminBookingsPage() {
             </button>
           )}
         </div>
+        <div style={{ display: "flex", gap: "0.5rem" }}>
+          <button type="button" className={`btn-secondary btn-sm${view === "table" ? " active" : ""}`} onClick={() => setView("table")}>
+            Table
+          </button>
+          <button type="button" className={`btn-secondary btn-sm${view === "calendar" ? " active" : ""}`} onClick={() => setView("calendar")}>
+            Calendar
+          </button>
+        </div>
       </div>
 
-      {/* Table */}
       {loading ? (
         <div style={{ padding: "4rem 0" }}>
           <LoadingSpinner message="Loading bookings…" />
         </div>
+      ) : view === "calendar" ? (
+        <>
+          <AdminBookingsCalendar
+            bookings={bookings}
+            selectedDate={filterDate || new Date().toISOString().slice(0, 10)}
+            onSelectDate={setFilterDate}
+          />
+          <div style={{ marginTop: "1.5rem" }}>
+            <BookingsTable bookings={bookings.filter((b) => !filterDate || b.date === filterDate)} onRefresh={fetchData} />
+          </div>
+        </>
       ) : (
         <BookingsTable bookings={bookings} onRefresh={fetchData} />
       )}

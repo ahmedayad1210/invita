@@ -16,6 +16,7 @@ const NAV = [
   { label: "Dashboard", href: "/admin",           icon: <LayoutDashboard size={16} /> },
   { label: "Bookings",  href: "/admin/bookings",   icon: <CalendarDays    size={16} /> },
   { label: "Enquiries", href: "/admin/leads",      icon: <Users           size={16} /> },
+  { label: "Patients", href: "/admin/patients", icon: <Users size={16} /> },
   { label: "Media",     href: "/admin/media",      icon: <ImageIcon       size={16} /> },
   { label: "Certificates", href: "/admin/certifications", icon: <Users   size={16} /> },
   { label: "DNA Lab",   href: "/admin/dna",        icon: <Users           size={16} /> },

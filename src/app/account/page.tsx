@@ -14,6 +14,9 @@ import { formatDateLabel, formatTimeLabel, formatPrice } from "@/lib/time-slots"
 import { CalendarDays, Clock, User, Scissors, XCircle } from "lucide-react";
 import type { BookingWithDetails, DnaOrder } from "@/lib/supabase/types";
 import ReferralCard from "@/components/account/ReferralCard";
+import AccountProfileForm from "@/components/account/AccountProfileForm";
+import AccountMedicalProfile from "@/components/account/AccountMedicalProfile";
+import RescheduleBookingModal from "@/components/account/RescheduleBookingModal";
 
 type TabType = "upcoming" | "past" | "cancelled";
 
@@ -33,6 +36,7 @@ function AccountContent() {
   const [loading,  setLoading]     = useState(true);
   const [tab,      setTab]         = useState<TabType>("upcoming");
   const [cancelling, setCancelling] = useState<string | null>(null);
+  const [rescheduleTarget, setRescheduleTarget] = useState<BookingWithDetails | null>(null);
   const [toast,    setToast]       = useState<{ message: string; type: "success" | "error" } | null>(null);
 
   const handleSignOut = async () => {
@@ -199,6 +203,15 @@ function AccountContent() {
           </div>
 
           <ReferralCard />
+
+          <div className="account-sections">
+            <AccountProfileForm
+              initialName={profile?.full_name ?? ""}
+              initialPhone={profile?.phone ?? ""}
+              initialEmail={user?.email ?? ""}
+            />
+            <AccountMedicalProfile />
+          </div>
 
           {/* Tabs */}
           <div
@@ -463,9 +476,29 @@ function AccountContent() {
                         />
 
                         {canCancel && (
-                          <button
-                            onClick={() => handleCancel(booking.id)}
-                            disabled={cancelling === booking.id}
+                          <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem", alignItems: "flex-end" }}>
+                            <button
+                              type="button"
+                              onClick={() => setRescheduleTarget(booking)}
+                              style={{
+                                fontFamily:      "'DM Sans', sans-serif",
+                                fontSize:        "0.75rem",
+                                fontWeight:      500,
+                                letterSpacing:   "0.08em",
+                                textTransform:   "uppercase",
+                                color:           "#C4956A",
+                                background:      "none",
+                                border:          "1.5px solid rgba(196,149,106,0.35)",
+                                borderRadius:    "9999px",
+                                padding:         "0.5rem 1rem",
+                                cursor:          "pointer",
+                              }}
+                            >
+                              Reschedule
+                            </button>
+                            <button
+                              onClick={() => handleCancel(booking.id)}
+                              disabled={cancelling === booking.id}
                             style={{
                               display:         "inline-flex",
                               alignItems:      "center",
@@ -496,6 +529,7 @@ function AccountContent() {
                             <XCircle size={13} />
                             {cancelling === booking.id ? "Cancelling…" : "Cancel"}
                           </button>
+                          </div>
                         )}
                       </div>
                     </div>
@@ -553,6 +587,17 @@ function AccountContent() {
           message={toast.message}
           type={toast.type}
           onClose={() => setToast(null)}
+        />
+      )}
+
+      {rescheduleTarget && (
+        <RescheduleBookingModal
+          booking={rescheduleTarget}
+          onClose={() => setRescheduleTarget(null)}
+          onDone={() => {
+            setToast({ message: "Appointment rescheduled — pending confirmation.", type: "success" });
+            void fetchBookings();
+          }}
         />
       )}
     </>

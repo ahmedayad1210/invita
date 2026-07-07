@@ -16,6 +16,7 @@ import FooterCtaBanner from "@/components/home/FooterCtaBanner";
 import SectionSkeleton from "@/components/patterns/SectionSkeleton";
 import JsonLd from "@/components/seo/JsonLd";
 import { localBusinessJsonLd } from "@/lib/seo";
+import { getHomepageHeroBanner } from "@/lib/media/homepage-banners.server";
 
 /** Below-fold sections — code-split so hero + menu preview first */
 const InvitaGallerySection = dynamic(
@@ -59,13 +60,15 @@ const AddOnsPreview = dynamic(
   { loading: () => <SectionSkeleton minHeight="14rem" /> }
 );
 
-export default function HomePage() {
+export default async function HomePage() {
+  const heroBanner = await getHomepageHeroBanner();
+
   return (
     <>
       <JsonLd data={localBusinessJsonLd()} />
       <Navbar />
       <main id="main-content">
-        <HeroSection />
+        <HeroSection bannerUrl={heroBanner?.url} bannerAlt={heroBanner?.alt} />
         <TrustAuthoritySection />
         <StatsSection />
         <ScienceSpotlightSection />

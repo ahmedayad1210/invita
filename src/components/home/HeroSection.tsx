@@ -7,22 +7,30 @@ import { FRAMER_IMAGES } from "@/lib/invita/framer-assets";
 import { useLocale } from "@/contexts/LocaleContext";
 import Image from "next/image";
 
-export default function HeroSection() {
+type Props = {
+  bannerUrl?: string | null;
+  bannerAlt?: string | null;
+};
+
+export default function HeroSection({ bannerUrl, bannerAlt }: Props) {
   const { t } = useLocale();
+  const heroSrc = bannerUrl ?? FRAMER_IMAGES.clinicHero;
+  const heroAlt = bannerAlt ?? "Invita — Iraq's leading IV therapy company";
 
   return (
     <section className="hero-section">
       <div className="hero-image-container">
         <MediaFrame variant="hero" className="hero-media-frame">
           <Image
-            src={FRAMER_IMAGES.clinicHero}
-            alt="Invita — Iraq's leading IV therapy company"
+            src={heroSrc}
+            alt={heroAlt}
             fill
             priority
             quality={75}
             sizes="100vw"
             className="asset-frame__image"
             style={{ objectFit: "cover", objectPosition: "center 30%" }}
+            unoptimized={Boolean(bannerUrl?.startsWith("http"))}
           />
         </MediaFrame>
       </div>

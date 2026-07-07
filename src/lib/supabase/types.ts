@@ -27,6 +27,9 @@ export interface Service {
   price:       number;
   description: string | null;
   active:      boolean;
+  slug?:       string | null;
+  tier?:       string | null;
+  image_url?:  string | null;
   created_at:  string;
   updated_at:  string;
 }
@@ -53,7 +56,12 @@ export interface Booking {
   notes:      string | null;
   created_at: string;
   updated_at: string;
-  guest_name?: string | null;
+  guest_name?:  string | null;
+  guest_phone?: string | null;
+  guest_email?: string | null;
+  patient_id?:  string | null;
+  location?:    string | null;
+  add_ons?:     string[] | null;
   intake_goals?:       string | null;
   intake_allergies?:   string | null;
   intake_medications?: string | null;
@@ -91,6 +99,74 @@ export interface MediaAsset {
   is_active:     boolean;
   created_at:    string;
   updated_at:    string;
+}
+
+export interface Patient {
+  id: string;
+  user_id: string | null;
+  phone: string;
+  phone_normalized: string;
+  full_name: string;
+  email: string | null;
+  locale: string;
+  tags: string[];
+  respond_contact_id: string | null;
+  last_visit_at: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface PatientProfile {
+  patient_id: string;
+  goals: string | null;
+  allergies: string | null;
+  medications: string | null;
+  conditions: string | null;
+  pregnant: boolean;
+  updated_at: string;
+}
+
+export interface PatientNote {
+  id: string;
+  patient_id: string;
+  author: string;
+  body: string;
+  created_at: string;
+}
+
+export interface PatientTimelineEvent {
+  id: string;
+  patient_id: string;
+  event_type: string;
+  title: string;
+  body: string | null;
+  reference_id: string | null;
+  created_at: string;
+}
+
+export interface MessageRecord {
+  id: string;
+  patient_id: string | null;
+  booking_id: string | null;
+  direction: "inbound" | "outbound";
+  channel: string;
+  body: string;
+  external_id: string | null;
+  created_at: string;
+}
+
+export interface NotificationRecord {
+  id: string;
+  user_id: string | null;
+  patient_id: string | null;
+  booking_id: string | null;
+  channel: string;
+  template: string;
+  status: "pending" | "sent" | "failed";
+  scheduled_for: string | null;
+  sent_at: string | null;
+  payload: Record<string, unknown>;
+  created_at: string;
 }
 
 // ─────────────────────────────────────────────
@@ -327,6 +403,10 @@ export interface BookingFormData {
   notes?:     string;
   service_duration?: number;
   intake?:    ClinicalIntake;
+  add_ons?:   string[];
+  guest_name?:  string;
+  guest_phone?: string;
+  guest_email?: string;
 }
 
 export type DnaOrderStatus = "ordered" | "collected" | "processing" | "ready" | "delivered";

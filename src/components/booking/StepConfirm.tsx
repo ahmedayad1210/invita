@@ -22,9 +22,14 @@ export default function StepConfirm() {
     selectedStylist,
     selectedDate,
     selectedTimeSlot,
+    selectedAddOns,
     notes,
     intake,
+    guestName,
+    guestPhone,
+    guestEmail,
     setNotes,
+    setGuest,
     prevStep,
     confirmedBookingId,
     isSubmitting,
@@ -34,7 +39,12 @@ export default function StepConfirm() {
   const { submitBooking } = useSubmitBooking();
 
   const handleConfirm = async () => {
-    if (!user || !selectedService || !selectedStylist || !selectedDate || !selectedTimeSlot) return;
+    if (!selectedService || !selectedStylist || !selectedDate || !selectedTimeSlot) return;
+
+    if (!user && (!guestName.trim() || !guestPhone.trim())) {
+      useBookingStore.getState().setSubmitError("Name and phone are required for guest booking.");
+      return;
+    }
 
     const success = await submitBooking({
       service_id:       selectedService.id,
@@ -43,14 +53,18 @@ export default function StepConfirm() {
       time_slot:        selectedTimeSlot,
       notes:            notes || undefined,
       intake,
+      add_ons:          selectedAddOns,
       service_duration: selectedService.duration,
-      userId:           user.id,
-      userEmail:        user.email ?? "",
-      userName:         profile?.full_name ?? user.email ?? "Guest",
+      userId:           user?.id,
+      userEmail:        user?.email ?? guestEmail ?? "",
+      userName:         profile?.full_name ?? guestName ?? user?.email ?? "Guest",
+      guest_name:       user ? undefined : guestName.trim(),
+      guest_phone:      user ? undefined : guestPhone.trim(),
+      guest_email:      user ? undefined : guestEmail.trim() || undefined,
     });
 
     if (success) {
-      // Stay on step 4 — show success state
+      // Stay on step 6 — show success state
     }
   };
 
@@ -65,7 +79,7 @@ export default function StepConfirm() {
           stylistName: selectedStylist.name,
           date: selectedDate,
           timeSlot: selectedTimeSlot,
-          guestName: profile?.full_name ?? undefined,
+          guestName: profile?.full_name ?? guestName ?? undefined,
         })
       : INVITA.whatsapp;
 
@@ -218,57 +232,43 @@ export default function StepConfirm() {
     );
   }
 
-  // ── Not logged in ──
+  // ── Guest or sign-in ──
   if (!user) {
     return (
-      <div style={{ textAlign: "center", padding: "2rem 0" }}>
-        <h2
-          style={{
-            fontFamily:   "'Cormorant Garamond', Georgia, serif",
-            fontSize:     "2rem",
-            fontWeight:   400,
-            color:        "#2C1810",
-            marginBottom: "1rem",
-          }}
-        >
-          Sign in to confirm
-        </h2>
-        <p
-          style={{
-            fontFamily:   "'DM Sans', sans-serif",
-            fontSize:     "0.9375rem",
-            color:        "#8B7355",
-            lineHeight:   1.75,
-            maxWidth:     "380px",
-            margin:       "0 auto 2rem",
-          }}
-        >
-          Please sign in or create an account to complete your booking.
-          Your selection will be saved.
-        </p>
-        <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-          <Link href="/auth/login?redirectTo=/book" className="btn-primary">
-            Sign In
-          </Link>
-          <Link href="/auth/register?redirectTo=/book" className="btn-secondary">
-            Create Account
+      <div style={{ maxWidth: 520, margin: "0 auto" }}>
+        <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
+          <h2 className="page-title page-title--compact">Confirm as guest</h2>
+          <p className="page-lead page-lead--narrow">
+            Book without an account — we will WhatsApp you when your appointment is confirmed.
+          </p>
+        </div>
+
+        <label className="intake-field">
+          <span>Full name *</span>
+          <input className="input-sevres" value={guestName} onChange={(e) => setGuest({ guestName: e.target.value })} required />
+        </label>
+        <label className="intake-field">
+          <span>Phone (WhatsApp) *</span>
+          <input className="input-sevres" value={guestPhone} onChange={(e) => setGuest({ guestPhone: e.target.value })} required />
+        </label>
+        <label className="intake-field">
+          <span>Email (optional)</span>
+          <input className="input-sevres" type="email" value={guestEmail} onChange={(e) => setGuest({ guestEmail: e.target.value })} />
+        </label>
+
+        <div style={{ display: "flex", gap: "0.75rem", marginTop: "1.25rem", flexWrap: "wrap" }}>
+          <button type="button" className="btn-primary" onClick={handleConfirm} disabled={isSubmitting}>
+            {isSubmitting ? "Booking…" : "Confirm booking"}
+          </button>
+          <Link href="/auth/login?redirectTo=/book" className="btn-secondary">
+            Sign in instead
           </Link>
         </div>
-        <button
-          onClick={prevStep}
-          style={{
-            marginTop:  "1.5rem",
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize:   "0.8125rem",
-            color:      "#8B7355",
-            background: "none",
-            border:     "none",
-            cursor:     "pointer",
-            display:    "block",
-            margin:     "1.5rem auto 0",
-          }}
-        >
-          ← Back to date selection
+
+        {submitError ? <p style={{ color: "#b44", marginTop: "1rem" }}>{submitError}</p> : null}
+
+        <button type="button" onClick={prevStep} className="btn-secondary btn-sm" style={{ marginTop: "1rem" }}>
+          ← Back
         </button>
       </div>
     );

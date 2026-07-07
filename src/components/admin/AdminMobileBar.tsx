@@ -3,11 +3,12 @@
 import Link             from "next/link";
 import { usePathname }  from "next/navigation";
 import { useAdmin }     from "@/hooks/useAdmin";
-import { LayoutDashboard, Scissors, Users, CalendarDays, LogOut, ImageIcon } from "lucide-react";
+import { LayoutDashboard, Scissors, Users, CalendarDays, LogOut, ImageIcon, Contact } from "lucide-react";
 
 const MOBILE_NAV = [
   { label: "Dashboard", href: "/admin",           icon: <LayoutDashboard size={20} /> },
   { label: "Bookings",  href: "/admin/bookings",   icon: <CalendarDays    size={20} /> },
+  { label: "Patients",  href: "/admin/patients",   icon: <Contact         size={20} /> },
   { label: "Media",     href: "/admin/media",      icon: <ImageIcon       size={20} /> },
   { label: "Services",  href: "/admin/services",   icon: <Scissors        size={20} /> },
   { label: "Stylists",  href: "/admin/stylists",   icon: <Users           size={20} /> },

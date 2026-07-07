@@ -10,6 +10,7 @@ import StepStylist from "@/components/booking/StepStylist";
 import StepDateTime from "@/components/booking/StepDateTime";
 import StepConfirm from "@/components/booking/StepConfirm";
 import StepIntake from "@/components/booking/StepIntake";
+import StepAddOns from "@/components/booking/StepAddOns";
 import { useBookingStore } from "@/store/bookingStore";
 import { LIQUIVIDA_DRIPS } from "@/lib/invita/liquivida-drips";
 import { useLocale } from "@/contexts/LocaleContext";
@@ -37,21 +38,11 @@ export default function BookPage() {
     };
 
     const loadServiceByDrip = async (slug: string) => {
-      const drip = LIQUIVIDA_DRIPS.find((d) => d.slug === slug);
-      if (!drip) return;
-
-      const res = await fetch("/api/services?category=iv-therapy");
+      const res = await fetch(`/api/services?slug=${encodeURIComponent(slug)}`);
       const json = await res.json();
-      if (!json.success || !Array.isArray(json.data)) return;
-
-      const seedId = `seed-${LIQUIVIDA_DRIPS.indexOf(drip) + 1}`;
-      const match =
-        json.data.find((s: Service) => s.id === seedId) ??
-        json.data.find((s: Service) => s.name === drip.name);
-
-      if (match) {
+      if (json.success && json.data) {
         setCategory("iv-therapy");
-        setService(match as Service);
+        setService(json.data as Service);
       }
     };
 
@@ -96,7 +87,8 @@ export default function BookPage() {
             {currentStep === 2 && <StepStylist />}
             {currentStep === 3 && <StepDateTime />}
             {currentStep === 4 && <StepIntake />}
-            {currentStep === 5 && <StepConfirm />}
+            {currentStep === 5 && <StepAddOns />}
+            {currentStep === 6 && <StepConfirm />}
           </div>
         </div>
       </main>

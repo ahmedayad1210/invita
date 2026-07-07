@@ -720,6 +720,154 @@
   line-height: 1.7;
 }
 
+.addon-preview-card--selectable {
+  cursor: pointer;
+  text-align: left;
+  padding: 1.25rem 1.5rem;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.addon-preview-card--selectable.selected {
+  border-color: #c4956a;
+  box-shadow: 0 0 0 2px rgba(196, 149, 106, 0.25);
+}
+
+.addon-preview-card--selectable h3 {
+  font-family: var(--font-serif);
+  font-size: 1.125rem;
+  margin-bottom: 0.35rem;
+  color: #2c1810;
+}
+
+.addon-preview-card--selectable p {
+  font-size: 0.8125rem;
+  color: #8b7355;
+  margin: 0;
+}
+
+/* Admin bookings calendar */
+.admin-bookings-calendar {
+  margin-bottom: 1.5rem;
+}
+
+.admin-bookings-calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.admin-bookings-calendar-day {
+  background: #fff;
+  border: 1px solid rgba(196, 149, 106, 0.15);
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  text-align: left;
+  cursor: pointer;
+}
+
+.admin-bookings-calendar-day.active {
+  border-color: #c4956a;
+  box-shadow: 0 0 0 2px rgba(196, 149, 106, 0.2);
+}
+
+.admin-bookings-calendar-date {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: #8b7355;
+  margin-bottom: 0.5rem;
+}
+
+.admin-bookings-calendar-day ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.admin-bookings-calendar-day li {
+  border-left: 3px solid #ccc;
+  padding-left: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+}
+
+.admin-bookings-calendar-day li strong {
+  display: block;
+  color: #2c1810;
+}
+
+.admin-bookings-calendar-day li span,
+.admin-bookings-calendar-day li em {
+  display: block;
+  color: #8b7355;
+  font-style: normal;
+}
+
+.admin-bookings-calendar-day li.empty {
+  color: #ccc;
+  border-left-color: transparent;
+}
+
+/* Account portal panels */
+.account-sections {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.25rem;
+  margin-bottom: 2.5rem;
+}
+
+.account-panel {
+  background: #fff;
+  border: 1px solid rgba(196, 149, 106, 0.15);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+}
+
+.account-panel h2 {
+  font-family: var(--font-serif);
+  font-size: 1.375rem;
+  margin-bottom: 0.35rem;
+  color: #2c1810;
+}
+
+.account-panel-hint {
+  font-size: 0.8125rem;
+  color: #8b7355;
+  margin-bottom: 1rem;
+}
+
+.account-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(44, 24, 16, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  padding: 1rem;
+}
+
+.account-modal {
+  background: #faf7f2;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  width: min(420px, 100%);
+  border: 1px solid rgba(196, 149, 106, 0.2);
+}
+
+.account-modal h3 {
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+@media (max-width: 900px) {
+  .admin-bookings-calendar-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
 /* Social wall */
 .social-wall-grid {
   display: grid;

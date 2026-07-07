@@ -12,7 +12,8 @@ export default function BookingProgress() {
     { number: 2 as const, label: t.book.stepClinician },
     { number: 3 as const, label: t.book.stepSchedule },
     { number: 4 as const, label: t.book.stepIntake },
-    { number: 5 as const, label: t.book.stepConfirm },
+    { number: 5 as const, label: "Add-ons" },
+    { number: 6 as const, label: t.book.stepConfirm },
   ];
 
   return (

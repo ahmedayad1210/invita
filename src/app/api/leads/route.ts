@@ -1,5 +1,7 @@
 import { NextResponse } from "next/server";
 import { createAdminClient } from "@/lib/supabase/server";
+import { upsertPatient, appendTimelineEvent } from "@/lib/patients/crm";
+import { sendWhatsAppMessage } from "@/lib/notifications/respondio-client";
 
 type LeadPayload = {
   source?: string;
@@ -68,6 +70,30 @@ export async function POST(request: Request) {
       { success: false, error: "Could not save your enquiry." },
       { status: 500 }
     );
+  }
+
+  if (phone && name) {
+    const patient = await upsertPatient({
+      name,
+      phone,
+      email,
+      locale,
+    });
+
+    if (patient) {
+      await appendTimelineEvent({
+        patientId: patient.id,
+        eventType: "lead_created",
+        title: `Lead from ${source}`,
+        body: message ?? drip_slug ?? undefined,
+      });
+
+      const welcome =
+        locale === "ar"
+          ? `مرحباً ${name} 👋\nشكراً لتواصلك مع Invita. سيرد فريقنا قريباً.`
+          : `Hello ${name} 👋\nThanks for reaching out to Invita. Our team will reply shortly.`;
+      await sendWhatsAppMessage(phone, welcome, name);
+    }
   }
 
   return NextResponse.json({ success: true });

@@ -41,9 +41,9 @@ export interface UseAvailabilityReturn {
 export interface UseSubmitBookingReturn {
   submitBooking: (
     data: BookingFormData & {
-      userId:    string;
-      userEmail: string;
-      userName:  string;
+      userId?:    string;
+      userEmail?: string;
+      userName:   string;
     }
   ) => Promise<boolean>;
   loading: boolean;
@@ -199,9 +199,9 @@ export function useSubmitBooking(): UseSubmitBookingReturn {
   const submitBooking = useCallback(
     async (
       data: BookingFormData & {
-        userId:    string;
-        userEmail: string;
-        userName:  string;
+        userId?:    string;
+        userEmail?: string;
+        userName:   string;
       }
     ): Promise<boolean> => {
       setLoading(true);
@@ -245,7 +245,10 @@ export function useSubmitBooking(): UseSubmitBookingReturn {
             time_slot:  data.time_slot,
             notes:      data.notes ?? undefined,
             intake:     data.intake ?? undefined,
-            guest_name: data.userName !== data.userEmail ? data.userName : undefined,
+            add_ons:    data.add_ons ?? [],
+            guest_name: data.guest_name,
+            guest_phone: data.guest_phone,
+            guest_email: data.guest_email,
           }),
         });
 
@@ -272,19 +275,21 @@ export function useSubmitBooking(): UseSubmitBookingReturn {
 
         // ── Step 4: Send confirmation email ──
 
-        const emailPayload = buildEmailPayload({
-          bookingId:   booking.id,
-          userName:    data.userName,
-          userEmail:   data.userEmail,
-          serviceName,
-          stylistName,
-          date:        data.date,
-          timeSlot:    data.time_slot,
-        });
+        if (data.userEmail) {
+          const emailPayload = buildEmailPayload({
+            bookingId:   booking.id,
+            userName:    data.userName,
+            userEmail:   data.userEmail,
+            serviceName,
+            stylistName,
+            date:        data.date,
+            timeSlot:    data.time_slot,
+          });
 
-        sendBookingConfirmation(emailPayload).catch((err) => {
-          console.error("Email confirmation failed:", err);
-        });
+          sendBookingConfirmation(emailPayload).catch((err) => {
+            console.error("Email confirmation failed:", err);
+          });
+        }
 
         // ── Step 5: Update store ──
 

@@ -14,7 +14,8 @@
     "test:site": "node scripts/audit-site.mjs https://invitadrips.com",
     "scrape:elixir-drips": "node scripts/scrape-elixir-drip-images.mjs",
     "process:celebrities": "python3 scripts/process-celebrity-images.py",
-    "ingest:dump": "python3 scripts/ingest-invita-dump.py"
+    "ingest:dump": "python3 scripts/ingest-invita-dump.py",
+    "sync:services": "node scripts/sync-services-catalog.mjs"
   },
   "dependencies": {
     "@base-ui/react": "^1.6.0",

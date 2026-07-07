@@ -11,7 +11,7 @@ import type { Service, Stylist } from "@/lib/supabase/types";
 // TYPES
 // ─────────────────────────────────────────────
 
-export type BookingStep = 1 | 2 | 3 | 4 | 5;
+export type BookingStep = 1 | 2 | 3 | 4 | 5 | 6;
 
 export interface ClinicalIntakeData {
   goals: string;
@@ -29,6 +29,10 @@ export interface BookingState {
   selectedTimeSlot: string;
   notes: string;
   intake: ClinicalIntakeData;
+  selectedAddOns: string[];
+  guestName: string;
+  guestPhone: string;
+  guestEmail: string;
   isSubmitting: boolean;
   submitError: string | null;
   confirmedBookingId: string | null;
@@ -55,6 +59,8 @@ export interface BookingActions {
   // Step 4
   setNotes:    (notes: string) => void;
   setIntake:   (intake: Partial<ClinicalIntakeData>) => void;
+  toggleAddOn: (name: string) => void;
+  setGuest:    (guest: Partial<{ guestName: string; guestPhone: string; guestEmail: string }>) => void;
 
   // Submission
   setSubmitting:        (loading: boolean) => void;
@@ -85,6 +91,10 @@ const initialState: BookingState = {
     conditions: "",
     pregnant: false,
   },
+  selectedAddOns: [],
+  guestName: "",
+  guestPhone: "",
+  guestEmail: "",
   isSubmitting:        false,
   submitError:         null,
   confirmedBookingId:  null,
@@ -108,7 +118,7 @@ export const useBookingStore = create<BookingStore>()(
 
   nextStep: () => {
     const { currentStep } = get();
-    if (currentStep < 5) {
+    if (currentStep < 6) {
       set({ currentStep: (currentStep + 1) as BookingStep });
     }
   },
@@ -177,6 +187,22 @@ export const useBookingStore = create<BookingStore>()(
     set((state) => ({ intake: { ...state.intake, ...partial } }));
   },
 
+  toggleAddOn: (name) => {
+    set((state) => ({
+      selectedAddOns: state.selectedAddOns.includes(name)
+        ? state.selectedAddOns.filter((item) => item !== name)
+        : [...state.selectedAddOns, name],
+    }));
+  },
+
+  setGuest: (guest) => {
+    set((state) => ({
+      guestName: guest.guestName ?? state.guestName,
+      guestPhone: guest.guestPhone ?? state.guestPhone,
+      guestEmail: guest.guestEmail ?? state.guestEmail,
+    }));
+  },
+
   // ── Submission states ──
 
   setSubmitting: (loading) => {
@@ -210,6 +236,10 @@ export const useBookingStore = create<BookingStore>()(
         selectedTimeSlot: state.selectedTimeSlot,
         notes:            state.notes,
         intake:           state.intake,
+        selectedAddOns:   state.selectedAddOns,
+        guestName:        state.guestName,
+        guestPhone:       state.guestPhone,
+        guestEmail:       state.guestEmail,
         activeCategory:   state.activeCategory,
       }),
     }
@@ -226,7 +256,8 @@ export function useStepValidity() {
   const step3Valid = useBookingStore((state) => state.selectedDate !== "" && state.selectedTimeSlot !== "");
   const step4Valid = useBookingStore((state) => state.intake.goals.trim().length > 0);
   const step5Valid = true;
-  return { step1Valid, step2Valid, step3Valid, step4Valid, step5Valid };
+  const step6Valid = true;
+  return { step1Valid, step2Valid, step3Valid, step4Valid, step5Valid, step6Valid };
 }
 
 export function useBookingSummary() {
