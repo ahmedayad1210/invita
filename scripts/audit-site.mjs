@@ -32,7 +32,7 @@ const STATIC_ROUTES = [
   "/", "/about", "/iv-therapy", "/add-ons", "/faq", "/contact", "/membership",
   "/locations", "/for-clinics", "/healthcare-network", "/book", "/privacy",
   "/terms", "/dna", "/science", "/science/explorer", "/journal", "/telehealth",
-  "/partners", "/account", "/bookings", "/services",
+  "/partners", "/partners/apply", "/account", "/bookings", "/services",
   "/auth/login", "/auth/register", "/auth/forgot-password", "/auth/reset-password",
   "/auth/callback", "/admin", "/admin/bookings", "/admin/leads", "/admin/certifications",
   "/admin/dna", "/admin/services", "/admin/stylists",

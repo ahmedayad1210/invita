@@ -34,8 +34,8 @@ export default function PartnersPage() {
                 login required.
               </p>
             </div>
-            <Link href="/for-clinics" className="btn-secondary btn-sm">
-              Become a partner
+            <Link href="/partners/apply" className="btn-secondary btn-sm">
+              Apply to partner
             </Link>
           </header>
 

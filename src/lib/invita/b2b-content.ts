@@ -89,3 +89,48 @@ export const PROFESSIONAL_TRAINING_ITEMS = [
     bodyAr: "تأهيل منظّم للعيادات والمراكز الطبية الشركاء الجدد.",
   },
 ] as const;
+
+export const PARTNER_APPLICATION_INTENTS = [
+  {
+    id: "partnership",
+    source: "b2b-partnership",
+    labelEn: "Request partnership",
+    labelAr: "طلب شراكة",
+    hintEn: "New clinic or medical centre joining the Invita network.",
+    hintAr: "عيادة أو مركز طبي جديد ينضم لشبكة Invita.",
+  },
+  {
+    id: "meeting",
+    source: "b2b-meeting",
+    labelEn: "Schedule a business meeting",
+    labelAr: "جدولة اجتماع عمل",
+    hintEn: "Meet our partnerships team in person or online.",
+    hintAr: "لقاء فريق الشراكات حضورياً أو عبر الإنترنت.",
+  },
+  {
+    id: "provider",
+    source: "b2b-provider",
+    labelEn: "Become a provider",
+    labelAr: "كن مزوداً",
+    hintEn: "List your facility on our healthcare network.",
+    hintAr: "إدراج منشأتك في شبكة الرعاية الصحية.",
+  },
+  {
+    id: "wholesale",
+    source: "b2b-wholesale",
+    labelEn: "Wholesale enquiry",
+    labelAr: "استفسار جملة",
+    hintEn: "Nationwide supply and account management.",
+    hintAr: "توريد على مستوى العراق وإدارة حسابات.",
+  },
+  {
+    id: "support",
+    source: "b2b-support",
+    labelEn: "Medical / clinical support",
+    labelAr: "دعم طبي / سريري",
+    hintEn: "Protocols, orders, or training for existing partners.",
+    hintAr: "بروتوكولات، طلبات، أو تدريب للشركاء الحاليين.",
+  },
+] as const;
+
+export type PartnerApplicationIntentId = (typeof PARTNER_APPLICATION_INTENTS)[number]["id"];

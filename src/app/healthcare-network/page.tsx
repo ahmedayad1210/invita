@@ -43,8 +43,8 @@ export default function HealthcareNetworkPage() {
           <Link href="/for-clinics" className="btn-primary">
             For Clinics &amp; Medical Centers
           </Link>
-          <Link href="/contact?source=b2b-network" className="btn-secondary">
-            Contact our team
+          <Link href="/partners/apply?intent=provider" className="btn-secondary">
+            Apply to join the network
           </Link>
         </section>
       </main>

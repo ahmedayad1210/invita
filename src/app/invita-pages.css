@@ -2674,6 +2674,67 @@
   gap: 0.5rem;
 }
 
+.clinic-partner-application {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 2rem;
+  border: 1px solid rgba(196, 149, 106, 0.15);
+  border-radius: 1rem;
+  background: #fff;
+}
+
+.clinic-partner-application--success {
+  text-align: center;
+}
+
+.clinic-partner-application-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.clinic-partner-intent-picker {
+  border: none;
+  padding: 0;
+  margin: 0 0 0.5rem;
+}
+
+.clinic-partner-intent-option {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  padding: 0.75rem;
+  border: 1px solid rgba(15, 35, 65, 0.1);
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  cursor: pointer;
+}
+
+.clinic-partner-intent-option span {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.clinic-partner-intent-option em {
+  font-style: normal;
+  font-size: 0.8125rem;
+  color: #8b7355;
+}
+
+.clinic-partner-form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+@media (max-width: 640px) {
+  .clinic-partner-form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
 .referral-card {
   margin-bottom: 2rem;
   padding: 1.5rem;
