@@ -32,6 +32,9 @@ export default function ForClinicsPage() {
             <Link href="/contact?source=b2b-partnership" className="btn-primary">
               Request Partnership
             </Link>
+            <Link href="/partners/login" className="btn-secondary">
+              Partner portal login
+            </Link>
             <Link href="/contact?source=b2b-meeting" className="btn-secondary">
               Schedule a Business Meeting
             </Link>

@@ -20,7 +20,7 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { service_id, stylist_id, date, time_slot, notes, guest_name, intake } = body;
+    const { service_id, stylist_id, date, time_slot, notes, guest_name, intake, sms_reminder } = body;
 
     // Validate required fields
     if (!service_id || !stylist_id || !date || !time_slot) {
@@ -73,6 +73,10 @@ export async function POST(request: NextRequest) {
       insertPayload.intake_medications = intake.medications ?? null;
       insertPayload.intake_conditions = intake.conditions ?? null;
       insertPayload.intake_pregnant = Boolean(intake.pregnant);
+    }
+
+    if (typeof sms_reminder === "boolean") {
+      insertPayload.sms_reminder_opt_in = sms_reminder;
     }
 
     const { data: booking, error } = await supabase

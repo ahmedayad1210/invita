@@ -12,6 +12,7 @@ import CallFab from "@/components/layout/CallFab";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import FigmaCaptureLoader from "@/components/dev/FigmaCaptureLoader";
+import ClientShell from "@/components/layout/ClientShell";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
@@ -80,6 +81,12 @@ export const metadata: Metadata = {
     images: [{ url: "/og/default.svg", width: 1200, height: 630, alt: INVITA.name }],
   },
   robots: { index: true, follow: true },
+  manifest: "/manifest.webmanifest",
+  appleWebApp: {
+    capable: true,
+    title: INVITA.name,
+    statusBarStyle: "default",
+  },
   icons: {
     icon: { url: "/favicon.svg", type: "image/svg+xml" },
   },
@@ -108,6 +115,7 @@ export default function RootLayout({
             <MobileConversionBar />
             <WhatsAppFab />
             <CallFab />
+            <ClientShell />
           </AuthProvider>
         </LocaleProvider>
       </body>

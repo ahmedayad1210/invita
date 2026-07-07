@@ -14,6 +14,9 @@ export interface Profile {
   phone:      string | null;
   created_at: string;
   updated_at: string;
+  referral_code?:    string | null;
+  referred_by?:      string | null;
+  referral_credits?: number | null;
 }
 
 export interface Service {
@@ -268,6 +271,7 @@ export interface BookingFormData {
   notes?:     string;
   service_duration?: number;
   intake?:    ClinicalIntake;
+  sms_reminder?: boolean;
 }
 
 export type DnaOrderStatus = "ordered" | "collected" | "processing" | "ready" | "delivered";

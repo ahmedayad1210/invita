@@ -8,6 +8,7 @@ import {
   FAQ_CATEGORIES,
   type FaqCategory,
 } from "@/lib/invita/faq-comprehensive";
+import { localizeFaqItem } from "@/lib/invita/faq-localized";
 import Link from "next/link";
 import { useLocale } from "@/contexts/LocaleContext";
 
@@ -17,7 +18,9 @@ export default function FaqPage() {
   const [category, setCategory] = useState<FaqCategory>("patients");
   const [open, setOpen] = useState<number | null>(0);
 
-  const items = COMPREHENSIVE_FAQ.filter((item) => item.category === category);
+  const items = COMPREHENSIVE_FAQ.filter((item) => item.category === category).map((item) =>
+    localizeFaqItem(item, isAr)
+  );
 
   return (
     <>

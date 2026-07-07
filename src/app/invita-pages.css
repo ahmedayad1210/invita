@@ -2413,3 +2413,303 @@
   color: #c4956a;
 }
 
+/* Phase 4 platform */
+.provider-network-map {
+  margin-bottom: 3rem;
+}
+
+.provider-map-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1rem 0;
+}
+
+.provider-map-certified {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.875rem;
+}
+
+.provider-map-layout {
+  display: grid;
+  grid-template-columns: 1fr 280px;
+  gap: 1.25rem;
+  align-items: start;
+}
+
+.provider-map-canvas {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: linear-gradient(180deg, #e8eef5 0%, #d4dce8 100%);
+  border-radius: 0.75rem;
+  border: 1px solid rgba(15, 35, 65, 0.12);
+  overflow: hidden;
+}
+
+.provider-map-pin {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  margin: -6px 0 0 -6px;
+  border-radius: 9999px;
+  background: #0f2341;
+  border: 2px solid #f0ede4;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.provider-map-pin.is-active {
+  transform: scale(1.35);
+  background: #c4956a;
+}
+
+.provider-map-pin.is-certified {
+  box-shadow: 0 0 0 2px rgba(196, 149, 106, 0.6);
+}
+
+.provider-map-detail {
+  padding: 1.25rem;
+  border: 1px solid rgba(15, 35, 65, 0.1);
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.provider-map-badge {
+  display: inline-block;
+  margin: 0.5rem 0;
+  padding: 0.2rem 0.55rem;
+  border-radius: 9999px;
+  background: rgba(196, 149, 106, 0.15);
+  font-size: 0.75rem;
+}
+
+.provider-map-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.wellness-assistant {
+  position: fixed;
+  bottom: 5.5rem;
+  right: 1rem;
+  z-index: 90;
+}
+
+.wellness-assistant-fab {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 9999px;
+  background: #0f2341;
+  color: #f0ede4;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(15, 35, 65, 0.25);
+}
+
+.wellness-assistant-panel {
+  position: absolute;
+  bottom: 4rem;
+  right: 0;
+  width: min(360px, calc(100vw - 2rem));
+  max-height: 420px;
+  background: #fff;
+  border-radius: 1rem;
+  border: 1px solid rgba(15, 35, 65, 0.12);
+  box-shadow: 0 16px 48px rgba(15, 35, 65, 0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.wellness-assistant-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1rem;
+  border-bottom: 1px solid rgba(15, 35, 65, 0.08);
+}
+
+.wellness-assistant-messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.wellness-assistant-msg {
+  padding: 0.625rem 0.75rem;
+  border-radius: 0.625rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+.wellness-assistant-msg--user {
+  background: #0f2341;
+  color: #f0ede4;
+  align-self: flex-end;
+  max-width: 85%;
+}
+
+.wellness-assistant-msg--assistant {
+  background: #faf7f2;
+  align-self: flex-start;
+  max-width: 90%;
+}
+
+.wellness-assistant-form {
+  display: flex;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  border-top: 1px solid rgba(15, 35, 65, 0.08);
+}
+
+.wellness-assistant-form input {
+  flex: 1;
+  border: 1px solid rgba(15, 35, 65, 0.12);
+  border-radius: 9999px;
+  padding: 0.5rem 0.875rem;
+}
+
+.wellness-assistant-form button {
+  width: 2.25rem;
+  height: 2.25rem;
+  border-radius: 9999px;
+  background: #c4956a;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.infographic-explorer-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.infographic-explorer-filters {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.infographic-explorer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.infographic-explorer-tile {
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.infographic-explorer-tile span {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.8125rem;
+}
+
+.infographic-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background: rgba(15, 35, 65, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.infographic-lightbox-inner {
+  max-width: 900px;
+  background: #fff;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.infographic-lightbox-close {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.partner-login,
+.partner-dashboard,
+.telehealth-layout {
+  max-width: 560px;
+  margin: 0 auto;
+}
+
+.partner-dashboard {
+  max-width: 720px;
+}
+
+.partner-dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.partner-asset-list {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.referral-card {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  border: 1px solid rgba(196, 149, 106, 0.2);
+  border-radius: 0.75rem;
+  background: #fff;
+}
+
+.referral-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+}
+
+.dna-hub-compare {
+  margin-bottom: 2rem;
+}
+
+.dna-compare-table-wrap {
+  overflow-x: auto;
+}
+
+.dna-compare-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+}
+
+.dna-compare-table th,
+.dna-compare-table td {
+  padding: 0.75rem 1rem;
+  border-bottom: 1px solid rgba(15, 35, 65, 0.08);
+  text-align: left;
+}
+
+@media (max-width: 768px) {
+  .provider-map-layout {
+    grid-template-columns: 1fr;
+  }
+}
+

@@ -2,10 +2,15 @@
 import { createServerClient, type CookieOptions } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { verifyAdminJWT, COOKIE_NAME } from "@/lib/admin-jwt";
+import { PARTNER_COOKIE_NAME, verifyPartnerJWT } from "@/lib/partner-jwt";
 import { getSupabasePublishableKey, getSupabaseUrl } from "@/lib/supabase/env";
 
 const PROTECTED_USER_ROUTES = ["/account", "/bookings"];
 const SUPABASE_SESSION_ROUTES = ["/account", "/bookings", "/book", "/auth"];
+
+function isPartnerDashboard(pathname: string): boolean {
+  return pathname.startsWith("/partners/dashboard");
+}
 
 function isAdminPageRoute(pathname: string): boolean {
   return pathname.startsWith("/admin/") || (pathname === "/admin" && false);
@@ -29,6 +34,14 @@ export async function middleware(request: NextRequest) {
   // Legacy /bookings → account bookings section (before auth gate)
   if (pathname === "/bookings") {
     return NextResponse.redirect(new URL("/account?section=bookings", request.url), 308);
+  }
+
+  if (isPartnerDashboard(pathname)) {
+    const token = request.cookies.get(PARTNER_COOKIE_NAME)?.value;
+    const payload = token ? await verifyPartnerJWT(token) : null;
+    if (!payload) {
+      return NextResponse.redirect(new URL("/partners/login", request.url));
+    }
   }
 
   if (isAdminPageRoute(pathname)) {

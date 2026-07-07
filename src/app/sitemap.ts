@@ -21,6 +21,9 @@ const STATIC_ROUTES = [
   "/terms",
   "/dna",
   "/science",
+  "/science/explorer",
+  "/telehealth",
+  "/partners/login",
   "/journal",
 ];
 

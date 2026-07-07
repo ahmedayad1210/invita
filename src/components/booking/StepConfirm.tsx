@@ -9,7 +9,8 @@ import { useAuth } from "@/hooks/useAuth";
 import { formatPrice, formatDuration, formatDateLabel, formatTimeLabel } from "@/lib/time-slots";
 import { INVITA } from "@/lib/constants";
 import InitialsAvatar from "@/components/ui/InitialsAvatar";
-import { CalendarDays, Clock, User, Scissors, MapPin, CheckCircle } from "lucide-react";
+import { buildBookingWhatsAppUrl } from "@/lib/invita/whatsapp-handoff";
+import { CalendarDays, Clock, User, Scissors, MapPin, CheckCircle, MessageCircle } from "lucide-react";
 import Link from "next/link";
 
 export default function StepConfirm() {
@@ -42,6 +43,7 @@ export default function StepConfirm() {
       time_slot:        selectedTimeSlot,
       notes:            notes || undefined,
       intake,
+      sms_reminder:     smsReminder,
       service_duration: selectedService.duration,
       userId:           user.id,
       userEmail:        user.email ?? "",
@@ -55,6 +57,19 @@ export default function StepConfirm() {
 
   // ── Success state ──
   const [countdown, setCountdown] = useState(15);
+  const [smsReminder, setSmsReminder] = useState(true);
+
+  const whatsappUrl =
+    confirmedBookingId && selectedService && selectedStylist
+      ? buildBookingWhatsAppUrl({
+          bookingRef: confirmedBookingId,
+          serviceName: selectedService.name,
+          stylistName: selectedStylist.name,
+          date: selectedDate,
+          timeSlot: selectedTimeSlot,
+          guestName: profile?.full_name ?? undefined,
+        })
+      : INVITA.whatsapp;
 
   useEffect(() => {
     if (!confirmedBookingId) return;
@@ -181,12 +196,13 @@ export default function StepConfirm() {
             Go to My Account
           </Link>
           <a
-            href={INVITA.whatsapp}
+            href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-secondary"
+            className="btn-primary"
           >
-            Questions? WhatsApp us
+            <MessageCircle size={16} aria-hidden="true" />
+            Confirm on WhatsApp
           </a>
         </div>
 
@@ -423,6 +439,17 @@ export default function StepConfirm() {
       </div>
 
       {/* Notes */}
+      <div style={{ marginBottom: "1rem" }}>
+        <label className="intake-checkbox">
+          <input
+            type="checkbox"
+            checked={smsReminder}
+            onChange={(e) => setSmsReminder(e.target.checked)}
+          />
+          <span>Send me an SMS reminder before my appointment (when available)</span>
+        </label>
+      </div>
+
       <div style={{ marginBottom: "1.5rem" }}>
         <label className="label-sevres">
           Special requests or notes (optional)

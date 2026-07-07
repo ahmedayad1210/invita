@@ -2226,3 +2226,32 @@ html, body {
   0% { background-position: 200% 0; }
   100% { background-position: -200% 0; }
 }
+
+/* Arabic RTL polish */
+html[dir="rtl"] .page-title,
+html[dir="rtl"] .page-lead,
+html[dir="rtl"] .section-inner {
+  text-align: right;
+}
+
+html[dir="rtl"] .btn-primary,
+html[dir="rtl"] .btn-secondary,
+html[dir="rtl"] .back-link {
+  direction: rtl;
+}
+
+html[dir="rtl"] .wellness-matcher-option,
+html[dir="rtl"] .faq-question,
+html[dir="rtl"] .clinic-search input {
+  text-align: right;
+}
+
+html[dir="rtl"] .wellness-assistant-panel {
+  left: 1rem;
+  right: auto;
+}
+
+html[dir="rtl"] .wellness-assistant-fab {
+  left: 1rem;
+  right: auto;
+}

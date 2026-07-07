@@ -1,7 +1,8 @@
 // src/app/auth/register/page.tsx
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/hooks/useAuth";
@@ -22,6 +23,8 @@ export default function RegisterPage() {
 
   const { signUp, loading, user, initialized } = useAuth();
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const refCode = searchParams.get("ref");
 
   useEffect(() => {
     if (initialized && user) router.push("/");
@@ -64,6 +67,14 @@ export default function RegisterPage() {
       setPendingVerification(true);
       setToast("Account created. Check your email to verify before signing in.");
       return;
+    }
+
+    if (refCode) {
+      await fetch("/api/user/referral", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ref_code: refCode }),
+      }).catch(() => null);
     }
 
     setToast("Account created. Welcome to Invita");

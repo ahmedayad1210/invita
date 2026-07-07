@@ -1,16 +1,16 @@
+"use client";
+
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MembershipApplicationForm from "@/components/membership/MembershipApplicationForm";
 import { MEMBERSHIP_TIERS } from "@/lib/constants";
-
-export const metadata = {
-  title: "Membership",
-  description:
-    "Invita Circle and Longevity membership — annual wellness programmes with priority booking and DNA benefits.",
-};
+import { useLocale } from "@/contexts/LocaleContext";
 
 export default function MembershipPage() {
+  const { locale } = useLocale();
+  const isAr = locale === "ar";
+
   return (
     <>
       <Navbar />
@@ -30,10 +30,10 @@ export default function MembershipPage() {
               key={tier.id}
               className={`membership-card${"featured" in tier && tier.featured ? " featured" : ""}`}
             >
-              <h2>{tier.name}</h2>
+              <h2>{isAr ? tier.nameAr : tier.name}</h2>
               <p className="membership-price">{tier.price}</p>
               <ul>
-                {tier.perks.map((perk) => (
+                {(isAr ? tier.perksAr : tier.perks).map((perk) => (
                   <li key={perk}>{perk}</li>
                 ))}
               </ul>

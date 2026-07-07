@@ -1,0 +1,30 @@
+{
+  "name": "Invita — IV Therapy & DNA Lab",
+  "short_name": "Invita",
+  "description": "Iraq's leading IV therapy company — book drips, DNA panels, and partner clinics.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FAF7F2",
+  "theme_color": "#0F2341",
+  "orientation": "portrait-primary",
+  "lang": "en-IQ",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ],
+  "categories": ["health", "medical", "lifestyle"],
+  "shortcuts": [
+    { "name": "Book IV", "url": "/book", "description": "Start a consultation" },
+    { "name": "DNA Lab", "url": "/dna", "description": "Genomic panels" },
+    { "name": "Account", "url": "/account", "description": "Your bookings" }
+  ]
+}

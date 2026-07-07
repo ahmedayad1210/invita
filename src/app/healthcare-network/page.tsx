@@ -2,6 +2,7 @@ import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import ClinicDirectory from "@/components/healthcare/ClinicDirectory";
+import ProviderNetworkMap from "@/components/healthcare/ProviderNetworkMap";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -24,6 +25,12 @@ export default function HealthcareNetworkPage() {
             exclusive partnerships or official sponsorships.
           </p>
         </header>
+
+        <section className="section-padding-sm">
+          <div className="section-inner">
+            <ProviderNetworkMap />
+          </div>
+        </section>
 
         <section className="section-padding-sm">
           <div className="section-inner">

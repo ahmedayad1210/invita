@@ -13,6 +13,7 @@ import { useAuth } from "@/hooks/useAuth";
 import { formatDateLabel, formatTimeLabel, formatPrice } from "@/lib/time-slots";
 import { CalendarDays, Clock, User, Scissors, XCircle } from "lucide-react";
 import type { BookingWithDetails, DnaOrder } from "@/lib/supabase/types";
+import ReferralCard from "@/components/account/ReferralCard";
 
 type TabType = "upcoming" | "past" | "cancelled";
 
@@ -196,6 +197,8 @@ function AccountContent() {
               </div>
             </div>
           </div>
+
+          <ReferralCard />
 
           {/* Tabs */}
           <div

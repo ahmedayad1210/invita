@@ -245,6 +245,7 @@ export function useSubmitBooking(): UseSubmitBookingReturn {
             time_slot:  data.time_slot,
             notes:      data.notes ?? undefined,
             intake:     data.intake ?? undefined,
+            sms_reminder: data.sms_reminder ?? undefined,
             guest_name: data.userName !== data.userEmail ? data.userName : undefined,
           }),
         });
