@@ -16,8 +16,8 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main id="main-content">
-        <section className="page-main page-hero section-padding-sm">
+      <main id="main-content" className="page-main">
+        <section className="page-hero section-padding-sm">
           <h1 className="page-title">About Invita</h1>
           <p className="page-lead page-lead--narrow">
             Baghdad&apos;s premier IV wellness clinic — where medical precision meets five-star

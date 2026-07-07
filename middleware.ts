@@ -26,6 +26,11 @@ function needsSupabaseSession(pathname: string): boolean {
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
+  // Legacy /bookings → account bookings section (before auth gate)
+  if (pathname === "/bookings") {
+    return NextResponse.redirect(new URL("/account?section=bookings", request.url), 308);
+  }
+
   if (isAdminPageRoute(pathname)) {
     const token = request.cookies.get(COOKIE_NAME)?.value;
     const payload = token ? await verifyAdminJWT(token) : null;
@@ -85,7 +90,8 @@ export async function middleware(request: NextRequest) {
 
   if (isProtectedUserRoute && !user) {
     const loginUrl = new URL("/auth/login", request.url);
-    loginUrl.searchParams.set("redirectTo", pathname);
+    const redirectPath = `${pathname}${request.nextUrl.search}`;
+    loginUrl.searchParams.set("redirectTo", redirectPath);
     return NextResponse.redirect(loginUrl);
   }
 

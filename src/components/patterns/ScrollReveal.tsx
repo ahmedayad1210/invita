@@ -14,13 +14,21 @@ export default function ScrollReveal({ children, className = "" }: ScrollRevealP
 
   useEffect(() => {
     const prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const el = ref.current;
+
     if (prefersReduced) {
       setVisible(true);
       return;
     }
 
-    const el = ref.current;
     if (!el) return;
+
+    // Already in viewport — show immediately (fixes blank above-fold sections)
+    const rect = el.getBoundingClientRect();
+    if (rect.top < window.innerHeight && rect.bottom > 0) {
+      setVisible(true);
+      return;
+    }
 
     const observer = new IntersectionObserver(
       ([entry]) => {

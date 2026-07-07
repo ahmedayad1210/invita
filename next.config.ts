@@ -48,7 +48,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/bookings",
-        destination: "/account#bookings",
+        destination: "/account?section=bookings",
         permanent: true,
       },
       {

@@ -43,7 +43,8 @@ Import via **Site settings → Environment variables → Import from .env** usin
 | Symptom | Fix |
 |---------|-----|
 | "Email verification failed" after clicking link | Add `https://invitadrips.com/auth/callback` to Redirect URLs |
-| Reset link expired immediately | Add `https://invitadrips.com/auth/reset-password` to Redirect URLs |
+| Reset link opens homepage instead of reset form | Add `https://invitadrips.com/auth/reset-password` to Supabase **Redirect URLs** |
+| Reset link expired immediately | Same redirect URL + request a fresh link after deploy |
 | Sign-in works locally but not production | Check Netlify `NEXT_PUBLIC_APP_URL` matches custom domain |
 | Profile missing after login | Run `supabase/RUN-THIS-ONCE.sql` — `handle_new_user` trigger |
 

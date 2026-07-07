@@ -18,7 +18,7 @@ import type { Service } from "@/lib/supabase/types";
 export default function BookPage() {
   const { t } = useLocale();
   const searchParams = useSearchParams();
-  const { currentStep, setService, resetBooking } = useBookingStore();
+  const { currentStep, setService, setCategory, resetBooking } = useBookingStore();
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "smooth" });
@@ -28,7 +28,7 @@ export default function BookPage() {
     const serviceId = searchParams.get("service");
     const dripSlug = searchParams.get("drip");
 
-    const loadService = async (id: string) => {
+    const loadServiceById = async (id: string) => {
       const res = await fetch(`/api/services?id=${encodeURIComponent(id)}`);
       const json = await res.json();
       if (json.success && json.data) {
@@ -36,16 +36,32 @@ export default function BookPage() {
       }
     };
 
+    const loadServiceByDrip = async (slug: string) => {
+      const drip = LIQUIVIDA_DRIPS.find((d) => d.slug === slug);
+      if (!drip) return;
+
+      const res = await fetch("/api/services?category=iv-therapy");
+      const json = await res.json();
+      if (!json.success || !Array.isArray(json.data)) return;
+
+      const seedId = `seed-${LIQUIVIDA_DRIPS.indexOf(drip) + 1}`;
+      const match =
+        json.data.find((s: Service) => s.id === seedId) ??
+        json.data.find((s: Service) => s.name === drip.name);
+
+      if (match) {
+        setCategory("iv-therapy");
+        setService(match as Service);
+      }
+    };
+
     if (serviceId) {
-      void loadService(serviceId);
+      void loadServiceById(serviceId);
       return;
     }
 
     if (dripSlug) {
-      const index = LIQUIVIDA_DRIPS.findIndex((d) => d.slug === dripSlug);
-      if (index >= 0) {
-        void loadService(`seed-${index + 1}`);
-      }
+      void loadServiceByDrip(dripSlug);
     }
   }, [searchParams, setService]);
 

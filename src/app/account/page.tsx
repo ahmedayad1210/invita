@@ -65,6 +65,13 @@ function AccountContent() {
     fetchBookings();
   }, [fetchBookings]);
 
+  useEffect(() => {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("section") === "bookings" || window.location.hash === "#bookings") {
+      document.getElementById("bookings")?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, []);
+
   const handleCancel = async (bookingId: string) => {
     setCancelling(bookingId);
 
@@ -192,6 +199,7 @@ function AccountContent() {
 
           {/* Tabs */}
           <div
+            id="bookings"
             className="tabs-scroll"
             style={{
               display:      "flex",

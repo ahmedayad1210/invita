@@ -11,6 +11,7 @@
     "scrape:instagram": "node scripts/scrape-instagram.mjs",
     "scrape:instagram:hq": "node scripts/scrape-instagram.mjs --hq-only",
     "test:auth": "node scripts/test-auth.mjs https://invitadrips.com",
+    "test:site": "node scripts/audit-site.mjs https://invitadrips.com",
     "scrape:elixir-drips": "node scripts/scrape-elixir-drip-images.mjs",
     "process:celebrities": "python3 scripts/process-celebrity-images.py",
     "ingest:dump": "python3 scripts/ingest-invita-dump.py"
