@@ -26,6 +26,8 @@ const MIN_WIDTH = 900;
 const WEBP_QUALITY = 92;
 const MAX_EDGE = 2048;
 const PAGINATION_DELAY_MS = 8000;
+const RATE_LIMIT_RETRIES = 4;
+const RATE_LIMIT_BACKOFF_MS = [60000, 90000, 120000, 180000];
 
 const EXTRA_REEL_CODES = [
   "DO_5I4gDrQX", "DZCuY2QOsrh", "DY7ROcnM-9l", "DYqEhATucpz",
@@ -263,29 +265,63 @@ async function fetchAllPosts(user) {
   while (cursor && byCode.size < (user.edge_owner_to_timeline_media.count || 200)) {
     process.stderr.write(`  paginating page ${page} (${byCode.size} posts)…\n`);
     await sleep(PAGINATION_DELAY_MS);
-    try {
-      const feed = curlJson(
-        `https://www.instagram.com/api/v1/feed/user/${USER_ID}/?count=50&max_id=${encodeURIComponent(cursor)}`
-      );
-      if (feed.status === "fail" || !feed.items?.length) {
-        process.stderr.write(`  pagination stopped: ${feed.message || "no items"}\n`);
-        break;
-      }
-      fs.writeFileSync(path.join(RAW_DIR, `ig-feed-${page}.json`), JSON.stringify(feed));
-      for (const item of feed.items) {
-        const m = mapFeedItem(item);
-        const existing = byCode.get(m.shortcode);
-        if (!existing || (m.imageWidth || 0) > (existing.imageWidth || 0)) {
-          byCode.set(m.shortcode, { ...existing, ...m });
+
+    let fetched = false;
+    for (let attempt = 0; attempt <= RATE_LIMIT_RETRIES && !fetched; attempt++) {
+      try {
+        const feed = curlJson(
+          `https://www.instagram.com/api/v1/feed/user/${USER_ID}/?count=50&max_id=${encodeURIComponent(cursor)}`
+        );
+        const rateLimited =
+          feed.status === "fail" &&
+          typeof feed.message === "string" &&
+          /wait|rate|limit|try again/i.test(feed.message);
+
+        if (rateLimited && attempt < RATE_LIMIT_RETRIES) {
+          const waitMs = RATE_LIMIT_BACKOFF_MS[attempt] ?? 180000;
+          process.stderr.write(
+            `  rate limited — waiting ${Math.round(waitMs / 1000)}s before retry ${attempt + 1}/${RATE_LIMIT_RETRIES}…\n`
+          );
+          await sleep(waitMs);
+          continue;
         }
+
+        if (feed.status === "fail" || !feed.items?.length) {
+          process.stderr.write(`  pagination stopped: ${feed.message || "no items"}\n`);
+          cursor = "";
+          break;
+        }
+
+        fs.writeFileSync(path.join(RAW_DIR, `ig-feed-${page}.json`), JSON.stringify(feed));
+        for (const item of feed.items) {
+          const m = mapFeedItem(item);
+          const existing = byCode.get(m.shortcode);
+          if (!existing || (m.imageWidth || 0) > (existing.imageWidth || 0)) {
+            byCode.set(m.shortcode, { ...existing, ...m });
+          }
+        }
+        if (!feed.more_available) {
+          cursor = "";
+        } else {
+          cursor = feed.next_max_id;
+          page++;
+        }
+        fetched = true;
+      } catch (e) {
+        if (attempt < RATE_LIMIT_RETRIES) {
+          const waitMs = RATE_LIMIT_BACKOFF_MS[attempt] ?? 180000;
+          process.stderr.write(
+            `  pagination error: ${e.message} — retry in ${Math.round(waitMs / 1000)}s…\n`
+          );
+          await sleep(waitMs);
+          continue;
+        }
+        process.stderr.write(`  pagination error: ${e.message}\n`);
+        cursor = "";
       }
-      if (!feed.more_available) break;
-      cursor = feed.next_max_id;
-      page++;
-    } catch (e) {
-      process.stderr.write(`  pagination error: ${e.message}\n`);
-      break;
     }
+
+    if (!fetched) break;
   }
 
   return [...byCode.values()];
