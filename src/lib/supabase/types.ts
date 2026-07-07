@@ -73,6 +73,26 @@ export interface Lead {
   created_at: string;
 }
 
+export type MediaCategory = "banner" | "image" | "video" | "brand" | "document";
+
+export interface MediaAsset {
+  id:            string;
+  category:      MediaCategory;
+  role:          string | null;
+  title:         string;
+  alt_text:      string | null;
+  storage_path:  string;
+  public_url:    string;
+  mime_type:     string;
+  file_size:     number | null;
+  width:         number | null;
+  height:        number | null;
+  sort_order:    number;
+  is_active:     boolean;
+  created_at:    string;
+  updated_at:    string;
+}
+
 // ─────────────────────────────────────────────
 // DATABASE TYPE
 // Written to match the exact internal shape
@@ -209,6 +229,42 @@ export type Database = {
           message?:   string | null;
           drip_slug?: string | null;
           locale?:    string | null;
+        };
+        Relationships: [];
+      };
+      media_assets: {
+        Row:    MediaAsset;
+        Insert: {
+          id?:            string;
+          category?:      MediaCategory;
+          role?:          string | null;
+          title:          string;
+          alt_text?:      string | null;
+          storage_path:   string;
+          public_url:     string;
+          mime_type:      string;
+          file_size?:     number | null;
+          width?:         number | null;
+          height?:        number | null;
+          sort_order?:    number;
+          is_active?:     boolean;
+          created_at?:    string;
+          updated_at?:    string;
+        };
+        Update: {
+          category?:      MediaCategory;
+          role?:          string | null;
+          title?:         string;
+          alt_text?:      string | null;
+          storage_path?:  string;
+          public_url?:    string;
+          mime_type?:     string;
+          file_size?:     number | null;
+          width?:         number | null;
+          height?:        number | null;
+          sort_order?:    number;
+          is_active?:     boolean;
+          updated_at?:    string;
         };
         Relationships: [];
       };

@@ -110,10 +110,13 @@ export default function AdminCertificationsPage() {
           Certifications CMS
         </h1>
         <p style={{ fontSize: "0.875rem", color: "#8B7355", maxWidth: "42rem" }}>
-          Data source: <strong>{source}</strong>. Edit{" "}
+          Data source: <strong>{source}</strong>. Upload images in{" "}
+          <a href="/admin/media" style={{ color: "#C4956A" }}>
+            Media Library
+          </a>
+          , copy the URL, then paste below. Or edit{" "}
           <code style={{ fontSize: "0.8rem" }}>src/data/certifications.json</code> for full
-          control without Supabase, or save here to override via database after running{" "}
-          <code style={{ fontSize: "0.8rem" }}>supabase/certifications.sql</code>.
+          control without Supabase.
         </p>
       </header>
 
