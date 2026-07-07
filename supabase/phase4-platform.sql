@@ -6,8 +6,7 @@ ALTER TABLE public.bookings
   ADD COLUMN IF NOT EXISTS intake_allergies   TEXT,
   ADD COLUMN IF NOT EXISTS intake_medications TEXT,
   ADD COLUMN IF NOT EXISTS intake_conditions  TEXT,
-  ADD COLUMN IF NOT EXISTS intake_pregnant    BOOLEAN DEFAULT FALSE,
-  ADD COLUMN IF NOT EXISTS sms_reminder_opt_in BOOLEAN DEFAULT FALSE;
+  ADD COLUMN IF NOT EXISTS intake_pregnant    BOOLEAN DEFAULT FALSE;
 
 ALTER TABLE public.profiles
   ADD COLUMN IF NOT EXISTS referral_code     TEXT UNIQUE,

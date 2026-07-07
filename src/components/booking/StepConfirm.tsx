@@ -43,7 +43,6 @@ export default function StepConfirm() {
       time_slot:        selectedTimeSlot,
       notes:            notes || undefined,
       intake,
-      sms_reminder:     smsReminder,
       service_duration: selectedService.duration,
       userId:           user.id,
       userEmail:        user.email ?? "",
@@ -57,7 +56,6 @@ export default function StepConfirm() {
 
   // ── Success state ──
   const [countdown, setCountdown] = useState(15);
-  const [smsReminder, setSmsReminder] = useState(true);
 
   const whatsappUrl =
     confirmedBookingId && selectedService && selectedStylist
@@ -439,17 +437,6 @@ export default function StepConfirm() {
       </div>
 
       {/* Notes */}
-      <div style={{ marginBottom: "1rem" }}>
-        <label className="intake-checkbox">
-          <input
-            type="checkbox"
-            checked={smsReminder}
-            onChange={(e) => setSmsReminder(e.target.checked)}
-          />
-          <span>Send me an SMS reminder before my appointment (when available)</span>
-        </label>
-      </div>
-
       <div style={{ marginBottom: "1.5rem" }}>
         <label className="label-sevres">
           Special requests or notes (optional)

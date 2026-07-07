@@ -271,7 +271,6 @@ export interface BookingFormData {
   notes?:     string;
   service_duration?: number;
   intake?:    ClinicalIntake;
-  sms_reminder?: boolean;
 }
 
 export type DnaOrderStatus = "ordered" | "collected" | "processing" | "ready" | "delivered";
