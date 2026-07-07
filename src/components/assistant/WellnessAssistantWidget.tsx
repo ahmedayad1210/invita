@@ -9,7 +9,7 @@ import Link from "next/link";
 
 type Message = { role: "user" | "assistant"; text: string; sources?: string[]; book?: string };
 
-const HIDDEN_PREFIXES = ["/admin", "/auth", "/partners"];
+const HIDDEN_PREFIXES = ["/admin", "/auth"];
 
 export default function WellnessAssistantWidget() {
   const pathname = usePathname();

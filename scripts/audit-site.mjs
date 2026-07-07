@@ -32,7 +32,7 @@ const STATIC_ROUTES = [
   "/", "/about", "/iv-therapy", "/add-ons", "/faq", "/contact", "/membership",
   "/locations", "/for-clinics", "/healthcare-network", "/book", "/privacy",
   "/terms", "/dna", "/science", "/science/explorer", "/journal", "/telehealth",
-  "/partners/login", "/account", "/bookings", "/services",
+  "/partners", "/account", "/bookings", "/services",
   "/auth/login", "/auth/register", "/auth/forgot-password", "/auth/reset-password",
   "/auth/callback", "/admin", "/admin/bookings", "/admin/leads", "/admin/certifications",
   "/admin/dna", "/admin/services", "/admin/stylists",
@@ -146,9 +146,13 @@ async function main() {
     (x.status === 307 || x.status === 302) && (x.location || "").includes("/admin")
   );
 
+  const partnerLegacy = await check("/partners/login", { followRedirect: false });
+  record("/partners/login → /partners", partnerLegacy, (x) =>
+    (x.status === 307 || x.status === 302 || x.status === 308) && (x.location || "").includes("/partners")
+  );
   const partnerDash = await check("/partners/dashboard", { followRedirect: false });
-  record("/partners/dashboard (anon) → login", partnerDash, (x) =>
-    (x.status === 307 || x.status === 302) && (x.location || "").includes("/partners/login")
+  record("/partners/dashboard → /partners", partnerDash, (x) =>
+    (x.status === 307 || x.status === 302 || x.status === 308) && (x.location || "").includes("/partners")
   );
 
   console.log(`\n${passes.length} passed, ${failures.length} failed`);

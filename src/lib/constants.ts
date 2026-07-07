@@ -112,7 +112,7 @@ export const NAV_LINKS = [
 export const FOOTER_B2B_LINKS = [
   { label: "Healthcare Network", labelAr: "شبكة الرعاية الصحية", href: "/healthcare-network" },
   { label: "For Clinics", labelAr: "للعيادات", href: "/for-clinics" },
-  { label: "Partner Portal", labelAr: "بوابة الشركاء", href: "/partners/login" },
+  { label: "Partner Resources", labelAr: "موارد الشركاء", href: "/partners" },
   { label: "Become a Partner", labelAr: "كن شريكاً", href: "/for-clinics#partner" },
   { label: "Professional Training", labelAr: "التدريب المهني", href: "/for-clinics#training" },
   { label: "Wholesale", labelAr: "الجملة", href: "/for-clinics#wholesale" },
