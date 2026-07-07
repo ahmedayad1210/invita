@@ -1,12 +1,19 @@
 import Link from "next/link";
 import Image from "next/image";
+import dynamic from "next/dynamic";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import LiquividaBadge from "@/components/brand/LiquividaBadge";
+import SectionSkeleton from "@/components/patterns/SectionSkeleton";
 import { LIQUIVIDA_DRIPS } from "@/lib/invita/liquivida-drips";
 import { getProtocolDripImage, DRIP_IMAGE_FALLBACK } from "@/lib/invita/drip-images";
 import { getDripPriceIqd } from "@/lib/invita/pricing";
 import { formatIqd } from "@/lib/format";
+
+const WellnessMatcherSection = dynamic(
+  () => import("@/components/home/WellnessMatcherSection"),
+  { loading: () => <SectionSkeleton minHeight="16rem" /> }
+);
 
 export const metadata = {
   title: "IV Drips",
@@ -25,6 +32,8 @@ export default function IvTherapyPage() {
             Eleven Invita catalogue formulas — each begins with a private medical consultation.
           </p>
         </header>
+
+        <WellnessMatcherSection />
 
         <div className="section-inner protocol-grid">
           {LIQUIVIDA_DRIPS.map((drip) => (
@@ -47,7 +56,7 @@ export default function IvTherapyPage() {
         </div>
 
         <div className="section-inner cta-band">
-          <p>Not sure which drip is right for you? We will recommend the ideal protocol.</p>
+          <p>Not sure which drip is right for you? Take the wellness matcher above.</p>
           <Link href="/book" className="btn-primary">
             Start Your Consultation
           </Link>

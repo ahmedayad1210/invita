@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { LIQUIVIDA_DRIPS } from "@/lib/invita/liquivida-drips";
 import { HEALTHCARE_CLINICS } from "@/lib/invita/healthcare-network";
 import { DNA_PANELS } from "@/lib/invita/panels";
+import { JOURNAL_ARTICLES } from "@/lib/invita/journal-articles";
 import { getSiteUrl } from "@/lib/seo";
 
 const STATIC_ROUTES = [
@@ -20,6 +21,7 @@ const STATIC_ROUTES = [
   "/terms",
   "/dna",
   "/science",
+  "/journal",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -54,5 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...dripEntries, ...dnaEntries, ...clinicEntries];
+  const journalEntries: MetadataRoute.Sitemap = JOURNAL_ARTICLES.map((article) => ({
+    url: `${base}/journal/${article.slug}`,
+    lastModified: new Date(article.publishedAt),
+    changeFrequency: "monthly",
+    priority: 0.75,
+  }));
+
+  return [...staticEntries, ...dripEntries, ...dnaEntries, ...journalEntries, ...clinicEntries];
 }

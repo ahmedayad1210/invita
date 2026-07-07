@@ -1,10 +1,13 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import MembershipApplicationForm from "@/components/membership/MembershipApplicationForm";
 import { MEMBERSHIP_TIERS } from "@/lib/constants";
 
 export const metadata = {
   title: "Membership",
+  description:
+    "Invita Circle and Longevity membership — annual wellness programmes with priority booking and DNA benefits.",
 };
 
 export default function MembershipPage() {
@@ -38,8 +41,12 @@ export default function MembershipPage() {
           ))}
         </div>
 
+        <div className="section-inner">
+          <MembershipApplicationForm />
+        </div>
+
         <div className="section-inner cta-band">
-          <p>Membership is extended by concierge review — not sold online.</p>
+          <p>Prefer to speak with concierge first?</p>
           <Link href="/book" className="btn-primary">
             Request a Membership Consultation
           </Link>

@@ -56,18 +56,28 @@ export async function POST(request: NextRequest) {
       ? `[CLINICAL INTAKE]\n${JSON.stringify(intake, null, 2)}${notes ? `\n\n[NOTES]\n${notes}` : ""}`
       : notes ?? null;
 
+    const insertPayload: Record<string, unknown> = {
+      user_id:    user.id,
+      service_id,
+      stylist_id,
+      date,
+      time_slot,
+      status:     "pending",
+      notes:      intakeNote,
+      guest_name: guest_name ?? null,
+    };
+
+    if (intake) {
+      insertPayload.intake_goals = intake.goals ?? null;
+      insertPayload.intake_allergies = intake.allergies ?? null;
+      insertPayload.intake_medications = intake.medications ?? null;
+      insertPayload.intake_conditions = intake.conditions ?? null;
+      insertPayload.intake_pregnant = Boolean(intake.pregnant);
+    }
+
     const { data: booking, error } = await supabase
       .from("bookings")
-      .insert({
-        user_id:    user.id,
-        service_id,
-        stylist_id,
-        date,
-        time_slot,
-        status:     "pending",
-        notes:      intakeNote,
-        guest_name: guest_name ?? null,
-      } as never)
+      .insert(insertPayload as never)
       .select()
       .single();
 

@@ -5,6 +5,7 @@
 
 import { getClinicPhotoPaths } from "./local-media";
 import { CURATED_CLINIC_PHOTO_IDS } from "./content-curation";
+import { LIQUIVIDA_DRIPS } from "./liquivida-drips";
 
 const CLINIC_PHOTO_PATHS = getClinicPhotoPaths();
 const CURATED_COVER_PATHS = new Set(
@@ -142,15 +143,18 @@ function clinic(
   }
 ): HealthcareClinic {
   const index = _clinicPhotoIndex++;
-  const uploadedCover = CLINIC_PHOTO_PATHS[index];
+  const photoIndex =
+    CLINIC_PHOTO_PATHS.length > 0 ? index % CLINIC_PHOTO_PATHS.length : 0;
+  const uploadedCover =
+    CLINIC_PHOTO_PATHS.length > 0 ? CLINIC_PHOTO_PATHS[photoIndex] : undefined;
   const hasUpload = Boolean(uploadedCover);
 
   return {
     ...input,
-    featured: input.featured ?? (hasUpload && CURATED_COVER_PATHS.has(uploadedCover)),
+    featured: input.featured ?? (hasUpload && uploadedCover != null && CURATED_COVER_PATHS.has(uploadedCover)),
     logo: input.logo ?? PLACEHOLDER_LOGO,
     cover: input.cover ?? uploadedCover ?? PLACEHOLDER_COVER,
-    gallery: input.gallery ?? (hasUpload
+    gallery: input.gallery ?? (hasUpload && uploadedCover
       ? [uploadedCover, ...PLACEHOLDER_GALLERY.slice(0, 2)]
       : PLACEHOLDER_GALLERY),
     productsUsed: input.productsUsed ?? DEFAULT_PRODUCTS,
@@ -884,6 +888,23 @@ export const HEALTHCARE_CLINICS: HealthcareClinic[] = [
     map: COORDS.karrada,
   }),
 ];
+
+const SPECIALTY_DRIP_SLUGS: Record<ClinicSpecialty, string[]> = {
+  "medical-center": ["myers-cocktail", "immune-boost", "energy-boost", "nad-plus"],
+  dermatology: ["skin-radiance", "hair-skin-nails", "glutathione-detox"],
+  aesthetic: ["skin-radiance", "hair-skin-nails", "nad-plus"],
+  nutrition: ["myers-cocktail", "energy-boost", "vitamin-d3-boost"],
+  "plastic-surgery": ["skin-radiance", "immune-boost", "nad-plus"],
+  "general-practice": ["myers-cocktail", "immune-boost", "energy-boost"],
+  dental: ["immune-boost", "myers-cocktail", "energy-boost"],
+  other: ["myers-cocktail", "immune-boost", "energy-boost"],
+};
+
+/** Drip slugs to feature on a clinic profile for booking deep-links. */
+export function getRecommendedDripsForClinic(clinic: HealthcareClinic): string[] {
+  const slugs = SPECIALTY_DRIP_SLUGS[clinic.specialty] ?? SPECIALTY_DRIP_SLUGS.other;
+  return slugs.filter((slug) => LIQUIVIDA_DRIPS.some((d) => d.slug === slug));
+}
 
 export function getClinicBySlug(slug: string): HealthcareClinic | undefined {
   return HEALTHCARE_CLINICS.find((c) => c.slug === slug);

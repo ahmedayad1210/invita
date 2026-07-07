@@ -42,6 +42,22 @@ const InstagramFeed = dynamic(
   () => import("@/components/home/InstagramFeed"),
   { loading: () => <SectionSkeleton minHeight="18rem" /> }
 );
+const WellnessMatcherSection = dynamic(
+  () => import("@/components/home/WellnessMatcherSection"),
+  { loading: () => <SectionSkeleton minHeight="16rem" /> }
+);
+const UseCasesSection = dynamic(
+  () => import("@/components/home/UseCasesSection"),
+  { loading: () => <SectionSkeleton minHeight="10rem" /> }
+);
+const TwoPillarSection = dynamic(
+  () => import("@/components/home/TwoPillarSection"),
+  { loading: () => <SectionSkeleton minHeight="12rem" /> }
+);
+const AddOnsPreview = dynamic(
+  () => import("@/components/home/AddOnsPreview"),
+  { loading: () => <SectionSkeleton minHeight="14rem" /> }
+);
 
 export default function HomePage() {
   return (
@@ -54,8 +70,12 @@ export default function HomePage() {
         <StatsSection />
         <ScienceSpotlightSection />
         <ServicesPreview />
+        <TwoPillarSection />
+        <UseCasesSection />
+        <WellnessMatcherSection />
         <AboutLiquividaSection />
         <HowItWorks />
+        <AddOnsPreview />
         <InvitaGallerySection />
         <Suspense fallback={<SectionSkeleton minHeight="14rem" />}>
           <CertificationsSection />

@@ -11,9 +11,11 @@ import {
   SPECIALTY_LABELS,
   clinicMapEmbedUrl,
   getClinicBySlug,
+  getRecommendedDripsForClinic,
   getRelatedClinics,
   HEALTHCARE_CLINICS,
 } from "@/lib/invita/healthcare-network";
+import { getLiquividaDrip } from "@/lib/invita/liquivida-drips";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -37,6 +39,7 @@ export default async function ClinicProfilePage({ params }: Props) {
   if (!clinic) notFound();
 
   const related = getRelatedClinics(clinic);
+  const recommendedDrips = getRecommendedDripsForClinic(clinic);
 
   return (
     <>
@@ -92,6 +95,32 @@ export default async function ClinicProfilePage({ params }: Props) {
                 <li key={item}>{item}</li>
               ))}
             </ul>
+          </section>
+
+          {/* Book at this clinic */}
+          <section className="clinic-profile-section clinic-book-section">
+            <h2 className="clinic-section-title">Book at this clinic</h2>
+            <p>
+              Invita protocols available at partner facilities — select a drip to start your
+              consultation. Our concierge will coordinate with {clinic.name}.
+            </p>
+            <ul className="clinic-drip-links">
+              {recommendedDrips.map((slug) => {
+                const drip = getLiquividaDrip(slug);
+                if (!drip) return null;
+                return (
+                  <li key={slug}>
+                    <Link href={`/book?drip=${slug}`} className="clinic-drip-link">
+                      <strong>{drip.name}</strong>
+                      <span>{drip.tagline}</span>
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+            <Link href="/book" className="btn-primary">
+              Book at this clinic
+            </Link>
           </section>
 
           {/* Gallery */}

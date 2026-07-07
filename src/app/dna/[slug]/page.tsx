@@ -2,6 +2,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import DnaOrderWizard from "@/components/dna/DnaOrderWizard";
+import DnaPathwaySection from "@/components/dna/DnaPathwaySection";
 import { getPanel } from "@/lib/invita/panels";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -60,9 +62,12 @@ export default async function PanelDetailPage({ params }: Props) {
               </ul>
             </section>
 
-            <Link href="/book" className="btn-primary">
-              Request this panel
-            </Link>
+            <DnaPathwaySection panelSlug={panel.slug} />
+
+            <section>
+              <h3>Order your kit</h3>
+              <DnaOrderWizard panel={panel} />
+            </section>
           </div>
         </div>
       </main>

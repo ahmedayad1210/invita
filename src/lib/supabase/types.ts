@@ -51,6 +51,11 @@ export interface Booking {
   created_at: string;
   updated_at: string;
   guest_name?: string | null;
+  intake_goals?:       string | null;
+  intake_allergies?:   string | null;
+  intake_medications?: string | null;
+  intake_conditions?:  string | null;
+  intake_pregnant?:    boolean | null;
 }
 
 export interface Lead {
@@ -152,6 +157,12 @@ export type Database = {
           time_slot:  string;
           status?:    BookingStatus;
           notes?:     string | null;
+          guest_name?: string | null;
+          intake_goals?:       string | null;
+          intake_allergies?:   string | null;
+          intake_medications?: string | null;
+          intake_conditions?:  string | null;
+          intake_pregnant?:    boolean | null;
           created_at?: string;
           updated_at?: string;
         };
@@ -164,6 +175,12 @@ export type Database = {
           time_slot?: string;
           status?:    BookingStatus;
           notes?:     string | null;
+          guest_name?: string | null;
+          intake_goals?:       string | null;
+          intake_allergies?:   string | null;
+          intake_medications?: string | null;
+          intake_conditions?:  string | null;
+          intake_pregnant?:    boolean | null;
           updated_at?: string;
         };
         Relationships: [];

@@ -5,6 +5,7 @@ import { useState } from "react";
 import InitialsAvatar from "@/components/ui/InitialsAvatar";
 import Toast from "@/components/ui/Toast";
 import { formatDateLabel, formatTimeLabel, formatPrice } from "@/lib/time-slots";
+import { formatIntakeSummary, intakeFromBooking } from "@/lib/invita/booking-intake";
 import { CheckCircle, XCircle, ChevronUp, ChevronDown } from "lucide-react";
 import type { BookingWithDetails, BookingStatus } from "@/lib/supabase/types";
 
@@ -179,6 +180,8 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                   </div>
                 </th>
 
+                <th style={{ minWidth: "140px" }}>Clinical intake</th>
+
                 {/* Actions */}
                 <th style={{ minWidth: "120px" }}>Actions</th>
               </tr>
@@ -188,7 +191,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
               {sorted.length === 0 ? (
                 <tr>
                   <td
-                    colSpan={7}
+                    colSpan={8}
                     style={{ textAlign: "center", padding: "3rem", color: "#8B7355" }}
                   >
                     {search ? "No bookings match your search." : "No bookings found."}
@@ -198,6 +201,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                 sorted.map((booking) => {
                   const style     = STATUS_STYLES[booking.status] ?? STATUS_STYLES.pending;
                   const isUpdating = updating === booking.id;
+                  const intake = intakeFromBooking(booking);
 
                   return (
                     <tr key={booking.id}>
@@ -325,6 +329,46 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                         >
                           {booking.status}
                         </span>
+                      </td>
+
+                      {/* Clinical intake */}
+                      <td>
+                        {intake ? (
+                          <details>
+                            <summary
+                              style={{
+                                fontFamily: "'DM Sans', sans-serif",
+                                fontSize:   "0.8125rem",
+                                color:      "#C4956A",
+                                cursor:     "pointer",
+                              }}
+                            >
+                              View intake
+                            </summary>
+                            <pre
+                              style={{
+                                fontFamily: "'DM Sans', sans-serif",
+                                fontSize:   "0.75rem",
+                                color:      "#2C1810",
+                                whiteSpace: "pre-wrap",
+                                marginTop:  "0.5rem",
+                                maxWidth:   "220px",
+                              }}
+                            >
+                              {formatIntakeSummary(intake)}
+                            </pre>
+                          </details>
+                        ) : (
+                          <span
+                            style={{
+                              fontFamily: "'DM Sans', sans-serif",
+                              fontSize:   "0.75rem",
+                              color:      "#8B7355",
+                            }}
+                          >
+                            —
+                          </span>
+                        )}
                       </td>
 
                       {/* Actions */}

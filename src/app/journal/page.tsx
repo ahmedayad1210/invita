@@ -1,17 +1,23 @@
 import Link from "next/link";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
+import { JOURNAL_ARTICLES } from "@/lib/invita/journal-articles";
 
 export const metadata = {
   title: "Journal",
-  robots: { index: false, follow: false },
+  description:
+    "Longevity, IV therapy, and genomics insights from Invita — NAD+, immunity, beauty, and clinical education for Iraq.",
 };
 
 export default function JournalPage() {
+  const sorted = [...JOURNAL_ARTICLES].sort(
+    (a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+  );
+
   return (
     <>
       <Navbar />
-      <main className="page-main">
+      <main id="main-content" className="page-main">
         <header className="page-hero">
           <p className="page-eyebrow">Editorial</p>
           <h1 className="page-title">Journal</h1>
@@ -21,15 +27,31 @@ export default function JournalPage() {
         </header>
 
         <div className="section-inner journal-list">
-          <article className="journal-card">
-            <h2>Articles coming soon</h2>
-            <p>
-              We are preparing editorial content on NAD+, nutrigenomics, and IV
-              safety. In the meantime, explore our{" "}
-              <Link href="/science">science hub</Link> or{" "}
-              <Link href="/faq">FAQ</Link>.
-            </p>
-          </article>
+          {sorted.map((article) => (
+            <article key={article.slug} className="journal-card">
+              <p className="journal-card-meta">
+                {new Date(article.publishedAt).toLocaleDateString("en-GB", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })}
+                {" · "}
+                {article.readMinutes} min read
+              </p>
+              <h2>
+                <Link href={`/journal/${article.slug}`}>{article.title}</Link>
+              </h2>
+              <p>{article.excerpt}</p>
+              <ul className="journal-card-tags">
+                {article.tags.map((tag) => (
+                  <li key={tag}>{tag}</li>
+                ))}
+              </ul>
+              <Link href={`/journal/${article.slug}`} className="journal-card-link">
+                Read article →
+              </Link>
+            </article>
+          ))}
         </div>
       </main>
       <Footer />

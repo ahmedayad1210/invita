@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ExternalLink, Film, Instagram, LayoutGrid, Play } from "lucide-react";
+import { ExternalLink, Film, Heart, Instagram, LayoutGrid, Play, ShoppingBag } from "lucide-react";
 import { useLocale } from "@/contexts/LocaleContext";
 import {
   formatInstagramCount,
@@ -11,10 +11,16 @@ import {
   postCaption,
   type InstagramPost,
 } from "@/lib/invita/instagram";
+import {
+  INSTAGRAM_TOPICS,
+  inferPostTopic,
+  postMatchesTopic,
+} from "@/lib/invita/instagram-topics";
 
 const INITIAL_VISIBLE = 6;
 
-type Filter = "all" | "reels" | "posts";
+type TypeFilter = "all" | "reels" | "posts";
+type TopicFilter = "all" | string;
 
 function TypeBadge({ type, isAr }: { type: InstagramPost["type"]; isAr: boolean }) {
   if (type === "reel") {
@@ -36,18 +42,123 @@ function TypeBadge({ type, isAr }: { type: InstagramPost["type"]; isAr: boolean 
   return null;
 }
 
+function PostTile({
+  post,
+  isAr,
+  profileHandle,
+}: {
+  post: InstagramPost;
+  isAr: boolean;
+  profileHandle: string;
+}) {
+  const caption = postCaption(post, isAr ? "ar" : "en");
+  const topic = inferPostTopic(caption);
+  const dripHref = topic?.dripSlug ? `/iv-therapy/${topic.dripSlug}` : null;
+
+  const image = (
+    <>
+      <Image
+        src={post.image}
+        alt={caption || `@${profileHandle}`}
+        width={post.imageWidth ?? 1080}
+        height={post.imageHeight ?? 1080}
+        quality={92}
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
+        style={{ objectFit: "cover", width: "100%", height: "100%" }}
+      />
+      <TypeBadge type={post.type} isAr={isAr} />
+      {topic && (
+        <span className="instagram-topic-badge">
+          <ShoppingBag size={11} aria-hidden="true" />
+          {isAr ? topic.labelAr : topic.labelEn}
+        </span>
+      )}
+      {post.likes != null && post.likes > 0 && (
+        <span className="instagram-likes-badge">
+          <Heart size={11} aria-hidden="true" />
+          {formatInstagramCount(post.likes)}
+        </span>
+      )}
+      {caption && (
+        <span className="instagram-tile-caption">
+          {caption.slice(0, 80)}
+          {caption.length > 80 ? "…" : ""}
+        </span>
+      )}
+    </>
+  );
+
+  if (dripHref) {
+    return (
+      <div className="instagram-tile instagram-tile--shoppable">
+        <Link href={dripHref} className="instagram-tile-main" title={caption}>
+          {image}
+          <span className="instagram-tile-overlay instagram-tile-overlay--shop">
+            {isAr ? "عرض البروتوكول" : "View protocol"}
+          </span>
+        </Link>
+        <a
+          href={post.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="instagram-tile-ig-link"
+          title={isAr ? "فتح على إنستغرام" : "Open on Instagram"}
+          aria-label={isAr ? "فتح على إنستغرام" : "Open on Instagram"}
+        >
+          <ExternalLink size={14} aria-hidden="true" />
+        </a>
+      </div>
+    );
+  }
+
+  return (
+    <a
+      href={post.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="instagram-tile"
+      title={caption}
+    >
+      {image}
+      <span className="instagram-tile-overlay">
+        <ExternalLink size={18} aria-hidden="true" />
+      </span>
+    </a>
+  );
+}
+
 export default function InstagramFeed() {
   const { locale } = useLocale();
   const isAr = locale === "ar";
   const profile = INSTAGRAM_PROFILE;
-  const [filter, setFilter] = useState<Filter>("all");
+  const [typeFilter, setTypeFilter] = useState<TypeFilter>("all");
+  const [topicFilter, setTopicFilter] = useState<TopicFilter>("all");
   const [visible, setVisible] = useState(INITIAL_VISIBLE);
 
+  const topicCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: profile.posts.length };
+    for (const topic of INSTAGRAM_TOPICS) {
+      counts[topic.id] = profile.posts.filter((p) =>
+        postMatchesTopic(postCaption(p, "en"), topic.id)
+      ).length;
+    }
+    return counts;
+  }, [profile.posts]);
+
   const filtered = useMemo(() => {
-    if (filter === "reels") return profile.posts.filter((p) => p.type === "reel");
-    if (filter === "posts") return profile.posts.filter((p) => p.type !== "reel");
-    return profile.posts;
-  }, [filter, profile.posts]);
+    let posts = profile.posts;
+
+    if (typeFilter === "reels") posts = posts.filter((p) => p.type === "reel");
+    if (typeFilter === "posts") posts = posts.filter((p) => p.type !== "reel");
+
+    if (topicFilter !== "all") {
+      posts = posts.filter((p) =>
+        postMatchesTopic(postCaption(p, "en"), topicFilter)
+      );
+    }
+
+    return posts;
+  }, [typeFilter, topicFilter, profile.posts]);
 
   const shown = filtered.slice(0, visible);
   const reelCount = profile.stats?.reels ?? profile.reels?.length ?? 0;
@@ -142,10 +253,10 @@ export default function InstagramFeed() {
                 key={key}
                 type="button"
                 role="tab"
-                aria-selected={filter === key}
-                className={`instagram-filter-btn${filter === key ? " is-active" : ""}`}
+                aria-selected={typeFilter === key}
+                className={`instagram-filter-btn${typeFilter === key ? " is-active" : ""}`}
                 onClick={() => {
-                  setFilter(key);
+                  setTypeFilter(key);
                   setVisible(INITIAL_VISIBLE);
                 }}
               >
@@ -161,37 +272,47 @@ export default function InstagramFeed() {
           </p>
         </div>
 
+        <div className="instagram-topic-filters" role="tablist" aria-label={isAr ? "تصفية حسب الموضوع" : "Filter by topic"}>
+          <button
+            type="button"
+            role="tab"
+            aria-selected={topicFilter === "all"}
+            className={`instagram-topic-btn${topicFilter === "all" ? " is-active" : ""}`}
+            onClick={() => {
+              setTopicFilter("all");
+              setVisible(INITIAL_VISIBLE);
+            }}
+          >
+            {isAr ? "كل المواضيع" : "All topics"}
+            <span className="instagram-filter-count">{topicCounts.all}</span>
+          </button>
+          {INSTAGRAM_TOPICS.map((topic) => (
+            <button
+              key={topic.id}
+              type="button"
+              role="tab"
+              aria-selected={topicFilter === topic.id}
+              className={`instagram-topic-btn${topicFilter === topic.id ? " is-active" : ""}`}
+              onClick={() => {
+                setTopicFilter(topic.id);
+                setVisible(INITIAL_VISIBLE);
+              }}
+            >
+              {isAr ? topic.labelAr : topic.labelEn}
+              <span className="instagram-filter-count">{topicCounts[topic.id] ?? 0}</span>
+            </button>
+          ))}
+        </div>
+
         <div className="instagram-grid">
-          {shown.map((post) => {
-            const caption = postCaption(post, locale);
-            return (
-              <a
-                key={post.shortcode || post.id}
-                href={post.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="instagram-tile"
-                title={caption}
-              >
-                <Image
-                  src={post.image}
-                  alt={caption || `@${profile.handle}`}
-                  width={post.imageWidth ?? 1080}
-                  height={post.imageHeight ?? 1080}
-                  quality={92}
-                  sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 320px"
-                  style={{ objectFit: "cover", width: "100%", height: "100%" }}
-                />
-                <TypeBadge type={post.type} isAr={isAr} />
-                {caption && (
-                  <span className="instagram-tile-caption">{caption.slice(0, 80)}{caption.length > 80 ? "…" : ""}</span>
-                )}
-                <span className="instagram-tile-overlay">
-                  <ExternalLink size={18} aria-hidden="true" />
-                </span>
-              </a>
-            );
-          })}
+          {shown.map((post) => (
+            <PostTile
+              key={post.shortcode || post.id}
+              post={post}
+              isAr={isAr}
+              profileHandle={profile.handle}
+            />
+          ))}
         </div>
 
         <div className="instagram-actions">
