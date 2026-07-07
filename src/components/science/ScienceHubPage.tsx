@@ -391,7 +391,13 @@ export default function ScienceHubPage() {
         <p className="science-disclaimer">{pick(SCIENCE_DISCLAIMER, isAr)}</p>
 
         <div className="science-bottom-cta">
-          <Link href="/book" className="btn-primary">
+          <Link href="/science/explorer" className="btn-primary">
+            {isAr ? "استكشف الإنفographics" : "Explore infographics"}
+          </Link>
+          <Link href="/journal" className="btn-secondary">
+            {isAr ? "المجلة" : "Journal"}
+          </Link>
+          <Link href="/book" className="btn-secondary">
             {isAr ? "تحدث مع فريقنا الطبي" : "Speak with our medical team"}
           </Link>
           <Link href="/for-clinics" className="btn-secondary">

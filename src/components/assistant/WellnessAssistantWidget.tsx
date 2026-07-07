@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
+import { usePathname } from "next/navigation";
 import { MessageCircle, Send, X } from "lucide-react";
 import { useLocale } from "@/contexts/LocaleContext";
 import { answerWellnessQuery } from "@/lib/invita/wellness-assistant";
@@ -8,7 +9,11 @@ import Link from "next/link";
 
 type Message = { role: "user" | "assistant"; text: string; sources?: string[]; book?: string };
 
+const HIDDEN_PREFIXES = ["/admin", "/auth", "/partners"];
+
 export default function WellnessAssistantWidget() {
+  const pathname = usePathname();
+  const hidden = HIDDEN_PREFIXES.some((p) => pathname.startsWith(p));
   const { locale } = useLocale();
   const isAr = locale === "ar";
   const [open, setOpen] = useState(false);
@@ -22,6 +27,10 @@ export default function WellnessAssistantWidget() {
     },
   ]);
   const [loading, setLoading] = useState(false);
+
+  if (hidden) {
+    return null;
+  }
 
   const send = async (e: FormEvent) => {
     e.preventDefault();

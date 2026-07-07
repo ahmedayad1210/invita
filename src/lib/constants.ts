@@ -112,6 +112,7 @@ export const NAV_LINKS = [
 export const FOOTER_B2B_LINKS = [
   { label: "Healthcare Network", labelAr: "شبكة الرعاية الصحية", href: "/healthcare-network" },
   { label: "For Clinics", labelAr: "للعيادات", href: "/for-clinics" },
+  { label: "Partner Portal", labelAr: "بوابة الشركاء", href: "/partners/login" },
   { label: "Become a Partner", labelAr: "كن شريكاً", href: "/for-clinics#partner" },
   { label: "Professional Training", labelAr: "التدريب المهني", href: "/for-clinics#training" },
   { label: "Wholesale", labelAr: "الجملة", href: "/for-clinics#wholesale" },
@@ -122,6 +123,9 @@ export const FOOTER_B2B_LINKS = [
 export const FOOTER_ADVANCED_LINKS = [
   { label: "DNA Lab", labelAr: "مختبر الحمض النووي", href: "/dna" },
   { label: "Science & Resources", labelAr: "العلم والمراجع", href: "/science" },
+  { label: "Infographic Explorer", labelAr: "معرض الإنفographics", href: "/science/explorer" },
+  { label: "Journal", labelAr: "المجلة", href: "/journal" },
+  { label: "IV Pre-Screen", labelAr: "فحص ما قبل IV", href: "/telehealth" },
   { label: "Membership", labelAr: "العضوية", href: "/membership" },
 ] as const;
 

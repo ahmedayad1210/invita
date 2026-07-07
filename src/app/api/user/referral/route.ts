@@ -2,6 +2,10 @@ import { NextRequest, NextResponse } from "next/server";
 import { createClient, getCurrentUser } from "@/lib/supabase/server";
 import { generateReferralCode } from "@/lib/invita/referrals";
 
+function isReferralSchemaError(message: string): boolean {
+  return /referral_|referred_by|column/.test(message);
+}
+
 export async function GET() {
   try {
     const user = await getCurrentUser();
@@ -9,6 +13,7 @@ export async function GET() {
       return NextResponse.json({ success: false, error: "Not authenticated." }, { status: 401 });
     }
 
+    const fallbackCode = generateReferralCode(user.id);
     const supabase = await createClient();
     const { data: profile, error } = await supabase
       .from("profiles")
@@ -17,18 +22,26 @@ export async function GET() {
       .single();
 
     if (error) {
+      if (isReferralSchemaError(error.message)) {
+        return NextResponse.json({
+          success: true,
+          data: { referral_code: fallbackCode, referral_credits: 0, schema_pending: true },
+        });
+      }
       return NextResponse.json({ success: false, error: error.message }, { status: 500 });
     }
 
     const row = profile as { referral_code?: string | null; referral_credits?: number | null };
-    let code = row.referral_code;
+    let code = row.referral_code ?? fallbackCode;
 
-    if (!code) {
-      code = generateReferralCode(user.id);
-      await supabase
+    if (!row.referral_code) {
+      const { error: updateError } = await supabase
         .from("profiles")
         .update({ referral_code: code } as never)
         .eq("id", user.id);
+      if (updateError && isReferralSchemaError(updateError.message)) {
+        code = fallbackCode;
+      }
     }
 
     return NextResponse.json({
@@ -59,11 +72,21 @@ export async function POST(request: NextRequest) {
 
     const supabase = await createClient();
 
-    const { data: self } = await supabase
+    const { data: self, error: selfError } = await supabase
       .from("profiles")
       .select("referred_by, referral_code")
       .eq("id", user.id)
       .single();
+
+    if (selfError) {
+      if (isReferralSchemaError(selfError.message)) {
+        return NextResponse.json({
+          success: true,
+          data: { applied: false, schema_pending: true },
+        });
+      }
+      return NextResponse.json({ success: false, error: "Profile not found." }, { status: 404 });
+    }
 
     if (!self) {
       return NextResponse.json({ success: false, error: "Profile not found." }, { status: 404 });
@@ -78,11 +101,18 @@ export async function POST(request: NextRequest) {
       return NextResponse.json({ success: false, error: "Cannot use your own code." }, { status: 400 });
     }
 
-    const { data: referrer } = await supabase
+    const { data: referrer, error: referrerError } = await supabase
       .from("profiles")
       .select("id, referral_credits")
       .eq("referral_code", refCode)
       .maybeSingle();
+
+    if (referrerError && isReferralSchemaError(referrerError.message)) {
+      return NextResponse.json({
+        success: true,
+        data: { applied: false, schema_pending: true },
+      });
+    }
 
     if (!referrer) {
       return NextResponse.json({ success: false, error: "Invalid referral code." }, { status: 404 });

@@ -17,6 +17,11 @@ const DRIP_SLUGS = [
   "vitamin-d3-boost", "myers-cocktail", "glutathione-detox",
 ];
 const DNA_SLUGS = ["nutrigenomics", "longevity-comprehensive", "pharmacogenomics", "skin-beauty-genetics"];
+const JOURNAL_SLUGS = [
+  ...fs
+    .readFileSync(path.join(ROOT, "src/lib/invita/journal-articles.ts"), "utf8")
+    .matchAll(/slug:\s*"([^"]+)"/g),
+].map((m) => m[1]);
 const CLINIC_SLUGS = [
   ...fs
     .readFileSync(path.join(ROOT, "src/lib/invita/healthcare-network.ts"), "utf8")
@@ -31,7 +36,7 @@ const STATIC_ROUTES = [
   "/auth/login", "/auth/register", "/auth/forgot-password", "/auth/reset-password",
   "/auth/callback", "/admin", "/admin/bookings", "/admin/leads", "/admin/certifications",
   "/admin/dna", "/admin/services", "/admin/stylists",
-  "/sitemap.xml", "/robots.txt", "/favicon.svg", "/og/default.svg",
+  "/sitemap.xml", "/robots.txt", "/favicon.svg", "/og/default.svg", "/manifest.webmanifest",
 ];
 
 const PDFS = [
@@ -102,6 +107,12 @@ async function main() {
     record(`/healthcare-network/${slug}`, r, (x) => x.status === 200);
   }
 
+  console.log("\n── Journal articles (sample 3) ──");
+  for (const slug of JOURNAL_SLUGS.slice(0, 3)) {
+    const r = await check(`/journal/${slug}`);
+    record(`/journal/${slug}`, r, (x) => x.status === 200);
+  }
+
   console.log("\n── PDF resources (8) ──");
   for (const pdf of PDFS) {
     const r = await check(pdf);
@@ -117,6 +128,7 @@ async function main() {
     ["GET /api/user/profile (anon)", () => check("/api/user/profile"), (x) => x.status === 401],
     ["POST /api/leads (empty)", () => check("/api/leads", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" }), (x) => x.status === 400],
     ["POST /api/admin/login (empty)", () => check("/api/admin/login", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" }), (x) => x.status === 400 || x.status === 401],
+    ["POST /api/wellness-assistant (empty)", () => check("/api/wellness-assistant", { method: "POST", headers: { "Content-Type": "application/json" }, body: "{}" }), (x) => x.status === 400],
     ["GET /api/admin/leads (anon)", () => check("/api/admin/leads"), (x) => x.status === 401],
   ];
   for (const [name, fn, expect] of apiChecks) {
@@ -132,6 +144,11 @@ async function main() {
   const adminAnon = await check("/admin/bookings", { followRedirect: false });
   record("/admin/bookings (anon) → /admin", adminAnon, (x) =>
     (x.status === 307 || x.status === 302) && (x.location || "").includes("/admin")
+  );
+
+  const partnerDash = await check("/partners/dashboard", { followRedirect: false });
+  record("/partners/dashboard (anon) → login", partnerDash, (x) =>
+    (x.status === 307 || x.status === 302) && (x.location || "").includes("/partners/login")
   );
 
   console.log(`\n${passes.length} passed, ${failures.length} failed`);

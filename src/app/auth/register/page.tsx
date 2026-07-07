@@ -25,6 +25,9 @@ export default function RegisterPage() {
   const router = useRouter();
   const searchParams = useSearchParams();
   const refCode = searchParams.get("ref");
+  const loginHref = refCode
+    ? `/auth/login?redirectTo=${encodeURIComponent(`/auth/register?ref=${refCode}`)}`
+    : "/auth/login";
 
   useEffect(() => {
     if (initialized && user) router.push("/");
@@ -95,7 +98,7 @@ export default function RegisterPage() {
           <>
             Already have an account?{" "}
             <Link
-              href="/auth/login"
+              href={loginHref}
               style={{ color: "#C4956A", fontWeight: 500 }}
             >
               Sign in

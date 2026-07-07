@@ -75,11 +75,29 @@ export async function POST(request: NextRequest) {
       insertPayload.intake_pregnant = Boolean(intake.pregnant);
     }
 
-    const { data: booking, error } = await supabase
+    let { data: booking, error } = await supabase
       .from("bookings")
       .insert(insertPayload as never)
       .select()
       .single();
+
+    // Fallback when structured intake columns are not migrated yet
+    if (error && /intake_|column/.test(error.message)) {
+      const fallbackPayload = { ...insertPayload };
+      delete fallbackPayload.intake_goals;
+      delete fallbackPayload.intake_allergies;
+      delete fallbackPayload.intake_medications;
+      delete fallbackPayload.intake_conditions;
+      delete fallbackPayload.intake_pregnant;
+
+      const retry = await supabase
+        .from("bookings")
+        .insert(fallbackPayload as never)
+        .select()
+        .single();
+      booking = retry.data;
+      error = retry.error;
+    }
 
     if (error) {
       return NextResponse.json(
