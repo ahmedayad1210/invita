@@ -17,7 +17,7 @@ Project: `xlwpnodyighqpepfaekh`
 
 1. **Sign up** — `AuthContext.signUp` sends users to `/auth/callback` after email confirmation (`emailRedirectTo`).
 2. **Email confirm** — Supabase redirects to `/auth/callback?code=…`; the route handler exchanges the code for a session cookie.
-3. **Password reset** — `resetPasswordForEmail` redirects to `/auth/reset-password`; user sets a new password there.
+3. **Password reset** — `resetPasswordForEmail` redirects to `/auth/reset-password?code=…`; the page **exchanges the code server-side** (PKCE), then shows the new-password form.
 
 ## Netlify env (must match)
 
