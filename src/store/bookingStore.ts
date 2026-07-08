@@ -36,6 +36,7 @@ export interface BookingState {
   isSubmitting: boolean;
   submitError: string | null;
   confirmedBookingId: string | null;
+  bookedAsGuest: boolean;
   activeCategory: string;
 }
 
@@ -66,6 +67,7 @@ export interface BookingActions {
   setSubmitting:        (loading: boolean) => void;
   setSubmitError:       (error: string | null) => void;
   setConfirmedBookingId:(id: string | null) => void;
+  setBookedAsGuest:     (guest: boolean) => void;
 
   // Reset
   resetBooking: () => void;
@@ -98,6 +100,7 @@ const initialState: BookingState = {
   isSubmitting:        false,
   submitError:         null,
   confirmedBookingId:  null,
+  bookedAsGuest:       false,
   activeCategory:      "all",
 };
 
@@ -215,6 +218,10 @@ export const useBookingStore = create<BookingStore>()(
 
   setConfirmedBookingId: (id) => {
     set({ confirmedBookingId: id });
+  },
+
+  setBookedAsGuest: (guest) => {
+    set({ bookedAsGuest: guest });
   },
 
   // ── Reset ──

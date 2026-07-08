@@ -11,27 +11,27 @@ import { getProtocolDripImage, DRIP_IMAGE_FALLBACK } from "@/lib/invita/drip-ima
 import { getInfographic } from "@/lib/invita/local-media";
 import { formatIqd } from "@/lib/format";
 import { formatDuration } from "@/lib/time-slots";
+import { useLocale } from "@/contexts/LocaleContext";
 
 const HOMEPAGE_DRIPS = HOMEPAGE_DRIP_SLUGS.map((slug) =>
   LIQUIVIDA_DRIPS.find((d) => d.slug === slug)
 ).filter(Boolean) as typeof LIQUIVIDA_DRIPS;
 
 export default function ServicesPreview() {
+  const { t } = useLocale();
+  const copy = t.servicesPreview;
+
   return (
     <section className="services-preview section-padding" style={{ backgroundColor: "#FFFFFF" }}>
       <div className="container-invita">
         <div className="services-preview-header">
           <div>
-            <span className="eyebrow">Invita Catalogue</span>
-            <h2 className="services-preview-title">
-              11 Liquivida® protocols
-            </h2>
-            <p className="services-preview-lead">
-              From your product catalogue — each begins with a private medical consultation.
-            </p>
+            <span className="eyebrow">{copy.eyebrow}</span>
+            <h2 className="services-preview-title">{copy.title}</h2>
+            <p className="services-preview-lead">{copy.lead}</p>
           </div>
           <Link href="/iv-therapy" className="services-preview-link">
-            View all 11 <ArrowRight size={14} />
+            {copy.viewAll} <ArrowRight size={14} />
           </Link>
         </div>
 

@@ -7,8 +7,10 @@ import InitialsAvatar from "@/components/ui/InitialsAvatar";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { Check } from "lucide-react";
 import type { Stylist } from "@/lib/supabase/types";
+import { useLocale } from "@/contexts/LocaleContext";
 
 export default function StepStylist() {
+  const { t } = useLocale();
   const {
     selectedService,
     selectedStylist,
@@ -29,32 +31,16 @@ export default function StepStylist() {
   return (
     <div>
       <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
-        <h2
-          style={{
-            fontFamily:   "'Cormorant Garamond', Georgia, serif",
-            fontSize:     "clamp(1.75rem, 3vw, 2.5rem)",
-            fontWeight:   400,
-            color:        "#2C1810",
-            marginBottom: "0.5rem",
-          }}
-        >
-          Choose your specialist
-        </h2>
-        <p
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize:   "0.9rem",
-            color:      "#8B7355",
-          }}
-        >
+        <h2 className="step-title">{t.book.chooseClinician}</h2>
+        <p className="step-desc">
           {selectedService
-            ? `Booking: ${selectedService.name}`
-            : "Select a specialist for your treatment."}
+            ? `${t.book.bookingFor}: ${selectedService.name}`
+            : t.book.selectClinician}
         </p>
       </div>
 
       {loading ? (
-        <LoadingSpinner message="Loading specialists…" />
+        <LoadingSpinner message={t.book.loadingClinicians} />
       ) : error ? (
         <p
           style={{

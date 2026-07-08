@@ -292,8 +292,96 @@
 .step-labels {
   display: flex;
   width: 100%;
-  max-width: 520px;
+  max-width: 860px;
   margin: -1.5rem auto 2.5rem;
+}
+
+.step-title {
+  font-family: var(--font-serif);
+  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-weight: 400;
+  color: #0f2341;
+  margin-bottom: 0.5rem;
+}
+
+.step-desc {
+  font-family: var(--font-sans);
+  font-size: 0.9rem;
+  color: #6b7a94;
+}
+
+.category-filter {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+}
+
+.category-filter-btn {
+  padding: 0.625rem 1.5rem;
+  border-radius: 9999px;
+  border: 1.5px solid rgba(15, 35, 65, 0.15);
+  background: transparent;
+  font-family: var(--font-sans);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6b7a94;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.category-filter-btn.active,
+.category-filter-btn:hover {
+  border-color: #0f2341;
+  background: #0f2341;
+  color: #f0ede4;
+}
+
+.booking-empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background: #fff;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(15, 35, 65, 0.1);
+  margin-bottom: 2rem;
+}
+
+.booking-empty-state h3 {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.booking-empty-state p {
+  color: #6b7a94;
+  margin-bottom: 1.25rem;
+}
+
+.hero-clinics-link {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.hero-clinics-link a {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  color: rgba(250, 247, 242, 0.75);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+}
+
+.hero-clinics-link a:hover {
+  color: #d9b344;
+}
+
+@media (max-width: 640px) {
+  .step-labels {
+    display: none;
+  }
 }
 
 .step-label {

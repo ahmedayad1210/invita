@@ -16,6 +16,7 @@
     "about": "About",
     "faq": "FAQ",
     "account": "Account",
+    "myAccount": "My Account",
     "login": "Sign in",
     "logout": "Sign out"
   },
@@ -35,8 +36,9 @@
     "title": "The company behind",
     "titleEm": "IV therapy in Iraq.",
     "subtitle": "Official Iraqi medical wellness company. International standards. Serving patients, clinics, medical centres, and physicians nationwide — powered by Liquivida®.",
-    "ctaPrimary": "Find the Right IV Drip",
-    "ctaSecondary": "For Clinics & Partners"
+    "ctaPrimary": "Explore IV Drips",
+    "ctaSecondary": "For Clinics & Partners",
+    "ctaBook": "Reserve Your Appointment"
   },
   "trust": {
     "licensed": "Licensed medical professionals",
@@ -68,7 +70,7 @@
   },
   "pillars": {
     "ivTitle": "IV Drips",
-    "ivDesc": "18 Liquivida® formulas for immunity, energy, beauty, and recovery.",
+    "ivDesc": "11 Liquivida® formulas for immunity, energy, beauty, and recovery.",
     "dnaTitle": "Genomic Intelligence",
     "dnaDesc": "DNA panels with private interpretation — nutrition, longevity, and pharmacogenomics."
   },
@@ -81,6 +83,36 @@
     "stepSchedule": "Your visit",
     "stepIntake": "Your health profile",
     "stepConfirm": "Confirm & arrive",
+    "stepAddOns": "Enhancements",
+    "chooseTreatment": "Choose your protocol",
+    "chooseTreatmentLead": "Select the IV drip you would like to book.",
+    "chooseClinician": "Choose your clinician",
+    "bookingFor": "Booking",
+    "selectClinician": "Select a clinician for your session.",
+    "continueClinician": "Continue — Schedule visit",
+    "addonsTitle": "Enhance your session",
+    "addonsLead": "Optional add-ons — select any that apply.",
+    "successPending": "Request received",
+    "successPendingBody": "Our clinical team will confirm your appointment via WhatsApp within 24 hours.",
+    "successPendingGuest": "Save your booking reference — we will WhatsApp you when your slot is confirmed.",
+    "successAccount": "Track confirmation status and manage your booking in your account.",
+    "bookingRef": "Booking ref",
+    "chatWhatsApp": "Chat on WhatsApp",
+    "goHome": "Return home",
+    "guestConfirmTitle": "Confirm as guest",
+    "guestConfirmLead": "Book without an account — we will WhatsApp you when your appointment is confirmed.",
+    "reviewTitle": "Review your booking",
+    "reviewLead": "Please confirm the details below before completing your reservation.",
+    "allServices": "All protocols",
+    "dnaEmptyTitle": "DNA testing",
+    "dnaEmptyBody": "Genomic panels are booked through our DNA Lab — not the IV appointment calendar.",
+    "dnaCta": "Explore DNA Lab",
+    "loadingTreatments": "Loading treatments…",
+    "loadingClinicians": "Loading clinicians…",
+    "confirmBooking": "Confirm booking",
+    "confirming": "Confirming…",
+    "dateLabel": "Date",
+    "timeLabel": "Time",
     "trustNote": "Licensed professionals · Private suite · Liquivida® USA formulas"
   },
   "intake": {
@@ -102,7 +134,14 @@
     "advancedServices": "Advanced Services",
     "company": "Company",
     "ivTherapy": "IV Therapy",
-    "wellnessUpdates": "Wellness updates"
+    "wellnessUpdates": "Wellness updates",
+    "contact": "Contact",
+    "hours": "Hours",
+    "forClinics": "For Clinics",
+    "newsletterPlaceholder": "your@email.com",
+    "newsletterJoin": "Join",
+    "newsletterSuccess": "Thank you — you're on the list.",
+    "newsletterError": "Could not subscribe. Try again later."
   },
   "footerCta": {
     "title": "Ready to work with Iraq's IV therapy leader?",
@@ -130,6 +169,12 @@
     "title": "Questions, answered with clarity",
     "viewAll": "View all questions"
   },
+  "servicesPreview": {
+    "eyebrow": "Invita Catalogue",
+    "title": "11 Liquivida® protocols",
+    "lead": "Each protocol begins with a private medical consultation.",
+    "viewAll": "View all 11"
+  },
   "common": {
     "skipToContent": "Skip to content",
     "whatsapp": "WhatsApp",
@@ -137,13 +182,13 @@
   },
   "notFound": {
     "title": "This page isn't available.",
-    "body": "Let us guide you back to Invita — Baghdad's premier IV wellness suite.",
+    "body": "Let us guide you back to Invita — Iraq's leading IV therapy company.",
     "cta": "Return Home"
   },
   "pages": {
     "ivHub": {
       "title": "IV Drip Menu",
-      "lead": "Eighteen Liquivida® USA formulas — each begins with a private medical consultation.",
+      "lead": "Eleven Liquivida® USA formulas — each begins with a private medical consultation.",
       "cta": "Start Your Consultation",
       "ctaHint": "Not sure which drip is right for you? We will recommend the ideal protocol."
     },

@@ -76,7 +76,7 @@ export const metadata: Metadata = {
     siteName: INVITA.name,
     title: `${INVITA.name} — ${INVITA.tagline}`,
     description:
-      "Luxury IV vitamin drip therapy in Baghdad. Medical credibility, five-star hospitality.",
+      "Iraq's leading IV therapy company. Official Liquivida® partner — clinical IV formulas, professional training, and nationwide supply for clinics and patients.",
     url: siteUrl,
     images: [{ url: "/og/default.svg", width: 1200, height: 630, alt: INVITA.name }],
   },

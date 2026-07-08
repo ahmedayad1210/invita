@@ -1,8 +1,6 @@
 // src/components/booking/StepConfirm.tsx
 "use client";
 
-import { useState, useEffect } from "react";
-import { useRouter } from "next/navigation";
 import { useBookingStore } from "@/store/bookingStore";
 import { useSubmitBooking } from "@/hooks/useBooking";
 import { useAuth } from "@/hooks/useAuth";
@@ -10,12 +8,13 @@ import { formatPrice, formatDuration, formatDateLabel, formatTimeLabel } from "@
 import { INVITA } from "@/lib/constants";
 import InitialsAvatar from "@/components/ui/InitialsAvatar";
 import { buildBookingWhatsAppUrl } from "@/lib/invita/whatsapp-handoff";
-import { CalendarDays, Clock, User, Scissors, MapPin, CheckCircle, MessageCircle } from "lucide-react";
+import { CalendarDays, Clock, User, Stethoscope, MapPin, CheckCircle, MessageCircle } from "lucide-react";
 import Link from "next/link";
+import { useLocale } from "@/contexts/LocaleContext";
 
 export default function StepConfirm() {
-  const router = useRouter();
   const { user, profile } = useAuth();
+  const { t } = useLocale();
 
   const {
     selectedService,
@@ -32,8 +31,10 @@ export default function StepConfirm() {
     setGuest,
     prevStep,
     confirmedBookingId,
+    bookedAsGuest,
     isSubmitting,
     submitError,
+    setBookedAsGuest,
   } = useBookingStore();
 
   const { submitBooking } = useSubmitBooking();
@@ -45,6 +46,8 @@ export default function StepConfirm() {
       useBookingStore.getState().setSubmitError("Name and phone are required for guest booking.");
       return;
     }
+
+    setBookedAsGuest(!user);
 
     const success = await submitBooking({
       service_id:       selectedService.id,
@@ -69,8 +72,6 @@ export default function StepConfirm() {
   };
 
   // ── Success state ──
-  const [countdown, setCountdown] = useState(15);
-
   const whatsappUrl =
     confirmedBookingId && selectedService && selectedStylist
       ? buildBookingWhatsAppUrl({
@@ -82,21 +83,6 @@ export default function StepConfirm() {
           guestName: profile?.full_name ?? guestName ?? undefined,
         })
       : INVITA.whatsapp;
-
-  useEffect(() => {
-    if (!confirmedBookingId) return;
-
-    const interval = setInterval(() => setCountdown((c) => c - 1), 1000);
-    const redirect = setTimeout(() => {
-      useBookingStore.getState().resetBooking();
-      router.push("/book");
-    }, 15000);
-
-    return () => {
-      clearInterval(interval);
-      clearTimeout(redirect);
-    };
-  }, [confirmedBookingId]); // eslint-disable-line react-hooks/exhaustive-deps
 
   if (confirmedBookingId) {
     return (
@@ -125,7 +111,7 @@ export default function StepConfirm() {
             marginBottom: "0.75rem",
           }}
         >
-          Your booking is pending.
+          {t.book.successPending}
         </h2>
 
         <div className="divider-rose" />
@@ -140,9 +126,22 @@ export default function StepConfirm() {
             margin:       "0 auto 0.75rem",
           }}
         >
-          Your booking is pending — please check your Account section for
-          confirmation status and to manage your booking.
+          {bookedAsGuest ? t.book.successPendingGuest : t.book.successPendingBody}
         </p>
+
+        {!bookedAsGuest && (
+          <p
+            style={{
+              fontFamily: "'DM Sans', sans-serif",
+              fontSize: "0.875rem",
+              color: "#8B7355",
+              maxWidth: "440px",
+              margin: "0 auto 1rem",
+            }}
+          >
+            {t.book.successAccount}
+          </p>
+        )}
 
         <p
           style={{
@@ -153,7 +152,7 @@ export default function StepConfirm() {
             marginBottom:  "2.5rem",
           }}
         >
-          Booking ref: <strong style={{ color: "#C4956A" }}>{confirmedBookingId.slice(0, 8).toUpperCase()}</strong>
+          {t.book.bookingRef}: <strong style={{ color: "#C4956A" }}>{confirmedBookingId.slice(0, 8).toUpperCase()}</strong>
         </p>
 
         {/* Summary pill */}
@@ -170,10 +169,10 @@ export default function StepConfirm() {
           }}
         >
           {[
-            { label: "Service",    value: selectedService?.name       ?? "" },
-            { label: "Specialist", value: selectedStylist?.name       ?? "" },
-            { label: "Date",       value: formatDateLabel(selectedDate)      },
-            { label: "Time",       value: formatTimeLabel(selectedTimeSlot)  },
+            { label: t.book.stepService, value: selectedService?.name ?? "" },
+            { label: t.book.stepClinician, value: selectedStylist?.name ?? "" },
+            { label: t.book.dateLabel, value: formatDateLabel(selectedDate) },
+            { label: t.book.timeLabel, value: formatTimeLabel(selectedTimeSlot) },
           ].map((item) => (
             <div key={item.label} style={{ textAlign: "center" }}>
               <p
@@ -204,9 +203,11 @@ export default function StepConfirm() {
         </div>
 
         <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "1.5rem" }}>
-          <Link href="/account" className="btn-primary">
-            Go to My Account
-          </Link>
+          {!bookedAsGuest && (
+            <Link href="/account" className="btn-primary">
+              {t.nav.myAccount}
+            </Link>
+          )}
           <a
             href={whatsappUrl}
             target="_blank"
@@ -214,20 +215,16 @@ export default function StepConfirm() {
             className="btn-primary"
           >
             <MessageCircle size={16} aria-hidden="true" />
-            Confirm on WhatsApp
+            {t.book.chatWhatsApp}
           </a>
+          <Link
+            href="/"
+            className="btn-secondary"
+            onClick={() => useBookingStore.getState().resetBooking()}
+          >
+            {t.book.goHome}
+          </Link>
         </div>
-
-        <p
-          style={{
-            fontFamily:    "'DM Sans', sans-serif",
-            fontSize:      "0.8125rem",
-            color:         "#C4956A",
-            letterSpacing: "0.04em",
-          }}
-        >
-          Redirecting in {Math.max(countdown, 0)}s
-        </p>
       </div>
     );
   }
@@ -237,10 +234,8 @@ export default function StepConfirm() {
     return (
       <div style={{ maxWidth: 520, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
-          <h2 className="page-title page-title--compact">Confirm as guest</h2>
-          <p className="page-lead page-lead--narrow">
-            Book without an account — we will WhatsApp you when your appointment is confirmed.
-          </p>
+          <h2 className="page-title page-title--compact">{t.book.guestConfirmTitle}</h2>
+          <p className="page-lead page-lead--narrow">{t.book.guestConfirmLead}</p>
         </div>
 
         <label className="intake-field">
@@ -258,10 +253,10 @@ export default function StepConfirm() {
 
         <div style={{ display: "flex", gap: "0.75rem", marginTop: "1.25rem", flexWrap: "wrap" }}>
           <button type="button" className="btn-primary" onClick={handleConfirm} disabled={isSubmitting}>
-            {isSubmitting ? "Booking…" : "Confirm booking"}
+            {isSubmitting ? t.book.confirming : t.book.confirmBooking}
           </button>
           <Link href="/auth/login?redirectTo=/book" className="btn-secondary">
-            Sign in instead
+            {t.nav.login}
           </Link>
         </div>
 
@@ -277,26 +272,8 @@ export default function StepConfirm() {
   return (
     <div>
       <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
-        <h2
-          style={{
-            fontFamily:   "'Cormorant Garamond', Georgia, serif",
-            fontSize:     "clamp(1.75rem, 3vw, 2.5rem)",
-            fontWeight:   400,
-            color:        "#2C1810",
-            marginBottom: "0.5rem",
-          }}
-        >
-          Review your booking
-        </h2>
-        <p
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize:   "0.9rem",
-            color:      "#8B7355",
-          }}
-        >
-          Please confirm the details below before completing your reservation.
-        </p>
+        <h2 className="step-title">{t.book.reviewTitle}</h2>
+        <p className="step-desc">{t.book.reviewLead}</p>
       </div>
 
       {/* Summary card */}
@@ -334,8 +311,8 @@ export default function StepConfirm() {
         <div style={{ padding: "1.5rem" }}>
           {[
             {
-              icon:  <Scissors size={15} />,
-              label: "Treatment",
+              icon:  <Stethoscope size={15} />,
+              label: t.book.stepService,
               value: selectedService
                 ? `${selectedService.name} · ${formatDuration(selectedService.duration)}`
                 : "",
@@ -343,18 +320,18 @@ export default function StepConfirm() {
             },
             {
               icon:  <User size={15} />,
-              label: "Specialist",
+              label: t.book.stepClinician,
               value: selectedStylist?.name ?? "",
               avatar: selectedStylist?.name,
             },
             {
               icon:  <CalendarDays size={15} />,
-              label: "Date",
+              label: t.book.dateLabel,
               value: formatDateLabel(selectedDate),
             },
             {
               icon:  <Clock size={15} />,
-              label: "Time",
+              label: t.book.timeLabel,
               value: formatTimeLabel(selectedTimeSlot),
             },
             {
@@ -481,7 +458,7 @@ export default function StepConfirm() {
             minWidth: "180px",
           }}
         >
-          {isSubmitting ? "Confirming…" : "Confirm Booking"}
+          {isSubmitting ? t.book.confirming : t.book.confirmBooking}
         </button>
       </div>
     </div>

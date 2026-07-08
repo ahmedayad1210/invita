@@ -12,7 +12,7 @@ export function localBusinessJsonLd() {
     "@type": ["MedicalBusiness", "LocalBusiness"],
     name: INVITA.name,
     description:
-      "Baghdad's official Liquivida® USA distributor — luxury IV vitamin drip therapy in a private clinical suite.",
+      "Iraq's leading IV therapy company — official Liquivida® partner. Clinical IV formulas in a private Baghdad suite.",
     url: getSiteUrl(),
     telephone: INVITA.phone,
     email: INVITA.email,

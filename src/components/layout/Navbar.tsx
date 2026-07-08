@@ -61,7 +61,7 @@ export default function Navbar() {
         <Link href="/" className="navbar-brand navbar-brand-lockup">
           <Image
             src={LOCAL_IMAGES.logoWordmark}
-            alt="Invita — IV Vitamins Therapy"
+            alt="Invita — Iraq's leading IV therapy company"
             width={120}
             height={28}
             className="navbar-brand-wordmark"
@@ -171,7 +171,7 @@ export default function Navbar() {
                 }}>
                   {user.email?.slice(0, 2).toUpperCase()}
                 </span>
-                My Account
+                {t.nav.myAccount}
               </Link>
 
               <button
@@ -194,7 +194,7 @@ export default function Navbar() {
                 onMouseEnter={(e) => { e.currentTarget.style.color = "#0F2341"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "#6B7A94"; }}
               >
-                Sign Out
+                {t.nav.logout}
               </button>
             </>
           )}
@@ -218,7 +218,7 @@ export default function Navbar() {
               onMouseEnter={(e) => { e.currentTarget.style.color = "#0F2341"; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = "#6B7A94"; }}
             >
-              Sign In
+              {t.nav.login}
             </Link>
           )}
 
@@ -375,7 +375,7 @@ export default function Navbar() {
                   onClick={() => setMenuOpen(false)}
                   style={{ fontSize: "0.8125rem" }}
                 >
-                  My Account
+                  {t.nav.myAccount}
                 </Link>
                 <button
                   onClick={handleSignOut}
@@ -391,7 +391,7 @@ export default function Navbar() {
                     padding:       "0.25rem 0",
                   }}
                 >
-                  Sign Out
+                  {t.nav.logout}
                 </button>
               </>
             ) : (
@@ -401,7 +401,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}
                 style={{ fontSize: "0.8125rem" }}
               >
-                Sign In
+                {t.nav.login}
               </Link>
             )}
           </div>

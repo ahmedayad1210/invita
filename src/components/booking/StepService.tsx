@@ -8,8 +8,12 @@ import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import { formatPrice, formatDuration } from "@/lib/time-slots";
 import { Clock, Check } from "lucide-react";
 import type { Service } from "@/lib/supabase/types";
+import { useLocale } from "@/contexts/LocaleContext";
+import { SERVICE_CATEGORIES } from "@/lib/constants";
+import Link from "next/link";
 
 export default function StepService() {
+  const { t, locale } = useLocale();
   const {
     selectedService,
     activeCategory,
@@ -34,40 +38,36 @@ export default function StepService() {
   return (
     <div>
       <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
-        <h2
-          style={{
-            fontFamily:   "'Cormorant Garamond', Georgia, serif",
-            fontSize:     "clamp(1.75rem, 3vw, 2.5rem)",
-            fontWeight:   400,
-            color:        "#2C1810",
-            marginBottom: "0.5rem",
-          }}
-        >
-          Choose your treatment
-        </h2>
-        <p
-          style={{
-            fontFamily: "'DM Sans', sans-serif",
-            fontSize:   "0.9rem",
-            color:      "#8B7355",
-          }}
-        >
-          Select the service you would like to book.
-        </p>
+        <h2 className="step-title">{t.book.chooseTreatment}</h2>
+        <p className="step-desc">{t.book.chooseTreatmentLead}</p>
       </div>
 
-      <CategoryFilter active={activeCategory} onChange={setCategory} />
+      <CategoryFilter active={activeCategory} onChange={setCategory} mode="booking" />
 
       {loading ? (
-        <LoadingSpinner message="Loading treatments…" />
+        <LoadingSpinner message={t.book.loadingTreatments} />
       ) : error ? (
         <p style={{ textAlign: "center", color: "#8B7355", fontFamily: "'DM Sans', sans-serif" }}>
           Unable to load services. Please refresh.
         </p>
+      ) : services.length === 0 && activeCategory === "dna" ? (
+        <div className="booking-empty-state">
+          <h3>{t.book.dnaEmptyTitle}</h3>
+          <p>{t.book.dnaEmptyBody}</p>
+          <Link href="/dna" className="btn-primary btn-sm">
+            {t.book.dnaCta}
+          </Link>
+        </div>
       ) : (
         <div className="services-grid" style={{ marginBottom: "2.5rem" }}>
           {services.map((service) => {
             const isSelected = selectedService?.id === service.id;
+            const categoryMeta = SERVICE_CATEGORIES.find((c) => c.id === service.category);
+            const categoryLabel = categoryMeta
+              ? locale === "ar"
+                ? categoryMeta.labelAr
+                : categoryMeta.label
+              : service.category;
             return (
               <button
                 key={service.id}
@@ -132,7 +132,7 @@ export default function StepService() {
                     marginBottom:  "0.5rem",
                   }}
                 >
-                  {service.category}
+                  {categoryLabel}
                 </span>
 
                 {/* Name */}
@@ -203,10 +203,7 @@ export default function StepService() {
         </div>
       )}
 
-      <p className="booking-pricing-disclaimer">
-        Prices include a complimentary medical assessment. Your clinician may recommend adjustments
-        based on your individual needs.
-      </p>
+      <p className="booking-pricing-disclaimer">{t.pricing.disclaimer}</p>
 
       {/* Continue */}
       <div style={{ display: "flex", justifyContent: "flex-end" }}>
@@ -220,7 +217,7 @@ export default function StepService() {
             cursor:  selectedService ? "pointer" : "not-allowed",
           }}
         >
-          Continue — Select Specialist
+          {t.book.continueClinician}
         </button>
       </div>
     </div>

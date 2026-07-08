@@ -2,15 +2,17 @@
 
 import { ADD_ONS } from "@/lib/invita/liquivida-drips";
 import { useBookingStore } from "@/store/bookingStore";
+import { useLocale } from "@/contexts/LocaleContext";
 
 export default function StepAddOns() {
   const { selectedAddOns, toggleAddOn, nextStep, prevStep } = useBookingStore();
+  const { t } = useLocale();
 
   return (
     <div>
       <header className="page-hero page-hero--center" style={{ marginBottom: "1.5rem" }}>
-        <h2 className="page-title page-title--compact">Enhance your session</h2>
-        <p className="page-lead page-lead--narrow">Optional add-ons — select any that apply.</p>
+        <h2 className="page-title page-title--compact">{t.book.addonsTitle}</h2>
+        <p className="page-lead page-lead--narrow">{t.book.addonsLead}</p>
       </header>
 
       <div className="addons-preview-grid">

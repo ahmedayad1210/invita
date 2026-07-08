@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { MessageCircle } from "lucide-react";
 import { INVITA } from "@/lib/constants";
 
-const HIDDEN_PREFIXES = ["/admin", "/auth"];
+const HIDDEN_PREFIXES = ["/admin", "/auth", "/book"];
 
 export default function WhatsAppFab() {
   const pathname = usePathname();

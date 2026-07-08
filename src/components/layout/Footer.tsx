@@ -44,7 +44,7 @@ export default function Footer() {
           <div className="footer-brand-col">
             <Image
               src={LOCAL_IMAGES.logoStack}
-              alt="Invita — IV Vitamins Therapy"
+              alt="Invita — Iraq's leading IV therapy company"
               width={200}
               height={120}
               className="footer-brand-logo"
@@ -65,7 +65,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="footer-heading">Company</p>
+            <p className="footer-heading">{t.footer.company}</p>
             <nav className="footer-nav">
               {FOOTER_COMPANY_LINKS.map((link) => (
                 <Link key={link.href} href={link.href} className="footer-link">
@@ -76,7 +76,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="footer-heading">IV Therapy</p>
+            <p className="footer-heading">{t.footer.ivTherapy}</p>
             <nav className="footer-nav">
               {FOOTER_TREATMENT_LINKS.map((link) => (
                 <Link key={link.href} href={link.href} className="footer-link">
@@ -87,7 +87,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="footer-heading">{locale === "ar" ? "للعيادات" : "For Clinics"}</p>
+            <p className="footer-heading">{t.footer.forClinics}</p>
             <nav className="footer-nav">
               {FOOTER_B2B_LINKS.map((link) => (
                 <Link key={link.href} href={link.href} className="footer-link">
@@ -98,7 +98,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="footer-heading">{locale === "ar" ? "خدمات متقدمة" : "Advanced"}</p>
+            <p className="footer-heading">{t.footer.advancedServices}</p>
             <nav className="footer-nav">
               {FOOTER_ADVANCED_LINKS.map((link) => (
                 <Link key={link.href} href={link.href} className="footer-link">
@@ -109,7 +109,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <p className="footer-heading">Contact</p>
+            <p className="footer-heading">{t.footer.contact}</p>
             <div className="footer-contact-list">
               <div className="footer-contact-item">
                 <MapPin size={14} className="footer-contact-icon" />
@@ -125,7 +125,7 @@ export default function Footer() {
               </div>
             </div>
 
-            <p className="footer-heading footer-heading--spaced">Hours</p>
+            <p className="footer-heading footer-heading--spaced">{t.footer.hours}</p>
             <div className="footer-hours">
               {Object.entries(INVITA.hours.short).map(([day, hours]) => (
                 <div key={day} className="footer-hours-row">
@@ -135,10 +135,10 @@ export default function Footer() {
               ))}
             </div>
 
-            <p className="footer-heading footer-heading--spaced">Wellness updates</p>
+            <p className="footer-heading footer-heading--spaced">{t.footer.wellnessUpdates}</p>
             {newsletterStatus === "done" ? (
               <p className="footer-newsletter-success" role="status">
-                Thank you — you&apos;re on the list.
+                {t.footer.newsletterSuccess}
               </p>
             ) : (
               <form className="footer-newsletter" onSubmit={handleNewsletter}>
@@ -150,17 +150,17 @@ export default function Footer() {
                   name="email"
                   type="email"
                   required
-                  placeholder="your@email.com"
+                  placeholder={t.footer.newsletterPlaceholder}
                   autoComplete="email"
                 />
                 <button type="submit" disabled={newsletterStatus === "loading"}>
-                  {newsletterStatus === "loading" ? "…" : "Join"}
+                  {newsletterStatus === "loading" ? "…" : t.footer.newsletterJoin}
                 </button>
               </form>
             )}
             {newsletterStatus === "error" ? (
               <p className="footer-newsletter-error" role="alert">
-                Could not subscribe. Try again later.
+                {t.footer.newsletterError}
               </p>
             ) : null}
           </div>
