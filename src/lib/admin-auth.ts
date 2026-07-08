@@ -30,7 +30,11 @@ export async function verifyAdminCredentials(
     return false;
   }
 
-  const usernameMatch = username.trim() === validUsername.trim();
+  const submitted = username.trim();
+  const expected = validUsername.trim();
+  const usernameMatch = expected.includes("@")
+    ? submitted.toLowerCase() === expected.toLowerCase()
+    : submitted === expected;
 
   if (passwordHash) {
     const passwordMatch = await bcrypt.compare(password, passwordHash);

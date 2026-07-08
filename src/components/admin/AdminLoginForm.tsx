@@ -16,7 +16,7 @@ export default function AdminLoginForm() {
     setError(null);
 
     if (!username.trim() || !password) {
-      setError("Please enter your username and password.");
+      setError("Please enter your email and password.");
       return;
     }
 
@@ -91,13 +91,13 @@ export default function AdminLoginForm() {
         >
           <div>
             <label htmlFor="admin-username" className="label-sevres">
-              Username
+              Email
             </label>
             <input
               id="admin-username"
               className="input-sevres"
-              type="text"
-              placeholder="Admin username"
+              type="email"
+              placeholder="management@invitadrips.com"
               value={username}
               onChange={(e) => { setUsername(e.target.value); setError(null); }}
               autoComplete="username"
