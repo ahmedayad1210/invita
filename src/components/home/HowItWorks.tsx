@@ -13,12 +13,9 @@ export default function HowItWorks() {
       <div className="section-inner">
         <ScrollReveal>
           <header className="page-hero">
-            <p className="page-eyebrow">The process</p>
-            <h2 className="page-title page-title--compact">How IV drip therapy works</h2>
-            <p className="page-lead page-lead--narrow">
-              Nutrients delivered directly to your bloodstream — 100% absorption, no digestive
-              loss.
-            </p>
+            <p className="page-eyebrow">{t.howItWorks.eyebrow}</p>
+            <h2 className="page-title page-title--compact">{t.howItWorks.title}</h2>
+            <p className="page-lead page-lead--narrow">{t.howItWorks.lead}</p>
           </header>
         </ScrollReveal>
 

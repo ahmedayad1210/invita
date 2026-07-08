@@ -10,7 +10,6 @@ import ServicesPreview from "@/components/home/ServicesPreview";
 import AboutLiquividaSection from "@/components/home/AboutLiquividaSection";
 import HowItWorks from "@/components/home/HowItWorks";
 import CertificationsSection from "@/components/home/CertificationsSection";
-import LeadCaptureBanner from "@/components/home/LeadCaptureBanner";
 import FaqPreview from "@/components/home/FaqPreview";
 import FooterCtaBanner from "@/components/home/FooterCtaBanner";
 import SectionSkeleton from "@/components/patterns/SectionSkeleton";
@@ -31,14 +30,6 @@ const HealthcarePartnersSection = dynamic(
   () => import("@/components/home/HealthcarePartnersSection"),
   { loading: () => <SectionSkeleton minHeight="16rem" /> }
 );
-const ClinicSpotlightSection = dynamic(
-  () => import("@/components/home/ClinicSpotlightSection"),
-  { loading: () => <SectionSkeleton minHeight="14rem" /> }
-);
-const PatientStoriesSection = dynamic(
-  () => import("@/components/home/PatientStoriesSection"),
-  { loading: () => <SectionSkeleton minHeight="12rem" /> }
-);
 const InstagramFeed = dynamic(
   () => import("@/components/home/InstagramFeed"),
   { loading: () => <SectionSkeleton minHeight="18rem" /> }
@@ -47,17 +38,13 @@ const WellnessMatcherSection = dynamic(
   () => import("@/components/home/WellnessMatcherSection"),
   { loading: () => <SectionSkeleton minHeight="16rem" /> }
 );
-const UseCasesSection = dynamic(
-  () => import("@/components/home/UseCasesSection"),
-  { loading: () => <SectionSkeleton minHeight="10rem" /> }
+const AddOnsPreview = dynamic(
+  () => import("@/components/home/AddOnsPreview"),
+  { loading: () => <SectionSkeleton minHeight="14rem" /> }
 );
 const TwoPillarSection = dynamic(
   () => import("@/components/home/TwoPillarSection"),
   { loading: () => <SectionSkeleton minHeight="12rem" /> }
-);
-const AddOnsPreview = dynamic(
-  () => import("@/components/home/AddOnsPreview"),
-  { loading: () => <SectionSkeleton minHeight="14rem" /> }
 );
 
 export default async function HomePage() {
@@ -71,24 +58,20 @@ export default async function HomePage() {
         <HeroSection bannerUrl={heroBanner?.url} bannerAlt={heroBanner?.alt} />
         <TrustAuthoritySection />
         <StatsSection />
-        <ScienceSpotlightSection />
         <ServicesPreview />
-        <TwoPillarSection />
-        <UseCasesSection />
         <WellnessMatcherSection />
-        <AboutLiquividaSection />
+        <TwoPillarSection />
         <HowItWorks />
+        <AboutLiquividaSection />
         <AddOnsPreview />
         <InvitaGallerySection />
         <Suspense fallback={<SectionSkeleton minHeight="14rem" />}>
           <CertificationsSection />
         </Suspense>
+        <ScienceSpotlightSection />
         <ProfessionalTrainingSection variant="homepage" />
         <HealthcarePartnersSection />
-        <ClinicSpotlightSection />
-        <PatientStoriesSection />
         <InstagramFeed />
-        <LeadCaptureBanner />
         <FaqPreview />
         <FooterCtaBanner />
       </main>

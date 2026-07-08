@@ -34,10 +34,10 @@ export default function StepAddOns() {
 
       <div className="booking-nav" style={{ marginTop: "2rem" }}>
         <button type="button" className="btn-secondary" onClick={prevStep}>
-          Back
+          {t.common.back}
         </button>
         <button type="button" className="btn-primary" onClick={nextStep}>
-          Continue
+          {t.common.continue}
         </button>
       </div>
     </div>

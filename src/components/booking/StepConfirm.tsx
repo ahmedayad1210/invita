@@ -229,8 +229,8 @@ export default function StepConfirm() {
     );
   }
 
-  // ── Guest or sign-in ──
-  if (!user) {
+  // ── Guest without contact yet (fallback) ──
+  if (!user && (!guestName.trim() || !guestPhone.trim())) {
     return (
       <div style={{ maxWidth: 520, margin: "0 auto" }}>
         <div style={{ textAlign: "center", marginBottom: "1.5rem" }}>
@@ -239,15 +239,15 @@ export default function StepConfirm() {
         </div>
 
         <label className="intake-field">
-          <span>Full name *</span>
+          <span>{t.intake.fullName} *</span>
           <input className="input-sevres" value={guestName} onChange={(e) => setGuest({ guestName: e.target.value })} required />
         </label>
         <label className="intake-field">
-          <span>Phone (WhatsApp) *</span>
+          <span>{t.intake.phone} *</span>
           <input className="input-sevres" value={guestPhone} onChange={(e) => setGuest({ guestPhone: e.target.value })} required />
         </label>
         <label className="intake-field">
-          <span>Email (optional)</span>
+          <span>{t.intake.emailOptional}</span>
           <input className="input-sevres" type="email" value={guestEmail} onChange={(e) => setGuest({ guestEmail: e.target.value })} />
         </label>
 
@@ -263,7 +263,7 @@ export default function StepConfirm() {
         {submitError ? <p style={{ color: "#b44", marginTop: "1rem" }}>{submitError}</p> : null}
 
         <button type="button" onClick={prevStep} className="btn-secondary btn-sm" style={{ marginTop: "1rem" }}>
-          ← Back
+          {t.common.back}
         </button>
       </div>
     );
@@ -446,7 +446,7 @@ export default function StepConfirm() {
       {/* Navigation */}
       <div style={{ display: "flex", justifyContent: "space-between" }}>
         <button onClick={prevStep} className="btn-secondary btn-sm" disabled={isSubmitting}>
-          ← Back
+          {t.common.back}
         </button>
         <button
           onClick={handleConfirm}

@@ -13,6 +13,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import FigmaCaptureLoader from "@/components/dev/FigmaCaptureLoader";
 import ClientShell from "@/components/layout/ClientShell";
+import PromoStrip from "@/components/layout/PromoStrip";
 import { Cormorant_Garamond, DM_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
@@ -111,6 +112,7 @@ export default function RootLayout({
         <NavigationProgressWrapper />
         <LocaleProvider>
           <AuthProvider>
+            <PromoStrip />
             {children}
             <MobileConversionBar />
             <WhatsAppFab />

@@ -9,9 +9,12 @@ import { Button } from "@/components/ui/Button";
 export default function StepIntake() {
   const { t } = useLocale();
   const { user } = useAuth();
-  const { intake, setIntake } = useBookingStore();
+  const { intake, setIntake, guestName, guestPhone, guestEmail, setGuest } = useBookingStore();
   const { nextStep, prevStep } = useBookingNavigation();
   const { step4Valid } = useStepValidity();
+
+  const guestReady = Boolean(guestName.trim() && guestPhone.trim());
+  const canContinue = step4Valid && (user || guestReady);
 
   useEffect(() => {
     if (!user) return;
@@ -37,6 +40,7 @@ export default function StepIntake() {
       <span>{label}</span>
       {multiline ? (
         <textarea
+          className="input-sevres"
           rows={3}
           value={String(intake[key])}
           onChange={(e) => setIntake({ [key]: e.target.value })}
@@ -54,10 +58,40 @@ export default function StepIntake() {
   return (
     <div>
       <h2 className="step-title">{t.intake.title}</h2>
-      <p className="step-desc">
-        Required before your session. All information is confidential and reviewed by
-        our clinical team.
-      </p>
+      <p className="step-desc">{t.intake.lead}</p>
+
+      {!user && (
+        <div className="booking-guest-contact">
+          <h3 className="booking-guest-contact-title">{t.intake.guestSection}</h3>
+          <label className="intake-field">
+            <span>{t.intake.fullName} *</span>
+            <input
+              className="input-sevres"
+              value={guestName}
+              onChange={(e) => setGuest({ guestName: e.target.value })}
+              required
+            />
+          </label>
+          <label className="intake-field">
+            <span>{t.intake.phone} *</span>
+            <input
+              className="input-sevres"
+              value={guestPhone}
+              onChange={(e) => setGuest({ guestPhone: e.target.value })}
+              required
+            />
+          </label>
+          <label className="intake-field">
+            <span>{t.intake.emailOptional}</span>
+            <input
+              className="input-sevres"
+              type="email"
+              value={guestEmail}
+              onChange={(e) => setGuest({ guestEmail: e.target.value })}
+            />
+          </label>
+        </div>
+      )}
 
       {field(t.intake.goals, "goals")}
       {field(t.intake.allergies, "allergies")}
@@ -75,10 +109,10 @@ export default function StepIntake() {
 
       <div className="step-actions">
         <Button variant="ghost" onClick={prevStep}>
-          Back
+          {t.common.back}
         </Button>
-        <Button onClick={nextStep} disabled={!step4Valid}>
-          Continue
+        <Button onClick={nextStep} disabled={!canContinue}>
+          {t.common.continue}
         </Button>
       </div>
     </div>

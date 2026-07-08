@@ -10,8 +10,9 @@ import InitialsAvatar from "@/components/ui/InitialsAvatar";
 import LoadingSpinner from "@/components/ui/LoadingSpinner";
 import Toast from "@/components/ui/Toast";
 import { useAuth } from "@/hooks/useAuth";
+import { useLocale } from "@/contexts/LocaleContext";
 import { formatDateLabel, formatTimeLabel, formatPrice } from "@/lib/time-slots";
-import { CalendarDays, Clock, User, Scissors, XCircle } from "lucide-react";
+import { CalendarDays, Clock, User, Stethoscope, XCircle } from "lucide-react";
 import type { BookingWithDetails, DnaOrder } from "@/lib/supabase/types";
 import ReferralCard from "@/components/account/ReferralCard";
 import AccountProfileForm from "@/components/account/AccountProfileForm";
@@ -30,6 +31,7 @@ export default function AccountPage() {
 
 function AccountContent() {
   const { user, profile, signOut } = useAuth();
+  const { t } = useLocale();
   const router                     = useRouter();
   const [bookings, setBookings]    = useState<BookingWithDetails[]>([]);
   const [dnaOrders, setDnaOrders]  = useState<DnaOrder[]>([]);
@@ -89,11 +91,11 @@ function AccountContent() {
       const json = await res.json();
 
       if (!json.success) {
-        setToast({ message: json.error ?? "Failed to cancel booking.", type: "error" });
+        setToast({ message: json.error ?? t.account.cancelError, type: "error" });
         return;
       }
 
-      setToast({ message: "Booking cancelled successfully.", type: "success" });
+      setToast({ message: t.account.cancelSuccess, type: "success" });
       await fetchBookings();
     } catch {
       setToast({ message: "An unexpected error occurred.", type: "error" });
@@ -131,7 +133,7 @@ function AccountContent() {
         <div className="container-invita">
           {/* Header */}
           <div style={{ marginBottom: "3rem" }}>
-            <span className="eyebrow">Your Account</span>
+            <span className="eyebrow">{t.account.eyebrow}</span>
             <div
               style={{
                 display:        "flex",
@@ -153,7 +155,7 @@ function AccountContent() {
                       lineHeight:   1.15,
                     }}
                   >
-                    {profile?.full_name ?? "My Account"}
+                    {profile?.full_name ?? t.account.myAccount}
                   </h1>
                   <p
                     style={{
@@ -193,10 +195,10 @@ function AccountContent() {
                     e.currentTarget.style.color       = "#8B7355";
                   }}
                 >
-                  Sign Out
+                  {t.account.signOut}
                 </button>
                 <a href="/book" className="btn-primary btn-sm">
-                  Book Again
+                  {t.account.bookAgain}
                 </a>
               </div>
             </div>
@@ -224,44 +226,50 @@ function AccountContent() {
               borderBottom: "1px solid rgba(196,149,106,0.15)",
             }}
           >
-            {(["upcoming", "past", "cancelled"] as TabType[]).map((t) => {
+            {(["upcoming", "past", "cancelled"] as TabType[]).map((tabKey) => {
               const count = bookings.filter((b) => {
-                if (t === "upcoming")  return b.date >= today && b.status !== "cancelled";
-                if (t === "past")      return b.date <  today && b.status !== "cancelled";
-                if (t === "cancelled") return b.status === "cancelled";
+                if (tabKey === "upcoming")  return b.date >= today && b.status !== "cancelled";
+                if (tabKey === "past")      return b.date <  today && b.status !== "cancelled";
+                if (tabKey === "cancelled") return b.status === "cancelled";
                 return false;
               }).length;
 
+              const tabLabel =
+                tabKey === "upcoming"
+                  ? t.account.upcoming
+                  : tabKey === "past"
+                    ? t.account.past
+                    : t.account.cancelled;
+
               return (
                 <button
-                  key={t}
-                  onClick={() => setTab(t)}
+                  key={tabKey}
+                  onClick={() => setTab(tabKey)}
                   style={{
                     fontFamily:      "'DM Sans', sans-serif",
                     fontSize:        "0.875rem",
-                    fontWeight:      tab === t ? 500 : 400,
-                    color:           tab === t ? "#2C1810" : "#8B7355",
+                    fontWeight:      tab === tabKey ? 500 : 400,
+                    color:           tab === tabKey ? "#2C1810" : "#8B7355",
                     padding:         "0.75rem 1.25rem",
                     background:      "none",
                     border:          "none",
-                    borderBottom:    tab === t ? "2px solid #C4956A" : "2px solid transparent",
+                    borderBottom:    tab === tabKey ? "2px solid #C4956A" : "2px solid transparent",
                     cursor:          "pointer",
                     transition:      "all 0.25s ease",
-                    textTransform:   "capitalize",
                     display:         "flex",
                     alignItems:      "center",
                     gap:             "0.5rem",
                     flexShrink:      0,
                   }}
                 >
-                  {t}
+                  {tabLabel}
                   <span
                     style={{
                       fontFamily:      "'DM Sans', sans-serif",
                       fontSize:        "0.6875rem",
                       fontWeight:      500,
-                      backgroundColor: tab === t ? "rgba(196,149,106,0.15)" : "rgba(139,115,85,0.1)",
-                      color:           tab === t ? "#C4956A" : "#8B7355",
+                      backgroundColor: tab === tabKey ? "rgba(196,149,106,0.15)" : "rgba(139,115,85,0.1)",
+                      color:           tab === tabKey ? "#C4956A" : "#8B7355",
                       borderRadius:    "9999px",
                       padding:         "0.1rem 0.5rem",
                     }}
@@ -276,7 +284,7 @@ function AccountContent() {
           {/* Content */}
           {loading ? (
             <div style={{ padding: "4rem 0" }}>
-              <LoadingSpinner message="Loading your bookings…" />
+              <LoadingSpinner message={t.account.loadingBookings} />
             </div>
           ) : filteredBookings.length === 0 ? (
             <div
@@ -298,10 +306,10 @@ function AccountContent() {
                 }}
               >
                 {tab === "upcoming"
-                  ? "No upcoming bookings."
+                  ? t.account.noUpcoming
                   : tab === "past"
-                  ? "No past bookings."
-                  : "No cancelled bookings."}
+                  ? t.account.noPast
+                  : t.account.noCancelled}
               </p>
               <p
                 style={{
@@ -312,12 +320,12 @@ function AccountContent() {
                 }}
               >
                 {tab === "upcoming"
-                  ? "Ready to book your next ritual?"
-                  : "Your booking history will appear here."}
+                  ? t.account.upcomingLead
+                  : t.account.pastLead}
               </p>
               {tab === "upcoming" && (
                 <a href="/book" className="btn-primary btn-sm">
-                  Book a Treatment
+                  {t.account.bookTreatment}
                 </a>
               )}
             </div>
@@ -409,10 +417,10 @@ function AccountContent() {
                             },
                             {
                               icon:  <User size={13} />,
-                              text:  booking.stylist?.name ?? "Specialist",
+                              text:  booking.stylist?.name ?? t.account.clinician,
                             },
                             {
-                              icon:  <Scissors size={13} />,
+                              icon:  <Stethoscope size={13} />,
                               text:  booking.service
                                 ? formatPrice(booking.service.price)
                                 : "",
@@ -456,7 +464,7 @@ function AccountContent() {
                               borderTop:    "1px solid rgba(196,149,106,0.1)",
                             }}
                           >
-                            Note: {booking.notes}
+                            {t.account.note}: {booking.notes}
                           </p>
                         )}
                       </div>
@@ -494,7 +502,7 @@ function AccountContent() {
                                 cursor:          "pointer",
                               }}
                             >
-                              Reschedule
+                              {t.account.reschedule}
                             </button>
                             <button
                               onClick={() => handleCancel(booking.id)}
@@ -527,7 +535,7 @@ function AccountContent() {
                             }}
                           >
                             <XCircle size={13} />
-                            {cancelling === booking.id ? "Cancelling…" : "Cancel"}
+                            {cancelling === booking.id ? t.account.cancelling : t.account.cancel}
                           </button>
                           </div>
                         )}
@@ -548,10 +556,10 @@ function AccountContent() {
                 marginBottom: "1.5rem",
               }}
             >
-              DNA results
+              {t.account.dnaResults}
             </h2>
             {dnaOrders.length === 0 ? (
-              <p style={{ color: "#8B7355" }}>No DNA orders yet.</p>
+              <p style={{ color: "#8B7355" }}>{t.account.noResults}</p>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {dnaOrders.map((order) => (
@@ -566,11 +574,11 @@ function AccountContent() {
                   >
                     <strong>{order.panel_name}</strong>
                     <p style={{ color: "#8B7355", fontSize: "0.875rem", marginTop: "0.25rem" }}>
-                      Status: {order.status}
+                      {t.account.status}: {order.status}
                     </p>
                     {order.result_url && order.status === "delivered" && (
                       <a href={order.result_url} target="_blank" rel="noopener noreferrer">
-                        View report
+                        {t.account.viewReport}
                       </a>
                     )}
                   </div>
@@ -595,7 +603,7 @@ function AccountContent() {
           booking={rescheduleTarget}
           onClose={() => setRescheduleTarget(null)}
           onDone={() => {
-            setToast({ message: "Appointment rescheduled — pending confirmation.", type: "success" });
+            setToast({ message: t.account.rescheduleSuccess, type: "success" });
             void fetchBookings();
           }}
         />

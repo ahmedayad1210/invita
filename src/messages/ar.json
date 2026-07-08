@@ -113,10 +113,24 @@
     "confirming": "جاري التأكيد…",
     "dateLabel": "التاريخ",
     "timeLabel": "الوقت",
-    "trustNote": "متخصصون مرخّصون · جناح خاص · صيغ Liquivida® USA"
+    "trustNote": "متخصصون مرخّصون · جناح خاص · صيغ Liquivida® USA",
+    "scheduleTitle": "اختر التاريخ والوقت",
+    "scheduleWith": "مع {name}",
+    "scheduleLead": "اختر التاريخ والوقت المناسبين.",
+    "availableTimes": "الأوقات المتاحة",
+    "checkingAvailability": "جاري التحقق من التوفر…",
+    "availabilityError": "تعذّر تحميل المواعيد.",
+    "closedDay": "مغلق",
+    "pastDay": "تاريخ سابق",
+    "continueIntake": "متابعة — الملف الصحي"
   },
   "intake": {
     "title": "الاستبيان السريري",
+    "lead": "مطلوب قبل جلستك. جميع المعلومات سرية ويراجعها فريقنا الطبي.",
+    "guestSection": "بيانات التواصل",
+    "fullName": "الاسم الكامل",
+    "phone": "الهاتف (واتساب)",
+    "emailOptional": "البريد (اختياري)",
     "goals": "أهدافك الصحية",
     "allergies": "الحساسية المعروفة",
     "medications": "الأدوية الحالية",
@@ -126,7 +140,32 @@
   "account": {
     "appointments": "المواعيد",
     "dnaResults": "نتائج DNA",
-    "noResults": "لا توجد نتائج DNA بعد."
+    "noResults": "لا توجد نتائج DNA بعد.",
+    "eyebrow": "حسابك",
+    "myAccount": "حسابي",
+    "signOut": "تسجيل الخروج",
+    "bookAgain": "احجز مجدداً",
+    "upcoming": "القادمة",
+    "past": "السابقة",
+    "cancelled": "الملغاة",
+    "loadingBookings": "جاري تحميل الحجوزات…",
+    "noUpcoming": "لا توجد حجوزات قادمة.",
+    "noPast": "لا توجد حجوزات سابقة.",
+    "noCancelled": "لا توجد حجوزات ملغاة.",
+    "upcomingLead": "مستعد لحجز جلستك التالية؟",
+    "pastLead": "سيظهر سجل حجوزاتك هنا.",
+    "bookTreatment": "احجز علاجاً",
+    "service": "العلاج",
+    "clinician": "الأخصائي",
+    "note": "ملاحظة",
+    "reschedule": "إعادة الجدولة",
+    "cancel": "إلغاء",
+    "cancelling": "جاري الإلغاء…",
+    "cancelSuccess": "تم إلغاء الحجز بنجاح.",
+    "cancelError": "تعذّر إلغاء الحجز.",
+    "rescheduleSuccess": "تمت إعادة الجدولة — بانتظار التأكيد.",
+    "viewReport": "عرض التقرير",
+    "status": "الحالة"
   },
   "footer": {
     "disclaimer": "جميع العلاجات تُقدَّم بواسطة متخصصين طبيين مرخّصين. إنفيتا تعمل وفق لوائح وزارة الصحة العراقية.",
@@ -169,6 +208,15 @@
     "title": "أسئلة، بإجابات واضحة",
     "viewAll": "عرض كل الأسئلة"
   },
+  "howItWorks": {
+    "eyebrow": "العملية",
+    "title": "كيف يعمل العلاج الوريدي",
+    "lead": "مغذيات تُوصَل مباشرة إلى مجرى الدم — امتصاص كامل دون فقدان هضمي."
+  },
+  "promoStrip": {
+    "body": "احجز جلسة — واحصل على تقييم عافية مجاني.",
+    "cta": "احجز الآن"
+  },
   "servicesPreview": {
     "eyebrow": "كتالوج إنفيتا",
     "title": "11 بروتوكول Liquivida®",
@@ -178,7 +226,11 @@
   "common": {
     "skipToContent": "انتقل إلى المحتوى",
     "whatsapp": "واتساب",
-    "call": "اتصال"
+    "call": "اتصال",
+    "back": "رجوع",
+    "continue": "متابعة",
+    "dismiss": "إغلاق",
+    "tryAgain": "حاول مجدداً"
   },
   "notFound": {
     "title": "هذه الصفحة غير متاحة.",

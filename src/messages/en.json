@@ -113,10 +113,24 @@
     "confirming": "Confirming…",
     "dateLabel": "Date",
     "timeLabel": "Time",
-    "trustNote": "Licensed professionals · Private suite · Liquivida® USA formulas"
+    "trustNote": "Licensed professionals · Private suite · Liquivida® USA formulas",
+    "scheduleTitle": "Choose a date & time",
+    "scheduleWith": "with {name}",
+    "scheduleLead": "Select your preferred date and time slot.",
+    "availableTimes": "Available times",
+    "checkingAvailability": "Checking availability…",
+    "availabilityError": "Unable to load availability.",
+    "closedDay": "Closed",
+    "pastDay": "Past date",
+    "continueIntake": "Continue — Health profile"
   },
   "intake": {
     "title": "Clinical intake",
+    "lead": "Required before your session. All information is confidential and reviewed by our clinical team.",
+    "guestSection": "Your contact details",
+    "fullName": "Full name",
+    "phone": "Phone (WhatsApp)",
+    "emailOptional": "Email (optional)",
     "goals": "Your wellness goals",
     "allergies": "Known allergies",
     "medications": "Current medications",
@@ -126,7 +140,32 @@
   "account": {
     "appointments": "Appointments",
     "dnaResults": "DNA results",
-    "noResults": "No DNA results yet."
+    "noResults": "No DNA results yet.",
+    "eyebrow": "Your Account",
+    "myAccount": "My Account",
+    "signOut": "Sign Out",
+    "bookAgain": "Book Again",
+    "upcoming": "Upcoming",
+    "past": "Past",
+    "cancelled": "Cancelled",
+    "loadingBookings": "Loading your bookings…",
+    "noUpcoming": "No upcoming bookings.",
+    "noPast": "No past bookings.",
+    "noCancelled": "No cancelled bookings.",
+    "upcomingLead": "Ready to book your next session?",
+    "pastLead": "Your booking history will appear here.",
+    "bookTreatment": "Book a Treatment",
+    "service": "Service",
+    "clinician": "Clinician",
+    "note": "Note",
+    "reschedule": "Reschedule",
+    "cancel": "Cancel",
+    "cancelling": "Cancelling…",
+    "cancelSuccess": "Booking cancelled successfully.",
+    "cancelError": "Failed to cancel booking.",
+    "rescheduleSuccess": "Appointment rescheduled — pending confirmation.",
+    "viewReport": "View report",
+    "status": "Status"
   },
   "footer": {
     "disclaimer": "All treatments are administered by licensed medical professionals. Invita operates in full compliance with Iraqi Ministry of Health regulations.",
@@ -169,6 +208,15 @@
     "title": "Questions, answered with clarity",
     "viewAll": "View all questions"
   },
+  "howItWorks": {
+    "eyebrow": "The process",
+    "title": "How IV drip therapy works",
+    "lead": "Nutrients delivered directly to your bloodstream — 100% absorption, no digestive loss."
+  },
+  "promoStrip": {
+    "body": "Book a session — receive a complimentary wellness assessment.",
+    "cta": "Book now"
+  },
   "servicesPreview": {
     "eyebrow": "Invita Catalogue",
     "title": "11 Liquivida® protocols",
@@ -178,7 +226,11 @@
   "common": {
     "skipToContent": "Skip to content",
     "whatsapp": "WhatsApp",
-    "call": "Call"
+    "call": "Call",
+    "back": "Back",
+    "continue": "Continue",
+    "dismiss": "Dismiss",
+    "tryAgain": "Try again"
   },
   "notFound": {
     "title": "This page isn't available.",

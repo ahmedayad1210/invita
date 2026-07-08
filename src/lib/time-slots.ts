@@ -68,11 +68,13 @@ export function getDayOfWeek(dateStr: string): number {
   return new Date(dateStr + "T00:00:00").getDay();
 }
 
-// Check if a date is a closed day for the salon
 export function isSalonClosed(dateStr: string): boolean {
   const day = getDayOfWeek(dateStr);
   return (BOOKING.closedDays as readonly number[]).includes(day);
 }
+
+/** @deprecated Use isStudioClosed */
+export const isStudioClosed = isSalonClosed;
 
 // Check if a date is in the past
 export function isPastDate(dateStr: string): boolean {
