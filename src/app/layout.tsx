@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./just-drip.css";
 import "./invita-pages.css";
 import "./invita-premium.css";
 import "./invita-assets.css";
@@ -13,71 +14,47 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { LocaleProvider } from "@/contexts/LocaleContext";
 import FigmaCaptureLoader from "@/components/dev/FigmaCaptureLoader";
 import ClientShell from "@/components/layout/ClientShell";
-import PromoStrip from "@/components/layout/PromoStrip";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
-import localFont from "next/font/local";
+import { Alexandria } from "next/font/google";
 
-const plain = localFont({
-  src: [
-    { path: "../../public/fonts/plain/Plain-Light.otf", weight: "300", style: "normal" },
-    { path: "../../public/fonts/plain/Plain-Regular.otf", weight: "400", style: "normal" },
-    { path: "../../public/fonts/plain/Plain-Medium.otf", weight: "500", style: "normal" },
-    { path: "../../public/fonts/plain/Plain-Bold.otf", weight: "600", style: "normal" },
-  ],
-  variable: "--font-plain",
+const alexandria = Alexandria({
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-alexandria",
   display: "swap",
-  fallback: ["DM Sans", "Helvetica Neue", "sans-serif"],
 });
 
 const siteUrl = getSiteUrl();
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
-  display: "swap",
-});
-
-const dmSans = DM_Sans({
-  subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500", "600"],
-  style: ["normal", "italic"],
-  variable: "--font-dm-sans",
-  display: "swap",
-});
-
 export const metadata: Metadata = {
   title: {
-    default: `${INVITA.name} — ${INVITA.tagline}`,
+    default: `${INVITA.name} — مغذيات وريدية`,
     template: `%s | ${INVITA.name}`,
   },
   description:
-    "Iraq's leading IV therapy company. Official Liquivida® partner — premium clinical IV formulas, professional training, and nationwide supply for clinics, hospitals, and patients.",
+    "إنفيتا — فيتامينات وريدية في بغداد. 13 بروتوكول JUST DRIP، تبدأ من 150,000 دينار. حصرياً للعيادات والمراكز المرخصة.",
   keywords: [
-    "IV therapy Iraq",
-    "IV drips Baghdad",
+    "مغذيات وريدية",
+    "فيتامينات وريدية بغداد",
+    "إنفيتا",
     "Invita",
+    "IV therapy Iraq",
     "Liquivida Iraq",
-    "IV therapy clinics Iraq",
-    "medical IV wellness",
-    "B2B IV supply Iraq",
   ],
   metadataBase: new URL(siteUrl),
   alternates: {
     canonical: siteUrl,
     languages: {
-      "en-IQ": siteUrl,
       "ar-IQ": siteUrl,
+      "en-IQ": siteUrl,
     },
   },
   openGraph: {
     type: "website",
-    locale: "en_IQ",
+    locale: "ar_IQ",
     siteName: INVITA.name,
-    title: `${INVITA.name} — ${INVITA.tagline}`,
+    title: `${INVITA.name} — JUST DRIP`,
     description:
-      "Iraq's leading IV therapy company. Official Liquivida® partner — clinical IV formulas, professional training, and nationwide supply for clinics and patients.",
+      "فيتامينات وريدية من إنفيتا — طريقك الأقصر لصحة أفضل. بغداد، العراق.",
     url: siteUrl,
     images: [{ url: "/og/default.svg", width: 1200, height: 630, alt: INVITA.name }],
   },
@@ -99,20 +76,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html
-      lang="en"
-      suppressHydrationWarning
-      className={`${cormorant.variable} ${dmSans.variable} ${plain.variable}`}
-    >
-      <body className="bg-ivory text-charcoal antialiased">
+    <html lang="ar" dir="rtl" suppressHydrationWarning className={alexandria.variable}>
+      <body className="bg-ivory text-charcoal antialiased font-sans">
         <FigmaCaptureLoader />
         <a href="#main-content" className="skip-link">
-          Skip to content
+          انتقل إلى المحتوى
         </a>
         <NavigationProgressWrapper />
         <LocaleProvider>
           <AuthProvider>
-            <PromoStrip />
             {children}
             <MobileConversionBar />
             <WhatsAppFab />

@@ -22,8 +22,8 @@
   --color-overlay:      rgba(15, 35, 65, 0.92);
 
   /* ── Fonts ── */
-  --font-serif:  var(--font-cormorant), 'Cormorant Garamond', 'Georgia', serif;
-  --font-sans:   var(--font-plain), var(--font-dm-sans), 'Plain', 'DM Sans', 'Helvetica Neue', sans-serif;
+  --font-serif:  var(--font-alexandria), 'Alexandria', system-ui, sans-serif;
+  --font-sans:   var(--font-alexandria), 'Alexandria', system-ui, sans-serif;
 
   /* ── Font Sizes ── */
   --font-size-xs:   0.75rem;

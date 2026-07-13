@@ -102,11 +102,11 @@ export const SEED_STYLISTS = [
 ] as const;
 
 export const NAV_LINKS = [
-  { label: "IV Drips", labelAr: "المغذيات الوريدية", href: "/iv-therapy" },
-  { label: "Network", labelAr: "الشبكة", href: "/healthcare-network" },
-  { label: "For Clinics", labelAr: "للعيادات", href: "/for-clinics" },
-  { label: "About", labelAr: "من نحن", href: "/about" },
-  { label: "FAQ", labelAr: "الأسئلة", href: "/faq" },
+  { label: "المغذيات", labelAr: "المغذيات", href: "/iv-drip-menu" },
+  { label: "DNA", labelAr: "DNA", href: "/dna" },
+  { label: "الشركاء", labelAr: "الشركاء", href: "/for-clinics" },
+  { label: "من نحن", labelAr: "من نحن", href: "/about" },
+  { label: "الأسئلة", labelAr: "الأسئلة", href: "/faq" },
 ] as const;
 
 export const FOOTER_B2B_LINKS = [
@@ -136,11 +136,10 @@ export const FOOTER_COMPANY_LINKS = [
 ] as const;
 
 export const FOOTER_TREATMENT_LINKS = [
-  { label: "IV Drips", labelAr: "المغذيات الوريدية", href: "/iv-therapy" },
-  { label: "IV Drip Menu", labelAr: "قائمة المغذيات", href: "/iv-drip-menu" },
-  { label: "NAD+ Therapy", labelAr: "علاج NAD+", href: "/nad-plus" },
-  { label: "GLP-1 Plans", labelAr: "خطط GLP-1", href: "/glp-1" },
-  { label: "Add-Ons", labelAr: "الإضافات", href: "/add-ons" },
+  { label: "JUST DRIP", labelAr: "JUST DRIP", href: "/iv-drip-menu" },
+  { label: "DNA", labelAr: "تحليل DNA", href: "/dna" },
+  { label: "NAD+", labelAr: "NAD+", href: "/nad-plus" },
+  { label: "GLP-1", labelAr: "GLP-1", href: "/glp-1" },
 ] as const;
 
 export const TESTIMONIALS = [

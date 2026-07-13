@@ -29,7 +29,7 @@ const LocaleContext = createContext<LocaleContextValue | null>(null);
 const STORAGE_KEY = "invita_locale";
 
 export function LocaleProvider({ children }: { children: React.ReactNode }) {
-  const [locale, setLocaleState] = useState<Locale>("en");
+  const [locale, setLocaleState] = useState<Locale>("ar");
 
   useEffect(() => {
     const stored = localStorage.getItem(STORAGE_KEY) as Locale | null;
