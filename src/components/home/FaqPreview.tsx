@@ -4,13 +4,22 @@ import { useState } from "react";
 import Link from "next/link";
 import ScrollReveal from "@/components/patterns/ScrollReveal";
 import { COMPREHENSIVE_FAQ } from "@/lib/invita/faq-comprehensive";
+import { FAQ_ITEMS } from "@/lib/invita/liquivida-drips";
 import { useLocale } from "@/contexts/LocaleContext";
 
-export default function FaqPreview() {
+type Props = {
+  variant?: "default" | "iv";
+};
+
+export default function FaqPreview({ variant = "default" }: Props) {
   const { t, locale } = useLocale();
   const isAr = locale === "ar";
   const [open, setOpen] = useState<number | null>(0);
-  const items = COMPREHENSIVE_FAQ.filter((item) => item.category === "patients").slice(0, 3);
+
+  const items =
+    variant === "iv"
+      ? FAQ_ITEMS.slice(0, 5)
+      : COMPREHENSIVE_FAQ.filter((item) => item.category === "patients").slice(0, 3);
 
   return (
     <section className="section-padding faq-preview">
@@ -18,7 +27,14 @@ export default function FaqPreview() {
         <ScrollReveal>
           <header className="page-hero">
             <p className="page-eyebrow">{isAr ? "وضوح وسلامة" : "Clarity & safety"}</p>
-            <h2 className="page-title page-title--compact">{t.faq.title}</h2>
+            <h2 className="page-title page-title--compact">
+              {variant === "iv" ? "Frequently asked questions" : t.faq.title}
+            </h2>
+            {variant === "iv" ? (
+              <p className="page-lead page-lead--narrow">
+                Answering your questions to make you feel comfortable.
+              </p>
+            ) : null}
           </header>
         </ScrollReveal>
         <div className="faq-list">
@@ -37,6 +53,9 @@ export default function FaqPreview() {
           ))}
         </div>
         <div className="cta-band">
+          <Link href="/book" className="btn-primary">
+            {t.cta.startConsultation}
+          </Link>
           <Link href="/faq" className="btn-secondary">
             {t.faq.viewAll}
           </Link>

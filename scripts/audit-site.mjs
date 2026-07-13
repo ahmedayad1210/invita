@@ -29,7 +29,8 @@ const CLINIC_SLUGS = [
 ].map((m) => m[1]);
 
 const STATIC_ROUTES = [
-  "/", "/about", "/iv-therapy", "/add-ons", "/faq", "/contact", "/membership",
+  "/", "/about", "/iv-therapy", "/iv-drip-menu", "/nad-plus", "/glp-1",
+  "/add-ons", "/faq", "/contact", "/membership",
   "/locations", "/for-clinics", "/healthcare-network", "/book", "/privacy",
   "/terms", "/dna", "/science", "/science/explorer", "/journal", "/telehealth",
   "/partners", "/partners/apply", "/account", "/bookings", "/services",
@@ -46,8 +47,9 @@ const PDFS = [
 ].map((n) => `/resources/${n}.pdf`);
 
 const REDIRECTS = [
-  ["/services", "/iv-therapy"],
+  ["/services", "/iv-drip-menu"],
   ["/bookings", "/account"],
+  ["/iv-therapy/nad-plus", "/nad-plus"],
 ];
 
 const failures = [];

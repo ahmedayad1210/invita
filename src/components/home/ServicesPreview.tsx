@@ -44,10 +44,13 @@ export default function ServicesPreview() {
               getProtocolDripImage(drip.slug, drip.imageSlug) ?? DRIP_IMAGE_FALLBACK;
             const price = getDripPriceIqd(drip.slug);
 
+            const dripHref =
+              drip.slug === "nad-plus" ? "/nad-plus" : `/iv-therapy/${drip.slug}`;
+
             return (
               <Link
                 key={drip.slug}
-                href={`/iv-therapy/${drip.slug}`}
+                href={dripHref}
                 className="services-preview-card"
               >
                 <div className="services-preview-card-visual">

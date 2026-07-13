@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function ServicesRedirect() {
-  redirect("/iv-therapy");
+  redirect("/iv-drip-menu");
 }

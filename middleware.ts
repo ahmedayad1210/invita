@@ -31,6 +31,10 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/account?section=bookings", request.url), 308);
   }
 
+  if (pathname === "/partners/login" || pathname === "/partners/dashboard") {
+    return NextResponse.redirect(new URL("/partners", request.url), 308);
+  }
+
   if (isAdminPageRoute(pathname)) {
     const token = request.cookies.get(COOKIE_NAME)?.value;
     const payload = token ? await verifyAdminJWT(token) : null;

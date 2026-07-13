@@ -5,6 +5,7 @@ export default function TrustBar() {
   return (
     <section className="trust-bar" aria-label="Partners and trust">
       <div className="trust-bar-inner">
+        <p className="trust-bar-as-seen">As seen in</p>
         <LiquividaBadge />
         <span className="trust-bar-divider" />
         <p className="trust-bar-text">

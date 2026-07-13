@@ -32,13 +32,13 @@
     "whatHappensNext": "A clinician will confirm your protocol within 24 hours."
   },
   "hero": {
-    "eyebrow": "Iraq's First Officially Registered IV Therapy Brand",
-    "title": "The company behind",
-    "titleEm": "IV therapy in Iraq.",
-    "subtitle": "Official Iraqi medical wellness company. International standards. Serving patients, clinics, medical centres, and physicians nationwide — powered by Liquivida®.",
-    "ctaPrimary": "Explore IV Drips",
+    "eyebrow": "Official Distributor of Liquivida® USA — Now in Baghdad",
+    "title": "IV Vitamin",
+    "titleEm": "Drip Therapy",
+    "subtitle": "Baghdad's first medical-grade IV infusion clinic, powered by Liquivida® USA — a unique blend of vitamins, minerals, amino acids, and antioxidants designed to elevate your health and wellbeing.",
+    "ctaPrimary": "Browse IV Drips",
     "ctaSecondary": "For Clinics & Partners",
-    "ctaBook": "Reserve Your Appointment"
+    "ctaBook": "Book Your Session"
   },
   "trust": {
     "licensed": "Licensed medical professionals",
@@ -199,8 +199,8 @@
     "note": "Trusted by public figures and wellness leaders at leading IV clinics across the Middle East."
   },
   "leadCapture": {
-    "title": "Receive a complimentary wellness assessment",
-    "body": "Speak with our medical team before any treatment. We will help you find the right protocol for your goals.",
+    "title": "Book an IV drip and receive a complimentary wellness assessment",
+    "body": "Find out your vitamin and mineral levels during a complimentary wellness assessment with one of our medical professionals — before any treatment begins.",
     "cta": "Speak with Our Medical Team",
     "success": "Thank you — our concierge will contact you within 24 hours."
   },
@@ -219,8 +219,8 @@
   },
   "servicesPreview": {
     "eyebrow": "Invita Catalogue",
-    "title": "11 Liquivida® protocols",
-    "lead": "Each protocol begins with a private medical consultation.",
+    "title": "Browse our award-winning range of IV drip infusions",
+    "lead": "Eleven Liquivida® protocols — each begins with a private medical consultation tailored to your goals.",
     "viewAll": "View all 11"
   },
   "common": {

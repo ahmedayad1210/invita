@@ -3436,7 +3436,53 @@ html[dir="rtl"] .booking-week-nav {
   color: #f0ede4;
 }
 
+.drip-menu-filter {
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.drip-menu-filter-label {
+  font-size: 0.8125rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #6b7a94;
+  margin-bottom: 1rem;
+}
+
+.drip-detail-page {
+  max-width: 900px;
+}
+
+.drip-detail-hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 2.5rem;
+  align-items: start;
+  margin-bottom: 3rem;
+}
+
+.drip-detail-section {
+  margin-bottom: 3rem;
+}
+
+.trust-bar-as-seen {
+  font-size: 0.6875rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: #6b7a94;
+  margin: 0;
+}
+
 @media (max-width: 768px) {
+  .drip-detail-hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .drip-detail-hero .detail-header {
+    text-align: center;
+  }
+
   .service-landing-hero-inner {
     grid-template-columns: 1fr;
     gap: 2rem;

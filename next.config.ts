@@ -59,7 +59,12 @@ const nextConfig: NextConfig = {
       },
       {
         source: "/services",
-        destination: "/iv-therapy",
+        destination: "/iv-drip-menu",
+        permanent: true,
+      },
+      {
+        source: "/iv-therapy/nad-plus",
+        destination: "/nad-plus",
         permanent: true,
       },
     ];

@@ -75,11 +75,11 @@ export default function HeroSection({ bannerUrl, bannerAlt }: Props) {
           className="animate-fade-in-up opacity-0-init hero-ctas"
           style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
         >
-          <Link href="/book" className="btn-hero-primary">
-            {t.hero.ctaBook}
-          </Link>
-          <Link href="/iv-drip-menu" className="btn-hero-secondary">
+          <Link href="/iv-drip-menu" className="btn-hero-primary">
             {t.hero.ctaPrimary}
+          </Link>
+          <Link href="/book" className="btn-hero-secondary">
+            {t.hero.ctaBook}
           </Link>
         </div>
         <p className="hero-clinics-link animate-fade-in opacity-0-init" style={{ animationDelay: "0.7s", animationFillMode: "forwards" }}>
