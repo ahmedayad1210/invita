@@ -30,7 +30,7 @@ export default function ServicesPreview() {
             <h2 className="services-preview-title">{copy.title}</h2>
             <p className="services-preview-lead">{copy.lead}</p>
           </div>
-          <Link href="/iv-therapy" className="services-preview-link">
+          <Link href="/iv-drip-menu" className="services-preview-link">
             {copy.viewAll} <ArrowRight size={14} />
           </Link>
         </div>

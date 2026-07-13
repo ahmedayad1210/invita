@@ -221,7 +221,7 @@ export default function ScienceHubPage() {
               </aside>
 
               <div className="science-nad-cta">
-                <Link href="/iv-therapy/nad-plus" className="btn-secondary">
+                <Link href="/nad-plus" className="btn-secondary">
                   {isAr ? "بروتوكولات NAD+ في Invita" : "Invita NAD+ protocols"}
                   <ChevronRight size={16} aria-hidden="true" />
                 </Link>

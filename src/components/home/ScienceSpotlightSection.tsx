@@ -33,7 +33,7 @@ export default function ScienceSpotlightSection() {
             </span>
           </div>
           <div className="science-spotlight-actions">
-            <Link href="/iv-therapy/nad-plus" className="btn-primary">
+            <Link href="/nad-plus" className="btn-primary">
               {isAr ? "بروتوكول NAD+" : "NAD+ protocol"}
               <ArrowRight size={16} aria-hidden="true" />
             </Link>

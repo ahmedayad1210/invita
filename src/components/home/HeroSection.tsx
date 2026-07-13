@@ -78,7 +78,7 @@ export default function HeroSection({ bannerUrl, bannerAlt }: Props) {
           <Link href="/book" className="btn-hero-primary">
             {t.hero.ctaBook}
           </Link>
-          <Link href="/iv-therapy" className="btn-hero-secondary">
+          <Link href="/iv-drip-menu" className="btn-hero-secondary">
             {t.hero.ctaPrimary}
           </Link>
         </div>

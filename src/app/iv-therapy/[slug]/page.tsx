@@ -59,8 +59,8 @@ export default async function DripDetailPage({ params }: Props) {
             />
           </div>
           <header className="detail-header">
-            <Link href="/iv-therapy" className="back-link">
-              ← IV Drips
+            <Link href="/iv-drip-menu" className="back-link">
+              ← IV Drip Menu
             </Link>
             <span className="protocol-tier">Liquivida® · {drip.tier}</span>
             <h1 className="page-title">{drip.name}</h1>

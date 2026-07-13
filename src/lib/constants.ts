@@ -137,6 +137,9 @@ export const FOOTER_COMPANY_LINKS = [
 
 export const FOOTER_TREATMENT_LINKS = [
   { label: "IV Drips", labelAr: "المغذيات الوريدية", href: "/iv-therapy" },
+  { label: "IV Drip Menu", labelAr: "قائمة المغذيات", href: "/iv-drip-menu" },
+  { label: "NAD+ Therapy", labelAr: "علاج NAD+", href: "/nad-plus" },
+  { label: "GLP-1 Plans", labelAr: "خطط GLP-1", href: "/glp-1" },
   { label: "Add-Ons", labelAr: "الإضافات", href: "/add-ons" },
 ] as const;
 
