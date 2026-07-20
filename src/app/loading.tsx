@@ -7,7 +7,7 @@ export default function Loading() {
       style={{
         position:        "fixed",
         inset:           0,
-        backgroundColor: "#FAF7F2",
+        backgroundColor: "#F6FAFB",
         display:         "flex",
         flexDirection:   "column",
         alignItems:      "center",
@@ -18,10 +18,10 @@ export default function Loading() {
       {/* Brand wordmark */}
       <div
         style={{
-          fontFamily:    "'Cormorant Garamond', Georgia, serif",
+          fontFamily:    "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
           fontSize:      "1.5rem",
           fontWeight:    300,
-          color:         "#0F2341",
+          color:         "#0C2430",
           letterSpacing: "0.15em",
           marginBottom:  "2rem",
         }}
@@ -38,7 +38,7 @@ export default function Loading() {
               width:           "6px",
               height:          "6px",
               borderRadius:    "9999px",
-              backgroundColor: "#D9B344",
+              backgroundColor: "#0FB5A8",
               animation:       "loadingPulse 1.2s ease-in-out infinite",
               animationDelay:  `${i * 0.2}s`,
             }}

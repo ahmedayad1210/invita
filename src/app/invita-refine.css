@@ -8,13 +8,13 @@
 
 :root {
   /* Unified gold — one accent, consistently applied.
-     #D9B344 is the brand gold; --gold-deep is a slightly less
+     #0FB5A8 is the brand gold; --gold-deep is a slightly less
      yellow tone reserved for hover / pressed emphasis so accents
      read jewellery-precise rather than bright. */
-  --gold:        #D9B344;
-  --gold-deep:   #C9A227;
-  --gold-soft:   rgba(217, 179, 68, 0.14);
-  --gold-line:   rgba(217, 179, 68, 0.30);
+  --gold:        #0FB5A8;
+  --gold-deep:   #0E9E93;
+  --gold-soft:   rgba(15,181,168, 0.14);
+  --gold-line:   rgba(15,181,168, 0.30);
 
   /* Neutral, layered elevation (luxury shadows are dark, not tinted). */
   --e1: 0 1px 2px rgba(15, 35, 65, 0.05), 0 1px 3px rgba(15, 35, 65, 0.04);
@@ -102,18 +102,18 @@ p, li, figcaption, blockquote,
 .btn-primary:hover {
   background-color: var(--gold-deep);
   border-color: var(--gold-deep);
-  color: #F0EDE4;
+  color: #EEF4F6;
 }
 
 .btn-hero-primary:hover {
   background-color: var(--gold);
   border-color: var(--gold);
-  color: #0F2341;
+  color: #0C2430;
 }
 
 .btn-hero-secondary:hover {
   border-color: rgba(250, 247, 242, 0.75);
-  color: #F0EDE4;
+  color: #EEF4F6;
 }
 
 /* ------------------------------------------------------------
@@ -145,7 +145,7 @@ p, li, figcaption, blockquote,
 /* Dark stat cards on the navy band get a light-lift instead. */
 .stats-section .stat-card:hover {
   transform: translateY(-3px);
-  border-color: rgba(217, 179, 68, 0.35);
+  border-color: rgba(15,181,168, 0.35);
   background: rgba(250, 247, 242, 0.06);
 }
 
@@ -154,7 +154,7 @@ p, li, figcaption, blockquote,
    ------------------------------------------------------------ */
 
 .navbar-pill {
-  border-color: rgba(217, 179, 68, 0.18);
+  border-color: rgba(15,181,168, 0.18);
   box-shadow: var(--e2);
   transition-property: background-color, box-shadow, border-color, top, transform;
   transition-duration: 300ms;
@@ -166,7 +166,7 @@ p, li, figcaption, blockquote,
 }
 
 .overlay-menu {
-  background-color: rgba(240, 237, 228, 0.98);
+  background-color: rgba(238, 244, 246, 0.98);
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
 }

@@ -92,22 +92,22 @@ export default function StepConfirm() {
             width:           "72px",
             height:          "72px",
             borderRadius:    "9999px",
-            backgroundColor: "rgba(217,179,68,0.1)",
+            backgroundColor: "rgba(15,181,168,0.1)",
             display:         "flex",
             alignItems:      "center",
             justifyContent:  "center",
             margin:          "0 auto 1.5rem",
           }}
         >
-          <CheckCircle size={32} color="#D9B344" />
+          <CheckCircle size={32} color="#0FB5A8" />
         </div>
 
         <h2
           style={{
-            fontFamily:   "'Cormorant Garamond', Georgia, serif",
+            fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
             fontSize:     "2.25rem",
             fontWeight:   400,
-            color:        "#0F2341",
+            color:        "#0C2430",
             marginBottom: "0.75rem",
           }}
         >
@@ -152,7 +152,7 @@ export default function StepConfirm() {
             marginBottom:  "2.5rem",
           }}
         >
-          {t.book.bookingRef}: <strong style={{ color: "#D9B344" }}>{confirmedBookingId.slice(0, 8).toUpperCase()}</strong>
+          {t.book.bookingRef}: <strong style={{ color: "#0FB5A8" }}>{confirmedBookingId.slice(0, 8).toUpperCase()}</strong>
         </p>
 
         {/* Summary pill */}
@@ -161,7 +161,7 @@ export default function StepConfirm() {
             display:         "inline-flex",
             flexWrap:        "wrap",
             gap:             "1.5rem",
-            backgroundColor: "#FAF7F2",
+            backgroundColor: "#F6FAFB",
             borderRadius:    "0.75rem",
             padding:         "1.25rem 2rem",
             marginBottom:    "2rem",
@@ -193,7 +193,7 @@ export default function StepConfirm() {
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize:   "0.875rem",
                   fontWeight: 500,
-                  color:      "#0F2341",
+                  color:      "#0C2430",
                 }}
               >
                 {item.value}
@@ -281,7 +281,7 @@ export default function StepConfirm() {
         style={{
           backgroundColor: "#FFFFFF",
           borderRadius:    "0.75rem",
-          border:          "1px solid rgba(217,179,68,0.15)",
+          border:          "1px solid rgba(15,181,168,0.15)",
           overflow:        "hidden",
           marginBottom:    "1.5rem",
         }}
@@ -289,7 +289,7 @@ export default function StepConfirm() {
         {/* Header */}
         <div
           style={{
-            backgroundColor: "#0F2341",
+            backgroundColor: "#0C2430",
             padding:         "1.25rem 1.5rem",
           }}
         >
@@ -348,7 +348,7 @@ export default function StepConfirm() {
                 gap:           "1rem",
                 paddingBottom: i < 4 ? "1.125rem" : 0,
                 marginBottom:  i < 4 ? "1.125rem" : 0,
-                borderBottom:  i < 4 ? "1px solid rgba(217,179,68,0.1)" : "none",
+                borderBottom:  i < 4 ? "1px solid rgba(15,181,168,0.1)" : "none",
               }}
             >
               <div
@@ -356,11 +356,11 @@ export default function StepConfirm() {
                   width:           "34px",
                   height:          "34px",
                   borderRadius:    "9999px",
-                  backgroundColor: "rgba(217,179,68,0.1)",
+                  backgroundColor: "rgba(15,181,168,0.1)",
                   display:         "flex",
                   alignItems:      "center",
                   justifyContent:  "center",
-                  color:           "#D9B344",
+                  color:           "#0FB5A8",
                   flexShrink:      0,
                 }}
               >
@@ -389,7 +389,7 @@ export default function StepConfirm() {
                       fontFamily: "'DM Sans', sans-serif",
                       fontSize:   "0.9375rem",
                       fontWeight: 500,
-                      color:      "#0F2341",
+                      color:      "#0C2430",
                     }}
                   >
                     {item.value}
@@ -398,9 +398,9 @@ export default function StepConfirm() {
                 {item.sub && (
                   <p
                     style={{
-                      fontFamily:  "'Cormorant Garamond', Georgia, serif",
+                      fontFamily:  "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                       fontSize:    "1.125rem",
-                      color:       "#D9B344",
+                      color:       "#0FB5A8",
                       marginTop:   "0.125rem",
                     }}
                   >
@@ -433,8 +433,8 @@ export default function StepConfirm() {
         <div
           style={{
             padding:         "0.875rem 1rem",
-            backgroundColor: "rgba(217,179,68,0.08)",
-            border:          "1px solid rgba(217,179,68,0.25)",
+            backgroundColor: "rgba(15,181,168,0.08)",
+            border:          "1px solid rgba(15,181,168,0.25)",
             borderRadius:    "0.5rem",
             marginBottom:    "1.5rem",
           }}

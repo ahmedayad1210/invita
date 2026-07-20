@@ -17,7 +17,7 @@ export default function StatCard({
     <div
       className="stat-card"
       style={{
-        borderLeft: accent ? "3px solid #D9B344" : undefined,
+        borderLeft: accent ? "3px solid #0FB5A8" : undefined,
       }}
     >
       <p
@@ -39,7 +39,7 @@ export default function StatCard({
           fontSize:          "1.875rem",
           fontWeight:        600,
           fontVariantNumeric:"tabular-nums",
-          color:             "#0F2341",
+          color:             "#0C2430",
           lineHeight:        1.1,
           letterSpacing:     "-0.01em",
           marginBottom:      subLabel ? "0.35rem" : 0,

@@ -171,9 +171,9 @@ export default function ServiceForm({
             alignItems:     "center",
             justifyContent: "space-between",
             padding:        "0.875rem 1rem",
-            backgroundColor: "#FAF7F2",
+            backgroundColor: "#F6FAFB",
             borderRadius:   "0.5rem",
-            border:         "1px solid rgba(217,179,68,0.15)",
+            border:         "1px solid rgba(15,181,168,0.15)",
           }}
         >
           <div>
@@ -182,7 +182,7 @@ export default function ServiceForm({
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.875rem",
                 fontWeight: 500,
-                color:      "#0F2341",
+                color:      "#0C2430",
               }}
             >
               Visible to clients
@@ -210,7 +210,7 @@ export default function ServiceForm({
               style={{
                 position:        "absolute",
                 inset:           0,
-                backgroundColor: form.active ? "#D9B344" : "rgba(107,122,148,0.25)",
+                backgroundColor: form.active ? "#0FB5A8" : "rgba(107,122,148,0.25)",
                 borderRadius:    "9999px",
                 cursor:          "pointer",
                 transition:      "background-color 0.3s ease",

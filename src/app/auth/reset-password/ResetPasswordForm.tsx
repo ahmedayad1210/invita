@@ -138,7 +138,7 @@ export default function ResetPasswordForm({ initialError = null }: ResetPassword
       <div
         style={{
           minHeight: "100svh",
-          backgroundColor: "#FAF7F2",
+          backgroundColor: "#F6FAFB",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
@@ -155,7 +155,7 @@ export default function ResetPasswordForm({ initialError = null }: ResetPassword
         title="Link Expired"
         subtitle={sessionError}
         footer={
-          <Link href="/auth/forgot-password" style={{ color: "#D9B344" }}>
+          <Link href="/auth/forgot-password" style={{ color: "#0FB5A8" }}>
             Request a new reset link
           </Link>
         }

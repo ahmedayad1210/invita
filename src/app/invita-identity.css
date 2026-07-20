@@ -1,0 +1,380 @@
+/* ============================================================
+   INVITA — CLINICAL-VITAL IDENTITY
+   A modern IV-therapy leader: clinical ice canvas, vital teal +
+   vitamin amber accents, Bricolage Grotesque display, Space Mono
+   for clinical data. Loaded last; the public site's new identity.
+   Admin keeps its own ops-tool language (scoped under .admin-body).
+   ============================================================ */
+
+:root {
+  --saline:      #EEF4F6;  /* cool ice canvas   */
+  --frost:       #FFFFFF;  /* surfaces          */
+  --ink:         #0C2430;  /* clinical ink      */
+  --ink-2:       #16394A;  /* raised dark       */
+  --teal:        #0FB5A8;  /* vital primary     */
+  --teal-deep:   #0E9E93;  /* pressed / hover   */
+  --teal-tint:   rgba(15, 181, 168, 0.10);
+  --teal-line:   rgba(15, 181, 168, 0.28);
+  --amber:       #EBA43B;  /* micronutrient spot */
+  --mist:        #6B7A94;  /* muted text        */
+}
+
+/* ------------------------------------------------------------
+   DISPLAY TYPE — Bricolage Grotesque, set with weight & tension
+   (admin overrides itself to DM Sans under .admin-body)
+   ------------------------------------------------------------ */
+
+h1, h2, h3, h4 {
+  font-family: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+}
+h1 { font-weight: 700; letter-spacing: -0.032em; line-height: 1.02; }
+h2 { font-weight: 600; letter-spacing: -0.022em; }
+h3 { font-weight: 600; letter-spacing: -0.016em; }
+.page-title { font-weight: 700; letter-spacing: -0.028em; }
+
+/* ------------------------------------------------------------
+   EYEBROWS & LABELS — Space Mono, the clinical-measurement voice
+   ------------------------------------------------------------ */
+
+.eyebrow,
+.page-eyebrow,
+.hero-eyebrow {
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-weight: 400;
+  font-size: 0.6875rem;
+  letter-spacing: 0.14em;
+  color: var(--teal-deep);
+  text-transform: uppercase;
+}
+
+/* ------------------------------------------------------------
+   ACCENT UTILITIES
+   ------------------------------------------------------------ */
+
+.text-vital { color: var(--teal); }
+.text-vitamin { color: var(--amber); }
+
+/* Primary buttons become clinical-ink with a teal press;
+   the refine layer already scopes their motion. */
+.btn-primary {
+  background-color: var(--ink);
+  border-color: var(--ink);
+  color: var(--saline);
+}
+.btn-primary:hover {
+  background-color: var(--teal);
+  border-color: var(--teal);
+  color: var(--ink);
+}
+
+/* ------------------------------------------------------------
+   SIGNATURE — the infusion hero
+   ------------------------------------------------------------ */
+
+.ivx-hero {
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(70% 55% at 82% 8%, rgba(15, 181, 168, 0.12), transparent 60%),
+    radial-gradient(60% 50% at 8% 92%, rgba(235, 164, 59, 0.08), transparent 60%),
+    var(--saline);
+  padding-top: clamp(7rem, 12vh, 9rem);
+  padding-bottom: clamp(3.5rem, 8vh, 6rem);
+}
+
+/* Faint clinical grid, like a measured field */
+.ivx-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(12, 36, 48, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(12, 36, 48, 0.035) 1px, transparent 1px);
+  background-size: 46px 46px;
+  mask-image: radial-gradient(120% 90% at 50% 0%, #000 30%, transparent 78%);
+  pointer-events: none;
+}
+
+.ivx-hero-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  align-items: center;
+  gap: clamp(2rem, 5vw, 4.5rem);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}
+
+.ivx-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--teal-deep);
+  margin-bottom: 1.4rem;
+}
+.ivx-eyebrow::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 4px var(--teal-tint);
+  animation: ivx-pulse 2.4s var(--ease-out, ease) infinite;
+}
+
+.ivx-title {
+  font-family: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: clamp(2.6rem, 6vw, 4.6rem);
+  line-height: 0.99;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin: 0 0 1.35rem;
+  text-wrap: balance;
+}
+.ivx-title em {
+  font-style: normal;
+  color: var(--teal);
+}
+
+.ivx-sub {
+  font-family: var(--font-dm-sans), "DM Sans", sans-serif;
+  font-size: clamp(1rem, 1.3vw, 1.125rem);
+  line-height: 1.65;
+  color: var(--mist);
+  max-width: 34rem;
+  margin: 0 0 2rem;
+}
+
+.ivx-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.ivx-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.95rem 1.6rem;
+  border-radius: 0.7rem;
+  font-family: var(--font-dm-sans), "DM Sans", sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  border: 1.5px solid var(--ink);
+  transition: transform 200ms var(--ease-out, ease),
+              background-color 200ms var(--ease-out, ease),
+              box-shadow 200ms var(--ease-out, ease),
+              color 200ms var(--ease-out, ease);
+}
+.ivx-cta--primary { background: var(--ink); color: var(--saline); }
+.ivx-cta--primary:hover {
+  background: var(--teal); border-color: var(--teal); color: var(--ink);
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(15, 181, 168, 0.28);
+}
+.ivx-cta--ghost { background: transparent; color: var(--ink); }
+.ivx-cta--ghost:hover {
+  border-color: var(--teal); color: var(--teal-deep);
+  transform: translateY(-2px);
+}
+.ivx-cta:active { transform: translateY(0) scale(0.985); }
+
+.ivx-trust {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+.ivx-trust span { display: inline-flex; align-items: center; gap: 0.45rem; }
+.ivx-trust span::before {
+  content: ""; width: 5px; height: 5px; border-radius: 50%;
+  background: var(--teal);
+}
+
+/* ── The formula card (the drip as precise medicine) ── */
+
+.ivx-rx-wrap {
+  position: relative;
+  justify-self: center;
+  width: min(100%, 26rem);
+}
+
+.ivx-rx {
+  position: relative;
+  z-index: 2;
+  background: var(--frost);
+  border: 1px solid rgba(12, 36, 48, 0.09);
+  border-radius: 1.15rem;
+  padding: 1.5rem 1.5rem 1.35rem;
+  box-shadow:
+    0 1px 2px rgba(12, 36, 48, 0.05),
+    0 24px 60px rgba(12, 36, 48, 0.14);
+}
+
+.ivx-rx-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.35rem;
+}
+.ivx-rx-name {
+  font-family: var(--font-bricolage), "Bricolage Grotesque", sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  letter-spacing: -0.02em;
+  color: var(--ink);
+}
+.ivx-rx-code {
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--teal-deep);
+  letter-spacing: 0.06em;
+}
+.ivx-rx-tag {
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--mist);
+  margin-bottom: 1.1rem;
+}
+
+.ivx-rx-rows { display: flex; flex-direction: column; gap: 0.55rem; margin-bottom: 1.15rem; }
+.ivx-rx-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-size: 0.78rem;
+  color: var(--ink);
+}
+.ivx-rx-row .lead {
+  display: flex; align-items: center; gap: 0.5rem;
+  color: #3a5563;
+  overflow: hidden;
+}
+.ivx-rx-row .lead::after {
+  content: "";
+  flex: 1;
+  height: 0;
+  border-bottom: 1px dotted rgba(12, 36, 48, 0.22);
+  margin-left: 0.35rem;
+}
+.ivx-rx-row .dose {
+  color: var(--ink);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ivx-rx-bar {
+  height: 8px;
+  border-radius: 99px;
+  background: rgba(12, 36, 48, 0.07);
+  overflow: hidden;
+  margin-bottom: 0.6rem;
+}
+.ivx-rx-bar > i {
+  display: block;
+  height: 100%;
+  width: 72%;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--teal), #35d0c3);
+  animation: ivx-fill 3.6s var(--ease-out, ease) infinite alternate;
+}
+.ivx-rx-status {
+  display: flex; align-items: center; justify-content: space-between;
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--mist);
+}
+.ivx-rx-status .live { display: inline-flex; align-items: center; gap: 0.4rem; color: var(--teal-deep); }
+.ivx-rx-status .live::before {
+  content: ""; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--teal);
+  animation: ivx-pulse 1.6s var(--ease-out, ease) infinite;
+}
+
+/* Amber "boost" chip floating behind, for depth + the warm accent */
+.ivx-boost {
+  position: absolute;
+  z-index: 4;
+  left: -0.75rem;
+  bottom: -1.15rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.5rem 0.8rem;
+  background: var(--ink);
+  color: var(--saline);
+  border-radius: 0.6rem;
+  font-family: var(--font-space-mono), "Space Mono", monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  box-shadow: 0 12px 30px rgba(12, 36, 48, 0.22);
+}
+.ivx-boost::before {
+  content: ""; width: 7px; height: 7px; border-radius: 50%;
+  background: var(--amber);
+  box-shadow: 0 0 0 3px rgba(235, 164, 59, 0.25);
+}
+
+/* A dispensing droplet above the card — the literal drip */
+.ivx-drip {
+  position: absolute;
+  z-index: 3;
+  top: -0.5rem;
+  left: 2.35rem;
+  width: 12px;
+  height: 14px;
+  border-radius: 50% 50% 50% 50% / 62% 62% 38% 38%;
+  background: var(--teal);
+  opacity: 0;
+  animation: ivx-drop 3s var(--ease-out, ease) infinite;
+}
+
+@keyframes ivx-pulse {
+  0%, 100% { box-shadow: 0 0 0 4px var(--teal-tint); }
+  50%      { box-shadow: 0 0 0 7px rgba(15, 181, 168, 0.04); }
+}
+@keyframes ivx-fill {
+  0%   { width: 44%; }
+  100% { width: 86%; }
+}
+@keyframes ivx-drop {
+  0%   { opacity: 0; transform: translateY(0) scale(0.7); }
+  12%  { opacity: 1; }
+  70%  { opacity: 1; transform: translateY(14px) scale(1); }
+  85%  { opacity: 0; transform: translateY(20px) scale(0.6); }
+  100% { opacity: 0; transform: translateY(20px) scale(0.6); }
+}
+
+@media (max-width: 900px) {
+  .ivx-hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+  .ivx-rx-wrap { justify-self: stretch; width: 100%; max-width: 26rem; margin-inline: auto; }
+  .ivx-title { font-size: clamp(2.3rem, 10vw, 3.4rem); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ivx-eyebrow::before,
+  .ivx-rx-bar > i,
+  .ivx-rx-status .live::before,
+  .ivx-drip { animation: none; }
+  .ivx-rx-bar > i { width: 72%; }
+  .ivx-drip { opacity: 0; }
+}

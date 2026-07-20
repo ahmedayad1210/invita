@@ -59,16 +59,16 @@ export default function CustomSelect({
             justifyContent:  "space-between",
             padding:         "0.875rem 1.125rem",
             backgroundColor: "#FFFFFF",
-            border:          `1.5px solid ${error ? "#D9B344" : open ? "#D9B344" : "rgba(107,122,148,0.25)"}`,
+            border:          `1.5px solid ${error ? "#0FB5A8" : open ? "#0FB5A8" : "rgba(107,122,148,0.25)"}`,
             borderRadius:    "0.5rem",
             fontFamily:      "'DM Sans', sans-serif",
             fontSize:        "0.9375rem",
-            color:           selected ? "#0F2341" : "#6B7A94",
+            color:           selected ? "#0C2430" : "#6B7A94",
             cursor:          disabled ? "not-allowed" : "pointer",
             opacity:         disabled ? 0.6 : 1,
             transition:      "all 0.3s ease",
             textAlign:       "left",
-            boxShadow:       open ? "0 0 0 3px rgba(217,179,68,0.12)" : "none",
+            boxShadow:       open ? "0 0 0 3px rgba(15,181,168,0.12)" : "none",
           }}
         >
           <span>{selected ? selected.label : placeholder}</span>
@@ -92,7 +92,7 @@ export default function CustomSelect({
               left:            0,
               right:           0,
               backgroundColor: "#FFFFFF",
-              border:          "1.5px solid rgba(217,179,68,0.2)",
+              border:          "1.5px solid rgba(15,181,168,0.2)",
               borderRadius:    "0.5rem",
               boxShadow:       "0 8px 32px rgba(15,35,65,0.12)",
               zIndex:          50,
@@ -131,8 +131,8 @@ export default function CustomSelect({
                   textAlign:       "left",
                   fontFamily:      "'DM Sans', sans-serif",
                   fontSize:        "0.9375rem",
-                  color:           option.value === value ? "#D9B344" : "#0F2341",
-                  backgroundColor: option.value === value ? "rgba(217,179,68,0.06)" : "transparent",
+                  color:           option.value === value ? "#0FB5A8" : "#0C2430",
+                  backgroundColor: option.value === value ? "rgba(15,181,168,0.06)" : "transparent",
                   fontWeight:      option.value === value ? 500 : 400,
                   border:          "none",
                   cursor:          "pointer",
@@ -141,7 +141,7 @@ export default function CustomSelect({
                 }}
                 onMouseEnter={(e) => {
                   if (option.value !== value) {
-                    (e.target as HTMLElement).style.backgroundColor = "rgba(217,179,68,0.04)";
+                    (e.target as HTMLElement).style.backgroundColor = "rgba(15,181,168,0.04)";
                   }
                 }}
                 onMouseLeave={(e) => {

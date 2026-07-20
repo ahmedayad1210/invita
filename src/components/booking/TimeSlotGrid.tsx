@@ -58,7 +58,7 @@ export default function TimeSlotGrid({ slots }: TimeSlotGridProps) {
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           {[
             { color: "#FFFFFF", border: "rgba(107,122,148,0.25)", label: "Available" },
-            { color: "#0F2341", border: "#0F2341",               label: "Selected"  },
+            { color: "#0C2430", border: "#0C2430",               label: "Selected"  },
             { color: "rgba(107,122,148,0.08)", border: "rgba(107,122,148,0.15)", label: "Booked" },
           ].map((item) => (
             <div

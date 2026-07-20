@@ -106,7 +106,7 @@ export default function AdminStylistsPage() {
       style={{
         backgroundColor: "#FFFFFF",
         borderRadius:    "0.75rem",
-        border:          `1px solid ${stylist.active ? "rgba(217,179,68,0.12)" : "rgba(107,122,148,0.1)"}`,
+        border:          `1px solid ${stylist.active ? "rgba(15,181,168,0.12)" : "rgba(107,122,148,0.1)"}`,
         padding:         "1.5rem",
         opacity:         stylist.active ? 1 : 0.7,
         display:         "flex",
@@ -136,7 +136,7 @@ export default function AdminStylistsPage() {
               fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
               fontSize:   "1.1875rem",
               fontWeight: 400,
-              color:      "#0F2341",
+              color:      "#0C2430",
               lineHeight: 1.2,
             }}
           >
@@ -146,9 +146,9 @@ export default function AdminStylistsPage() {
             className="badge"
             style={{
               backgroundColor: stylist.active
-                ? "rgba(217,179,68,0.12)"
+                ? "rgba(15,181,168,0.12)"
                 : "rgba(107,122,148,0.1)",
-              color:     stylist.active ? "#D9B344" : "#6B7A94",
+              color:     stylist.active ? "#0FB5A8" : "#6B7A94",
               flexShrink: 0,
             }}
           >
@@ -164,7 +164,7 @@ export default function AdminStylistsPage() {
             fontWeight:    500,
             letterSpacing: "0.1em",
             textTransform: "uppercase",
-            color:         "#D9B344",
+            color:         "#0FB5A8",
             marginBottom:  "0.5rem",
           }}
         >
@@ -212,8 +212,8 @@ export default function AdminStylistsPage() {
               transition:      "all 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#D9B344";
-              e.currentTarget.style.color       = "#D9B344";
+              e.currentTarget.style.borderColor = "#0FB5A8";
+              e.currentTarget.style.color       = "#0FB5A8";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.borderColor = "rgba(107,122,148,0.25)";
@@ -234,16 +234,16 @@ export default function AdminStylistsPage() {
               fontWeight:      500,
               letterSpacing:   "0.08em",
               textTransform:   "uppercase",
-              color:           stylist.active ? "#6B7A94" : "#D9B344",
+              color:           stylist.active ? "#6B7A94" : "#0FB5A8",
               backgroundColor: "transparent",
-              border:          `1.5px solid ${stylist.active ? "rgba(107,122,148,0.25)" : "rgba(217,179,68,0.3)"}`,
+              border:          `1.5px solid ${stylist.active ? "rgba(107,122,148,0.25)" : "rgba(15,181,168,0.3)"}`,
               borderRadius:    "9999px",
               padding:         "0.375rem 0.875rem",
               cursor:          "pointer",
               transition:      "all 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(217,179,68,0.06)";
+              e.currentTarget.style.backgroundColor = "rgba(15,181,168,0.06)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "transparent";
@@ -279,7 +279,7 @@ export default function AdminStylistsPage() {
               fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
               fontSize:   "1.375rem",
               fontWeight: 400,
-              color:      "#0F2341",
+              color:      "#0C2430",
             }}
           >
             Specialists
@@ -318,12 +318,12 @@ export default function AdminStylistsPage() {
                   fontWeight:    500,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color:         "#D9B344",
+                  color:         "#0FB5A8",
                 }}
               >
                 Active Specialists
               </h2>
-              <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(217,179,68,0.15)" }} />
+              <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(15,181,168,0.15)" }} />
               <span
                 style={{
                   fontFamily: "'DM Sans', sans-serif",

@@ -103,7 +103,7 @@ export default function AdminCertificationsPage() {
             fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
             fontSize: "1.125rem",
             fontWeight: 400,
-            color: "#0F2341",
+            color: "#0C2430",
             marginBottom: "0.5rem",
           }}
         >
@@ -111,7 +111,7 @@ export default function AdminCertificationsPage() {
         </h1>
         <p style={{ fontSize: "0.875rem", color: "#6B7A94", maxWidth: "42rem" }}>
           Data source: <strong>{source}</strong>. Upload images in{" "}
-          <a href="/admin/media" style={{ color: "#D9B344" }}>
+          <a href="/admin/media" style={{ color: "#0FB5A8" }}>
             Media Library
           </a>
           , copy the URL, then paste below. Or edit{" "}
@@ -132,11 +132,11 @@ export default function AdminCertificationsPage() {
                 padding: "0.6rem 0.75rem",
                 border:
                   activeId === cert.id
-                    ? "1px solid #0F2341"
+                    ? "1px solid #0C2430"
                     : "1px solid rgba(15,35,65,0.12)",
                 borderRadius: "0.5rem",
-                background: activeId === cert.id ? "#0F2341" : "#fff",
-                color: activeId === cert.id ? "#FAF7F2" : "#0F2341",
+                background: activeId === cert.id ? "#0C2430" : "#fff",
+                color: activeId === cert.id ? "#F6FAFB" : "#0C2430",
                 fontSize: "0.8125rem",
                 cursor: "pointer",
               }}
@@ -205,8 +205,8 @@ export default function AdminCertificationsPage() {
               style={{
                 marginTop: "1.5rem",
                 padding: "0.65rem 1.5rem",
-                background: "#0F2341",
-                color: "#FAF7F2",
+                background: "#0C2430",
+                color: "#F6FAFB",
                 border: "none",
                 borderRadius: "0.375rem",
                 cursor: "pointer",

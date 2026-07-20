@@ -88,17 +88,17 @@ export default function ContactForm() {
         style={{
           backgroundColor: "#FFFFFF",
           borderRadius: "1rem",
-          border: "1px solid rgba(217,179,68,0.15)",
+          border: "1px solid rgba(15,181,168,0.15)",
           boxShadow: "0 4px 40px rgba(15,35,65,0.07)",
           padding: "2.5rem",
         }}
       >
         <h2
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
             fontSize: "1.875rem",
             fontWeight: 400,
-            color: "#0F2341",
+            color: "#0C2430",
             marginBottom: "0.5rem",
           }}
         >
@@ -114,7 +114,7 @@ export default function ContactForm() {
           }}
         >
           For bookings, please use our{" "}
-          <a href="/book" style={{ color: "#D9B344", textDecoration: "underline" }}>
+          <a href="/book" style={{ color: "#0FB5A8", textDecoration: "underline" }}>
             online booking page
           </a>
           . For all other enquiries, we respond within 24 hours.

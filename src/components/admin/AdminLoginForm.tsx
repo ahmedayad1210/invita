@@ -36,7 +36,7 @@ export default function AdminLoginForm() {
     <div
       style={{
         minHeight:       "100svh",
-        backgroundColor: "#0F2341",
+        backgroundColor: "#0C2430",
         display:         "flex",
         alignItems:      "center",
         justifyContent:  "center",
@@ -47,7 +47,7 @@ export default function AdminLoginForm() {
         style={{
           width:           "100%",
           maxWidth:        "400px",
-          backgroundColor: "#FAF7F2",
+          backgroundColor: "#F6FAFB",
           borderRadius:    "1rem",
           padding:         "3rem 2.5rem",
           boxShadow:       "0 24px 80px rgba(0,0,0,0.3)",
@@ -60,7 +60,7 @@ export default function AdminLoginForm() {
               fontFamily:    "var(--font-dm-sans), 'DM Sans', sans-serif",
               fontSize:      "1.125rem",
               fontWeight:    300,
-              color:         "#0F2341",
+              color:         "#0C2430",
               letterSpacing: "0.08em",
               marginBottom:  "0.25rem",
             }}
@@ -74,7 +74,7 @@ export default function AdminLoginForm() {
               fontWeight:    500,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color:         "#D9B344",
+              color:         "#0FB5A8",
             }}
           >
             Admin Access
@@ -125,8 +125,8 @@ export default function AdminLoginForm() {
             <div
               style={{
                 padding:         "0.875rem 1rem",
-                backgroundColor: "rgba(217,179,68,0.08)",
-                border:          "1px solid rgba(217,179,68,0.25)",
+                backgroundColor: "rgba(15,181,168,0.08)",
+                border:          "1px solid rgba(15,181,168,0.25)",
                 borderRadius:    "0.5rem",
               }}
             >
@@ -159,7 +159,7 @@ export default function AdminLoginForm() {
               color:      "#6B7A94",
               transition: "color 0.2s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#D9B344")}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#0FB5A8")}
             onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7A94")}
           >
             ← Return to site

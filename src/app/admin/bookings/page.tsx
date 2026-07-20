@@ -47,7 +47,7 @@ export default function AdminBookingsPage() {
             fontWeight:    500,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color:         "#D9B344",
+            color:         "#0FB5A8",
             display:       "block",
             marginBottom:  "0.5rem",
           }}
@@ -59,7 +59,7 @@ export default function AdminBookingsPage() {
             fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
             fontSize:   "1.375rem",
             fontWeight: 400,
-            color:      "#0F2341",
+            color:      "#0C2430",
             lineHeight: 1.15,
           }}
         >

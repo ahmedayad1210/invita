@@ -19,7 +19,7 @@ type SortDir = "asc" | "desc";
 
 const STATUS_STYLES: Record<BookingStatus, { bg: string; color: string }> = {
   pending:   { bg: "rgba(107,122,148,0.1)",  color: "#6B7A94" },
-  confirmed: { bg: "rgba(217,179,68,0.12)", color: "#D9B344" },
+  confirmed: { bg: "rgba(15,181,168,0.12)", color: "#0FB5A8" },
   cancelled: { bg: "rgba(15,35,65,0.07)",   color: "#6B7A94" },
 };
 
@@ -216,7 +216,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                                 fontFamily: "'DM Sans', sans-serif",
                                 fontSize:   "0.875rem",
                                 fontWeight: 500,
-                                color:      "#0F2341",
+                                color:      "#0C2430",
                                 lineHeight: 1.3,
                               }}
                             >
@@ -241,7 +241,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                           style={{
                             fontFamily: "'DM Sans', sans-serif",
                             fontSize:   "0.875rem",
-                            color:      "#0F2341",
+                            color:      "#0C2430",
                             fontWeight: 500,
                           }}
                         >
@@ -270,7 +270,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                             style={{
                               fontFamily: "'DM Sans', sans-serif",
                               fontSize:   "0.875rem",
-                              color:      "#0F2341",
+                              color:      "#0C2430",
                             }}
                           >
                             {booking.stylist?.name ?? "—"}
@@ -284,7 +284,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                           style={{
                             fontFamily: "'DM Sans', sans-serif",
                             fontSize:   "0.875rem",
-                            color:      "#0F2341",
+                            color:      "#0C2430",
                             fontWeight: 500,
                           }}
                         >
@@ -308,7 +308,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                             fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                             fontSize:   "1.0625rem",
                             fontWeight: 500,
-                            color:      "#0F2341",
+                            color:      "#0C2430",
                           }}
                         >
                           {booking.service ? formatPrice(booking.service.price) : "—"}
@@ -337,7 +337,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                               style={{
                                 fontFamily: "'DM Sans', sans-serif",
                                 fontSize:   "0.8125rem",
-                                color:      "#0F2341",
+                                color:      "#0C2430",
                                 fontWeight: 500,
                                 cursor:     "pointer",
                               }}
@@ -348,7 +348,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                               style={{
                                 fontFamily: "'DM Sans', sans-serif",
                                 fontSize:   "0.75rem",
-                                color:      "#0F2341",
+                                color:      "#0C2430",
                                 whiteSpace: "pre-wrap",
                                 marginTop:  "0.5rem",
                                 maxWidth:   "220px",
@@ -397,15 +397,15 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                                   width:           "30px",
                                   height:          "30px",
                                   borderRadius:    "9999px",
-                                  border:          "1.5px solid rgba(217,179,68,0.3)",
+                                  border:          "1.5px solid rgba(15,181,168,0.3)",
                                   backgroundColor: "transparent",
-                                  color:           "#D9B344",
+                                  color:           "#0FB5A8",
                                   cursor:          isUpdating ? "not-allowed" : "pointer",
                                   opacity:         isUpdating ? 0.5 : 1,
                                   transition:      "all 0.2s ease",
                                 }}
                                 onMouseEnter={(e) => {
-                                  e.currentTarget.style.backgroundColor = "rgba(217,179,68,0.1)";
+                                  e.currentTarget.style.backgroundColor = "rgba(15,181,168,0.1)";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.backgroundColor = "transparent";
@@ -434,8 +434,8 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                               }}
                               onMouseEnter={(e) => {
                                 e.currentTarget.style.backgroundColor = "rgba(107,122,148,0.08)";
-                                e.currentTarget.style.color           = "#D9B344";
-                                e.currentTarget.style.borderColor     = "rgba(217,179,68,0.3)";
+                                e.currentTarget.style.color           = "#0FB5A8";
+                                e.currentTarget.style.borderColor     = "rgba(15,181,168,0.3)";
                               }}
                               onMouseLeave={(e) => {
                                 e.currentTarget.style.backgroundColor = "transparent";
@@ -483,7 +483,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.8125rem",
-                color:      "#D9B344",
+                color:      "#0FB5A8",
                 background: "none",
                 border:     "none",
                 cursor:     "pointer",

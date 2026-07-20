@@ -17,10 +17,10 @@ export default function TeamSection() {
           <span className="eyebrow">The Specialists</span>
           <h2
             style={{
-              fontFamily:   "'Cormorant Garamond', Georgia, serif",
+              fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
               fontSize:     "clamp(2rem, 4vw, 3.25rem)",
               fontWeight:   400,
-              color:        "#0F2341",
+              color:        "#0C2430",
               lineHeight:   1.15,
               marginBottom: "1rem",
             }}
@@ -65,7 +65,7 @@ export default function TeamSection() {
                     width:        "88px",
                     height:       "88px",
                     borderRadius: "9999px",
-                    border:       "2px solid rgba(217,179,68,0.2)",
+                    border:       "2px solid rgba(15,181,168,0.2)",
                     padding:      "3px",
                     display:      "inline-flex",
                   }}
@@ -81,7 +81,7 @@ export default function TeamSection() {
                     width:           "12px",
                     height:          "12px",
                     borderRadius:    "9999px",
-                    backgroundColor: "#D9B344",
+                    backgroundColor: "#0FB5A8",
                     border:          "2px solid #FFFFFF",
                   }}
                 />
@@ -90,10 +90,10 @@ export default function TeamSection() {
               {/* Name */}
               <h3
                 style={{
-                  fontFamily:   "'Cormorant Garamond', Georgia, serif",
+                  fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                   fontSize:     "1.25rem",
                   fontWeight:   400,
-                  color:        "#0F2341",
+                  color:        "#0C2430",
                   marginBottom: "0.25rem",
                 }}
               >
@@ -108,7 +108,7 @@ export default function TeamSection() {
                   fontWeight:    500,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color:         "#D9B344",
+                  color:         "#0FB5A8",
                   marginBottom:  "0.75rem",
                 }}
               >

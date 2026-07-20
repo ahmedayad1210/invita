@@ -83,9 +83,9 @@ export default function StylistForm({
               alignItems:     "center",
               gap:            "1rem",
               padding:        "1rem",
-              backgroundColor: "#FAF7F2",
+              backgroundColor: "#F6FAFB",
               borderRadius:   "0.5rem",
-              border:         "1px solid rgba(217,179,68,0.15)",
+              border:         "1px solid rgba(15,181,168,0.15)",
             }}
           >
             <InitialsAvatar name={form.name} size={48} />
@@ -95,7 +95,7 @@ export default function StylistForm({
                   fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                   fontSize:   "1.125rem",
                   fontWeight: 400,
-                  color:      "#0F2341",
+                  color:      "#0C2430",
                 }}
               >
                 {form.name}
@@ -105,7 +105,7 @@ export default function StylistForm({
                   style={{
                     fontFamily:    "'DM Sans', sans-serif",
                     fontSize:      "0.75rem",
-                    color:         "#D9B344",
+                    color:         "#0FB5A8",
                     letterSpacing: "0.08em",
                   }}
                 >
@@ -181,9 +181,9 @@ export default function StylistForm({
             alignItems:      "center",
             justifyContent:  "space-between",
             padding:         "0.875rem 1rem",
-            backgroundColor: "#FAF7F2",
+            backgroundColor: "#F6FAFB",
             borderRadius:    "0.5rem",
-            border:          "1px solid rgba(217,179,68,0.15)",
+            border:          "1px solid rgba(15,181,168,0.15)",
           }}
         >
           <div>
@@ -192,7 +192,7 @@ export default function StylistForm({
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.875rem",
                 fontWeight: 500,
-                color:      "#0F2341",
+                color:      "#0C2430",
               }}
             >
               Active & bookable
@@ -226,7 +226,7 @@ export default function StylistForm({
               style={{
                 position:        "absolute",
                 inset:           0,
-                backgroundColor: form.active ? "#D9B344" : "rgba(107,122,148,0.25)",
+                backgroundColor: form.active ? "#0FB5A8" : "rgba(107,122,148,0.25)",
                 borderRadius:    "9999px",
                 cursor:          "pointer",
                 transition:      "background-color 0.3s ease",

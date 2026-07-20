@@ -43,7 +43,7 @@ export default function ServiceCard({
             fontWeight:    500,
             letterSpacing: "0.15em",
             textTransform: "uppercase",
-            color:         "#D9B344",
+            color:         "#0FB5A8",
           }}
         >
           {CATEGORY_LABELS[service.category] ?? service.category}
@@ -80,10 +80,10 @@ export default function ServiceCard({
       >
         <h3
           style={{
-            fontFamily:   "'Cormorant Garamond', Georgia, serif",
+            fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
             fontSize:     "1.375rem",
             fontWeight:   400,
-            color:        "#0F2341",
+            color:        "#0C2430",
             marginBottom: "0.625rem",
             lineHeight:   1.3,
           }}
@@ -114,15 +114,15 @@ export default function ServiceCard({
             justifyContent: "space-between",
             marginTop:      "auto",
             paddingTop:     "1rem",
-            borderTop:      "1px solid rgba(217,179,68,0.1)",
+            borderTop:      "1px solid rgba(15,181,168,0.1)",
           }}
         >
           <span
             style={{
-              fontFamily:   "'Cormorant Garamond', Georgia, serif",
+              fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
               fontSize:     "1.5rem",
               fontWeight:   500,
-              color:        "#0F2341",
+              color:        "#0C2430",
               letterSpacing: "-0.01em",
             }}
           >
@@ -141,7 +141,7 @@ export default function ServiceCard({
                 fontWeight:   500,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color:        "#D9B344",
+                color:        "#0FB5A8",
                 transition:   "gap 0.3s ease",
               }}
               onMouseEnter={(e) => {

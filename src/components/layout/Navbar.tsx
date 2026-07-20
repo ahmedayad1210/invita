@@ -89,7 +89,7 @@ export default function Navbar() {
                 fontSize:      "0.8rem",
                 fontWeight:    isActive(link.href) ? 500 : 400,
                 letterSpacing: "0.06em",
-                color:         isActive(link.href) ? "#0F2341" : "#6B7A94",
+                color:         isActive(link.href) ? "#0C2430" : "#6B7A94",
                 padding:       "0.375rem 0.875rem",
                 borderRadius:  "9999px",
                 backgroundColor: isActive(link.href)
@@ -101,7 +101,7 @@ export default function Navbar() {
               onClick={startProgress}
               onMouseEnter={(e) => {
                 if (!isActive(link.href)) {
-                  e.currentTarget.style.color           = "#0F2341";
+                  e.currentTarget.style.color           = "#0C2430";
                   e.currentTarget.style.backgroundColor = "rgba(15,35,65,0.04)";
                 }
               }}
@@ -139,7 +139,7 @@ export default function Navbar() {
                   fontFamily:      "'DM Sans', sans-serif",
                   fontSize:        "0.8rem",
                   fontWeight:      500,
-                  color:           "#0F2341",
+                  color:           "#0C2430",
                   padding:         "0.375rem 0.875rem 0.375rem 0.375rem",
                   borderRadius:    "9999px",
                   border:          "1.5px solid rgba(15,35,65,0.12)",
@@ -147,23 +147,23 @@ export default function Navbar() {
                   whiteSpace:      "nowrap",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(217,179,68,0.5)";
-                  e.currentTarget.style.color = "#D9B344";
+                  e.currentTarget.style.borderColor = "rgba(15,181,168,0.5)";
+                  e.currentTarget.style.color = "#0FB5A8";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = "rgba(15,35,65,0.12)";
-                  e.currentTarget.style.color = "#0F2341";
+                  e.currentTarget.style.color = "#0C2430";
                 }}
               >
                 <span style={{
                   width:           "26px",
                   height:          "26px",
                   borderRadius:    "9999px",
-                  background:      "linear-gradient(135deg, #D9B344 0%, #D9B344 100%)",
+                  background:      "linear-gradient(135deg, #0FB5A8 0%, #0FB5A8 100%)",
                   display:         "flex",
                   alignItems:      "center",
                   justifyContent:  "center",
-                  color:           "#F0EDE4",
+                  color:           "#EEF4F6",
                   fontSize:        "0.625rem",
                   fontWeight:      600,
                   letterSpacing:   "0.05em",
@@ -191,7 +191,7 @@ export default function Navbar() {
                   transition:    "all 0.25s ease",
                   whiteSpace:    "nowrap",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#0F2341"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#0C2430"; }}
                 onMouseLeave={(e) => { e.currentTarget.style.color = "#6B7A94"; }}
               >
                 {t.nav.logout}
@@ -215,7 +215,7 @@ export default function Navbar() {
                 transition:    "all 0.25s ease",
                 whiteSpace:    "nowrap",
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = "#0F2341"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#0C2430"; }}
               onMouseLeave={(e) => { e.currentTarget.style.color = "#6B7A94"; }}
             >
               {t.nav.login}
@@ -241,10 +241,10 @@ export default function Navbar() {
               height:          "38px",
               borderRadius:    "9999px",
               border:          "1.5px solid rgba(15,35,65,0.15)",
-              backgroundColor: menuOpen ? "#0F2341" : "transparent",
+              backgroundColor: menuOpen ? "#0C2430" : "transparent",
               alignItems:      "center",
               justifyContent:  "center",
-              color:           menuOpen ? "#F0EDE4" : "#0F2341",
+              color:           menuOpen ? "#EEF4F6" : "#0C2430",
               transition:      "all 0.3s ease",
               flexShrink:      0,
             }}
@@ -287,18 +287,18 @@ export default function Navbar() {
             display:         "flex",
             alignItems:      "center",
             justifyContent:  "center",
-            color:           "#0F2341",
+            color:           "#0C2430",
             transition:      "all 0.3s ease",
             zIndex:          61,
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#0F2341";
-            e.currentTarget.style.color           = "#F0EDE4";
-            e.currentTarget.style.borderColor     = "#0F2341";
+            e.currentTarget.style.backgroundColor = "#0C2430";
+            e.currentTarget.style.color           = "#EEF4F6";
+            e.currentTarget.style.borderColor     = "#0C2430";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = "transparent";
-            e.currentTarget.style.color           = "#0F2341";
+            e.currentTarget.style.color           = "#0C2430";
             e.currentTarget.style.borderColor     = "rgba(15,35,65,0.2)";
           }}
         >
@@ -312,10 +312,10 @@ export default function Navbar() {
             top:           "1.75rem",
             left:          "50%",
             transform:     "translateX(-50%)",
-            fontFamily:    "'Cormorant Garamond', Georgia, serif",
+            fontFamily:    "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
             fontSize:      "1.125rem",
             fontWeight:    300,
-            color:         "#0F2341",
+            color:         "#0C2430",
             letterSpacing: "0.1em",
             opacity:       0.5,
             whiteSpace:    "nowrap",
@@ -342,7 +342,7 @@ export default function Navbar() {
                   className="overlay-menu-link"
                   onClick={() => setMenuOpen(false)}
                   style={{
-                    color: isActive(link.href) ? "#D9B344" : "#0F2341",
+                    color: isActive(link.href) ? "#0FB5A8" : "#0C2430",
                   }}
                 >
                   {locale === "en" ? link.label : link.labelAr}

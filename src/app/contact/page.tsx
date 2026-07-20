@@ -13,7 +13,7 @@ export default function ContactPage() {
       <main>
         <section
           style={{
-            backgroundColor: "#FAF7F2",
+            backgroundColor: "#F6FAFB",
             paddingTop: "10rem",
             paddingBottom: "5rem",
             textAlign: "center",
@@ -23,10 +23,10 @@ export default function ContactPage() {
             <span className="eyebrow">Get in Touch</span>
             <h1
               style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                 fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 fontWeight: 300,
-                color: "#0F2341",
+                color: "#0C2430",
                 letterSpacing: "-0.02em",
                 marginBottom: "1rem",
               }}

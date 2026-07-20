@@ -4,6 +4,7 @@ import "./invita-pages.css";
 import "./invita-premium.css";
 import "./invita-assets.css";
 import "./invita-refine.css";
+import "./invita-identity.css";
 import { INVITA } from "@/lib/constants";
 import { getSiteUrl } from "@/lib/seo";
 import NavigationProgressWrapper from "@/components/ui/NavigationProgressWrapper";
@@ -15,7 +16,7 @@ import { LocaleProvider } from "@/contexts/LocaleContext";
 import FigmaCaptureLoader from "@/components/dev/FigmaCaptureLoader";
 import ClientShell from "@/components/layout/ClientShell";
 import PromoStrip from "@/components/layout/PromoStrip";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Bricolage_Grotesque, DM_Sans, Space_Mono } from "next/font/google";
 import localFont from "next/font/local";
 
 const plain = localFont({
@@ -32,11 +33,17 @@ const plain = localFont({
 
 const siteUrl = getSiteUrl();
 
-const cormorant = Cormorant_Garamond({
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin", "latin-ext"],
-  weight: ["300", "400", "500"],
-  style: ["normal", "italic"],
-  variable: "--font-cormorant",
+  weight: ["400", "500", "600", "700", "800"],
+  variable: "--font-bricolage",
+  display: "swap",
+});
+
+const spaceMono = Space_Mono({
+  subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-space-mono",
   display: "swap",
 });
 
@@ -103,7 +110,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${cormorant.variable} ${dmSans.variable} ${plain.variable}`}
+      className={`${bricolage.variable} ${dmSans.variable} ${plain.variable} ${spaceMono.variable}`}
     >
       <body className="bg-ivory text-charcoal antialiased">
         <FigmaCaptureLoader />

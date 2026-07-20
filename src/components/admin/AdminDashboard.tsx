@@ -74,7 +74,7 @@ export default function AdminDashboard({ username }: Props) {
             fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
             fontSize:   "1.375rem",
             fontWeight: 400,
-            color:      "#0F2341",
+            color:      "#0C2430",
             lineHeight: 1.15,
           }}
         >
@@ -118,7 +118,7 @@ export default function AdminDashboard({ username }: Props) {
             fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
             fontSize:   "1.125rem",
             fontWeight: 400,
-            color:      "#0F2341",
+            color:      "#0C2430",
           }}
         >
           All Bookings

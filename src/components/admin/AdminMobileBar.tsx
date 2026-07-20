@@ -28,7 +28,7 @@ export default function AdminMobileBar() {
           fontFamily:    "var(--font-dm-sans), 'DM Sans', sans-serif",
           fontSize:      "1.125rem",
           fontWeight:    300,
-          color:         "#FAF7F2",
+          color:         "#F6FAFB",
           letterSpacing: "0.06em",
         }}
       >

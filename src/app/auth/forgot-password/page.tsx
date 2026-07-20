@@ -38,7 +38,7 @@ export default function ForgotPasswordPage() {
       <AuthForm
         title="Check your inbox"
         footer={
-          <Link href="/auth/login" style={{ color: "#D9B344", fontWeight: 500 }}>
+          <Link href="/auth/login" style={{ color: "#0FB5A8", fontWeight: 500 }}>
             ← Back to sign in
           </Link>
         }
@@ -49,14 +49,14 @@ export default function ForgotPasswordPage() {
               width:           "56px",
               height:          "56px",
               borderRadius:    "9999px",
-              backgroundColor: "rgba(217,179,68,0.1)",
+              backgroundColor: "rgba(15,181,168,0.1)",
               display:         "flex",
               alignItems:      "center",
               justifyContent:  "center",
               margin:          "0 auto 1.25rem",
             }}
           >
-            <CheckCircle size={24} color="#D9B344" />
+            <CheckCircle size={24} color="#0FB5A8" />
           </div>
           <p
             style={{
@@ -67,7 +67,7 @@ export default function ForgotPasswordPage() {
             }}
           >
             We have sent a password reset link to{" "}
-            <strong style={{ color: "#0F2341" }}>{email}</strong>.
+            <strong style={{ color: "#0C2430" }}>{email}</strong>.
             Please check your inbox and follow the instructions.
           </p>
           <p
@@ -83,7 +83,7 @@ export default function ForgotPasswordPage() {
             <button
               onClick={() => setSent(false)}
               style={{
-                color:      "#D9B344",
+                color:      "#0FB5A8",
                 background: "none",
                 border:     "none",
                 cursor:     "pointer",
@@ -106,7 +106,7 @@ export default function ForgotPasswordPage() {
       title="Reset your password"
       subtitle="Enter your email and we will send you a reset link."
       footer={
-        <Link href="/auth/login" style={{ color: "#D9B344", fontWeight: 500 }}>
+        <Link href="/auth/login" style={{ color: "#0FB5A8", fontWeight: 500 }}>
           ← Back to sign in
         </Link>
       }
@@ -133,8 +133,8 @@ export default function ForgotPasswordPage() {
           <div
             style={{
               padding:         "0.875rem 1rem",
-              backgroundColor: "rgba(217,179,68,0.08)",
-              border:          "1px solid rgba(217,179,68,0.25)",
+              backgroundColor: "rgba(15,181,168,0.08)",
+              border:          "1px solid rgba(15,181,168,0.25)",
               borderRadius:    "0.5rem",
             }}
           >

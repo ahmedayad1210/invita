@@ -72,8 +72,8 @@ export default function StepStylist() {
                   alignItems:      "flex-start",
                   gap:             "1rem",
                   textAlign:       "left",
-                  backgroundColor: isSelected ? "#0F2341" : "#FFFFFF",
-                  border:          `1.5px solid ${isSelected ? "#0F2341" : "rgba(217,179,68,0.15)"}`,
+                  backgroundColor: isSelected ? "#0C2430" : "#FFFFFF",
+                  border:          `1.5px solid ${isSelected ? "#0C2430" : "rgba(15,181,168,0.15)"}`,
                   borderRadius:    "0.75rem",
                   padding:         "1.5rem",
                   cursor:          "pointer",
@@ -86,13 +86,13 @@ export default function StepStylist() {
                 }}
                 onMouseEnter={(e) => {
                   if (!isSelected) {
-                    e.currentTarget.style.borderColor = "rgba(217,179,68,0.4)";
+                    e.currentTarget.style.borderColor = "rgba(15,181,168,0.4)";
                     e.currentTarget.style.boxShadow   = "0 4px 24px rgba(15,35,65,0.1)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isSelected) {
-                    e.currentTarget.style.borderColor = "rgba(217,179,68,0.15)";
+                    e.currentTarget.style.borderColor = "rgba(15,181,168,0.15)";
                     e.currentTarget.style.boxShadow   = "0 2px 20px rgba(15,35,65,0.06)";
                   }
                 }}
@@ -107,13 +107,13 @@ export default function StepStylist() {
                       width:           "22px",
                       height:          "22px",
                       borderRadius:    "9999px",
-                      backgroundColor: "#D9B344",
+                      backgroundColor: "#0FB5A8",
                       display:         "flex",
                       alignItems:      "center",
                       justifyContent:  "center",
                     }}
                   >
-                    <Check size={12} color="#FAF7F2" strokeWidth={2.5} />
+                    <Check size={12} color="#F6FAFB" strokeWidth={2.5} />
                   </div>
                 )}
 
@@ -126,10 +126,10 @@ export default function StepStylist() {
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <h3
                     style={{
-                      fontFamily:   "'Cormorant Garamond', Georgia, serif",
+                      fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                       fontSize:     "1.1875rem",
                       fontWeight:   400,
-                      color:        isSelected ? "#FAF7F2" : "#0F2341",
+                      color:        isSelected ? "#F6FAFB" : "#0C2430",
                       marginBottom: "0.25rem",
                     }}
                   >
@@ -142,7 +142,7 @@ export default function StepStylist() {
                       fontWeight:    500,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color:         isSelected ? "rgba(217,179,68,0.8)" : "#D9B344",
+                      color:         isSelected ? "rgba(15,181,168,0.8)" : "#0FB5A8",
                       marginBottom:  "0.625rem",
                     }}
                   >

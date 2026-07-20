@@ -20,7 +20,7 @@ export default function AuthForm({
     <div
       style={{
         minHeight:       "100svh",
-        backgroundColor: "#FAF7F2",
+        backgroundColor: "#F6FAFB",
         display:         "flex",
         flexDirection:   "column",
         alignItems:      "center",
@@ -32,10 +32,10 @@ export default function AuthForm({
       <Link
         href="/"
         style={{
-          fontFamily:    "'Cormorant Garamond', Georgia, serif",
+          fontFamily:    "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
           fontSize:      "1.5rem",
           fontWeight:    300,
-          color:         "#0F2341",
+          color:         "#0C2430",
           letterSpacing: "0.1em",
           marginBottom:  "2.5rem",
           display:       "block",
@@ -52,7 +52,7 @@ export default function AuthForm({
           maxWidth:        "440px",
           backgroundColor: "#FFFFFF",
           borderRadius:    "1rem",
-          border:          "1px solid rgba(217,179,68,0.15)",
+          border:          "1px solid rgba(15,181,168,0.15)",
           boxShadow:       "0 4px 40px rgba(15,35,65,0.08)",
           padding:         "2.5rem",
         }}
@@ -61,10 +61,10 @@ export default function AuthForm({
         <div style={{ marginBottom: "2rem", textAlign: "center" }}>
           <h1
             style={{
-              fontFamily:   "'Cormorant Garamond', Georgia, serif",
+              fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
               fontSize:     "2rem",
               fontWeight:   400,
-              color:        "#0F2341",
+              color:        "#0C2430",
               marginBottom: "0.5rem",
               lineHeight:   1.2,
             }}
@@ -90,7 +90,7 @@ export default function AuthForm({
           style={{
             width:        "3rem",
             height:       "1px",
-            background:   "linear-gradient(to right, transparent, #D9B344, transparent)",
+            background:   "linear-gradient(to right, transparent, #0FB5A8, transparent)",
             margin:       "0 auto 2rem",
           }}
         />

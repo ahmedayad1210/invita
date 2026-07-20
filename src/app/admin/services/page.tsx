@@ -155,7 +155,7 @@ export default function AdminServicesPage() {
               fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
               fontSize:   "1.375rem",
               fontWeight: 400,
-              color:      "#0F2341",
+              color:      "#0C2430",
             }}
           >
             Services
@@ -196,12 +196,12 @@ export default function AdminServicesPage() {
                     fontWeight:    500,
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color:         "#D9B344",
+                    color:         "#0FB5A8",
                   }}
                 >
                   {CATEGORY_LABELS[category] ?? category}
                 </h2>
-                <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(217,179,68,0.15)" }} />
+                <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(15,181,168,0.15)" }} />
                 <span
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
@@ -218,7 +218,7 @@ export default function AdminServicesPage() {
                 style={{
                   backgroundColor: "#FFFFFF",
                   borderRadius:    "0.75rem",
-                  border:          "1px solid rgba(217,179,68,0.12)",
+                  border:          "1px solid rgba(15,181,168,0.12)",
                   overflow:        "hidden",
                   width:           "100%",
                 }}
@@ -244,7 +244,7 @@ export default function AdminServicesPage() {
                               fontFamily: "'DM Sans', sans-serif",
                               fontSize:   "0.9375rem",
                               fontWeight: 500,
-                              color:      service.active ? "#0F2341" : "#6B7A94",
+                              color:      service.active ? "#0C2430" : "#6B7A94",
                             }}
                           >
                             {service.name}
@@ -273,7 +273,7 @@ export default function AdminServicesPage() {
                             style={{
                               fontFamily: "'DM Sans', sans-serif",
                               fontSize:   "0.875rem",
-                              color:      "#0F2341",
+                              color:      "#0C2430",
                             }}
                           >
                             {formatDuration(service.duration)}
@@ -287,7 +287,7 @@ export default function AdminServicesPage() {
                               fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                               fontSize:   "1.0625rem",
                               fontWeight: 500,
-                              color:      "#0F2341",
+                              color:      "#0C2430",
                             }}
                           >
                             {formatPrice(service.price)}
@@ -300,9 +300,9 @@ export default function AdminServicesPage() {
                             className="badge"
                             style={{
                               backgroundColor: service.active
-                                ? "rgba(217,179,68,0.12)"
+                                ? "rgba(15,181,168,0.12)"
                                 : "rgba(107,122,148,0.1)",
-                              color: service.active ? "#D9B344" : "#6B7A94",
+                              color: service.active ? "#0FB5A8" : "#6B7A94",
                             }}
                           >
                             {service.active ? "Visible" : "Hidden"}
@@ -330,9 +330,9 @@ export default function AdminServicesPage() {
                                 transition:      "all 0.2s ease",
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor     = "#D9B344";
-                                e.currentTarget.style.color           = "#D9B344";
-                                e.currentTarget.style.backgroundColor = "rgba(217,179,68,0.06)";
+                                e.currentTarget.style.borderColor     = "#0FB5A8";
+                                e.currentTarget.style.color           = "#0FB5A8";
+                                e.currentTarget.style.backgroundColor = "rgba(15,181,168,0.06)";
                               }}
                               onMouseLeave={(e) => {
                                 e.currentTarget.style.borderColor     = "rgba(107,122,148,0.25)";
@@ -361,9 +361,9 @@ export default function AdminServicesPage() {
                                 transition:      "all 0.2s ease",
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor     = "#D9B344";
-                                e.currentTarget.style.color           = "#D9B344";
-                                e.currentTarget.style.backgroundColor = "rgba(217,179,68,0.06)";
+                                e.currentTarget.style.borderColor     = "#0FB5A8";
+                                e.currentTarget.style.color           = "#0FB5A8";
+                                e.currentTarget.style.backgroundColor = "rgba(15,181,168,0.06)";
                               }}
                               onMouseLeave={(e) => {
                                 e.currentTarget.style.borderColor     = "rgba(107,122,148,0.25)";

@@ -9,7 +9,7 @@ export default function AdminMediaPage() {
             fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
             fontSize: "1.125rem",
             fontWeight: 400,
-            color: "#0F2341",
+            color: "#0C2430",
             marginBottom: "0.5rem",
           }}
         >

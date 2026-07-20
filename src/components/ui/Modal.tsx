@@ -59,10 +59,10 @@ export default function Modal({
           >
             <h3
               style={{
-                fontFamily: "'Cormorant Garamond', Georgia, serif",
+                fontFamily: "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                 fontSize:   "1.5rem",
                 fontWeight: 400,
-                color:      "#0F2341",
+                color:      "#0C2430",
               }}
             >
               {title}
@@ -77,7 +77,7 @@ export default function Modal({
                 color:        "#6B7A94",
                 transition:   "color 0.2s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#0F2341")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#0C2430")}
               onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7A94")}
             >
               <X size={20} />
