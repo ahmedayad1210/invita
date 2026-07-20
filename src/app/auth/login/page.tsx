@@ -57,7 +57,7 @@ export default function LoginPage() {
             Don&apos;t have an account?{" "}
             <Link
               href="/auth/register"
-              style={{ color: "#C4956A", fontWeight: 500 }}
+              style={{ color: "#D9B344", fontWeight: 500 }}
             >
               Create one
             </Link>
@@ -99,7 +99,7 @@ export default function LoginPage() {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize:   "0.8125rem",
-                  color:      "#C4956A",
+                  color:      "#D9B344",
                 }}
               >
                 Forgot password?
@@ -121,8 +121,8 @@ export default function LoginPage() {
             <div
               style={{
                 padding:      "0.875rem 1rem",
-                backgroundColor: "rgba(196,149,106,0.08)",
-                border:       "1px solid rgba(196,149,106,0.25)",
+                backgroundColor: "rgba(217,179,68,0.08)",
+                border:       "1px solid rgba(217,179,68,0.25)",
                 borderRadius: "0.5rem",
               }}
             >

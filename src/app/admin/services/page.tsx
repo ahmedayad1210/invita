@@ -155,7 +155,7 @@ export default function AdminServicesPage() {
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               fontSize:   "clamp(1.75rem, 3vw, 2.75rem)",
               fontWeight: 400,
-              color:      "#2C1810",
+              color:      "#0F2341",
             }}
           >
             Services
@@ -196,17 +196,17 @@ export default function AdminServicesPage() {
                     fontWeight:    500,
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color:         "#C4956A",
+                    color:         "#D9B344",
                   }}
                 >
                   {CATEGORY_LABELS[category] ?? category}
                 </h2>
-                <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(196,149,106,0.15)" }} />
+                <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(217,179,68,0.15)" }} />
                 <span
                   style={{
                     fontFamily: "'DM Sans', sans-serif",
                     fontSize:   "0.75rem",
-                    color:      "#8B7355",
+                    color:      "#6B7A94",
                   }}
                 >
                   {items.length} service{items.length !== 1 ? "s" : ""}
@@ -218,7 +218,7 @@ export default function AdminServicesPage() {
                 style={{
                   backgroundColor: "#FFFFFF",
                   borderRadius:    "0.75rem",
-                  border:          "1px solid rgba(196,149,106,0.12)",
+                  border:          "1px solid rgba(217,179,68,0.12)",
                   overflow:        "hidden",
                   width:           "100%",
                 }}
@@ -244,7 +244,7 @@ export default function AdminServicesPage() {
                               fontFamily: "'DM Sans', sans-serif",
                               fontSize:   "0.9375rem",
                               fontWeight: 500,
-                              color:      service.active ? "#2C1810" : "#8B7355",
+                              color:      service.active ? "#0F2341" : "#6B7A94",
                             }}
                           >
                             {service.name}
@@ -254,7 +254,7 @@ export default function AdminServicesPage() {
                               style={{
                                 fontFamily:          "'DM Sans', sans-serif",
                                 fontSize:            "0.8rem",
-                                color:               "#8B7355",
+                                color:               "#6B7A94",
                                 marginTop:           "0.2rem",
                                 display:             "-webkit-box",
                                 WebkitLineClamp:     1,
@@ -273,7 +273,7 @@ export default function AdminServicesPage() {
                             style={{
                               fontFamily: "'DM Sans', sans-serif",
                               fontSize:   "0.875rem",
-                              color:      "#2C1810",
+                              color:      "#0F2341",
                             }}
                           >
                             {formatDuration(service.duration)}
@@ -287,7 +287,7 @@ export default function AdminServicesPage() {
                               fontFamily: "'Cormorant Garamond', Georgia, serif",
                               fontSize:   "1.0625rem",
                               fontWeight: 500,
-                              color:      "#2C1810",
+                              color:      "#0F2341",
                             }}
                           >
                             {formatPrice(service.price)}
@@ -300,9 +300,9 @@ export default function AdminServicesPage() {
                             className="badge"
                             style={{
                               backgroundColor: service.active
-                                ? "rgba(184,150,90,0.12)"
-                                : "rgba(139,115,85,0.1)",
-                              color: service.active ? "#B8965A" : "#8B7355",
+                                ? "rgba(217,179,68,0.12)"
+                                : "rgba(107,122,148,0.1)",
+                              color: service.active ? "#D9B344" : "#6B7A94",
                             }}
                           >
                             {service.active ? "Visible" : "Hidden"}
@@ -320,9 +320,9 @@ export default function AdminServicesPage() {
                                 width:           "30px",
                                 height:          "30px",
                                 borderRadius:    "9999px",
-                                border:          "1.5px solid rgba(139,115,85,0.25)",
+                                border:          "1.5px solid rgba(107,122,148,0.25)",
                                 backgroundColor: "transparent",
-                                color:           "#8B7355",
+                                color:           "#6B7A94",
                                 display:         "flex",
                                 alignItems:      "center",
                                 justifyContent:  "center",
@@ -330,13 +330,13 @@ export default function AdminServicesPage() {
                                 transition:      "all 0.2s ease",
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor     = "#C4956A";
-                                e.currentTarget.style.color           = "#C4956A";
-                                e.currentTarget.style.backgroundColor = "rgba(196,149,106,0.06)";
+                                e.currentTarget.style.borderColor     = "#D9B344";
+                                e.currentTarget.style.color           = "#D9B344";
+                                e.currentTarget.style.backgroundColor = "rgba(217,179,68,0.06)";
                               }}
                               onMouseLeave={(e) => {
-                                e.currentTarget.style.borderColor     = "rgba(139,115,85,0.25)";
-                                e.currentTarget.style.color           = "#8B7355";
+                                e.currentTarget.style.borderColor     = "rgba(107,122,148,0.25)";
+                                e.currentTarget.style.color           = "#6B7A94";
                                 e.currentTarget.style.backgroundColor = "transparent";
                               }}
                             >
@@ -351,9 +351,9 @@ export default function AdminServicesPage() {
                                 width:           "30px",
                                 height:          "30px",
                                 borderRadius:    "9999px",
-                                border:          "1.5px solid rgba(139,115,85,0.25)",
+                                border:          "1.5px solid rgba(107,122,148,0.25)",
                                 backgroundColor: "transparent",
-                                color:           "#8B7355",
+                                color:           "#6B7A94",
                                 display:         "flex",
                                 alignItems:      "center",
                                 justifyContent:  "center",
@@ -361,13 +361,13 @@ export default function AdminServicesPage() {
                                 transition:      "all 0.2s ease",
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.borderColor     = "#C4956A";
-                                e.currentTarget.style.color           = "#C4956A";
-                                e.currentTarget.style.backgroundColor = "rgba(196,149,106,0.06)";
+                                e.currentTarget.style.borderColor     = "#D9B344";
+                                e.currentTarget.style.color           = "#D9B344";
+                                e.currentTarget.style.backgroundColor = "rgba(217,179,68,0.06)";
                               }}
                               onMouseLeave={(e) => {
-                                e.currentTarget.style.borderColor     = "rgba(139,115,85,0.25)";
-                                e.currentTarget.style.color           = "#8B7355";
+                                e.currentTarget.style.borderColor     = "rgba(107,122,148,0.25)";
+                                e.currentTarget.style.color           = "#6B7A94";
                                 e.currentTarget.style.backgroundColor = "transparent";
                               }}
                             >

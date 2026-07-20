@@ -26,7 +26,7 @@ export default function ContactPage() {
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 fontSize: "clamp(2.5rem, 5vw, 4.5rem)",
                 fontWeight: 300,
-                color: "#2C1810",
+                color: "#0F2341",
                 letterSpacing: "-0.02em",
                 marginBottom: "1rem",
               }}

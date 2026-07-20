@@ -36,7 +36,7 @@ export default function AdminLoginForm() {
     <div
       style={{
         minHeight:       "100svh",
-        backgroundColor: "#2C1810",
+        backgroundColor: "#0F2341",
         display:         "flex",
         alignItems:      "center",
         justifyContent:  "center",
@@ -60,7 +60,7 @@ export default function AdminLoginForm() {
               fontFamily:    "'Cormorant Garamond', Georgia, serif",
               fontSize:      "1.75rem",
               fontWeight:    300,
-              color:         "#2C1810",
+              color:         "#0F2341",
               letterSpacing: "0.08em",
               marginBottom:  "0.25rem",
             }}
@@ -74,7 +74,7 @@ export default function AdminLoginForm() {
               fontWeight:    500,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color:         "#C4956A",
+              color:         "#D9B344",
             }}
           >
             Admin Access
@@ -125,8 +125,8 @@ export default function AdminLoginForm() {
             <div
               style={{
                 padding:         "0.875rem 1rem",
-                backgroundColor: "rgba(196,149,106,0.08)",
-                border:          "1px solid rgba(196,149,106,0.25)",
+                backgroundColor: "rgba(217,179,68,0.08)",
+                border:          "1px solid rgba(217,179,68,0.25)",
                 borderRadius:    "0.5rem",
               }}
             >
@@ -156,11 +156,11 @@ export default function AdminLoginForm() {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize:   "0.8125rem",
-              color:      "#8B7355",
+              color:      "#6B7A94",
               transition: "color 0.2s ease",
             }}
-            onMouseEnter={(e) => (e.currentTarget.style.color = "#C4956A")}
-            onMouseLeave={(e) => (e.currentTarget.style.color = "#8B7355")}
+            onMouseEnter={(e) => (e.currentTarget.style.color = "#D9B344")}
+            onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7A94")}
           >
             ← Return to site
           </a>

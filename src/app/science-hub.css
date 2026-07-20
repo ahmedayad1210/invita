@@ -6,7 +6,7 @@
 
 .science-hero {
   background:
-    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(196, 149, 106, 0.22) 0%, transparent 55%),
+    radial-gradient(ellipse 80% 60% at 50% -10%, rgba(217,179,68, 0.22) 0%, transparent 55%),
     linear-gradient(165deg, #0f2341 0%, #4a2c1a 55%, #3d2418 100%);
   color: #f0ede4;
   padding-bottom: 3rem;
@@ -56,7 +56,7 @@
   padding: 1.25rem 1.35rem;
   border-radius: 1rem;
   background: rgba(250, 247, 242, 0.08);
-  border: 1px solid rgba(196, 149, 106, 0.25);
+  border: 1px solid rgba(217,179,68, 0.25);
   backdrop-filter: blur(8px);
 }
 
@@ -90,7 +90,7 @@
   z-index: 20;
   background: rgba(250, 247, 242, 0.92);
   backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(196, 149, 106, 0.2);
+  border-bottom: 1px solid rgba(217,179,68, 0.2);
 }
 
 .science-tab-bar {
@@ -122,7 +122,7 @@
 
 .science-tab-btn:hover {
   color: #0f2341;
-  background: rgba(196, 149, 106, 0.1);
+  background: rgba(217,179,68, 0.1);
 }
 
 .science-tab-btn.active {
@@ -152,8 +152,8 @@
   margin-bottom: 2rem;
   padding: 1rem 1.35rem;
   border-radius: 0.85rem;
-  background: linear-gradient(90deg, rgba(15, 35, 65, 0.06) 0%, rgba(196, 149, 106, 0.1) 100%);
-  border: 1px solid rgba(196, 149, 106, 0.2);
+  background: linear-gradient(90deg, rgba(15, 35, 65, 0.06) 0%, rgba(217,179,68, 0.1) 100%);
+  border: 1px solid rgba(217,179,68, 0.2);
   text-align: center;
 }
 
@@ -205,7 +205,7 @@
 .science-compare-wrap {
   overflow-x: auto;
   border-radius: 1rem;
-  border: 1px solid rgba(196, 149, 106, 0.2);
+  border: 1px solid rgba(217,179,68, 0.2);
   background: #fff;
   box-shadow: 0 8px 32px rgba(15, 35, 65, 0.06);
 }
@@ -221,7 +221,7 @@
 .science-compare-table td {
   padding: 1rem 1.15rem;
   text-align: start;
-  border-bottom: 1px solid rgba(196, 149, 106, 0.12);
+  border-bottom: 1px solid rgba(217,179,68, 0.12);
   vertical-align: top;
 }
 
@@ -242,7 +242,7 @@
 }
 
 .science-compare-highlight {
-  background: rgba(196, 149, 106, 0.08);
+  background: rgba(217,179,68, 0.08);
   color: #0f2341;
   font-weight: 500;
 }
@@ -257,7 +257,7 @@
   padding: 1.25rem;
   border-radius: 0.85rem;
   background: #fff;
-  border: 1px solid rgba(196, 149, 106, 0.15);
+  border: 1px solid rgba(217,179,68, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -289,7 +289,7 @@
   padding: 1.5rem;
   border-radius: 1rem;
   background: linear-gradient(145deg, #fff 0%, #f8f0e8 100%);
-  border: 1px solid rgba(196, 149, 106, 0.18);
+  border: 1px solid rgba(217,179,68, 0.18);
   display: flex;
   flex-direction: column;
   gap: 0.5rem;
@@ -377,7 +377,7 @@
   display: block;
   font-family: var(--font-serif);
   font-size: 2rem;
-  color: rgba(196, 149, 106, 0.45);
+  color: rgba(217,179,68, 0.45);
   line-height: 1;
   margin-bottom: 0.75rem;
 }
@@ -400,8 +400,8 @@
   align-items: flex-start;
   padding: 1.25rem 1.5rem;
   border-radius: 0.85rem;
-  background: rgba(196, 149, 106, 0.12);
-  border: 1px solid rgba(196, 149, 106, 0.25);
+  background: rgba(217,179,68, 0.12);
+  border: 1px solid rgba(217,179,68, 0.25);
   color: #d9b344;
   margin-bottom: 1.5rem;
 }
@@ -438,7 +438,7 @@
   padding: 1rem 1rem 1rem 2.75rem;
   border-radius: 0.75rem;
   background: #fff;
-  border: 1px solid rgba(196, 149, 106, 0.15);
+  border: 1px solid rgba(217,179,68, 0.15);
   font-size: 0.875rem;
   line-height: 1.6;
   color: #4a3020;
@@ -455,7 +455,7 @@
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: rgba(196, 149, 106, 0.2);
+  background: rgba(217,179,68, 0.2);
   color: #8b5a2b;
   font-size: 0.65rem;
   font-weight: 700;
@@ -480,7 +480,7 @@
   padding: 1.35rem;
   border-radius: 0.85rem;
   background: #fff;
-  border: 1px solid rgba(196, 149, 106, 0.15);
+  border: 1px solid rgba(217,179,68, 0.15);
 }
 
 .science-protocol-card h4 {
@@ -504,7 +504,7 @@
 .science-nutrient-item {
   border-radius: 0.85rem;
   background: #fff;
-  border: 1px solid rgba(196, 149, 106, 0.15);
+  border: 1px solid rgba(217,179,68, 0.15);
   overflow: hidden;
 }
 
@@ -544,7 +544,7 @@
 .science-nutrient-uses {
   margin-top: 0.75rem;
   padding-top: 0.75rem;
-  border-top: 1px solid rgba(196, 149, 106, 0.12);
+  border-top: 1px solid rgba(217,179,68, 0.12);
 }
 
 .science-resource-grid {
@@ -557,7 +557,7 @@
   padding: 1.5rem;
   border-radius: 1rem;
   background: #fff;
-  border: 1px solid rgba(196, 149, 106, 0.18);
+  border: 1px solid rgba(217,179,68, 0.18);
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
@@ -567,7 +567,7 @@
   align-self: flex-start;
   padding: 0.25rem 0.65rem;
   border-radius: 9999px;
-  background: rgba(196, 149, 106, 0.15);
+  background: rgba(217,179,68, 0.15);
   font-size: 0.68rem;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -622,7 +622,7 @@
   margin-top: 3rem;
   padding: 1.25rem;
   border-radius: 0.75rem;
-  background: rgba(196, 149, 106, 0.08);
+  background: rgba(217,179,68, 0.08);
   font-size: 0.78rem;
   line-height: 1.65;
   color: #6b7a94;

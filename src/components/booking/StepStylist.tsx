@@ -45,7 +45,7 @@ export default function StepStylist() {
         <p
           style={{
             textAlign:  "center",
-            color:      "#8B7355",
+            color:      "#6B7A94",
             fontFamily: "'DM Sans', sans-serif",
           }}
         >
@@ -72,28 +72,28 @@ export default function StepStylist() {
                   alignItems:      "flex-start",
                   gap:             "1rem",
                   textAlign:       "left",
-                  backgroundColor: isSelected ? "#2C1810" : "#FFFFFF",
-                  border:          `1.5px solid ${isSelected ? "#2C1810" : "rgba(196,149,106,0.15)"}`,
+                  backgroundColor: isSelected ? "#0F2341" : "#FFFFFF",
+                  border:          `1.5px solid ${isSelected ? "#0F2341" : "rgba(217,179,68,0.15)"}`,
                   borderRadius:    "0.75rem",
                   padding:         "1.5rem",
                   cursor:          "pointer",
                   transition:      "all 0.3s ease",
                   boxShadow:       isSelected
-                    ? "0 8px 32px rgba(44,24,16,0.2)"
-                    : "0 2px 20px rgba(44,24,16,0.06)",
+                    ? "0 8px 32px rgba(15,35,65,0.2)"
+                    : "0 2px 20px rgba(15,35,65,0.06)",
                   position:        "relative",
                   width:           "100%",
                 }}
                 onMouseEnter={(e) => {
                   if (!isSelected) {
-                    e.currentTarget.style.borderColor = "rgba(196,149,106,0.4)";
-                    e.currentTarget.style.boxShadow   = "0 4px 24px rgba(44,24,16,0.1)";
+                    e.currentTarget.style.borderColor = "rgba(217,179,68,0.4)";
+                    e.currentTarget.style.boxShadow   = "0 4px 24px rgba(15,35,65,0.1)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isSelected) {
-                    e.currentTarget.style.borderColor = "rgba(196,149,106,0.15)";
-                    e.currentTarget.style.boxShadow   = "0 2px 20px rgba(44,24,16,0.06)";
+                    e.currentTarget.style.borderColor = "rgba(217,179,68,0.15)";
+                    e.currentTarget.style.boxShadow   = "0 2px 20px rgba(15,35,65,0.06)";
                   }
                 }}
               >
@@ -107,7 +107,7 @@ export default function StepStylist() {
                       width:           "22px",
                       height:          "22px",
                       borderRadius:    "9999px",
-                      backgroundColor: "#C4956A",
+                      backgroundColor: "#D9B344",
                       display:         "flex",
                       alignItems:      "center",
                       justifyContent:  "center",
@@ -129,7 +129,7 @@ export default function StepStylist() {
                       fontFamily:   "'Cormorant Garamond', Georgia, serif",
                       fontSize:     "1.1875rem",
                       fontWeight:   400,
-                      color:        isSelected ? "#FAF7F2" : "#2C1810",
+                      color:        isSelected ? "#FAF7F2" : "#0F2341",
                       marginBottom: "0.25rem",
                     }}
                   >
@@ -142,7 +142,7 @@ export default function StepStylist() {
                       fontWeight:    500,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color:         isSelected ? "rgba(196,149,106,0.8)" : "#C4956A",
+                      color:         isSelected ? "rgba(217,179,68,0.8)" : "#D9B344",
                       marginBottom:  "0.625rem",
                     }}
                   >
@@ -153,7 +153,7 @@ export default function StepStylist() {
                       style={{
                         fontFamily:          "'DM Sans', sans-serif",
                         fontSize:            "0.8375rem",
-                        color:               isSelected ? "rgba(250,247,242,0.6)" : "#8B7355",
+                        color:               isSelected ? "rgba(250,247,242,0.6)" : "#6B7A94",
                         lineHeight:          1.65,
                         display:             "-webkit-box",
                         WebkitLineClamp:     2,

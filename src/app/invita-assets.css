@@ -6,7 +6,7 @@
   border-radius: 0.85rem;
   overflow: hidden;
   background: #f0ede4;
-  border: 1px solid rgba(196, 149, 106, 0.18);
+  border: 1px solid rgba(217,179,68, 0.18);
   box-shadow: 0 12px 40px rgba(15, 35, 65, 0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
@@ -35,7 +35,7 @@
   border-radius: 9999px;
   background: rgba(250, 247, 242, 0.92);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(196, 149, 106, 0.35);
+  border: 1px solid rgba(217,179,68, 0.35);
   font-family: var(--font-sans);
   font-size: 0.625rem;
   font-weight: 600;
@@ -126,7 +126,7 @@
   border-radius: 0.55rem;
   overflow: hidden;
   aspect-ratio: 1;
-  border: 1px solid rgba(196, 149, 106, 0.12);
+  border: 1px solid rgba(217,179,68, 0.12);
 }
 
 .asset-frame--infographic .asset-frame__image {
@@ -152,7 +152,7 @@
   max-width: 280px;
   padding: 0.5rem;
   background: #0f2341;
-  border-color: rgba(196, 149, 106, 0.35);
+  border-color: rgba(217,179,68, 0.35);
   border-radius: 1.25rem;
 }
 
@@ -185,7 +185,7 @@
 .benefits-gallery-grid--framed .asset-frame {
   border-radius: 0;
   border: none;
-  border-inline-end: 1px solid rgba(196, 149, 106, 0.12);
+  border-inline-end: 1px solid rgba(217,179,68, 0.12);
   box-shadow: none;
   min-height: 340px;
 }
@@ -268,7 +268,7 @@
   color: #0f2341;
   margin: 2.5rem 0 1.25rem;
   padding-bottom: 0.65rem;
-  border-bottom: 1px solid rgba(196, 149, 106, 0.25);
+  border-bottom: 1px solid rgba(217,179,68, 0.25);
 }
 
 .invita-gallery-lead-card {
@@ -372,7 +372,7 @@
 
   .benefits-gallery-grid--framed .asset-frame {
     border-inline-end: none;
-    border-bottom: 1px solid rgba(196, 149, 106, 0.12);
+    border-bottom: 1px solid rgba(217,179,68, 0.12);
     min-height: 280px;
   }
 }

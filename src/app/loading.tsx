@@ -21,7 +21,7 @@ export default function Loading() {
           fontFamily:    "'Cormorant Garamond', Georgia, serif",
           fontSize:      "1.5rem",
           fontWeight:    300,
-          color:         "#2C1810",
+          color:         "#0F2341",
           letterSpacing: "0.15em",
           marginBottom:  "2rem",
         }}
@@ -38,7 +38,7 @@ export default function Loading() {
               width:           "6px",
               height:          "6px",
               borderRadius:    "9999px",
-              backgroundColor: "#C4956A",
+              backgroundColor: "#D9B344",
               animation:       "loadingPulse 1.2s ease-in-out infinite",
               animationDelay:  `${i * 0.2}s`,
             }}

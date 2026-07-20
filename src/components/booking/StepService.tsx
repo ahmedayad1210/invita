@@ -47,7 +47,7 @@ export default function StepService() {
       {loading ? (
         <LoadingSpinner message={t.book.loadingTreatments} />
       ) : error ? (
-        <p style={{ textAlign: "center", color: "#8B7355", fontFamily: "'DM Sans', sans-serif" }}>
+        <p style={{ textAlign: "center", color: "#6B7A94", fontFamily: "'DM Sans', sans-serif" }}>
           Unable to load services. Please refresh.
         </p>
       ) : services.length === 0 && activeCategory === "dna" ? (
@@ -74,28 +74,28 @@ export default function StepService() {
                 onClick={() => handleSelect(service)}
                 style={{
                   textAlign:       "left",
-                  backgroundColor: isSelected ? "#2C1810" : "#FFFFFF",
-                  border:          `1.5px solid ${isSelected ? "#2C1810" : "rgba(196,149,106,0.15)"}`,
+                  backgroundColor: isSelected ? "#0F2341" : "#FFFFFF",
+                  border:          `1.5px solid ${isSelected ? "#0F2341" : "rgba(217,179,68,0.15)"}`,
                   borderRadius:    "0.75rem",
                   padding:         "1.5rem",
                   cursor:          "pointer",
                   transition:      "all 0.3s ease",
                   boxShadow:       isSelected
-                    ? "0 8px 32px rgba(44,24,16,0.2)"
-                    : "0 2px 20px rgba(44,24,16,0.06)",
+                    ? "0 8px 32px rgba(15,35,65,0.2)"
+                    : "0 2px 20px rgba(15,35,65,0.06)",
                   position:        "relative",
                   width:           "100%",
                 }}
                 onMouseEnter={(e) => {
                   if (!isSelected) {
-                    e.currentTarget.style.borderColor = "rgba(196,149,106,0.4)";
-                    e.currentTarget.style.boxShadow   = "0 4px 24px rgba(44,24,16,0.1)";
+                    e.currentTarget.style.borderColor = "rgba(217,179,68,0.4)";
+                    e.currentTarget.style.boxShadow   = "0 4px 24px rgba(15,35,65,0.1)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isSelected) {
-                    e.currentTarget.style.borderColor = "rgba(196,149,106,0.15)";
-                    e.currentTarget.style.boxShadow   = "0 2px 20px rgba(44,24,16,0.06)";
+                    e.currentTarget.style.borderColor = "rgba(217,179,68,0.15)";
+                    e.currentTarget.style.boxShadow   = "0 2px 20px rgba(15,35,65,0.06)";
                   }
                 }}
               >
@@ -109,7 +109,7 @@ export default function StepService() {
                       width:           "24px",
                       height:          "24px",
                       borderRadius:    "9999px",
-                      backgroundColor: "#C4956A",
+                      backgroundColor: "#D9B344",
                       display:         "flex",
                       alignItems:      "center",
                       justifyContent:  "center",
@@ -127,7 +127,7 @@ export default function StepService() {
                     fontWeight:    500,
                     letterSpacing: "0.15em",
                     textTransform: "uppercase",
-                    color:         isSelected ? "rgba(196,149,106,0.8)" : "#C4956A",
+                    color:         isSelected ? "rgba(217,179,68,0.8)" : "#D9B344",
                     display:       "block",
                     marginBottom:  "0.5rem",
                   }}
@@ -141,7 +141,7 @@ export default function StepService() {
                     fontFamily:   "'Cormorant Garamond', Georgia, serif",
                     fontSize:     "1.25rem",
                     fontWeight:   400,
-                    color:        isSelected ? "#FAF7F2" : "#2C1810",
+                    color:        isSelected ? "#FAF7F2" : "#0F2341",
                     marginBottom: "0.5rem",
                     lineHeight:   1.3,
                   }}
@@ -155,7 +155,7 @@ export default function StepService() {
                     style={{
                       fontFamily:   "'DM Sans', sans-serif",
                       fontSize:     "0.8375rem",
-                      color:        isSelected ? "rgba(250,247,242,0.65)" : "#8B7355",
+                      color:        isSelected ? "rgba(250,247,242,0.65)" : "#6B7A94",
                       lineHeight:   1.65,
                       marginBottom: "1rem",
                     }}
@@ -171,7 +171,7 @@ export default function StepService() {
                     alignItems:  "center",
                     gap:         "1rem",
                     paddingTop:  "0.875rem",
-                    borderTop:   `1px solid ${isSelected ? "rgba(250,247,242,0.1)" : "rgba(196,149,106,0.1)"}`,
+                    borderTop:   `1px solid ${isSelected ? "rgba(250,247,242,0.1)" : "rgba(217,179,68,0.1)"}`,
                   }}
                 >
                   <span
@@ -179,18 +179,18 @@ export default function StepService() {
                       fontFamily:   "'Cormorant Garamond', Georgia, serif",
                       fontSize:     "1.25rem",
                       fontWeight:   500,
-                      color:        isSelected ? "#C4956A" : "#2C1810",
+                      color:        isSelected ? "#D9B344" : "#0F2341",
                     }}
                   >
                     {formatPrice(service.price)}
                   </span>
                   <div style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}>
-                    <Clock size={12} color={isSelected ? "rgba(250,247,242,0.5)" : "#8B7355"} />
+                    <Clock size={12} color={isSelected ? "rgba(250,247,242,0.5)" : "#6B7A94"} />
                     <span
                       style={{
                         fontFamily: "'DM Sans', sans-serif",
                         fontSize:   "0.8rem",
-                        color:      isSelected ? "rgba(250,247,242,0.5)" : "#8B7355",
+                        color:      isSelected ? "rgba(250,247,242,0.5)" : "#6B7A94",
                       }}
                     >
                       {formatDuration(service.duration)}

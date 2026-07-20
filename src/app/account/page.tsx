@@ -114,9 +114,9 @@ function AccountContent() {
   });
 
   const STATUS_COLORS: Record<string, string> = {
-    pending:   "#8B7355",
-    confirmed: "#B8965A",
-    cancelled: "#8B7355",
+    pending:   "#6B7A94",
+    confirmed: "#D9B344",
+    cancelled: "#6B7A94",
   };
 
   return (
@@ -151,7 +151,7 @@ function AccountContent() {
                       fontFamily:   "'Cormorant Garamond', Georgia, serif",
                       fontSize:     "clamp(1.75rem, 3vw, 2.75rem)",
                       fontWeight:   400,
-                      color:        "#2C1810",
+                      color:        "#0F2341",
                       lineHeight:   1.15,
                     }}
                   >
@@ -161,7 +161,7 @@ function AccountContent() {
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
                       fontSize:   "0.875rem",
-                      color:      "#8B7355",
+                      color:      "#6B7A94",
                     }}
                   >
                     {user?.email}
@@ -177,9 +177,9 @@ function AccountContent() {
                     fontSize:      "0.8rem",
                     fontWeight:    400,
                     letterSpacing: "0.06em",
-                    color:         "#8B7355",
+                    color:         "#6B7A94",
                     background:    "none",
-                    border:        "1.5px solid rgba(139,115,85,0.25)",
+                    border:        "1.5px solid rgba(107,122,148,0.25)",
                     borderRadius:  "9999px",
                     padding:       "0.5rem 1.125rem",
                     cursor:        "pointer",
@@ -187,12 +187,12 @@ function AccountContent() {
                     whiteSpace:    "nowrap",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.borderColor = "#C4956A";
-                    e.currentTarget.style.color       = "#C4956A";
+                    e.currentTarget.style.borderColor = "#D9B344";
+                    e.currentTarget.style.color       = "#D9B344";
                   }}
                   onMouseLeave={(e) => {
-                    e.currentTarget.style.borderColor = "rgba(139,115,85,0.25)";
-                    e.currentTarget.style.color       = "#8B7355";
+                    e.currentTarget.style.borderColor = "rgba(107,122,148,0.25)";
+                    e.currentTarget.style.color       = "#6B7A94";
                   }}
                 >
                   {t.account.signOut}
@@ -223,7 +223,7 @@ function AccountContent() {
               display:      "flex",
               gap:          "0.25rem",
               marginBottom: "2rem",
-              borderBottom: "1px solid rgba(196,149,106,0.15)",
+              borderBottom: "1px solid rgba(217,179,68,0.15)",
             }}
           >
             {(["upcoming", "past", "cancelled"] as TabType[]).map((tabKey) => {
@@ -249,11 +249,11 @@ function AccountContent() {
                     fontFamily:      "'DM Sans', sans-serif",
                     fontSize:        "0.875rem",
                     fontWeight:      tab === tabKey ? 500 : 400,
-                    color:           tab === tabKey ? "#2C1810" : "#8B7355",
+                    color:           tab === tabKey ? "#0F2341" : "#6B7A94",
                     padding:         "0.75rem 1.25rem",
                     background:      "none",
                     border:          "none",
-                    borderBottom:    tab === tabKey ? "2px solid #C4956A" : "2px solid transparent",
+                    borderBottom:    tab === tabKey ? "2px solid #D9B344" : "2px solid transparent",
                     cursor:          "pointer",
                     transition:      "all 0.25s ease",
                     display:         "flex",
@@ -268,8 +268,8 @@ function AccountContent() {
                       fontFamily:      "'DM Sans', sans-serif",
                       fontSize:        "0.6875rem",
                       fontWeight:      500,
-                      backgroundColor: tab === tabKey ? "rgba(196,149,106,0.15)" : "rgba(139,115,85,0.1)",
-                      color:           tab === tabKey ? "#C4956A" : "#8B7355",
+                      backgroundColor: tab === tabKey ? "rgba(217,179,68,0.15)" : "rgba(107,122,148,0.1)",
+                      color:           tab === tabKey ? "#D9B344" : "#6B7A94",
                       borderRadius:    "9999px",
                       padding:         "0.1rem 0.5rem",
                     }}
@@ -293,7 +293,7 @@ function AccountContent() {
                 padding:         "5rem 2rem",
                 backgroundColor: "#FFFFFF",
                 borderRadius:    "0.75rem",
-                border:          "1px solid rgba(196,149,106,0.12)",
+                border:          "1px solid rgba(217,179,68,0.12)",
               }}
             >
               <p
@@ -301,7 +301,7 @@ function AccountContent() {
                   fontFamily:   "'Cormorant Garamond', Georgia, serif",
                   fontSize:     "1.5rem",
                   fontWeight:   400,
-                  color:        "#2C1810",
+                  color:        "#0F2341",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -315,7 +315,7 @@ function AccountContent() {
                 style={{
                   fontFamily:   "'DM Sans', sans-serif",
                   fontSize:     "0.9rem",
-                  color:        "#8B7355",
+                  color:        "#6B7A94",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -348,8 +348,8 @@ function AccountContent() {
                     style={{
                       backgroundColor: "#FFFFFF",
                       borderRadius:    "0.75rem",
-                      border:          `1px solid ${isCancelled ? "rgba(139,115,85,0.1)" : "rgba(196,149,106,0.15)"}`,
-                      boxShadow:       "0 2px 20px rgba(44,24,16,0.05)",
+                      border:          `1px solid ${isCancelled ? "rgba(107,122,148,0.1)" : "rgba(217,179,68,0.15)"}`,
+                      boxShadow:       "0 2px 20px rgba(15,35,65,0.05)",
                       padding:         "1.5rem",
                       opacity:         isCancelled ? 0.75 : 1,
                     }}
@@ -380,7 +380,7 @@ function AccountContent() {
                               fontFamily: "'Cormorant Garamond', Georgia, serif",
                               fontSize:   "1.375rem",
                               fontWeight: 400,
-                              color:      "#2C1810",
+                              color:      "#0F2341",
                             }}
                           >
                             {booking.service?.name ?? "Service"}
@@ -432,17 +432,17 @@ function AccountContent() {
                                 display:    "flex",
                                 alignItems: "center",
                                 gap:        "0.375rem",
-                                color:      "#8B7355",
+                                color:      "#6B7A94",
                               }}
                             >
-                              <span style={{ color: "#C4956A", flexShrink: 0 }}>
+                              <span style={{ color: "#D9B344", flexShrink: 0 }}>
                                 {item.icon}
                               </span>
                               <span
                                 style={{
                                   fontFamily: "'DM Sans', sans-serif",
                                   fontSize:   "0.875rem",
-                                  color:      "#8B7355",
+                                  color:      "#6B7A94",
                                 }}
                               >
                                 {item.text}
@@ -457,11 +457,11 @@ function AccountContent() {
                             style={{
                               fontFamily:   "'DM Sans', sans-serif",
                               fontSize:     "0.8375rem",
-                              color:        "#8B7355",
+                              color:        "#6B7A94",
                               fontStyle:    "italic",
                               marginTop:    "0.75rem",
                               paddingTop:   "0.75rem",
-                              borderTop:    "1px solid rgba(196,149,106,0.1)",
+                              borderTop:    "1px solid rgba(217,179,68,0.1)",
                             }}
                           >
                             {t.account.note}: {booking.notes}
@@ -494,9 +494,9 @@ function AccountContent() {
                                 fontWeight:      500,
                                 letterSpacing:   "0.08em",
                                 textTransform:   "uppercase",
-                                color:           "#C4956A",
+                                color:           "#D9B344",
                                 background:      "none",
-                                border:          "1.5px solid rgba(196,149,106,0.35)",
+                                border:          "1.5px solid rgba(217,179,68,0.35)",
                                 borderRadius:    "9999px",
                                 padding:         "0.5rem 1rem",
                                 cursor:          "pointer",
@@ -516,9 +516,9 @@ function AccountContent() {
                               fontWeight:      500,
                               letterSpacing:   "0.08em",
                               textTransform:   "uppercase",
-                              color:           "#8B7355",
+                              color:           "#6B7A94",
                               background:      "none",
-                              border:          "1.5px solid rgba(139,115,85,0.25)",
+                              border:          "1.5px solid rgba(107,122,148,0.25)",
                               borderRadius:    "9999px",
                               padding:         "0.5rem 1rem",
                               cursor:          cancelling === booking.id ? "not-allowed" : "pointer",
@@ -526,12 +526,12 @@ function AccountContent() {
                               transition:      "all 0.25s ease",
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.borderColor = "#C4956A";
-                              e.currentTarget.style.color       = "#C4956A";
+                              e.currentTarget.style.borderColor = "#D9B344";
+                              e.currentTarget.style.color       = "#D9B344";
                             }}
                             onMouseLeave={(e) => {
-                              e.currentTarget.style.borderColor = "rgba(139,115,85,0.25)";
-                              e.currentTarget.style.color       = "#8B7355";
+                              e.currentTarget.style.borderColor = "rgba(107,122,148,0.25)";
+                              e.currentTarget.style.color       = "#6B7A94";
                             }}
                           >
                             <XCircle size={13} />
@@ -559,7 +559,7 @@ function AccountContent() {
               {t.account.dnaResults}
             </h2>
             {dnaOrders.length === 0 ? (
-              <p style={{ color: "#8B7355" }}>{t.account.noResults}</p>
+              <p style={{ color: "#6B7A94" }}>{t.account.noResults}</p>
             ) : (
               <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                 {dnaOrders.map((order) => (
@@ -569,11 +569,11 @@ function AccountContent() {
                       padding: "1.25rem",
                       background: "#fff",
                       borderRadius: "0.75rem",
-                      border: "1px solid rgba(196,149,106,0.15)",
+                      border: "1px solid rgba(217,179,68,0.15)",
                     }}
                   >
                     <strong>{order.panel_name}</strong>
-                    <p style={{ color: "#8B7355", fontSize: "0.875rem", marginTop: "0.25rem" }}>
+                    <p style={{ color: "#6B7A94", fontSize: "0.875rem", marginTop: "0.25rem" }}>
                       {t.account.status}: {order.status}
                     </p>
                     {order.result_url && order.status === "delivered" && (

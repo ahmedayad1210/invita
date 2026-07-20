@@ -62,8 +62,8 @@ export default function NavigationProgress() {
         style={{
           height:          "100%",
           width:           `${width}%`,
-          backgroundColor: "#C4956A",
-          boxShadow:       "0 0 8px rgba(196,149,106,0.6)",
+          backgroundColor: "#D9B344",
+          boxShadow:       "0 0 8px rgba(217,179,68,0.6)",
           transition:      width === 100 ? "width 0.2s ease" : "width 0.4s ease",
         }}
       />

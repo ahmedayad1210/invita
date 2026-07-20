@@ -56,7 +56,7 @@ export default function AdminSidebar() {
             fontWeight:    500,
             letterSpacing: "0.15em",
             textTransform: "uppercase",
-            color:         "rgba(196,149,106,0.7)",
+            color:         "rgba(217,179,68,0.7)",
           }}
         >
           Admin Panel
@@ -67,7 +67,7 @@ export default function AdminSidebar() {
       <div
         style={{
           height:       "1px",
-          background:   "linear-gradient(to right, rgba(196,149,106,0.3), transparent)",
+          background:   "linear-gradient(to right, rgba(217,179,68,0.3), transparent)",
           marginBottom: "2rem",
         }}
       />
@@ -91,9 +91,9 @@ export default function AdminSidebar() {
         <button
           onClick={logout}
           className="admin-nav-link"
-          style={{ width: "100%", color: "rgba(196,149,106,0.7)" }}
-          onMouseEnter={(e) => (e.currentTarget.style.color = "#C4956A")}
-          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(196,149,106,0.7)")}
+          style={{ width: "100%", color: "rgba(217,179,68,0.7)" }}
+          onMouseEnter={(e) => (e.currentTarget.style.color = "#D9B344")}
+          onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(217,179,68,0.7)")}
         >
           <LogOut size={16} />
           Sign Out

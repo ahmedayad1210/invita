@@ -18,9 +18,9 @@ type SortKey = "date" | "status" | "service" | "stylist";
 type SortDir = "asc" | "desc";
 
 const STATUS_STYLES: Record<BookingStatus, { bg: string; color: string }> = {
-  pending:   { bg: "rgba(139,115,85,0.1)",  color: "#8B7355" },
-  confirmed: { bg: "rgba(184,150,90,0.12)", color: "#B8965A" },
-  cancelled: { bg: "rgba(44,24,16,0.07)",   color: "#8B7355" },
+  pending:   { bg: "rgba(107,122,148,0.1)",  color: "#6B7A94" },
+  confirmed: { bg: "rgba(217,179,68,0.12)", color: "#D9B344" },
+  cancelled: { bg: "rgba(15,35,65,0.07)",   color: "#6B7A94" },
 };
 
 export default function BookingsTable({ bookings, onRefresh }: BookingsTableProps) {
@@ -125,7 +125,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
         style={{
           backgroundColor: "#FFFFFF",
           borderRadius:    "0.75rem",
-          border:          "1px solid rgba(196,149,106,0.12)",
+          border:          "1px solid rgba(217,179,68,0.12)",
           overflow:        "hidden",
           width:           "100%",
         }}
@@ -192,7 +192,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                 <tr>
                   <td
                     colSpan={8}
-                    style={{ textAlign: "center", padding: "3rem", color: "#8B7355" }}
+                    style={{ textAlign: "center", padding: "3rem", color: "#6B7A94" }}
                   >
                     {search ? "No bookings match your search." : "No bookings found."}
                   </td>
@@ -218,7 +218,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                                 fontFamily: "'DM Sans', sans-serif",
                                 fontSize:   "0.875rem",
                                 fontWeight: 500,
-                                color:      "#2C1810",
+                                color:      "#0F2341",
                                 lineHeight: 1.3,
                               }}
                             >
@@ -228,7 +228,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                               style={{
                                 fontFamily: "'DM Sans', sans-serif",
                                 fontSize:   "0.75rem",
-                                color:      "#8B7355",
+                                color:      "#6B7A94",
                               }}
                             >
                               {booking.profile?.email ?? "—"}
@@ -243,7 +243,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                           style={{
                             fontFamily: "'DM Sans', sans-serif",
                             fontSize:   "0.875rem",
-                            color:      "#2C1810",
+                            color:      "#0F2341",
                             fontWeight: 500,
                           }}
                         >
@@ -253,7 +253,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                           style={{
                             fontFamily:    "'DM Sans', sans-serif",
                             fontSize:      "0.75rem",
-                            color:         "#C4956A",
+                            color:         "#D9B344",
                             textTransform: "capitalize",
                           }}
                         >
@@ -272,7 +272,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                             style={{
                               fontFamily: "'DM Sans', sans-serif",
                               fontSize:   "0.875rem",
-                              color:      "#2C1810",
+                              color:      "#0F2341",
                             }}
                           >
                             {booking.stylist?.name ?? "—"}
@@ -286,7 +286,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                           style={{
                             fontFamily: "'DM Sans', sans-serif",
                             fontSize:   "0.875rem",
-                            color:      "#2C1810",
+                            color:      "#0F2341",
                             fontWeight: 500,
                           }}
                         >
@@ -296,7 +296,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                           style={{
                             fontFamily: "'DM Sans', sans-serif",
                             fontSize:   "0.75rem",
-                            color:      "#8B7355",
+                            color:      "#6B7A94",
                           }}
                         >
                           {formatTimeLabel(booking.time_slot)}
@@ -310,7 +310,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                             fontFamily: "'Cormorant Garamond', Georgia, serif",
                             fontSize:   "1.0625rem",
                             fontWeight: 500,
-                            color:      "#2C1810",
+                            color:      "#0F2341",
                           }}
                         >
                           {booking.service ? formatPrice(booking.service.price) : "—"}
@@ -339,7 +339,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                               style={{
                                 fontFamily: "'DM Sans', sans-serif",
                                 fontSize:   "0.8125rem",
-                                color:      "#C4956A",
+                                color:      "#D9B344",
                                 cursor:     "pointer",
                               }}
                             >
@@ -349,7 +349,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                               style={{
                                 fontFamily: "'DM Sans', sans-serif",
                                 fontSize:   "0.75rem",
-                                color:      "#2C1810",
+                                color:      "#0F2341",
                                 whiteSpace: "pre-wrap",
                                 marginTop:  "0.5rem",
                                 maxWidth:   "220px",
@@ -363,7 +363,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                             style={{
                               fontFamily: "'DM Sans', sans-serif",
                               fontSize:   "0.75rem",
-                              color:      "#8B7355",
+                              color:      "#6B7A94",
                             }}
                           >
                             —
@@ -378,7 +378,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                             style={{
                               fontFamily: "'DM Sans', sans-serif",
                               fontSize:   "0.75rem",
-                              color:      "#8B7355",
+                              color:      "#6B7A94",
                               fontStyle:  "italic",
                             }}
                           >
@@ -398,15 +398,15 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                                   width:           "30px",
                                   height:          "30px",
                                   borderRadius:    "9999px",
-                                  border:          "1.5px solid rgba(184,150,90,0.3)",
+                                  border:          "1.5px solid rgba(217,179,68,0.3)",
                                   backgroundColor: "transparent",
-                                  color:           "#B8965A",
+                                  color:           "#D9B344",
                                   cursor:          isUpdating ? "not-allowed" : "pointer",
                                   opacity:         isUpdating ? 0.5 : 1,
                                   transition:      "all 0.2s ease",
                                 }}
                                 onMouseEnter={(e) => {
-                                  e.currentTarget.style.backgroundColor = "rgba(184,150,90,0.1)";
+                                  e.currentTarget.style.backgroundColor = "rgba(217,179,68,0.1)";
                                 }}
                                 onMouseLeave={(e) => {
                                   e.currentTarget.style.backgroundColor = "transparent";
@@ -426,22 +426,22 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                                 width:           "30px",
                                 height:          "30px",
                                 borderRadius:    "9999px",
-                                border:          "1.5px solid rgba(139,115,85,0.25)",
+                                border:          "1.5px solid rgba(107,122,148,0.25)",
                                 backgroundColor: "transparent",
-                                color:           "#8B7355",
+                                color:           "#6B7A94",
                                 cursor:          isUpdating ? "not-allowed" : "pointer",
                                 opacity:         isUpdating ? 0.5 : 1,
                                 transition:      "all 0.2s ease",
                               }}
                               onMouseEnter={(e) => {
-                                e.currentTarget.style.backgroundColor = "rgba(139,115,85,0.08)";
-                                e.currentTarget.style.color           = "#C4956A";
-                                e.currentTarget.style.borderColor     = "rgba(196,149,106,0.3)";
+                                e.currentTarget.style.backgroundColor = "rgba(107,122,148,0.08)";
+                                e.currentTarget.style.color           = "#D9B344";
+                                e.currentTarget.style.borderColor     = "rgba(217,179,68,0.3)";
                               }}
                               onMouseLeave={(e) => {
                                 e.currentTarget.style.backgroundColor = "transparent";
-                                e.currentTarget.style.color           = "#8B7355";
-                                e.currentTarget.style.borderColor     = "rgba(139,115,85,0.25)";
+                                e.currentTarget.style.color           = "#6B7A94";
+                                e.currentTarget.style.borderColor     = "rgba(107,122,148,0.25)";
                               }}
                             >
                               <XCircle size={14} />
@@ -461,7 +461,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
         <div
           style={{
             padding:        "0.875rem 1rem",
-            borderTop:      "1px solid rgba(196,149,106,0.1)",
+            borderTop:      "1px solid rgba(217,179,68,0.1)",
             backgroundColor: "#FAF7F2",
             display:        "flex",
             justifyContent: "space-between",
@@ -472,7 +472,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize:   "0.8125rem",
-              color:      "#8B7355",
+              color:      "#6B7A94",
             }}
           >
             {sorted.length} booking{sorted.length !== 1 ? "s" : ""}
@@ -484,7 +484,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.8125rem",
-                color:      "#C4956A",
+                color:      "#D9B344",
                 background: "none",
                 border:     "none",
                 cursor:     "pointer",

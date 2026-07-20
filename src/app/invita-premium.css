@@ -40,7 +40,7 @@
 }
 
 .btn-primary:hover {
-  box-shadow: 0 8px 28px rgba(196, 149, 106, 0.28);
+  box-shadow: 0 8px 28px rgba(217,179,68, 0.28);
 }
 
 .btn-hero-primary,
@@ -49,7 +49,7 @@
 }
 
 .btn-hero-primary:hover {
-  box-shadow: 0 8px 32px rgba(184, 150, 90, 0.35);
+  box-shadow: 0 8px 32px rgba(217,179,68, 0.35);
   transform: translateY(-1px);
 }
 
@@ -93,12 +93,12 @@
   gap: 1rem;
   padding: 2rem 1.25rem;
   background: #F0EDE4;
-  border: 1px solid rgba(196, 149, 106, 0.12);
+  border: 1px solid rgba(217,179,68, 0.12);
   border-radius: 0.75rem;
 }
 
 .trust-credential-card:hover {
-  border-color: rgba(196, 149, 106, 0.3);
+  border-color: rgba(217,179,68, 0.3);
   box-shadow: 0 8px 32px rgba(15, 35, 65, 0.06);
   transform: translateY(-2px);
 }
@@ -110,7 +110,7 @@
   width: 44px;
   height: 44px;
   border-radius: 9999px;
-  background: rgba(196, 149, 106, 0.12);
+  background: rgba(217,179,68, 0.12);
   color: #D9B344;
 }
 
@@ -198,7 +198,7 @@
 .about-callout {
   margin-top: 1.5rem;
   padding: 1.25rem 1.5rem;
-  background: rgba(196, 149, 106, 0.1);
+  background: rgba(217,179,68, 0.1);
   border-inline-start: 2px solid #D9B344;
   font-size: 0.9375rem;
   font-style: italic;
@@ -218,7 +218,7 @@
   margin-inline: auto;
   background: #FFFFFF;
   border-radius: 1rem;
-  border: 1px solid rgba(196, 149, 106, 0.15);
+  border: 1px solid rgba(217,179,68, 0.15);
   box-shadow: 0 4px 40px rgba(15, 35, 65, 0.07);
   padding: clamp(1.5rem, 4vw, 3rem);
 }
@@ -278,7 +278,7 @@
   width: 40px;
   height: 40px;
   border-radius: 9999px;
-  border: 1.5px solid rgba(196, 149, 106, 0.2);
+  border: 1.5px solid rgba(217,179,68, 0.2);
   border-top-color: #D9B344;
   animation: spin 1.2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
 }
@@ -527,7 +527,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(196, 149, 106, 0.08), transparent);
+  background: radial-gradient(ellipse 80% 50% at 50% 0%, rgba(217,179,68, 0.08), transparent);
   pointer-events: none;
 }
 
@@ -603,7 +603,7 @@
   background: rgba(255, 255, 255, 0.72);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(196, 149, 106, 0.25);
+  border: 1px solid rgba(217,179,68, 0.25);
   border-radius: 1rem;
   overflow: hidden;
   box-shadow:
@@ -619,8 +619,8 @@
   transform: translateY(-4px) scale(1.01);
   box-shadow:
     0 20px 48px rgba(15, 35, 65, 0.12),
-    0 0 0 1px rgba(196, 149, 106, 0.35);
-  border-color: rgba(196, 149, 106, 0.45);
+    0 0 0 1px rgba(217,179,68, 0.35);
+  border-color: rgba(217,179,68, 0.45);
 }
 
 .certificate-card--featured .certificate-card-frame {
@@ -682,7 +682,7 @@
   text-align: center;
   margin: 1.25rem;
   border-radius: 0.375rem;
-  border: 1px solid rgba(196, 149, 106, 0.28);
+  border: 1px solid rgba(217,179,68, 0.28);
   background:
     linear-gradient(160deg, rgba(255, 255, 255, 0.92) 0%, rgba(250, 247, 242, 0.75) 100%);
   box-shadow:
@@ -698,7 +698,7 @@
   transform: translateX(-50%);
   width: 2.5rem;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #b8965a, transparent);
+  background: linear-gradient(90deg, transparent, #D9B344, transparent);
 }
 
 .certificate-upload-icon {
@@ -709,8 +709,8 @@
   height: 3.25rem;
   border-radius: 50%;
   background: linear-gradient(135deg, #f0ede4, #ebe3d6);
-  color: #b8965a;
-  border: 1px solid rgba(196, 149, 106, 0.35);
+  color: #D9B344;
+  border: 1px solid rgba(217,179,68, 0.35);
 }
 
 .certificate-upload-label {
@@ -767,7 +767,7 @@
   border-radius: 50%;
   background: linear-gradient(135deg, #0f2341, #4a2c1e);
   color: #d9b344;
-  border: 1px solid rgba(196, 149, 106, 0.4);
+  border: 1px solid rgba(217,179,68, 0.4);
   overflow: hidden;
 }
 
@@ -872,7 +872,7 @@
 .credentials-verify {
   margin-top: 4rem;
   padding-top: 3rem;
-  border-top: 1px solid rgba(196, 149, 106, 0.2);
+  border-top: 1px solid rgba(217,179,68, 0.2);
 }
 
 .credentials-verify-header {
@@ -905,7 +905,7 @@
   padding: 1.5rem 1.25rem;
   background: rgba(255, 255, 255, 0.65);
   backdrop-filter: blur(8px);
-  border: 1px solid rgba(196, 149, 106, 0.2);
+  border: 1px solid rgba(217,179,68, 0.2);
   border-radius: 0.75rem;
   text-align: center;
   transition: transform 0.35s ease, box-shadow 0.35s ease;
@@ -947,7 +947,7 @@
   margin: 0 auto 0.75rem;
   border-radius: 0.5rem;
   background: #fff;
-  border: 1px dashed rgba(196, 149, 106, 0.35);
+  border: 1px dashed rgba(217,179,68, 0.35);
 }
 
 .credentials-verify-qr--placeholder {
@@ -997,7 +997,7 @@
 .trust-timeline {
   margin-top: 4rem;
   padding-top: 3rem;
-  border-top: 1px solid rgba(196, 149, 106, 0.2);
+  border-top: 1px solid rgba(217,179,68, 0.2);
 }
 
 .trust-timeline-header {
@@ -1054,7 +1054,7 @@
 
 .trust-timeline-item--upcoming .trust-timeline-dot {
   background: transparent;
-  box-shadow: 0 0 0 2px rgba(196, 149, 106, 0.4);
+  box-shadow: 0 0 0 2px rgba(217,179,68, 0.4);
 }
 
 .trust-timeline-line {
@@ -1062,7 +1062,7 @@
   top: 0.75rem;
   bottom: -2rem;
   width: 2px;
-  background: linear-gradient(180deg, #d9b344, rgba(196, 149, 106, 0.2));
+  background: linear-gradient(180deg, #d9b344, rgba(217,179,68, 0.2));
 }
 
 .trust-timeline-date {
@@ -1178,7 +1178,7 @@
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #b8965a;
+  color: #D9B344;
   margin: 0 0 0.75rem;
 }
 
@@ -1231,7 +1231,7 @@
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #b8965a;
+  color: #D9B344;
   margin: 0 0 0.35rem;
 }
 

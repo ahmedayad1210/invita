@@ -155,7 +155,7 @@ export default function ResetPasswordForm({ initialError = null }: ResetPassword
         title="Link Expired"
         subtitle={sessionError}
         footer={
-          <Link href="/auth/forgot-password" style={{ color: "#C4956A" }}>
+          <Link href="/auth/forgot-password" style={{ color: "#D9B344" }}>
             Request a new reset link
           </Link>
         }
@@ -181,7 +181,7 @@ export default function ResetPasswordForm({ initialError = null }: ResetPassword
       title="Set New Password"
       subtitle="Choose a strong password for your account."
       footer={
-        <Link href="/auth/login" style={{ color: "#8B7355", fontSize: "0.875rem" }}>
+        <Link href="/auth/login" style={{ color: "#6B7A94", fontSize: "0.875rem" }}>
           Back to Sign In
         </Link>
       }

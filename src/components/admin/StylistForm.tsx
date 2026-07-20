@@ -85,7 +85,7 @@ export default function StylistForm({
               padding:        "1rem",
               backgroundColor: "#FAF7F2",
               borderRadius:   "0.5rem",
-              border:         "1px solid rgba(196,149,106,0.15)",
+              border:         "1px solid rgba(217,179,68,0.15)",
             }}
           >
             <InitialsAvatar name={form.name} size={48} />
@@ -95,7 +95,7 @@ export default function StylistForm({
                   fontFamily: "'Cormorant Garamond', Georgia, serif",
                   fontSize:   "1.125rem",
                   fontWeight: 400,
-                  color:      "#2C1810",
+                  color:      "#0F2341",
                 }}
               >
                 {form.name}
@@ -105,7 +105,7 @@ export default function StylistForm({
                   style={{
                     fontFamily:    "'DM Sans', sans-serif",
                     fontSize:      "0.75rem",
-                    color:         "#C4956A",
+                    color:         "#D9B344",
                     letterSpacing: "0.08em",
                   }}
                 >
@@ -152,7 +152,7 @@ export default function StylistForm({
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.75rem",
-                color:      "#8B7355",
+                color:      "#6B7A94",
                 marginTop:  "0.375rem",
               }}
             >
@@ -183,7 +183,7 @@ export default function StylistForm({
             padding:         "0.875rem 1rem",
             backgroundColor: "#FAF7F2",
             borderRadius:    "0.5rem",
-            border:          "1px solid rgba(196,149,106,0.15)",
+            border:          "1px solid rgba(217,179,68,0.15)",
           }}
         >
           <div>
@@ -192,7 +192,7 @@ export default function StylistForm({
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.875rem",
                 fontWeight: 500,
-                color:      "#2C1810",
+                color:      "#0F2341",
               }}
             >
               Active & bookable
@@ -201,7 +201,7 @@ export default function StylistForm({
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.8rem",
-                color:      "#8B7355",
+                color:      "#6B7A94",
               }}
             >
               Toggle off to remove from booking flow without deleting
@@ -226,7 +226,7 @@ export default function StylistForm({
               style={{
                 position:        "absolute",
                 inset:           0,
-                backgroundColor: form.active ? "#C4956A" : "rgba(139,115,85,0.25)",
+                backgroundColor: form.active ? "#D9B344" : "rgba(107,122,148,0.25)",
                 borderRadius:    "9999px",
                 cursor:          "pointer",
                 transition:      "background-color 0.3s ease",

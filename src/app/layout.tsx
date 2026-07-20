@@ -3,6 +3,7 @@ import "./globals.css";
 import "./invita-pages.css";
 import "./invita-premium.css";
 import "./invita-assets.css";
+import "./invita-refine.css";
 import { INVITA } from "@/lib/constants";
 import { getSiteUrl } from "@/lib/seo";
 import NavigationProgressWrapper from "@/components/ui/NavigationProgressWrapper";

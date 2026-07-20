@@ -35,7 +35,7 @@ export default function AuthForm({
           fontFamily:    "'Cormorant Garamond', Georgia, serif",
           fontSize:      "1.5rem",
           fontWeight:    300,
-          color:         "#2C1810",
+          color:         "#0F2341",
           letterSpacing: "0.1em",
           marginBottom:  "2.5rem",
           display:       "block",
@@ -52,8 +52,8 @@ export default function AuthForm({
           maxWidth:        "440px",
           backgroundColor: "#FFFFFF",
           borderRadius:    "1rem",
-          border:          "1px solid rgba(196,149,106,0.15)",
-          boxShadow:       "0 4px 40px rgba(44,24,16,0.08)",
+          border:          "1px solid rgba(217,179,68,0.15)",
+          boxShadow:       "0 4px 40px rgba(15,35,65,0.08)",
           padding:         "2.5rem",
         }}
       >
@@ -64,7 +64,7 @@ export default function AuthForm({
               fontFamily:   "'Cormorant Garamond', Georgia, serif",
               fontSize:     "2rem",
               fontWeight:   400,
-              color:        "#2C1810",
+              color:        "#0F2341",
               marginBottom: "0.5rem",
               lineHeight:   1.2,
             }}
@@ -76,7 +76,7 @@ export default function AuthForm({
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.9rem",
-                color:      "#8B7355",
+                color:      "#6B7A94",
                 lineHeight: 1.6,
               }}
             >
@@ -90,7 +90,7 @@ export default function AuthForm({
           style={{
             width:        "3rem",
             height:       "1px",
-            background:   "linear-gradient(to right, transparent, #C4956A, transparent)",
+            background:   "linear-gradient(to right, transparent, #D9B344, transparent)",
             margin:       "0 auto 2rem",
           }}
         />
@@ -107,7 +107,7 @@ export default function AuthForm({
             textAlign:  "center",
             fontFamily: "'DM Sans', sans-serif",
             fontSize:   "0.875rem",
-            color:      "#8B7355",
+            color:      "#6B7A94",
           }}
         >
           {footer}

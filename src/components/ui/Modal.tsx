@@ -62,7 +62,7 @@ export default function Modal({
                 fontFamily: "'Cormorant Garamond', Georgia, serif",
                 fontSize:   "1.5rem",
                 fontWeight: 400,
-                color:      "#2C1810",
+                color:      "#0F2341",
               }}
             >
               {title}
@@ -74,11 +74,11 @@ export default function Modal({
                 alignItems:   "center",
                 padding:      "0.25rem",
                 borderRadius: "0.25rem",
-                color:        "#8B7355",
+                color:        "#6B7A94",
                 transition:   "color 0.2s ease",
               }}
-              onMouseEnter={(e) => (e.currentTarget.style.color = "#2C1810")}
-              onMouseLeave={(e) => (e.currentTarget.style.color = "#8B7355")}
+              onMouseEnter={(e) => (e.currentTarget.style.color = "#0F2341")}
+              onMouseLeave={(e) => (e.currentTarget.style.color = "#6B7A94")}
             >
               <X size={20} />
             </button>
@@ -90,7 +90,7 @@ export default function Modal({
           <div style={{ display: "flex", justifyContent: "flex-end", marginBottom: "1rem" }}>
             <button
               onClick={onClose}
-              style={{ color: "#8B7355", padding: "0.25rem" }}
+              style={{ color: "#6B7A94", padding: "0.25rem" }}
             >
               <X size={20} />
             </button>

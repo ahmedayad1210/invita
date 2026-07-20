@@ -74,7 +74,7 @@ export default function AdminDashboard({ username }: Props) {
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             fontSize:   "clamp(1.75rem, 3vw, 2.75rem)",
             fontWeight: 400,
-            color:      "#2C1810",
+            color:      "#0F2341",
             lineHeight: 1.15,
           }}
         >
@@ -118,7 +118,7 @@ export default function AdminDashboard({ username }: Props) {
             fontFamily: "'Cormorant Garamond', Georgia, serif",
             fontSize:   "1.75rem",
             fontWeight: 400,
-            color:      "#2C1810",
+            color:      "#0F2341",
           }}
         >
           All Bookings
@@ -135,7 +135,7 @@ export default function AdminDashboard({ username }: Props) {
                 fontWeight:    500,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color:         "#8B7355",
+                color:         "#6B7A94",
               }}
             >
               Filter by date

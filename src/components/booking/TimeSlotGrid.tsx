@@ -23,7 +23,7 @@ export default function TimeSlotGrid({ slots }: TimeSlotGridProps) {
           style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize:   "0.9rem",
-            color:      "#8B7355",
+            color:      "#6B7A94",
           }}
         >
           No available slots for this date. Please select another day.
@@ -49,7 +49,7 @@ export default function TimeSlotGrid({ slots }: TimeSlotGridProps) {
           style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize:   "0.8125rem",
-            color:      "#8B7355",
+            color:      "#6B7A94",
           }}
         >
           {availableCount} slot{availableCount !== 1 ? "s" : ""} available
@@ -57,9 +57,9 @@ export default function TimeSlotGrid({ slots }: TimeSlotGridProps) {
         {/* Legend */}
         <div style={{ display: "flex", alignItems: "center", gap: "1rem" }}>
           {[
-            { color: "#FFFFFF", border: "rgba(139,115,85,0.25)", label: "Available" },
-            { color: "#2C1810", border: "#2C1810",               label: "Selected"  },
-            { color: "rgba(139,115,85,0.08)", border: "rgba(139,115,85,0.15)", label: "Booked" },
+            { color: "#FFFFFF", border: "rgba(107,122,148,0.25)", label: "Available" },
+            { color: "#0F2341", border: "#0F2341",               label: "Selected"  },
+            { color: "rgba(107,122,148,0.08)", border: "rgba(107,122,148,0.15)", label: "Booked" },
           ].map((item) => (
             <div
               key={item.label}
@@ -79,7 +79,7 @@ export default function TimeSlotGrid({ slots }: TimeSlotGridProps) {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize:   "0.7rem",
-                  color:      "#8B7355",
+                  color:      "#6B7A94",
                 }}
               >
                 {item.label}

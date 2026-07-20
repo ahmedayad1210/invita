@@ -106,13 +106,13 @@ export default function AdminStylistsPage() {
       style={{
         backgroundColor: "#FFFFFF",
         borderRadius:    "0.75rem",
-        border:          `1px solid ${stylist.active ? "rgba(196,149,106,0.12)" : "rgba(139,115,85,0.1)"}`,
+        border:          `1px solid ${stylist.active ? "rgba(217,179,68,0.12)" : "rgba(107,122,148,0.1)"}`,
         padding:         "1.5rem",
         opacity:         stylist.active ? 1 : 0.7,
         display:         "flex",
         alignItems:      "flex-start",
         gap:             "1rem",
-        boxShadow:       "0 2px 20px rgba(44,24,16,0.05)",
+        boxShadow:       "0 2px 20px rgba(15,35,65,0.05)",
       }}
     >
       {/* Avatar */}
@@ -136,7 +136,7 @@ export default function AdminStylistsPage() {
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               fontSize:   "1.1875rem",
               fontWeight: 400,
-              color:      "#2C1810",
+              color:      "#0F2341",
               lineHeight: 1.2,
             }}
           >
@@ -146,9 +146,9 @@ export default function AdminStylistsPage() {
             className="badge"
             style={{
               backgroundColor: stylist.active
-                ? "rgba(184,150,90,0.12)"
-                : "rgba(139,115,85,0.1)",
-              color:     stylist.active ? "#B8965A" : "#8B7355",
+                ? "rgba(217,179,68,0.12)"
+                : "rgba(107,122,148,0.1)",
+              color:     stylist.active ? "#D9B344" : "#6B7A94",
               flexShrink: 0,
             }}
           >
@@ -164,7 +164,7 @@ export default function AdminStylistsPage() {
             fontWeight:    500,
             letterSpacing: "0.1em",
             textTransform: "uppercase",
-            color:         "#C4956A",
+            color:         "#D9B344",
             marginBottom:  "0.5rem",
           }}
         >
@@ -177,7 +177,7 @@ export default function AdminStylistsPage() {
             style={{
               fontFamily:          "'DM Sans', sans-serif",
               fontSize:            "0.8375rem",
-              color:               "#8B7355",
+              color:               "#6B7A94",
               lineHeight:          1.65,
               display:             "-webkit-box",
               WebkitLineClamp:     2,
@@ -203,21 +203,21 @@ export default function AdminStylistsPage() {
               fontWeight:      500,
               letterSpacing:   "0.08em",
               textTransform:   "uppercase",
-              color:           "#8B7355",
+              color:           "#6B7A94",
               backgroundColor: "transparent",
-              border:          "1.5px solid rgba(139,115,85,0.25)",
+              border:          "1.5px solid rgba(107,122,148,0.25)",
               borderRadius:    "9999px",
               padding:         "0.375rem 0.875rem",
               cursor:          "pointer",
               transition:      "all 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "#C4956A";
-              e.currentTarget.style.color       = "#C4956A";
+              e.currentTarget.style.borderColor = "#D9B344";
+              e.currentTarget.style.color       = "#D9B344";
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "rgba(139,115,85,0.25)";
-              e.currentTarget.style.color       = "#8B7355";
+              e.currentTarget.style.borderColor = "rgba(107,122,148,0.25)";
+              e.currentTarget.style.color       = "#6B7A94";
             }}
           >
             <Pencil size={11} /> Edit
@@ -234,16 +234,16 @@ export default function AdminStylistsPage() {
               fontWeight:      500,
               letterSpacing:   "0.08em",
               textTransform:   "uppercase",
-              color:           stylist.active ? "#8B7355" : "#B8965A",
+              color:           stylist.active ? "#6B7A94" : "#D9B344",
               backgroundColor: "transparent",
-              border:          `1.5px solid ${stylist.active ? "rgba(139,115,85,0.25)" : "rgba(184,150,90,0.3)"}`,
+              border:          `1.5px solid ${stylist.active ? "rgba(107,122,148,0.25)" : "rgba(217,179,68,0.3)"}`,
               borderRadius:    "9999px",
               padding:         "0.375rem 0.875rem",
               cursor:          "pointer",
               transition:      "all 0.2s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "rgba(196,149,106,0.06)";
+              e.currentTarget.style.backgroundColor = "rgba(217,179,68,0.06)";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "transparent";
@@ -279,7 +279,7 @@ export default function AdminStylistsPage() {
               fontFamily: "'Cormorant Garamond', Georgia, serif",
               fontSize:   "clamp(1.75rem, 3vw, 2.75rem)",
               fontWeight: 400,
-              color:      "#2C1810",
+              color:      "#0F2341",
             }}
           >
             Specialists
@@ -318,17 +318,17 @@ export default function AdminStylistsPage() {
                   fontWeight:    500,
                   letterSpacing: "0.2em",
                   textTransform: "uppercase",
-                  color:         "#C4956A",
+                  color:         "#D9B344",
                 }}
               >
                 Active Specialists
               </h2>
-              <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(196,149,106,0.15)" }} />
+              <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(217,179,68,0.15)" }} />
               <span
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize:   "0.75rem",
-                  color:      "#8B7355",
+                  color:      "#6B7A94",
                 }}
               >
                 {active.length} specialist{active.length !== 1 ? "s" : ""}
@@ -340,7 +340,7 @@ export default function AdminStylistsPage() {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize:   "0.9rem",
-                  color:      "#8B7355",
+                  color:      "#6B7A94",
                   textAlign:  "center",
                   padding:    "2rem 0",
                 }}
@@ -378,12 +378,12 @@ export default function AdminStylistsPage() {
                     fontWeight:    500,
                     letterSpacing: "0.2em",
                     textTransform: "uppercase",
-                    color:         "#8B7355",
+                    color:         "#6B7A94",
                   }}
                 >
                   Inactive
                 </h2>
-                <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(139,115,85,0.1)" }} />
+                <div style={{ flex: 1, height: "1px", backgroundColor: "rgba(107,122,148,0.1)" }} />
               </div>
               <div
                 style={{

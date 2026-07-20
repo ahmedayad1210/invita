@@ -25,9 +25,9 @@ export default function Toast({
   return (
     <div className={`toast toast-${type}`}>
       {type === "success" ? (
-        <CheckCircle size={18} color="#C4956A" style={{ flexShrink: 0 }} />
+        <CheckCircle size={18} color="#D9B344" style={{ flexShrink: 0 }} />
       ) : (
-        <AlertCircle size={18} color="#8B7355" style={{ flexShrink: 0 }} />
+        <AlertCircle size={18} color="#6B7A94" style={{ flexShrink: 0 }} />
       )}
 
       <span style={{ flex: 1, lineHeight: 1.5 }}>{message}</span>

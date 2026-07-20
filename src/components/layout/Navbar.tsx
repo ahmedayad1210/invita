@@ -147,7 +147,7 @@ export default function Navbar() {
                   whiteSpace:      "nowrap",
                 }}
                 onMouseEnter={(e) => {
-                  e.currentTarget.style.borderColor = "rgba(196,149,106,0.5)";
+                  e.currentTarget.style.borderColor = "rgba(217,179,68,0.5)";
                   e.currentTarget.style.color = "#D9B344";
                 }}
                 onMouseLeave={(e) => {
@@ -159,7 +159,7 @@ export default function Navbar() {
                   width:           "26px",
                   height:          "26px",
                   borderRadius:    "9999px",
-                  background:      "linear-gradient(135deg, #D9B344 0%, #B8965A 100%)",
+                  background:      "linear-gradient(135deg, #D9B344 0%, #D9B344 100%)",
                   display:         "flex",
                   alignItems:      "center",
                   justifyContent:  "center",

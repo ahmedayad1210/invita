@@ -43,7 +43,7 @@ export default function ServiceCard({
             fontWeight:    500,
             letterSpacing: "0.15em",
             textTransform: "uppercase",
-            color:         "#C4956A",
+            color:         "#D9B344",
           }}
         >
           {CATEGORY_LABELS[service.category] ?? service.category}
@@ -53,7 +53,7 @@ export default function ServiceCard({
             display:      "flex",
             alignItems:   "center",
             gap:          "0.25rem",
-            color:        "#8B7355",
+            color:        "#6B7A94",
           }}
         >
           <Clock size={12} />
@@ -61,7 +61,7 @@ export default function ServiceCard({
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize:   "0.75rem",
-              color:      "#8B7355",
+              color:      "#6B7A94",
             }}
           >
             {formatDuration(service.duration)}
@@ -83,7 +83,7 @@ export default function ServiceCard({
             fontFamily:   "'Cormorant Garamond', Georgia, serif",
             fontSize:     "1.375rem",
             fontWeight:   400,
-            color:        "#2C1810",
+            color:        "#0F2341",
             marginBottom: "0.625rem",
             lineHeight:   1.3,
           }}
@@ -96,7 +96,7 @@ export default function ServiceCard({
             style={{
               fontFamily:   "'DM Sans', sans-serif",
               fontSize:     "0.875rem",
-              color:        "#8B7355",
+              color:        "#6B7A94",
               lineHeight:   1.7,
               marginBottom: "1.25rem",
               flex:         1,
@@ -114,7 +114,7 @@ export default function ServiceCard({
             justifyContent: "space-between",
             marginTop:      "auto",
             paddingTop:     "1rem",
-            borderTop:      "1px solid rgba(196,149,106,0.1)",
+            borderTop:      "1px solid rgba(217,179,68,0.1)",
           }}
         >
           <span
@@ -122,7 +122,7 @@ export default function ServiceCard({
               fontFamily:   "'Cormorant Garamond', Georgia, serif",
               fontSize:     "1.5rem",
               fontWeight:   500,
-              color:        "#2C1810",
+              color:        "#0F2341",
               letterSpacing: "-0.01em",
             }}
           >
@@ -141,7 +141,7 @@ export default function ServiceCard({
                 fontWeight:   500,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color:        "#C4956A",
+                color:        "#D9B344",
                 transition:   "gap 0.3s ease",
               }}
               onMouseEnter={(e) => {
