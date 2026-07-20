@@ -54,7 +54,7 @@ export default function AdminPatientDetailPage() {
         ← All patients
       </Link>
       <header style={{ margin: "1rem 0 2rem" }}>
-        <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.75rem" }}>
+        <h1 style={{ fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif", fontSize: "1.125rem" }}>
           {data.patient.full_name}
         </h1>
         <p style={{ color: "#6B7A94" }}>

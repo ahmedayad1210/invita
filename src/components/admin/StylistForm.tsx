@@ -92,7 +92,7 @@ export default function StylistForm({
             <div>
               <p
                 style={{
-                  fontFamily: "'Cormorant Garamond', Georgia, serif",
+                  fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                   fontSize:   "1.125rem",
                   fontWeight: 400,
                   color:      "#0F2341",

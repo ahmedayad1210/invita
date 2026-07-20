@@ -122,12 +122,10 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
 
       {/* Table wrapper */}
       <div
+        className="admin-panel"
         style={{
-          backgroundColor: "#FFFFFF",
-          borderRadius:    "0.75rem",
-          border:          "1px solid rgba(217,179,68,0.12)",
-          overflow:        "hidden",
-          width:           "100%",
+          overflow: "hidden",
+          width:    "100%",
         }}
       >
         <div style={{ overflowX: "auto" }}>
@@ -253,7 +251,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                           style={{
                             fontFamily:    "'DM Sans', sans-serif",
                             fontSize:      "0.75rem",
-                            color:         "#D9B344",
+                            color:         "#6B7A94",
                             textTransform: "capitalize",
                           }}
                         >
@@ -307,7 +305,7 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                       <td>
                         <span
                           style={{
-                            fontFamily: "'Cormorant Garamond', Georgia, serif",
+                            fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                             fontSize:   "1.0625rem",
                             fontWeight: 500,
                             color:      "#0F2341",
@@ -339,7 +337,8 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
                               style={{
                                 fontFamily: "'DM Sans', sans-serif",
                                 fontSize:   "0.8125rem",
-                                color:      "#D9B344",
+                                color:      "#0F2341",
+                                fontWeight: 500,
                                 cursor:     "pointer",
                               }}
                             >
@@ -460,9 +459,9 @@ export default function BookingsTable({ bookings, onRefresh }: BookingsTableProp
         {/* Footer */}
         <div
           style={{
-            padding:        "0.875rem 1rem",
-            borderTop:      "1px solid rgba(217,179,68,0.1)",
-            backgroundColor: "#FAF7F2",
+            padding:        "0.75rem 1rem",
+            borderTop:      "1px solid rgba(15,35,65,0.08)",
+            backgroundColor: "#F7F8FA",
             display:        "flex",
             justifyContent: "space-between",
             alignItems:     "center",

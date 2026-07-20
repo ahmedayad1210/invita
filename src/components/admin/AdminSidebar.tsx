@@ -39,7 +39,7 @@ export default function AdminSidebar() {
       <div style={{ marginBottom: "2.5rem" }}>
         <p
           style={{
-            fontFamily:    "'Cormorant Garamond', Georgia, serif",
+            fontFamily:    "var(--font-dm-sans), 'DM Sans', sans-serif",
             fontSize:      "1.375rem",
             fontWeight:    300,
             color:         "#FAF7F2",

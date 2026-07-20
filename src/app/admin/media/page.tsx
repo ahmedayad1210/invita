@@ -6,8 +6,8 @@ export default function AdminMediaPage() {
       <header style={{ marginBottom: "2rem" }}>
         <h1
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: "1.75rem",
+            fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
+            fontSize: "1.125rem",
             fontWeight: 400,
             color: "#0F2341",
             marginBottom: "0.5rem",

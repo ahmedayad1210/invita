@@ -57,8 +57,8 @@ export default function AdminLoginForm() {
         <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
           <p
             style={{
-              fontFamily:    "'Cormorant Garamond', Georgia, serif",
-              fontSize:      "1.75rem",
+              fontFamily:    "var(--font-dm-sans), 'DM Sans', sans-serif",
+              fontSize:      "1.125rem",
               fontWeight:    300,
               color:         "#0F2341",
               letterSpacing: "0.08em",

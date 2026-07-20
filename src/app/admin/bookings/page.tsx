@@ -56,8 +56,8 @@ export default function AdminBookingsPage() {
         </span>
         <h1
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize:   "clamp(1.75rem, 3vw, 2.75rem)",
+            fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
+            fontSize:   "1.375rem",
             fontWeight: 400,
             color:      "#0F2341",
             lineHeight: 1.15,

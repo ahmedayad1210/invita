@@ -152,8 +152,8 @@ export default function AdminServicesPage() {
           <span className="eyebrow">Manage</span>
           <h1
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
-              fontSize:   "clamp(1.75rem, 3vw, 2.75rem)",
+              fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
+              fontSize:   "1.375rem",
               fontWeight: 400,
               color:      "#0F2341",
             }}
@@ -284,7 +284,7 @@ export default function AdminServicesPage() {
                         <td>
                           <span
                             style={{
-                              fontFamily: "'Cormorant Garamond', Georgia, serif",
+                              fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
                               fontSize:   "1.0625rem",
                               fontWeight: 500,
                               color:      "#0F2341",
