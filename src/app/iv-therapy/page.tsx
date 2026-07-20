@@ -15,6 +15,11 @@ const WellnessMatcherSection = dynamic(
   { loading: () => <SectionSkeleton minHeight="16rem" /> }
 );
 
+const AddOnsPreview = dynamic(
+  () => import("@/components/home/AddOnsPreview"),
+  { loading: () => <SectionSkeleton minHeight="14rem" /> }
+);
+
 export const metadata = {
   title: "IV Drips",
   description: "11 Invita catalogue IV drip formulas — official Liquivida® USA distributor in Baghdad.",
@@ -54,6 +59,8 @@ export default function IvTherapyPage() {
             </Link>
           ))}
         </div>
+
+        <AddOnsPreview />
 
         <div className="section-inner cta-band">
           <p>Not sure which drip is right for you? Take the wellness matcher above.</p>

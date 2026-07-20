@@ -17,34 +17,26 @@ import JsonLd from "@/components/seo/JsonLd";
 import { localBusinessJsonLd } from "@/lib/seo";
 import { getHomepageHeroBanner } from "@/lib/media/homepage-banners.server";
 
-/** Below-fold sections — code-split so hero + menu preview first */
-const InvitaGallerySection = dynamic(
-  () => import("@/components/home/InvitaGallerySection"),
-  { loading: () => <SectionSkeleton minHeight="20rem" /> }
+/** Below-fold sections — code-split so the hero + offer render first. */
+const WellnessMatcherSection = dynamic(
+  () => import("@/components/home/WellnessMatcherSection"),
+  { loading: () => <SectionSkeleton minHeight="16rem" /> }
 );
-const ProfessionalTrainingSection = dynamic(
-  () => import("@/components/home/ProfessionalTrainingSection"),
-  { loading: () => <SectionSkeleton minHeight="14rem" /> }
+const TwoPillarSection = dynamic(
+  () => import("@/components/home/TwoPillarSection"),
+  { loading: () => <SectionSkeleton minHeight="12rem" /> }
 );
 const HealthcarePartnersSection = dynamic(
   () => import("@/components/home/HealthcarePartnersSection"),
   { loading: () => <SectionSkeleton minHeight="16rem" /> }
 );
+const InvitaGallerySection = dynamic(
+  () => import("@/components/home/InvitaGallerySection"),
+  { loading: () => <SectionSkeleton minHeight="20rem" /> }
+);
 const InstagramFeed = dynamic(
   () => import("@/components/home/InstagramFeed"),
   { loading: () => <SectionSkeleton minHeight="18rem" /> }
-);
-const WellnessMatcherSection = dynamic(
-  () => import("@/components/home/WellnessMatcherSection"),
-  { loading: () => <SectionSkeleton minHeight="16rem" /> }
-);
-const AddOnsPreview = dynamic(
-  () => import("@/components/home/AddOnsPreview"),
-  { loading: () => <SectionSkeleton minHeight="14rem" /> }
-);
-const TwoPillarSection = dynamic(
-  () => import("@/components/home/TwoPillarSection"),
-  { loading: () => <SectionSkeleton minHeight="12rem" /> }
 );
 
 export default async function HomePage() {
@@ -55,23 +47,32 @@ export default async function HomePage() {
       <JsonLd data={localBusinessJsonLd()} />
       <Navbar />
       <main id="main-content">
+        {/* Hook */}
         <HeroSection bannerUrl={heroBanner?.url} bannerAlt={heroBanner?.alt} />
+
+        {/* Offer — lead with what you can get and how easy it is */}
         <TrustAuthoritySection />
-        <StatsSection />
         <ServicesPreview />
         <WellnessMatcherSection />
-        <TwoPillarSection />
         <HowItWorks />
+
+        {/* Proof & story */}
+        <StatsSection />
         <AboutLiquividaSection />
-        <AddOnsPreview />
-        <InvitaGallerySection />
+        <TwoPillarSection />
+
+        {/* Science & trust */}
+        <ScienceSpotlightSection />
         <Suspense fallback={<SectionSkeleton minHeight="14rem" />}>
           <CertificationsSection />
         </Suspense>
-        <ScienceSpotlightSection />
-        <ProfessionalTrainingSection variant="homepage" />
+
+        {/* Network, visuals & community */}
         <HealthcarePartnersSection />
+        <InvitaGallerySection />
         <InstagramFeed />
+
+        {/* Close */}
         <FaqPreview />
         <FooterCtaBanner />
       </main>
