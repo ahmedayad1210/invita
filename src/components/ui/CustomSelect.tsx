@@ -59,22 +59,22 @@ export default function CustomSelect({
             justifyContent:  "space-between",
             padding:         "0.875rem 1.125rem",
             backgroundColor: "#FFFFFF",
-            border:          `1.5px solid ${error ? "#C4956A" : open ? "#C4956A" : "rgba(139,115,85,0.25)"}`,
+            border:          `1.5px solid ${error ? "#0FB5A8" : open ? "#0FB5A8" : "rgba(107,122,148,0.25)"}`,
             borderRadius:    "0.5rem",
             fontFamily:      "'DM Sans', sans-serif",
             fontSize:        "0.9375rem",
-            color:           selected ? "#2C1810" : "#8B7355",
+            color:           selected ? "#0C2430" : "#6B7A94",
             cursor:          disabled ? "not-allowed" : "pointer",
             opacity:         disabled ? 0.6 : 1,
             transition:      "all 0.3s ease",
             textAlign:       "left",
-            boxShadow:       open ? "0 0 0 3px rgba(196,149,106,0.12)" : "none",
+            boxShadow:       open ? "0 0 0 3px rgba(15,181,168,0.12)" : "none",
           }}
         >
           <span>{selected ? selected.label : placeholder}</span>
           <ChevronDown
             size={16}
-            color="#8B7355"
+            color="#6B7A94"
             style={{
               transform:  open ? "rotate(180deg)" : "rotate(0deg)",
               transition: "transform 0.3s ease",
@@ -92,9 +92,9 @@ export default function CustomSelect({
               left:            0,
               right:           0,
               backgroundColor: "#FFFFFF",
-              border:          "1.5px solid rgba(196,149,106,0.2)",
+              border:          "1.5px solid rgba(15,181,168,0.2)",
               borderRadius:    "0.5rem",
-              boxShadow:       "0 8px 32px rgba(44,24,16,0.12)",
+              boxShadow:       "0 8px 32px rgba(15,35,65,0.12)",
               zIndex:          50,
               overflow:        "hidden",
               animation:       "scaleIn 0.2s ease forwards",
@@ -110,11 +110,11 @@ export default function CustomSelect({
                 textAlign:   "left",
                 fontFamily:  "'DM Sans', sans-serif",
                 fontSize:    "0.9375rem",
-                color:       "#8B7355",
+                color:       "#6B7A94",
                 background:  "none",
                 border:      "none",
                 cursor:      "pointer",
-                borderBottom: "1px solid rgba(139,115,85,0.1)",
+                borderBottom: "1px solid rgba(107,122,148,0.1)",
               }}
             >
               {placeholder}
@@ -131,8 +131,8 @@ export default function CustomSelect({
                   textAlign:       "left",
                   fontFamily:      "'DM Sans', sans-serif",
                   fontSize:        "0.9375rem",
-                  color:           option.value === value ? "#C4956A" : "#2C1810",
-                  backgroundColor: option.value === value ? "rgba(196,149,106,0.06)" : "transparent",
+                  color:           option.value === value ? "#0FB5A8" : "#0C2430",
+                  backgroundColor: option.value === value ? "rgba(15,181,168,0.06)" : "transparent",
                   fontWeight:      option.value === value ? 500 : 400,
                   border:          "none",
                   cursor:          "pointer",
@@ -141,7 +141,7 @@ export default function CustomSelect({
                 }}
                 onMouseEnter={(e) => {
                   if (option.value !== value) {
-                    (e.target as HTMLElement).style.backgroundColor = "rgba(196,149,106,0.04)";
+                    (e.target as HTMLElement).style.backgroundColor = "rgba(15,181,168,0.04)";
                   }
                 }}
                 onMouseLeave={(e) => {

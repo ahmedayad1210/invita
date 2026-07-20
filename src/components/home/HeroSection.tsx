@@ -1,90 +1,83 @@
 "use client";
 
 import Link from "next/link";
-import LiquividaBadge from "@/components/brand/LiquividaBadge";
-import MediaFrame from "@/components/patterns/MediaFrame";
-import { FRAMER_IMAGES } from "@/lib/invita/framer-assets";
 import { useLocale } from "@/contexts/LocaleContext";
-import Image from "next/image";
 
 type Props = {
   bannerUrl?: string | null;
   bannerAlt?: string | null;
 };
 
-export default function HeroSection({ bannerUrl, bannerAlt }: Props) {
+/** Immunity drip formula shown in the hero's signature card. */
+const FORMULA = [
+  { name: "Vitamin C", dose: "5000 mg" },
+  { name: "Glutathione", dose: "1200 mg" },
+  { name: "B-Complex", dose: "full" },
+  { name: "Zinc", dose: "5 mg" },
+  { name: "Saline base", dose: "500 mL" },
+];
+
+export default function HeroSection(_props: Props) {
   const { t } = useLocale();
-  const heroSrc = bannerUrl ?? FRAMER_IMAGES.clinicHero;
-  const heroAlt = bannerAlt ?? "Invita — Iraq's leading IV therapy company";
 
   return (
-    <section className="hero-section">
-      <div className="hero-image-container">
-        <MediaFrame variant="hero" className="hero-media-frame">
-          <Image
-            src={heroSrc}
-            alt={heroAlt}
-            fill
-            priority
-            quality={75}
-            sizes="100vw"
-            className="asset-frame__image"
-            style={{ objectFit: "cover", objectPosition: "center 30%" }}
-            unoptimized={Boolean(bannerUrl?.startsWith("http"))}
-          />
-        </MediaFrame>
-      </div>
+    <section className="ivx-hero" aria-label="Invita — IV therapy">
+      <div className="ivx-hero-inner">
+        {/* Thesis */}
+        <div>
+          <span className="ivx-eyebrow">{t.hero.eyebrow}</span>
 
-      <div className="hero-content">
-        <div
-          className="animate-fade-in-up opacity-0-init"
-          style={{ animationDelay: "0.1s", animationFillMode: "forwards" }}
-        >
-          <span className="hero-eyebrow">{t.hero.eyebrow}</span>
+          <h1 className="ivx-title">
+            The clinical standard for <em>IV therapy</em> in Iraq.
+          </h1>
+
+          <p className="ivx-sub">{t.hero.subtitle}</p>
+
+          <div className="ivx-ctas">
+            <Link href="/book" className="ivx-cta ivx-cta--primary">
+              {t.hero.ctaBook}
+            </Link>
+            <Link href="/iv-therapy" className="ivx-cta ivx-cta--ghost">
+              {t.hero.ctaPrimary}
+            </Link>
+          </div>
+
+          <div className="ivx-trust" aria-hidden="true">
+            <span>Licensed clinicians</span>
+            <span>Private suite</span>
+            <span>Nationwide supply</span>
+          </div>
         </div>
 
-        <h1
-          className="animate-fade-in-up opacity-0-init hero-headline"
-          style={{ animationDelay: "0.25s", animationFillMode: "forwards" }}
-        >
-          {t.hero.title}
-          <br />
-          <em>{t.hero.titleEm}</em>
-        </h1>
+        {/* Signature — the drip as a precise medical formula */}
+        <div className="ivx-rx-wrap">
+          <span className="ivx-drip" aria-hidden="true" />
+          <article className="ivx-rx" aria-label="Sample IV formula">
+            <div className="ivx-rx-head">
+              <span className="ivx-rx-name">Immunity</span>
+              <span className="ivx-rx-code">IV-04</span>
+            </div>
+            <p className="ivx-rx-tag">Physician-formulated · 45 min infusion</p>
 
-        <div
-          className="animate-fade-in opacity-0-init hero-divider"
-          style={{ animationDelay: "0.4s", animationFillMode: "forwards" }}
-        />
+            <div className="ivx-rx-rows">
+              {FORMULA.map((row) => (
+                <div className="ivx-rx-row" key={row.name}>
+                  <span className="lead">{row.name}</span>
+                  <span className="dose">{row.dose}</span>
+                </div>
+              ))}
+            </div>
 
-        <p
-          className="animate-fade-in-up opacity-0-init hero-subhead"
-          style={{ animationDelay: "0.45s", animationFillMode: "forwards" }}
-        >
-          {t.hero.subtitle}
-        </p>
-
-        <div
-          className="animate-fade-in-up opacity-0-init hero-liquivida"
-          style={{ animationDelay: "0.5s", animationFillMode: "forwards" }}
-        >
-          <LiquividaBadge />
+            <div className="ivx-rx-bar" aria-hidden="true">
+              <i />
+            </div>
+            <div className="ivx-rx-status">
+              <span className="live">Infusing</span>
+              <span>Liquivida® USA</span>
+            </div>
+          </article>
+          <span className="ivx-boost" aria-hidden="true">+ NAD⁺ boost</span>
         </div>
-
-        <div
-          className="animate-fade-in-up opacity-0-init hero-ctas"
-          style={{ animationDelay: "0.6s", animationFillMode: "forwards" }}
-        >
-          <Link href="/book" className="btn-hero-primary">
-            {t.hero.ctaBook}
-          </Link>
-          <Link href="/iv-therapy" className="btn-hero-secondary">
-            {t.hero.ctaPrimary}
-          </Link>
-        </div>
-        <p className="hero-clinics-link animate-fade-in opacity-0-init" style={{ animationDelay: "0.7s", animationFillMode: "forwards" }}>
-          <Link href="/for-clinics">{t.hero.ctaSecondary} →</Link>
-        </p>
       </div>
     </section>
   );

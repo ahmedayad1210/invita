@@ -19,10 +19,10 @@ export default function ContactInfo() {
     <div>
       <h2
         style={{
-          fontFamily: "'Cormorant Garamond', Georgia, serif",
+          fontFamily: "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
           fontSize: "1.875rem",
           fontWeight: 400,
-          color: "#2C1810",
+          color: "#0C2430",
           marginBottom: "2rem",
         }}
       >
@@ -44,11 +44,11 @@ export default function ContactInfo() {
                 width: "40px",
                 height: "40px",
                 borderRadius: "9999px",
-                backgroundColor: "rgba(196,149,106,0.1)",
+                backgroundColor: "rgba(15,181,168,0.1)",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
-                color: "#C4956A",
+                color: "#0FB5A8",
                 flexShrink: 0,
               }}
             >
@@ -62,7 +62,7 @@ export default function ContactInfo() {
                   fontWeight: 500,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color: "#8B7355",
+                  color: "#6B7A94",
                   marginBottom: "0.25rem",
                 }}
               >
@@ -72,7 +72,7 @@ export default function ContactInfo() {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize: "0.9375rem",
-                  color: "#2C1810",
+                  color: "#0C2430",
                   lineHeight: 1.6,
                   whiteSpace: "pre-line",
                 }}
@@ -88,7 +88,7 @@ export default function ContactInfo() {
         style={{
           borderRadius: "0.75rem",
           overflow: "hidden",
-          border: "1px solid rgba(196,149,106,0.15)",
+          border: "1px solid rgba(15,181,168,0.15)",
           height: "240px",
         }}
       >

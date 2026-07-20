@@ -50,14 +50,14 @@ export default function AdminPatientDetailPage() {
 
   return (
     <div>
-      <Link href="/admin/patients" style={{ color: "#8B7355", fontSize: "0.875rem" }}>
+      <Link href="/admin/patients" style={{ color: "#6B7A94", fontSize: "0.875rem" }}>
         ← All patients
       </Link>
       <header style={{ margin: "1rem 0 2rem" }}>
-        <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.75rem" }}>
+        <h1 style={{ fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif", fontSize: "1.125rem" }}>
           {data.patient.full_name}
         </h1>
-        <p style={{ color: "#8B7355" }}>
+        <p style={{ color: "#6B7A94" }}>
           {data.patient.phone} · {data.patient.email ?? "No email"}
         </p>
         <a href={data.patient.respond_url} target="_blank" rel="noopener noreferrer" className="btn-secondary btn-sm">

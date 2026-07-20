@@ -9,7 +9,7 @@ export default function GalleryStrip() {
   return (
     <section
       style={{
-        backgroundColor: "#2C1810",
+        backgroundColor: "#0C2430",
         padding:         "6rem 0",
       }}
     >
@@ -29,7 +29,7 @@ export default function GalleryStrip() {
               fontWeight:    500,
               letterSpacing: "0.2em",
               textTransform: "uppercase",
-              color:         "rgba(196,149,106,0.8)",
+              color:         "rgba(15,181,168,0.8)",
               marginBottom:  "1rem",
             }}
           >
@@ -37,10 +37,10 @@ export default function GalleryStrip() {
           </span>
           <h2
             style={{
-              fontFamily: "'Cormorant Garamond', Georgia, serif",
+              fontFamily: "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
               fontSize:   "clamp(2rem, 4vw, 3.25rem)",
               fontWeight: 400,
-              color:      "#FAF7F2",
+              color:      "#F6FAFB",
               lineHeight: 1.15,
             }}
           >
@@ -66,7 +66,7 @@ export default function GalleryStrip() {
                 style={{
                   position:        "absolute",
                   inset:           0,
-                  backgroundColor: "rgba(44,24,16,0)",
+                  backgroundColor: "rgba(15,35,65,0)",
                   transition:      "background-color 0.4s ease",
                 }}
                 className="gallery-overlay"
@@ -95,9 +95,9 @@ export default function GalleryStrip() {
               transition:      "all 0.3s ease",
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.backgroundColor = "#C4956A";
-              e.currentTarget.style.borderColor     = "#C4956A";
-              e.currentTarget.style.color           = "#FAF7F2";
+              e.currentTarget.style.backgroundColor = "#0FB5A8";
+              e.currentTarget.style.borderColor     = "#0FB5A8";
+              e.currentTarget.style.color           = "#F6FAFB";
             }}
             onMouseLeave={(e) => {
               e.currentTarget.style.backgroundColor = "transparent";
@@ -112,7 +112,7 @@ export default function GalleryStrip() {
 
       <style>{`
         .gallery-overlay:hover {
-          background-color: rgba(44,24,16,0.35) !important;
+          background-color: rgba(15,35,65,0.35) !important;
         }
       `}</style>
     </section>

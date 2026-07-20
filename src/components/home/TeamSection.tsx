@@ -17,10 +17,10 @@ export default function TeamSection() {
           <span className="eyebrow">The Specialists</span>
           <h2
             style={{
-              fontFamily:   "'Cormorant Garamond', Georgia, serif",
+              fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
               fontSize:     "clamp(2rem, 4vw, 3.25rem)",
               fontWeight:   400,
-              color:        "#2C1810",
+              color:        "#0C2430",
               lineHeight:   1.15,
               marginBottom: "1rem",
             }}
@@ -31,7 +31,7 @@ export default function TeamSection() {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize:   "0.9375rem",
-              color:      "#8B7355",
+              color:      "#6B7A94",
               maxWidth:   "480px",
               margin:     "0 auto",
               lineHeight: 1.75,
@@ -65,7 +65,7 @@ export default function TeamSection() {
                     width:        "88px",
                     height:       "88px",
                     borderRadius: "9999px",
-                    border:       "2px solid rgba(196,149,106,0.2)",
+                    border:       "2px solid rgba(15,181,168,0.2)",
                     padding:      "3px",
                     display:      "inline-flex",
                   }}
@@ -81,7 +81,7 @@ export default function TeamSection() {
                     width:           "12px",
                     height:          "12px",
                     borderRadius:    "9999px",
-                    backgroundColor: "#C4956A",
+                    backgroundColor: "#0FB5A8",
                     border:          "2px solid #FFFFFF",
                   }}
                 />
@@ -90,10 +90,10 @@ export default function TeamSection() {
               {/* Name */}
               <h3
                 style={{
-                  fontFamily:   "'Cormorant Garamond', Georgia, serif",
+                  fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                   fontSize:     "1.25rem",
                   fontWeight:   400,
-                  color:        "#2C1810",
+                  color:        "#0C2430",
                   marginBottom: "0.25rem",
                 }}
               >
@@ -108,7 +108,7 @@ export default function TeamSection() {
                   fontWeight:    500,
                   letterSpacing: "0.12em",
                   textTransform: "uppercase",
-                  color:         "#C4956A",
+                  color:         "#0FB5A8",
                   marginBottom:  "0.75rem",
                 }}
               >

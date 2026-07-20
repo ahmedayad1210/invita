@@ -34,10 +34,10 @@ export default function AdminPatientsPageClient() {
   return (
     <div>
       <header style={{ marginBottom: "2rem" }}>
-        <h1 style={{ fontFamily: "'Cormorant Garamond', Georgia, serif", fontSize: "1.75rem" }}>
+        <h1 style={{ fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif", fontSize: "1.125rem" }}>
           Patients
         </h1>
-        <p style={{ color: "#8B7355", fontSize: "0.875rem" }}>
+        <p style={{ color: "#6B7A94", fontSize: "0.875rem" }}>
           Phone-keyed CRM for IV studio guests and members. Message via Respond.io from each profile.
         </p>
       </header>

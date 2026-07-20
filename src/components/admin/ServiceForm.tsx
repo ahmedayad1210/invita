@@ -171,9 +171,9 @@ export default function ServiceForm({
             alignItems:     "center",
             justifyContent: "space-between",
             padding:        "0.875rem 1rem",
-            backgroundColor: "#FAF7F2",
+            backgroundColor: "#F6FAFB",
             borderRadius:   "0.5rem",
-            border:         "1px solid rgba(196,149,106,0.15)",
+            border:         "1px solid rgba(15,181,168,0.15)",
           }}
         >
           <div>
@@ -182,7 +182,7 @@ export default function ServiceForm({
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.875rem",
                 fontWeight: 500,
-                color:      "#2C1810",
+                color:      "#0C2430",
               }}
             >
               Visible to clients
@@ -191,7 +191,7 @@ export default function ServiceForm({
               style={{
                 fontFamily: "'DM Sans', sans-serif",
                 fontSize:   "0.8rem",
-                color:      "#8B7355",
+                color:      "#6B7A94",
               }}
             >
               Toggle off to hide this service from the booking flow
@@ -210,7 +210,7 @@ export default function ServiceForm({
               style={{
                 position:        "absolute",
                 inset:           0,
-                backgroundColor: form.active ? "#C4956A" : "rgba(139,115,85,0.25)",
+                backgroundColor: form.active ? "#0FB5A8" : "rgba(107,122,148,0.25)",
                 borderRadius:    "9999px",
                 cursor:          "pointer",
                 transition:      "background-color 0.3s ease",

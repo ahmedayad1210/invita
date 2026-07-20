@@ -6,10 +6,10 @@
 
 export const INVITA_BRAND = {
   colors: {
-    navy: "#0F2341",
-    periwinkle: "#A0B1DD",
-    gold: "#D9B344",
-    ivory: "#F0EDE4",
+    navy: "#0C2430",
+    periwinkle: "#7FB7C4",
+    gold: "#0FB5A8",
+    ivory: "#EEF4F6",
   },
   logos: {
     /** Gold radial mark — favicon, small UI marks */

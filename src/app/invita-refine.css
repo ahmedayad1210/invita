@@ -1,0 +1,399 @@
+/* ============================================================
+   INVITA — REFINEMENT LAYER
+   Loaded last. A single, reviewable polish pass that lifts the
+   whole app (public + admin) through the class names already in
+   use. Keeps the navy / ivory / gold identity; refines motion,
+   elevation, typography, colour consistency, and mobile feel.
+   ============================================================ */
+
+:root {
+  /* Unified gold — one accent, consistently applied.
+     #0FB5A8 is the brand gold; --gold-deep is a slightly less
+     yellow tone reserved for hover / pressed emphasis so accents
+     read jewellery-precise rather than bright. */
+  --gold:        #0FB5A8;
+  --gold-deep:   #0E9E93;
+  --gold-soft:   rgba(15,181,168, 0.14);
+  --gold-line:   rgba(15,181,168, 0.30);
+
+  /* Neutral, layered elevation (luxury shadows are dark, not tinted). */
+  --e1: 0 1px 2px rgba(15, 35, 65, 0.05), 0 1px 3px rgba(15, 35, 65, 0.04);
+  --e2: 0 2px 6px rgba(15, 35, 65, 0.05), 0 8px 24px rgba(15, 35, 65, 0.07);
+  --e3: 0 6px 16px rgba(15, 35, 65, 0.08), 0 20px 48px rgba(15, 35, 65, 0.12);
+
+  --ease-out:    cubic-bezier(0.33, 1, 0.68, 1);
+  --ease-spring: cubic-bezier(0.34, 1.4, 0.64, 1);
+}
+
+/* ------------------------------------------------------------
+   1 · TYPOGRAPHY POLISH
+   ------------------------------------------------------------ */
+
+h1, h2, h3, h4, h5, h6,
+.page-title, .hero-headline, .footer-brand-name {
+  text-wrap: balance;
+}
+
+p, li, figcaption, blockquote,
+.page-lead, .hero-subhead, .stat-label, .cta-hint {
+  text-wrap: pretty;
+}
+
+/* Updating / aligned numbers must not reflow as digits change. */
+.stat-value,
+.science-spotlight-stat-value,
+.credentials-verify-number,
+.price-display-amount,
+.drip-price-display,
+.admin-table td,
+.badge,
+.calendar-day,
+.time-slot {
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+/* Slightly tighter optical tracking on the largest display type. */
+.hero-headline,
+.page-title {
+  letter-spacing: -0.018em;
+}
+
+/* ------------------------------------------------------------
+   2 · BUTTONS — scoped motion + tactile press
+   ------------------------------------------------------------ */
+
+.btn-primary,
+.btn-secondary,
+.btn-ghost,
+.btn-hero-primary,
+.btn-hero-secondary {
+  transition-property: background-color, border-color, color, transform, box-shadow;
+  transition-duration: 220ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.btn-primary:hover,
+.btn-hero-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--e2);
+}
+
+.btn-secondary:hover,
+.btn-ghost:hover,
+.btn-hero-secondary:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--e1);
+}
+
+/* Tactile, quiet press — settles back to the surface. */
+.btn-primary:active,
+.btn-secondary:active,
+.btn-ghost:active,
+.btn-hero-primary:active,
+.btn-hero-secondary:active {
+  transform: translateY(0) scale(0.985);
+  transition-duration: 90ms;
+  box-shadow: var(--e1);
+}
+
+/* Primary hover unifies on gold (was bright); hero primary picks up
+   the deeper gold so it reads refined on photography. */
+.btn-primary:hover {
+  background-color: var(--gold-deep);
+  border-color: var(--gold-deep);
+  color: #EEF4F6;
+}
+
+.btn-hero-primary:hover {
+  background-color: var(--gold);
+  border-color: var(--gold);
+  color: #0C2430;
+}
+
+.btn-hero-secondary:hover {
+  border-color: rgba(250, 247, 242, 0.75);
+  color: #EEF4F6;
+}
+
+/* ------------------------------------------------------------
+   3 · CARDS & ELEVATION
+   ------------------------------------------------------------ */
+
+.card-sevres,
+.invita-card,
+.testimonial-card,
+.stat-card,
+.trust-credential-card,
+.protocol-card {
+  box-shadow: var(--e1);
+  transition-property: transform, box-shadow, border-color;
+  transition-duration: 260ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.card-sevres:hover,
+.invita-card:hover,
+.testimonial-card:hover,
+.trust-credential-card:hover,
+.protocol-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--e3);
+  border-color: var(--gold-line);
+}
+
+/* Dark stat cards on the navy band get a light-lift instead. */
+.stats-section .stat-card:hover {
+  transform: translateY(-3px);
+  border-color: rgba(15,181,168, 0.35);
+  background: rgba(250, 247, 242, 0.06);
+}
+
+/* ------------------------------------------------------------
+   4 · NAVBAR PILL & OVERLAY MENU
+   ------------------------------------------------------------ */
+
+.navbar-pill {
+  border-color: rgba(15,181,168, 0.18);
+  box-shadow: var(--e2);
+  transition-property: background-color, box-shadow, border-color, top, transform;
+  transition-duration: 300ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.navbar-pill.scrolled {
+  box-shadow: var(--e3);
+}
+
+.overlay-menu {
+  background-color: rgba(238, 244, 246, 0.98);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+}
+
+.overlay-menu-link {
+  transition-property: color, transform;
+  transition-duration: 240ms;
+  transition-timing-function: var(--ease-out);
+}
+
+/* ------------------------------------------------------------
+   5 · FORMS & BOOKING CONTROLS
+   ------------------------------------------------------------ */
+
+.input-sevres {
+  transition-property: border-color, box-shadow, background-color;
+  transition-duration: 180ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.input-sevres:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-soft);
+}
+
+.time-slot,
+.calendar-day {
+  transition-property: background-color, border-color, color, transform;
+  transition-duration: 160ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.time-slot:active:not(.booked),
+.calendar-day:active:not(.disabled) {
+  transform: scale(0.96);
+}
+
+/* Selected states settle on the deep gold ring for consistency. */
+.time-slot.selected,
+.calendar-day.selected {
+  box-shadow: var(--e1);
+}
+
+/* ------------------------------------------------------------
+   6 · SECTION RHYTHM & DECLUTTER
+   Quieter accents so long pages read calmer.
+   ------------------------------------------------------------ */
+
+.eyebrow,
+.hero-eyebrow,
+.page-eyebrow {
+  color: var(--gold-deep);
+  letter-spacing: 0.22em;
+}
+
+.eyebrow-line::before,
+.eyebrow-line::after {
+  background: linear-gradient(to right, transparent, var(--gold-line), transparent);
+  opacity: 0.7;
+}
+
+.divider-rose,
+.hero-divider {
+  background: linear-gradient(to right, transparent, var(--gold), transparent);
+}
+
+.gold-dot {
+  background-color: var(--gold);
+  box-shadow: 0 0 0 3px var(--gold-soft);
+}
+
+/* A hair more breathing room between stacked full-bleed sections
+   so an 18-section homepage feels composed, not crammed. */
+@media (min-width: 1024px) {
+  .section-padding    { padding-top: 7rem; padding-bottom: 7rem; }
+  .section-padding-sm { padding-top: 4.5rem; padding-bottom: 4.5rem; }
+}
+
+/* ------------------------------------------------------------
+   7 · FOOTER
+   ------------------------------------------------------------ */
+
+.footer-link,
+.footer-social-link,
+.footer-legal a {
+  transition-property: color, border-color, background-color, transform;
+  transition-duration: 200ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.footer-social-link:hover {
+  transform: translateY(-2px);
+  border-color: var(--gold);
+}
+
+/* ------------------------------------------------------------
+   8 · ADMIN SURFACES
+   ------------------------------------------------------------ */
+
+.admin-nav-link {
+  transition-property: background-color, color, transform;
+  transition-duration: 180ms;
+  transition-timing-function: var(--ease-out);
+}
+
+.admin-nav-link.active {
+  box-shadow: inset 2px 0 0 var(--gold);
+}
+
+.stat-card,
+.admin-table {
+  font-variant-numeric: tabular-nums;
+}
+
+.admin-table th {
+  letter-spacing: 0.1em;
+}
+
+.admin-table tbody tr {
+  transition: background-color 160ms var(--ease-out);
+}
+
+/* ------------------------------------------------------------
+   9 · MEDIA — subtle inset outline so edges don't blur into surfaces
+   ------------------------------------------------------------ */
+
+.invita-card img,
+.testimonial-card img,
+.gallery-item img,
+.celebrity-wellness-photo img,
+.admin-media-preview img {
+  outline: 1px solid rgba(15, 35, 65, 0.08);
+  outline-offset: -1px;
+}
+
+/* ------------------------------------------------------------
+   10 · MOBILE — deliberate spacing & comfortable hit areas
+   ------------------------------------------------------------ */
+
+@media (max-width: 768px) {
+  /* Roomier, tappable conversion bar. */
+  .mobile-conversion-bar {
+    gap: 0.625rem;
+    box-shadow: 0 -2px 24px rgba(15, 35, 65, 0.08);
+  }
+
+  .mobile-conversion-btn {
+    min-height: 48px;
+    box-shadow: var(--e1);
+  }
+
+  .mobile-conversion-btn:active {
+    transform: scale(0.98);
+  }
+
+  /* Floating actions: larger, softer, tactile. */
+  .whatsapp-fab {
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 6px 22px rgba(37, 211, 102, 0.32);
+  }
+
+  .whatsapp-fab:active {
+    transform: scale(0.94);
+  }
+
+  /* Nav pill controls keep a full 44px touch target. */
+  .hamburger-btn {
+    min-width: 44px;
+    min-height: 44px;
+  }
+
+  /* Calmer vertical rhythm on phones — declutter the scroll. */
+  .section-padding    { padding-top: 3.25rem !important; padding-bottom: 3.25rem !important; }
+  .section-padding-sm { padding-top: 2.5rem !important; padding-bottom: 2.5rem !important; }
+
+  /* Tighter display type so headlines don't dominate small screens. */
+  .hero-headline { line-height: 1.08; }
+  h1 { line-height: 1.1; }
+}
+
+/* Comfortable minimum for standalone icon buttons everywhere. */
+.footer-social-link {
+  min-width: 40px;
+  min-height: 40px;
+}
+
+/* ------------------------------------------------------------
+   11 · MOTION SAFETY
+   Honour the base reduced-motion contract for every added transform.
+   ------------------------------------------------------------ */
+
+@media (prefers-reduced-motion: reduce) {
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost,
+  .btn-hero-primary,
+  .btn-hero-secondary,
+  .card-sevres,
+  .invita-card,
+  .testimonial-card,
+  .stat-card,
+  .trust-credential-card,
+  .protocol-card,
+  .footer-social-link,
+  .mobile-conversion-btn,
+  .whatsapp-fab,
+  .time-slot,
+  .calendar-day {
+    transition-duration: 1ms;
+  }
+
+  .btn-primary:hover,
+  .btn-secondary:hover,
+  .btn-ghost:hover,
+  .btn-hero-primary:hover,
+  .btn-hero-secondary:hover,
+  .card-sevres:hover,
+  .invita-card:hover,
+  .testimonial-card:hover,
+  .trust-credential-card:hover,
+  .protocol-card:hover,
+  .footer-social-link:hover,
+  .btn-primary:active,
+  .btn-secondary:active,
+  .time-slot:active,
+  .calendar-day:active {
+    transform: none;
+  }
+}

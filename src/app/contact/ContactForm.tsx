@@ -88,17 +88,17 @@ export default function ContactForm() {
         style={{
           backgroundColor: "#FFFFFF",
           borderRadius: "1rem",
-          border: "1px solid rgba(196,149,106,0.15)",
-          boxShadow: "0 4px 40px rgba(44,24,16,0.07)",
+          border: "1px solid rgba(15,181,168,0.15)",
+          boxShadow: "0 4px 40px rgba(15,35,65,0.07)",
           padding: "2.5rem",
         }}
       >
         <h2
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
+            fontFamily: "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
             fontSize: "1.875rem",
             fontWeight: 400,
-            color: "#2C1810",
+            color: "#0C2430",
             marginBottom: "0.5rem",
           }}
         >
@@ -108,13 +108,13 @@ export default function ContactForm() {
           style={{
             fontFamily: "'DM Sans', sans-serif",
             fontSize: "0.9rem",
-            color: "#8B7355",
+            color: "#6B7A94",
             marginBottom: "2rem",
             lineHeight: 1.6,
           }}
         >
           For bookings, please use our{" "}
-          <a href="/book" style={{ color: "#C4956A", textDecoration: "underline" }}>
+          <a href="/book" style={{ color: "#0FB5A8", textDecoration: "underline" }}>
             online booking page
           </a>
           . For all other enquiries, we respond within 24 hours.

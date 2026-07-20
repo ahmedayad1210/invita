@@ -17,30 +17,32 @@ export default function StatCard({
     <div
       className="stat-card"
       style={{
-        borderLeft: accent ? "3px solid #C4956A" : "1px solid rgba(196,149,106,0.12)",
+        borderLeft: accent ? "3px solid #0FB5A8" : undefined,
       }}
     >
       <p
         style={{
           fontFamily:    "'DM Sans', sans-serif",
           fontSize:      "0.6875rem",
-          fontWeight:    500,
-          letterSpacing: "0.15em",
+          fontWeight:    600,
+          letterSpacing: "0.08em",
           textTransform: "uppercase",
-          color:         "#8B7355",
-          marginBottom:  "0.75rem",
+          color:         "#6B7A94",
+          marginBottom:  "0.5rem",
         }}
       >
         {label}
       </p>
       <p
         style={{
-          fontFamily:   "'Cormorant Garamond', Georgia, serif",
-          fontSize:     "3rem",
-          fontWeight:   300,
-          color:        accent ? "#C4956A" : "#2C1810",
-          lineHeight:   1,
-          marginBottom: subLabel ? "0.5rem" : 0,
+          fontFamily:        "var(--font-dm-sans), 'DM Sans', sans-serif",
+          fontSize:          "1.875rem",
+          fontWeight:        600,
+          fontVariantNumeric:"tabular-nums",
+          color:             "#0C2430",
+          lineHeight:        1.1,
+          letterSpacing:     "-0.01em",
+          marginBottom:      subLabel ? "0.35rem" : 0,
         }}
       >
         {value}
@@ -49,8 +51,8 @@ export default function StatCard({
         <p
           style={{
             fontFamily: "'DM Sans', sans-serif",
-            fontSize:   "0.8125rem",
-            color:      "#8B7355",
+            fontSize:   "0.75rem",
+            color:      "#6B7A94",
           }}
         >
           {subLabel}

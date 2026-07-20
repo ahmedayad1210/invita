@@ -11,8 +11,8 @@ type Props = {
 };
 
 const STATUS_COLOR: Record<string, string> = {
-  pending: "#8B7355",
-  confirmed: "#B8965A",
+  pending: "#6B7A94",
+  confirmed: "#0FB5A8",
   cancelled: "#ccc",
 };
 

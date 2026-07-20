@@ -25,10 +25,10 @@ export default function AdminMobileBar() {
     <div className="admin-mobile-bar">
       <span
         style={{
-          fontFamily:    "'Cormorant Garamond', Georgia, serif",
+          fontFamily:    "var(--font-dm-sans), 'DM Sans', sans-serif",
           fontSize:      "1.125rem",
           fontWeight:    300,
-          color:         "#FAF7F2",
+          color:         "#F6FAFB",
           letterSpacing: "0.06em",
         }}
       >

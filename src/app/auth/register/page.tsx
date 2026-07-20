@@ -99,7 +99,7 @@ export default function RegisterPage() {
             Already have an account?{" "}
             <Link
               href={loginHref}
-              style={{ color: "#C4956A", fontWeight: 500 }}
+              style={{ color: "#0FB5A8", fontWeight: 500 }}
             >
               Sign in
             </Link>
@@ -192,14 +192,14 @@ export default function RegisterPage() {
                 style={{
                   fontFamily: "'DM Sans', sans-serif",
                   fontSize:   "0.875rem",
-                  color:      "#2C1810",
+                  color:      "#0C2430",
                   lineHeight: 1.65,
                   margin:     0,
                 }}
               >
                 We sent a verification link to <strong>{form.email}</strong>.
                 Please confirm your email, then{" "}
-                <Link href="/auth/login" style={{ color: "#C4956A", fontWeight: 500 }}>
+                <Link href="/auth/login" style={{ color: "#0FB5A8", fontWeight: 500 }}>
                   sign in
                 </Link>
                 .
@@ -211,8 +211,8 @@ export default function RegisterPage() {
             <div
               style={{
                 padding:         "0.875rem 1rem",
-                backgroundColor: "rgba(196,149,106,0.08)",
-                border:          "1px solid rgba(196,149,106,0.25)",
+                backgroundColor: "rgba(15,181,168,0.08)",
+                border:          "1px solid rgba(15,181,168,0.25)",
                 borderRadius:    "0.5rem",
               }}
             >
@@ -238,17 +238,17 @@ export default function RegisterPage() {
             style={{
               fontFamily: "'DM Sans', sans-serif",
               fontSize:   "0.8rem",
-              color:      "#8B7355",
+              color:      "#6B7A94",
               textAlign:  "center",
               lineHeight: 1.6,
             }}
           >
             By creating an account you agree to our{" "}
-            <Link href="/terms" style={{ color: "#C4956A" }}>
+            <Link href="/terms" style={{ color: "#0FB5A8" }}>
               Terms of Service
             </Link>{" "}
             and{" "}
-            <Link href="/privacy" style={{ color: "#C4956A" }}>
+            <Link href="/privacy" style={{ color: "#0FB5A8" }}>
               Privacy Policy
             </Link>
             .

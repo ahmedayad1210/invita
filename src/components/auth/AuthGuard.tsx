@@ -32,7 +32,7 @@ export default function AuthGuard({
       <div
         style={{
           minHeight:       "100svh",
-          backgroundColor: "#FAF7F2",
+          backgroundColor: "#F6FAFB",
           display:         "flex",
           alignItems:      "center",
           justifyContent:  "center",

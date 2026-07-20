@@ -67,14 +67,14 @@ export default function AdminDashboard({ username }: Props) {
   return (
     <div>
       {/* Header */}
-      <div style={{ marginBottom: "2.5rem" }}>
+      <div style={{ marginBottom: "1.5rem" }}>
         <span className="eyebrow">Welcome, {username}</span>
         <h1
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize:   "clamp(1.75rem, 3vw, 2.75rem)",
+            fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
+            fontSize:   "1.375rem",
             fontWeight: 400,
-            color:      "#2C1810",
+            color:      "#0C2430",
             lineHeight: 1.15,
           }}
         >
@@ -88,8 +88,8 @@ export default function AdminDashboard({ username }: Props) {
         style={{
           display:             "grid",
           gridTemplateColumns: "repeat(4, 1fr)",
-          gap:                 "1.25rem",
-          marginBottom:        "3rem",
+          gap:                 "1rem",
+          marginBottom:        "2rem",
         }}
       >
         <StatCard label="Bookings Today"  value={stats?.bookings_today      ?? "—"} accent />
@@ -115,10 +115,10 @@ export default function AdminDashboard({ username }: Props) {
       >
         <h2
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize:   "1.75rem",
+            fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
+            fontSize:   "1.125rem",
             fontWeight: 400,
-            color:      "#2C1810",
+            color:      "#0C2430",
           }}
         >
           All Bookings
@@ -135,7 +135,7 @@ export default function AdminDashboard({ username }: Props) {
                 fontWeight:    500,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color:         "#8B7355",
+                color:         "#6B7A94",
               }}
             >
               Filter by date

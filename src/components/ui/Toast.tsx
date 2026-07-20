@@ -25,9 +25,9 @@ export default function Toast({
   return (
     <div className={`toast toast-${type}`}>
       {type === "success" ? (
-        <CheckCircle size={18} color="#C4956A" style={{ flexShrink: 0 }} />
+        <CheckCircle size={18} color="#0FB5A8" style={{ flexShrink: 0 }} />
       ) : (
-        <AlertCircle size={18} color="#8B7355" style={{ flexShrink: 0 }} />
+        <AlertCircle size={18} color="#6B7A94" style={{ flexShrink: 0 }} />
       )}
 
       <span style={{ flex: 1, lineHeight: 1.5 }}>{message}</span>
@@ -40,7 +40,7 @@ export default function Toast({
           padding:    "0.125rem",
           transition: "color 0.2s ease",
         }}
-        onMouseEnter={(e) => (e.currentTarget.style.color = "#FAF7F2")}
+        onMouseEnter={(e) => (e.currentTarget.style.color = "#F6FAFB")}
         onMouseLeave={(e) => (e.currentTarget.style.color = "rgba(250,247,242,0.6)")}
       >
         <X size={16} />

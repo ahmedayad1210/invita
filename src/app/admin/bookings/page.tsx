@@ -47,7 +47,7 @@ export default function AdminBookingsPage() {
             fontWeight:    500,
             letterSpacing: "0.2em",
             textTransform: "uppercase",
-            color:         "#C4956A",
+            color:         "#0FB5A8",
             display:       "block",
             marginBottom:  "0.5rem",
           }}
@@ -56,10 +56,10 @@ export default function AdminBookingsPage() {
         </span>
         <h1
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize:   "clamp(1.75rem, 3vw, 2.75rem)",
+            fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
+            fontSize:   "1.375rem",
             fontWeight: 400,
-            color:      "#2C1810",
+            color:      "#0C2430",
             lineHeight: 1.15,
           }}
         >
@@ -81,7 +81,7 @@ export default function AdminBookingsPage() {
                 fontWeight:    500,
                 letterSpacing: "0.1em",
                 textTransform: "uppercase",
-                color:         "#8B7355",
+                color:         "#6B7A94",
               }}
             >
               Filter by date

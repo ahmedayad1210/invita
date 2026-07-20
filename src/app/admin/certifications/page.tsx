@@ -88,11 +88,11 @@ export default function AdminCertificationsPage() {
   };
 
   if (loading) {
-    return <p style={{ color: "#8B7355" }}>Loading certificates…</p>;
+    return <p style={{ color: "#6B7A94" }}>Loading certificates…</p>;
   }
 
   if (!data) {
-    return <p style={{ color: "#8B7355" }}>Could not load certificates.</p>;
+    return <p style={{ color: "#6B7A94" }}>Could not load certificates.</p>;
   }
 
   return (
@@ -100,18 +100,18 @@ export default function AdminCertificationsPage() {
       <header style={{ marginBottom: "2rem" }}>
         <h1
           style={{
-            fontFamily: "'Cormorant Garamond', Georgia, serif",
-            fontSize: "1.75rem",
+            fontFamily: "var(--font-dm-sans), 'DM Sans', sans-serif",
+            fontSize: "1.125rem",
             fontWeight: 400,
-            color: "#2C1810",
+            color: "#0C2430",
             marginBottom: "0.5rem",
           }}
         >
           Certifications CMS
         </h1>
-        <p style={{ fontSize: "0.875rem", color: "#8B7355", maxWidth: "42rem" }}>
+        <p style={{ fontSize: "0.875rem", color: "#6B7A94", maxWidth: "42rem" }}>
           Data source: <strong>{source}</strong>. Upload images in{" "}
-          <a href="/admin/media" style={{ color: "#C4956A" }}>
+          <a href="/admin/media" style={{ color: "#0FB5A8" }}>
             Media Library
           </a>
           , copy the URL, then paste below. Or edit{" "}
@@ -132,11 +132,11 @@ export default function AdminCertificationsPage() {
                 padding: "0.6rem 0.75rem",
                 border:
                   activeId === cert.id
-                    ? "1px solid #2C1810"
-                    : "1px solid rgba(44,24,16,0.12)",
+                    ? "1px solid #0C2430"
+                    : "1px solid rgba(15,35,65,0.12)",
                 borderRadius: "0.5rem",
-                background: activeId === cert.id ? "#2C1810" : "#fff",
-                color: activeId === cert.id ? "#FAF7F2" : "#2C1810",
+                background: activeId === cert.id ? "#0C2430" : "#fff",
+                color: activeId === cert.id ? "#F6FAFB" : "#0C2430",
                 fontSize: "0.8125rem",
                 cursor: "pointer",
               }}
@@ -171,7 +171,7 @@ export default function AdminCertificationsPage() {
             >
               {EDITABLE_FIELDS.map(({ key, label, type }) => (
                 <label key={key} style={{ display: "flex", flexDirection: "column", gap: "0.35rem" }}>
-                  <span style={{ fontSize: "0.75rem", color: "#8B7355" }}>{label}</span>
+                  <span style={{ fontSize: "0.75rem", color: "#6B7A94" }}>{label}</span>
                   <input
                     type={type ?? "text"}
                     value={(draft[key] as string) ?? ""}
@@ -183,7 +183,7 @@ export default function AdminCertificationsPage() {
                     }
                     style={{
                       padding: "0.5rem 0.65rem",
-                      border: "1px solid rgba(44,24,16,0.15)",
+                      border: "1px solid rgba(15,35,65,0.15)",
                       borderRadius: "0.375rem",
                       fontSize: "0.875rem",
                     }}
@@ -205,8 +205,8 @@ export default function AdminCertificationsPage() {
               style={{
                 marginTop: "1.5rem",
                 padding: "0.65rem 1.5rem",
-                background: "#2C1810",
-                color: "#FAF7F2",
+                background: "#0C2430",
+                color: "#F6FAFB",
                 border: "none",
                 borderRadius: "0.375rem",
                 cursor: "pointer",

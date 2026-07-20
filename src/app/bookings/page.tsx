@@ -86,9 +86,9 @@ function BookingsContent() {
   });
 
   const STATUS_COLORS: Record<string, string> = {
-    pending:   "#8B7355",
-    confirmed: "#B8965A",
-    cancelled: "#8B7355",
+    pending:   "#6B7A94",
+    confirmed: "#0FB5A8",
+    cancelled: "#6B7A94",
   };
 
   return (
@@ -97,7 +97,7 @@ function BookingsContent() {
       <main
         style={{
           minHeight:       "100svh",
-          backgroundColor: "#FAF7F2",
+          backgroundColor: "#F6FAFB",
           paddingTop:      "8rem",
           paddingBottom:   "6rem",
         }}
@@ -120,10 +120,10 @@ function BookingsContent() {
                 <div>
                   <h1
                     style={{
-                      fontFamily:   "'Cormorant Garamond', Georgia, serif",
+                      fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                       fontSize:     "clamp(1.75rem, 3vw, 2.75rem)",
                       fontWeight:   400,
-                      color:        "#2C1810",
+                      color:        "#0C2430",
                       lineHeight:   1.15,
                     }}
                   >
@@ -133,7 +133,7 @@ function BookingsContent() {
                     style={{
                       fontFamily: "'DM Sans', sans-serif",
                       fontSize:   "0.875rem",
-                      color:      "#8B7355",
+                      color:      "#6B7A94",
                     }}
                   >
                     {user?.email}
@@ -154,7 +154,7 @@ function BookingsContent() {
               display:      "flex",
               gap:          "0.25rem",
               marginBottom: "2rem",
-              borderBottom: "1px solid rgba(196,149,106,0.15)",
+              borderBottom: "1px solid rgba(15,181,168,0.15)",
             }}
           >
             {(["upcoming", "past", "cancelled"] as TabType[]).map((t) => {
@@ -173,11 +173,11 @@ function BookingsContent() {
                     fontFamily:      "'DM Sans', sans-serif",
                     fontSize:        "0.875rem",
                     fontWeight:      tab === t ? 500 : 400,
-                    color:           tab === t ? "#2C1810" : "#8B7355",
+                    color:           tab === t ? "#0C2430" : "#6B7A94",
                     padding:         "0.75rem 1.25rem",
                     background:      "none",
                     border:          "none",
-                    borderBottom:    tab === t ? "2px solid #C4956A" : "2px solid transparent",
+                    borderBottom:    tab === t ? "2px solid #0FB5A8" : "2px solid transparent",
                     cursor:          "pointer",
                     transition:      "all 0.25s ease",
                     textTransform:   "capitalize",
@@ -193,8 +193,8 @@ function BookingsContent() {
                       fontFamily:      "'DM Sans', sans-serif",
                       fontSize:        "0.6875rem",
                       fontWeight:      500,
-                      backgroundColor: tab === t ? "rgba(196,149,106,0.15)" : "rgba(139,115,85,0.1)",
-                      color:           tab === t ? "#C4956A" : "#8B7355",
+                      backgroundColor: tab === t ? "rgba(15,181,168,0.15)" : "rgba(107,122,148,0.1)",
+                      color:           tab === t ? "#0FB5A8" : "#6B7A94",
                       borderRadius:    "9999px",
                       padding:         "0.1rem 0.5rem",
                     }}
@@ -218,15 +218,15 @@ function BookingsContent() {
                 padding:         "5rem 2rem",
                 backgroundColor: "#FFFFFF",
                 borderRadius:    "0.75rem",
-                border:          "1px solid rgba(196,149,106,0.12)",
+                border:          "1px solid rgba(15,181,168,0.12)",
               }}
             >
               <p
                 style={{
-                  fontFamily:   "'Cormorant Garamond', Georgia, serif",
+                  fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                   fontSize:     "1.5rem",
                   fontWeight:   400,
-                  color:        "#2C1810",
+                  color:        "#0C2430",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -240,7 +240,7 @@ function BookingsContent() {
                 style={{
                   fontFamily:   "'DM Sans', sans-serif",
                   fontSize:     "0.9rem",
-                  color:        "#8B7355",
+                  color:        "#6B7A94",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -273,8 +273,8 @@ function BookingsContent() {
                     style={{
                       backgroundColor: "#FFFFFF",
                       borderRadius:    "0.75rem",
-                      border:          `1px solid ${isCancelled ? "rgba(139,115,85,0.1)" : "rgba(196,149,106,0.15)"}`,
-                      boxShadow:       "0 2px 20px rgba(44,24,16,0.05)",
+                      border:          `1px solid ${isCancelled ? "rgba(107,122,148,0.1)" : "rgba(15,181,168,0.15)"}`,
+                      boxShadow:       "0 2px 20px rgba(15,35,65,0.05)",
                       padding:         "1.5rem",
                       opacity:         isCancelled ? 0.75 : 1,
                     }}
@@ -302,10 +302,10 @@ function BookingsContent() {
                         >
                           <h2
                             style={{
-                              fontFamily: "'Cormorant Garamond', Georgia, serif",
+                              fontFamily: "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                               fontSize:   "1.375rem",
                               fontWeight: 400,
-                              color:      "#2C1810",
+                              color:      "#0C2430",
                             }}
                           >
                             {booking.service?.name ?? "Service"}
@@ -357,17 +357,17 @@ function BookingsContent() {
                                 display:    "flex",
                                 alignItems: "center",
                                 gap:        "0.375rem",
-                                color:      "#8B7355",
+                                color:      "#6B7A94",
                               }}
                             >
-                              <span style={{ color: "#C4956A", flexShrink: 0 }}>
+                              <span style={{ color: "#0FB5A8", flexShrink: 0 }}>
                                 {item.icon}
                               </span>
                               <span
                                 style={{
                                   fontFamily: "'DM Sans', sans-serif",
                                   fontSize:   "0.875rem",
-                                  color:      "#8B7355",
+                                  color:      "#6B7A94",
                                 }}
                               >
                                 {item.text}
@@ -382,11 +382,11 @@ function BookingsContent() {
                             style={{
                               fontFamily:   "'DM Sans', sans-serif",
                               fontSize:     "0.8375rem",
-                              color:        "#8B7355",
+                              color:        "#6B7A94",
                               fontStyle:    "italic",
                               marginTop:    "0.75rem",
                               paddingTop:   "0.75rem",
-                              borderTop:    "1px solid rgba(196,149,106,0.1)",
+                              borderTop:    "1px solid rgba(15,181,168,0.1)",
                             }}
                           >
                             Note: {booking.notes}
@@ -421,9 +421,9 @@ function BookingsContent() {
                               fontWeight:      500,
                               letterSpacing:   "0.08em",
                               textTransform:   "uppercase",
-                              color:           cancelling === booking.id ? "#8B7355" : "#8B7355",
+                              color:           cancelling === booking.id ? "#6B7A94" : "#6B7A94",
                               background:      "none",
-                              border:          "1.5px solid rgba(139,115,85,0.25)",
+                              border:          "1.5px solid rgba(107,122,148,0.25)",
                               borderRadius:    "9999px",
                               padding:         "0.5rem 1rem",
                               cursor:          cancelling === booking.id ? "not-allowed" : "pointer",
@@ -431,12 +431,12 @@ function BookingsContent() {
                               transition:      "all 0.25s ease",
                             }}
                             onMouseEnter={(e) => {
-                              e.currentTarget.style.borderColor = "#C4956A";
-                              e.currentTarget.style.color       = "#C4956A";
+                              e.currentTarget.style.borderColor = "#0FB5A8";
+                              e.currentTarget.style.color       = "#0FB5A8";
                             }}
                             onMouseLeave={(e) => {
-                              e.currentTarget.style.borderColor = "rgba(139,115,85,0.25)";
-                              e.currentTarget.style.color       = "#8B7355";
+                              e.currentTarget.style.borderColor = "rgba(107,122,148,0.25)";
+                              e.currentTarget.style.color       = "#6B7A94";
                             }}
                           >
                             <XCircle size={13} />

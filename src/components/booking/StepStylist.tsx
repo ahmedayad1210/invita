@@ -45,7 +45,7 @@ export default function StepStylist() {
         <p
           style={{
             textAlign:  "center",
-            color:      "#8B7355",
+            color:      "#6B7A94",
             fontFamily: "'DM Sans', sans-serif",
           }}
         >
@@ -72,28 +72,28 @@ export default function StepStylist() {
                   alignItems:      "flex-start",
                   gap:             "1rem",
                   textAlign:       "left",
-                  backgroundColor: isSelected ? "#2C1810" : "#FFFFFF",
-                  border:          `1.5px solid ${isSelected ? "#2C1810" : "rgba(196,149,106,0.15)"}`,
+                  backgroundColor: isSelected ? "#0C2430" : "#FFFFFF",
+                  border:          `1.5px solid ${isSelected ? "#0C2430" : "rgba(15,181,168,0.15)"}`,
                   borderRadius:    "0.75rem",
                   padding:         "1.5rem",
                   cursor:          "pointer",
                   transition:      "all 0.3s ease",
                   boxShadow:       isSelected
-                    ? "0 8px 32px rgba(44,24,16,0.2)"
-                    : "0 2px 20px rgba(44,24,16,0.06)",
+                    ? "0 8px 32px rgba(15,35,65,0.2)"
+                    : "0 2px 20px rgba(15,35,65,0.06)",
                   position:        "relative",
                   width:           "100%",
                 }}
                 onMouseEnter={(e) => {
                   if (!isSelected) {
-                    e.currentTarget.style.borderColor = "rgba(196,149,106,0.4)";
-                    e.currentTarget.style.boxShadow   = "0 4px 24px rgba(44,24,16,0.1)";
+                    e.currentTarget.style.borderColor = "rgba(15,181,168,0.4)";
+                    e.currentTarget.style.boxShadow   = "0 4px 24px rgba(15,35,65,0.1)";
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!isSelected) {
-                    e.currentTarget.style.borderColor = "rgba(196,149,106,0.15)";
-                    e.currentTarget.style.boxShadow   = "0 2px 20px rgba(44,24,16,0.06)";
+                    e.currentTarget.style.borderColor = "rgba(15,181,168,0.15)";
+                    e.currentTarget.style.boxShadow   = "0 2px 20px rgba(15,35,65,0.06)";
                   }
                 }}
               >
@@ -107,13 +107,13 @@ export default function StepStylist() {
                       width:           "22px",
                       height:          "22px",
                       borderRadius:    "9999px",
-                      backgroundColor: "#C4956A",
+                      backgroundColor: "#0FB5A8",
                       display:         "flex",
                       alignItems:      "center",
                       justifyContent:  "center",
                     }}
                   >
-                    <Check size={12} color="#FAF7F2" strokeWidth={2.5} />
+                    <Check size={12} color="#F6FAFB" strokeWidth={2.5} />
                   </div>
                 )}
 
@@ -126,10 +126,10 @@ export default function StepStylist() {
                 <div style={{ flex: 1, minWidth: 0 }}>
                   <h3
                     style={{
-                      fontFamily:   "'Cormorant Garamond', Georgia, serif",
+                      fontFamily:   "var(--font-bricolage), 'Bricolage Grotesque', sans-serif",
                       fontSize:     "1.1875rem",
                       fontWeight:   400,
-                      color:        isSelected ? "#FAF7F2" : "#2C1810",
+                      color:        isSelected ? "#F6FAFB" : "#0C2430",
                       marginBottom: "0.25rem",
                     }}
                   >
@@ -142,7 +142,7 @@ export default function StepStylist() {
                       fontWeight:    500,
                       letterSpacing: "0.1em",
                       textTransform: "uppercase",
-                      color:         isSelected ? "rgba(196,149,106,0.8)" : "#C4956A",
+                      color:         isSelected ? "rgba(15,181,168,0.8)" : "#0FB5A8",
                       marginBottom:  "0.625rem",
                     }}
                   >
@@ -153,7 +153,7 @@ export default function StepStylist() {
                       style={{
                         fontFamily:          "'DM Sans', sans-serif",
                         fontSize:            "0.8375rem",
-                        color:               isSelected ? "rgba(250,247,242,0.6)" : "#8B7355",
+                        color:               isSelected ? "rgba(250,247,242,0.6)" : "#6B7A94",
                         lineHeight:          1.65,
                         display:             "-webkit-box",
                         WebkitLineClamp:     2,
