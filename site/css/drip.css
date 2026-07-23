@@ -1,0 +1,28 @@
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Medium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Bold.otf") format("opentype");font-weight:600 800;font-display:swap}
+:root{
+--navy:#0F2341;--deep:#0A1A31;--mid:#16305A;--gold:#D9B344;--gold2:#F6E7B0;--ivory:#F0EDE4;
+--divider:rgba(240,237,228,.16);
+--font-heading:"Plain","Alexandria",system-ui,sans-serif;
+--font-body:"Plain","Alexandria",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A1A31;text-wrap:pretty}
+a{color:#D9B344}
+a:hover{color:#F0EDE4}
+@keyframes inv-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes inv-floatb{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@keyframes inv-pulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.8;transform:scale(1.07)}}
+@keyframes inv-aurora{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes inv-drift{0%{transform:translateY(10px);opacity:0}25%{opacity:.9}100%{transform:translateY(-70px);opacity:0}}
+@keyframes inv-spin{to{transform:rotate(360deg)}}
+@keyframes inv-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes inv-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes inv-rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+[dir="rtl"]{--font-heading:"Alexandria",system-ui,sans-serif;--font-body:"Alexandria",system-ui,sans-serif;font-family:var(--font-body)}
+[dir="rtl"] *{letter-spacing:0 !important}
+.inv-show-m{display:none !important}
+@media (max-width:760px){.inv-hide-m{display:none !important}.inv-show-m{display:inline-flex !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition-duration:.01ms !important}}

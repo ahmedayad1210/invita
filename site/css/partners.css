@@ -1,0 +1,21 @@
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Medium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Bold.otf") format("opentype");font-weight:600 800;font-display:swap}
+:root{
+--color-bg:#F0EDE4;--color-surface:#E7E3D4;--color-text:#0F2341;
+--color-divider:color-mix(in srgb,#0F2341 24%,transparent);
+--font-heading:"Plain","Alexandria",system-ui,sans-serif;
+--font-body:"Plain","Alexandria",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F0EDE4;text-wrap:pretty}
+a{color:#8E7120}
+a:hover{color:#0F2341}
+@keyframes inv-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes inv-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+[dir="rtl"]{--font-heading:"Alexandria",system-ui,sans-serif;--font-body:"Alexandria",system-ui,sans-serif;font-family:var(--font-body)}
+[dir="rtl"] *{letter-spacing:0 !important}
+.inv-show-m{display:none !important}
+@media (max-width:760px){.inv-hide-m{display:none !important}.inv-show-m{display:inline-flex !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}

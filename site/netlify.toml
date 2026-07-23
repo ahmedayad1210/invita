@@ -1,0 +1,21 @@
+# Deploy by publishing this folder (drag-and-drop or CLI).
+[build]
+  publish = "."
+  command = "echo 'Static site — no build step'"
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[redirects]]
+  from = "/drips"
+  to = "/menu.html"
+  status = 302
