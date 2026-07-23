@@ -1,5 +1,5 @@
 (() => {
-  const WA = '9647766664544';
+  const WA = '964776664044';
 
   const year = document.getElementById('y');
   if (year) year.textContent = String(new Date().getFullYear());
