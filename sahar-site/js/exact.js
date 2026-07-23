@@ -1,7 +1,7 @@
 (() => {
   const WA = '964776664044';
 
-  // Restart Figma branches motion when the section enters the viewport
+  // Figma motion 151:71 — restart the 2s slide-in when branches enter view
   const track = document.getElementById('branches-track');
   const section = document.getElementById('branches');
   if (track && section && 'IntersectionObserver' in window) {
@@ -16,7 +16,7 @@
           if (e.isIntersecting) restart();
         });
       },
-      { threshold: 0.25 }
+      { threshold: 0.2 }
     );
     io.observe(section);
   }

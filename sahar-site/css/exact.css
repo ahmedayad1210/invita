@@ -4,7 +4,7 @@ html { scroll-behavior: smooth; }
 body {
   margin: 0;
   background: #e8eef6;
-  font-family: 'Tajawal', system-ui, sans-serif;
+  font-family: 'Alexandria', 'Inter', system-ui, sans-serif;
   color: #1f2a37;
 }
 img { max-width: 100%; display: block; }
@@ -259,6 +259,7 @@ button, input, select, textarea { font: inherit; }
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+  direction: ltr; /* match Figma 151:65 header order */
 }
 
 .branch-tag,
@@ -428,8 +429,53 @@ button, input, select, textarea { font: inherit; }
 }
 
 /* Stabilize layout during Figma html-to-design capture */
-html.figma-capture .branches-container,
-body:has(script[src*="html-to-design"]) .branches-container {
+html.figma-capture .branches-container {
   animation: none !important;
   transform: none !important;
+}
+
+/* —— Specialty pages (Figma artboards 266:*) —— */
+.section-page {
+  margin: 0;
+  background: #e8eef6;
+  font-family: 'Alexandria', 'Inter', sans-serif;
+}
+.section-page .back {
+  width: min(100%, 1366px);
+  margin: 0 auto;
+  padding: 1rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: #fff;
+  border-bottom: 1px solid #d7e2f0;
+}
+.section-page .back a {
+  color: #2b3a4f;
+  font-weight: 600;
+  text-decoration: none;
+}
+.section-page .back .wa {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  padding: 0.45rem 1rem;
+  border-radius: 999px;
+  background: #4a90c4;
+  color: #fff !important;
+  font-weight: 700;
+}
+.section-page .canvas {
+  width: min(100%, 1366px);
+  margin: 0 auto;
+  position: relative;
+  background: #fff;
+  line-height: 0;
+}
+.section-page .canvas img {
+  width: 100%;
+  height: auto;
+  display: block;
 }
