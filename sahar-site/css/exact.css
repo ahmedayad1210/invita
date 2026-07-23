@@ -426,3 +426,10 @@ button, input, select, textarea { font: inherit; }
     transform: none !important;
   }
 }
+
+/* Stabilize layout during Figma html-to-design capture */
+html.figma-capture .branches-container,
+body:has(script[src*="html-to-design"]) .branches-container {
+  animation: none !important;
+  transform: none !important;
+}
