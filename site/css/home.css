@@ -1,0 +1,55 @@
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Medium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Bold.otf") format("opentype");font-weight:600 800;font-display:swap}
+:root{
+--color-bg:#F0EDE4;
+--color-surface:#E7E3D4;
+--color-text:#0F2341;
+--color-divider:color-mix(in srgb,#0F2341 24%,transparent);
+--color-accent:#0F2341;
+--color-accent-2:#A0B1DD;
+--color-accent-100:#E3E7F2;
+--color-accent-200:#CFD7EA;
+--color-accent-300:#A0B1DD;
+--color-accent-400:#7C90C4;
+--color-accent-500:#54689B;
+--color-accent-600:#0B1B33;
+--color-accent-700:#0A1729;
+--color-accent-800:#08121F;
+--color-accent-900:#060D17;
+--color-neutral-100:#EBE7D9;
+--color-neutral-200:#E0DBC9;
+--color-neutral-300:#CEC8B2;
+--color-neutral-400:#B0AA92;
+--color-neutral-500:#918B73;
+--color-neutral-600:#736E58;
+--color-neutral-700:#585443;
+--color-neutral-800:#3C392E;
+--color-neutral-900:#28261F;
+--font-heading:"Plain","Alexandria",system-ui,sans-serif;
+--font-heading-weight:700;
+--font-body:"Plain","Alexandria",system-ui,sans-serif;
+--radius-sm:6px;
+--radius-md:10px;
+--radius-lg:14px;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F0EDE4;text-wrap:pretty}
+a{color:#8E7120}
+a:hover{color:#0F2341}
+summary::-webkit-details-marker{display:none}
+.inv-car::-webkit-scrollbar{display:none}
+@keyframes inv-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes inv-drop{0%{transform:translateY(0) scale(1);opacity:0}10%{opacity:1}78%{transform:translateY(330px) scale(1);opacity:1}88%{transform:translateY(330px) scale(1.8);opacity:.85}100%{transform:translateY(330px) scale(2.6);opacity:0}}
+@keyframes inv-pulse{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes inv-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes inv-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes inv-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes inv-zoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+[dir="rtl"]{--font-heading:"Alexandria",system-ui,sans-serif;--font-body:"Alexandria",system-ui,sans-serif;font-family:var(--font-body)}
+[dir="rtl"] *{letter-spacing:0 !important}
+.inv-show-m{display:none !important}
+@media (max-width:760px){.inv-hide-m{display:none !important}.inv-show-m{display:inline-flex !important}}
+@media (max-width:860px){.inv-stack{grid-template-columns:1fr !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}

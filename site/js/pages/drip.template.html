@@ -1,0 +1,267 @@
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;display=swap">
+<style>
+@font-face{font-family:"Plain";src:url("assets/fonts/Plain-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Plain";src:url("assets/fonts/Plain-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Plain";src:url("assets/fonts/Plain-Medium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"Plain";src:url("assets/fonts/Plain-Bold.otf") format("opentype");font-weight:600 800;font-display:swap}
+:root{
+--navy:#0F2341;--deep:#0A1A31;--mid:#16305A;--gold:#D9B344;--gold2:#F6E7B0;--ivory:#F0EDE4;
+--divider:rgba(240,237,228,.16);
+--font-heading:"Plain","Alexandria",system-ui,sans-serif;
+--font-body:"Plain","Alexandria",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A1A31;text-wrap:pretty}
+a{color:#D9B344}
+a:hover{color:#F0EDE4}
+@keyframes inv-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes inv-floatb{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@keyframes inv-pulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.8;transform:scale(1.07)}}
+@keyframes inv-aurora{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes inv-drift{0%{transform:translateY(10px);opacity:0}25%{opacity:.9}100%{transform:translateY(-70px);opacity:0}}
+@keyframes inv-spin{to{transform:rotate(360deg)}}
+@keyframes inv-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes inv-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes inv-rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+[dir="rtl"]{--font-heading:"Alexandria",system-ui,sans-serif;--font-body:"Alexandria",system-ui,sans-serif;font-family:var(--font-body)}
+[dir="rtl"] *{letter-spacing:0 !important}
+.inv-show-m{display:none !important}
+@media (max-width:760px){.inv-hide-m{display:none !important}.inv-show-m{display:inline-flex !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition-duration:.01ms !important}}
+</style>
+</helmet>
+<div ref="{{ rootRef }}" dir="{{ dir }}" style="background:linear-gradient(180deg,#0A1A31,#0F2341 40%,#0C1E38);color:var(--ivory);font-family:var(--font-body);min-height:100vh;overflow-x:hidden">
+
+<div aria-hidden="true" style="position:fixed;top:0;inset-inline-start:0;height:3px;width:0;z-index:90;background:linear-gradient(90deg,#D9B344,#F6E7B0);box-shadow:0 0 12px rgba(217,179,68,.6)" data-progress="1"></div>
+
+<nav aria-label="Main" style="position:sticky;top:0;z-index:70;background:color-mix(in srgb,#0A1A31 68%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;align-items:center;gap:22px;padding:14px max(clamp(20px,5vw,72px),calc((100% - 1120px) / 2 + clamp(20px,5vw,72px)));border-bottom:1px solid var(--divider)">
+  <a href="index.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;margin-inline-end:auto">
+    <img src="assets/uploads/prancheta-11.webp" alt="Invita — IV Vitamins Therapy" style="height:22px;width:auto;display:block">
+  </a>
+  <a href="menu.html" class="inv-hide-m" style="color:var(--ivory);text-decoration:none;font-size:14px">{{ t.allDrips }}</a>
+  <a href="partners.html" class="inv-hide-m" style="color:var(--ivory);text-decoration:none;font-size:14px">{{ t.partners }}</a>
+  <button type="button" onClick="{{ toggleLang }}" aria-label="Switch language" style="display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;border-radius:10px;border:1px solid var(--divider);color:var(--ivory);background:transparent;cursor:pointer;white-space:nowrap" style-hover="border-color:#D9B344;color:#D9B344">{{ langLabel }}</button>
+  <a href="index.html#book" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;background:#D9B344;color:#0F2341;white-space:nowrap;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(217,179,68,.35)">{{ t.book }}</a>
+  <button type="button" class="inv-show-m" onClick="{{ navToggle }}" aria-expanded="{{ navOpen }}" aria-label="Menu" style="align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;border:1px solid var(--divider);background:transparent;color:var(--ivory);cursor:pointer;font-size:18px;line-height:1;padding:0">☰</button>
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;inset-inline:0;background:#0A1A31;border-bottom:1px solid rgba(240,237,228,.14);box-shadow:0 24px 48px rgba(6,16,30,.18);display:flex;flex-direction:column;padding:8px clamp(20px,5vw,72px) 16px">
+      <a href="index.html" onClick="{{ navClose }}" style="padding:13px 2px;color:var(--ivory);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid rgba(240,237,228,.14)">{{ t.home }}</a>
+      <a href="menu.html" onClick="{{ navClose }}" style="padding:13px 2px;color:var(--ivory);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid rgba(240,237,228,.14)">{{ t.allDrips }}</a>
+      <a href="partners.html" onClick="{{ navClose }}" style="padding:13px 2px;color:var(--ivory);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid rgba(240,237,228,.14)">{{ t.partners }}</a>
+      <a href="index.html#book" onClick="{{ navClose }}" style="padding:13px 2px;color:var(--ivory);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid rgba(240,237,228,.14)">{{ t.book }}</a>
+    </div>
+  </sc-if>
+</nav>
+
+<header style="position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(120deg,#0A1A31,#16305A,#0F2341,#12294A);background-size:320% 320%;animation:inv-aurora 20s ease infinite"></div>
+  <div aria-hidden="true" style="position:absolute;top:-15%;inset-inline-end:-8%;width:min(60vw,620px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,179,68,.16),transparent 62%);filter:blur(10px);animation:inv-pulse 9s ease-in-out infinite"></div>
+  <img src="assets/brand/poster-molecule.webp" alt="" aria-hidden="true" style="position:absolute;top:6%;inset-inline-start:-90px;width:280px;opacity:.05;filter:brightness(0) invert(1);animation:inv-spin 80s linear infinite">
+  <span aria-hidden="true" style="position:absolute;left:16%;top:70%;width:8px;height:8px;border-radius:50%;background:#D9B344;filter:blur(1px);animation:inv-drift 7s ease-in infinite .4s"></span>
+  <span aria-hidden="true" style="position:absolute;left:38%;top:80%;width:5px;height:5px;border-radius:50%;background:#F6E7B0;animation:inv-drift 9s ease-in infinite 1.6s"></span>
+  <span aria-hidden="true" style="position:absolute;left:64%;top:76%;width:7px;height:7px;border-radius:50%;background:#D9B344;filter:blur(1px);animation:inv-drift 8s ease-in infinite 2.4s"></span>
+  <span aria-hidden="true" style="position:absolute;left:82%;top:66%;width:5px;height:5px;border-radius:50%;background:#F6E7B0;animation:inv-drift 10s ease-in infinite .9s"></span>
+
+  <div style="position:relative;max-width:1120px;margin:0 auto;padding:clamp(28px,4vw,44px) clamp(20px,5vw,72px) clamp(40px,6vw,72px)">
+    <nav aria-label="Breadcrumb" style="font-size:13px;color:rgba(240,237,228,.6);margin-bottom:clamp(24px,4vw,44px)">
+      <a href="index.html" style="color:inherit;text-decoration:none">{{ t.home }}</a>
+      <span aria-hidden="true" style="padding:0 8px">/</span>
+      <a href="index.html#menu" style="color:inherit;text-decoration:none">{{ t.menu }}</a>
+      <span aria-hidden="true" style="padding:0 8px">/</span>
+      <span style="color:var(--ivory)">{{ d.name }}</span>
+    </nav>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:clamp(28px,4vw,64px);align-items:center">
+      <div>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px;border:1px solid rgba(217,179,68,.45);color:#D9B344;background:rgba(217,179,68,.08);animation:inv-rise .6s ease both"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:#D9B344"></span>{{ d.tierLabel }}</span>
+        <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(40px,6vw,76px);line-height:1.15;letter-spacing:-0.02em;margin:18px 0 0;color:var(--ivory);animation:inv-rise .7s ease .08s both">{{ d.name }}</h1>
+        <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(19px,2.4vw,28px);line-height:1.3;margin:14px 0 0;background:linear-gradient(100deg,#D9B344 15%,#F6E7B0 50%,#D9B344 85%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:inv-shimmer 5s linear infinite,inv-rise .7s ease .16s both">{{ slogan }}</p>
+        <p style="font-size:17px;line-height:1.7;max-width:46ch;margin:18px 0 0;color:rgba(240,237,228,.82);animation:inv-rise .7s ease .24s both">{{ d.tag }}</p>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;animation:inv-rise .7s ease .32s both">
+          <div style="min-width:130px;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--divider);backdrop-filter:blur(8px)">
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(20px,2.4vw,26px);line-height:1;margin:0;color:var(--ivory);font-feature-settings:'tnum' 1"><span data-countup="1" data-target="{{ priceNum }}" data-pre="{{ pricePre }}" data-suf="{{ priceSuf }}">{{ priceDisplay }}</span></p>
+            <p style="font-size:12px;letter-spacing:.04em;color:rgba(240,237,228,.6);margin:8px 0 0">{{ t.perSession }}</p>
+          </div>
+          <div style="min-width:120px;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--divider);backdrop-filter:blur(8px)">
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(20px,2.4vw,26px);line-height:1;margin:0;color:var(--ivory);font-feature-settings:'tnum' 1"><span data-countup="1" data-target="{{ minNum }}" data-pre="" data-suf="{{ minSuf }}">{{ minDisplay }}</span></p>
+            <p style="font-size:12px;letter-spacing:.04em;color:rgba(240,237,228,.6);margin:8px 0 0">{{ t.approxTime }}</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;animation:inv-rise .7s ease .4s both">
+          <a href="{{ waBook }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 26px;font-family:var(--font-heading);font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;border-radius:12px;background:#D9B344;color:#0F2341;white-space:nowrap;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-3px);box-shadow:0 14px 30px rgba(217,179,68,.4)">{{ t.bookThis }} {{ arrow }}</a>
+          <a href="https://wa.me/9647748885559" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 24px;font-family:var(--font-heading);font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;border-radius:12px;border:1px solid var(--divider);color:var(--ivory);background:rgba(255,255,255,.04);white-space:nowrap;transition:border-color .25s ease,transform .25s ease" style-hover="border-color:#D9B344;transform:translateY(-3px)">{{ t.whatsapp }}</a>
+        </div>
+      </div>
+
+      <div ref="{{ artRef }}" style="position:relative;display:flex;justify-content:center;transition:transform .45s cubic-bezier(.2,.7,.2,1)">
+        <div style="position:relative;width:100%;max-width:420px;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,#F4F1E8,#E7E0D0);box-shadow:0 30px 70px rgba(6,14,26,.4),inset 0 1px 0 rgba(255,255,255,.6);padding:clamp(24px,3vw,36px);box-sizing:border-box;display:grid;place-items:center;aspect-ratio:4/5">
+          <div aria-hidden="true" style="position:absolute;top:14px;inset-inline-end:18px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(15,35,65,.42)">Liquivida®</div>
+          <div aria-hidden="true" style="position:absolute;width:66%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,179,68,.4),transparent 62%);filter:blur(8px)"></div>
+          <div aria-hidden="true" style="position:absolute;bottom:13%;width:54%;height:26px;border-radius:50%;background:radial-gradient(ellipse,rgba(15,35,65,.22),transparent 72%);filter:blur(5px)"></div>
+          <div style="position:relative;width:100%;height:100%;display:grid;place-items:center;animation:inv-float 6.5s ease-in-out infinite">{{ bagEl }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div aria-hidden="true" style="overflow:hidden;border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);background:rgba(217,179,68,.05);padding:13px 0">
+  <div dir="ltr" data-marquee="55" style="display:flex;width:max-content;animation:inv-marquee 28s linear infinite">
+    <sc-for list="{{ ingredientsx2 }}" as="ing" hint-placeholder-count="8">
+      <span style="display:inline-flex;align-items:center;gap:12px;padding:0 26px;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:rgba(240,237,228,.72)"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:#D9B344;flex:none"></span>{{ ing }}</span>
+    </sc-for>
+  </div>
+</div>
+
+<section style="max-width:1120px;margin:0 auto;padding:clamp(52px,7vw,104px) clamp(20px,5vw,72px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,64px)">
+    <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#D9B344;margin:0 0 14px">{{ t.overview }}</p>
+      <p style="font-size:17px;line-height:1.8;margin:0;color:rgba(240,237,228,.86)">{{ d.desc }}</p>
+      <sc-if value="{{ d.hasNote }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:22px;border-inline-start:3px solid #D9B344;background:rgba(217,179,68,.07);border-radius:0 12px 12px 0;padding:14px 18px;font-size:14.5px;line-height:1.65;color:rgba(240,237,228,.82)">{{ d.note }}</div>
+      </sc-if>
+    </div>
+    <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .12s,transform .7s cubic-bezier(.2,.7,.2,1) .12s">
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#D9B344;margin:0 0 16px">{{ t.formula }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ ingredients }}" as="ing" hint-placeholder-count="5">
+          <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--divider)">
+            <span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#D9B344,#F6E7B0);flex:none;box-shadow:0 0 10px rgba(217,179,68,.5)"></span>
+            <span dir="ltr" style="font-family:var(--font-heading);font-weight:700;font-size:14.5px;color:var(--ivory);text-align:start">{{ ing }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#D9B344;margin:24px 0 12px">{{ t.bestFor }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ d.goodFor }}" as="g" hint-placeholder-count="3">
+          <span style="display:inline-flex;align-items:center;font-size:12.5px;padding:6px 13px;border-radius:9px;background:rgba(240,237,228,.09);border:1px solid var(--divider);color:var(--ivory)">{{ g }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(52px,7vw,104px)">
+  <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+    <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#D9B344;margin:0 0 14px">{{ t.benefits }}</p>
+    <h2 style="font-size:clamp(26px,3.4vw,42px);line-height:1.18;letter-spacing:-0.015em;margin:0 0 30px">{{ d.tag }}</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
+    <sc-for list="{{ benefitCards }}" as="b" hint-placeholder-count="4">
+      <div data-reveal="1" style="{{ b.style }}">
+        <div style="position:relative;padding:24px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--divider);height:100%;box-sizing:border-box;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(217,179,68,.5);box-shadow:0 18px 40px rgba(0,0,0,.3)">
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:14px;color:#D9B344;font-feature-settings:'tnum' 1">{{ b.n }}</span>
+          <p style="font-size:16px;line-height:1.55;margin:14px 0 0;color:var(--ivory)">{{ b.t }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<section style="position:relative;background:linear-gradient(180deg,rgba(22,48,90,.5),transparent)">
+  <div style="max-width:1120px;margin:0 auto;padding:clamp(52px,7vw,104px) clamp(20px,5vw,72px)">
+    <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#D9B344;margin:0 0 14px">{{ t.howKicker }}</p>
+      <h2 style="font-size:clamp(26px,3.4vw,42px);line-height:1.18;letter-spacing:-0.015em;margin:0 0 34px">{{ t.howTitle }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+      <sc-for list="{{ stepCards }}" as="s" hint-placeholder-count="3">
+        <div data-reveal="1" style="{{ s.style }}">
+          <div style="position:relative;padding:26px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--divider);height:100%;box-sizing:border-box">
+            <div style="width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-heading);font-weight:800;font-size:16px;color:#0F2341;background:linear-gradient(135deg,#D9B344,#F6E7B0);box-shadow:0 0 18px rgba(217,179,68,.4);margin-bottom:16px">{{ s.n }}</div>
+            <h3 style="font-size:18px;margin:0 0 8px">{{ s.t }}</h3>
+            <p style="font-size:14.5px;line-height:1.65;margin:0;color:rgba(240,237,228,.76)">{{ s.b }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:900px;margin:0 auto;padding:clamp(52px,7vw,104px) clamp(20px,5vw,72px)">
+  <h2 data-reveal="1" style="font-size:clamp(26px,3.4vw,42px);line-height:1.18;letter-spacing:-0.015em;margin:0 0 24px;opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">{{ t.faqTitle }}</h2>
+  <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .1s,transform .7s cubic-bezier(.2,.7,.2,1) .1s">
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+      <div style="border-top:1px solid var(--divider)">
+        <button type="button" onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding:20px 0;font-family:var(--font-heading);font-weight:700;font-size:17px;color:var(--ivory)">
+          <span>{{ f.q }}</span>
+          <span aria-hidden="true" style="{{ f.signStyle }}">+</span>
+        </button>
+        <div style="{{ f.panelStyle }}">
+          <p style="margin:0;padding:0 0 22px;font-size:15px;line-height:1.75;max-width:72ch;color:rgba(240,237,228,.78)">{{ f.a }}</p>
+        </div>
+      </div>
+    </sc-for>
+    <div style="border-top:1px solid var(--divider)"></div>
+  </div>
+  <p style="font-size:12.5px;line-height:1.7;margin:22px 0 0;color:rgba(240,237,228,.5)">{{ t.disclaimer }}</p>
+</section>
+
+<section style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(40px,5vw,64px)">
+  <div data-reveal="1" style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px;opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+    <div>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#D9B344;margin:0 0 10px">{{ t.exploreKicker }}</p>
+      <h2 style="font-size:clamp(24px,3vw,36px);line-height:1.18;letter-spacing:-0.015em;margin:0">{{ t.exploreTitle }}</h2>
+    </div>
+    <a href="index.html#menu" style="font-size:14px;font-weight:700;font-family:var(--font-heading);text-decoration:none;white-space:nowrap">{{ t.allDrips }} {{ arrow }}</a>
+  </div>
+  <div style="display:flex;gap:16px;overflow-x:auto;padding:6px 2px 18px;scrollbar-width:none">
+    <sc-for list="{{ related }}" as="r" hint-placeholder-count="6">
+      <a href="{{ r.href }}" style="flex:none;width:230px;scroll-snap-align:start;text-decoration:none;color:var(--ivory)">
+        <div style="border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--divider);padding:18px 18px 20px;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(217,179,68,.5);box-shadow:0 18px 40px rgba(0,0,0,.32)">
+          <div style="height:168px;display:grid;place-items:center;border-radius:12px;background:#ECE6DC;overflow:hidden;margin-bottom:14px">{{ r.imgEl }}</div>
+          <span style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#D9B344">{{ r.tier }}</span>
+          <h3 style="font-size:17px;margin:6px 0 6px">{{ r.name }}</h3>
+          <p style="font-size:13px;margin:0;color:rgba(240,237,228,.66);font-feature-settings:'tnum' 1">{{ r.price }}</p>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden;margin:0 clamp(16px,4vw,72px) clamp(48px,6vw,88px);border-radius:26px">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(120deg,#12294A,#16305A,#0F2341);background-size:300% 300%;animation:inv-aurora 16s ease infinite"></div>
+  <div aria-hidden="true" style="position:absolute;top:-40%;inset-inline-end:-10%;width:min(50vw,460px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,179,68,.2),transparent 62%);animation:inv-pulse 8s ease-in-out infinite"></div>
+  <div data-reveal="1" style="position:relative;max-width:900px;margin:0 auto;padding:clamp(44px,6vw,80px) clamp(24px,5vw,64px);text-align:center;opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)">
+    <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4vw,50px);line-height:1.18;letter-spacing:-0.02em;margin:0;color:var(--ivory)">{{ slogan }}</h2>
+    <p style="font-size:16px;line-height:1.7;margin:16px auto 0;max-width:52ch;color:rgba(240,237,228,.8)">{{ t.ctaBody }}</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px">
+      <a href="index.html#book" style="display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:14px 30px;font-family:var(--font-heading);font-weight:700;font-size:15.5px;line-height:1.2;text-decoration:none;border-radius:12px;background:#D9B344;color:#0F2341;white-space:nowrap;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-3px);box-shadow:0 14px 30px rgba(217,179,68,.4)">{{ t.bookThis }} {{ arrow }}</a>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(44px,6vw,72px);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
+  <a href="{{ prevHref }}" style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--ivory);padding:18px 20px;border-radius:14px;border:1px solid var(--divider);background:rgba(255,255,255,.04);transition:border-color .25s ease" style-hover="border-color:#D9B344">
+    <span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(240,237,228,.55)">{{ arrowPrev }} {{ t.prev }}</span>
+    <span style="font-family:var(--font-heading);font-weight:800;font-size:17px">{{ prevName }}</span>
+  </a>
+  <a href="{{ nextHref }}" style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--ivory);text-align:end;padding:18px 20px;border-radius:14px;border:1px solid var(--divider);background:rgba(255,255,255,.04);transition:border-color .25s ease" style-hover="border-color:#D9B344">
+    <span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(240,237,228,.55)">{{ t.next }} {{ arrowNext }}</span>
+    <span style="font-family:var(--font-heading);font-weight:800;font-size:17px">{{ nextName }}</span>
+  </a>
+</section>
+
+<footer style="background:#08111F;border-top:1px solid var(--divider)">
+  <div style="max-width:1120px;margin:0 auto;padding:26px clamp(20px,5vw,72px);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+    <img src="assets/uploads/prancheta-11.webp" alt="Invita" style="height:18px;width:auto;display:block">
+    <p style="font-size:14px;margin:0;color:rgba(240,237,228,.75)"><a href="tel:+9647748885559" style="color:var(--ivory);text-decoration:none"><span dir="ltr">077 4888 5559</span></a> · www.invitadrips.com</p>
+  </div>
+</footer>
+
+<div data-sticky="1" style="position:fixed;left:0;right:0;bottom:0;z-index:80;transform:translateY(120%);opacity:0;transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .45s ease;background:color-mix(in srgb,#08111F 82%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--divider)">
+  <div style="max-width:1120px;margin:0 auto;padding:12px clamp(16px,5vw,72px);display:flex;align-items:center;gap:14px">
+    <div style="min-width:0">
+      <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin:0;color:var(--ivory);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ d.name }}</p>
+      <p style="font-size:12.5px;margin:2px 0 0;color:#D9B344;font-feature-settings:'tnum' 1">{{ d.price }}</p>
+    </div>
+    <a href="{{ waBook }}" target="_blank" rel="noopener" style="margin-inline-start:auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 22px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;line-height:1.2;text-decoration:none;border-radius:11px;background:#D9B344;color:#0F2341;white-space:nowrap">{{ t.bookThis }} {{ arrow }}</a>
+  </div>
+</div>
+
+</div>

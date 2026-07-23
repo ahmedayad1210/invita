@@ -1,0 +1,8 @@
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Plain";src:url("../assets/fonts/Plain-Bold.otf") format("opentype");font-weight:600 800;font-display:swap}
+:root{--font-heading:"Plain","Alexandria",system-ui,sans-serif;--font-body:"Plain","Alexandria",system-ui,sans-serif;--color-divider:color-mix(in srgb,#0F2341 24%,transparent)}
+html,body{margin:0;background:#0F2341}
+a{color:#0F2341}a:hover{color:#8E7120}
+[dir="rtl"]{--font-heading:"Alexandria",system-ui,sans-serif;--font-body:"Alexandria",system-ui,sans-serif}
+.inv-show-m{display:none !important}
+@media (max-width:760px){.inv-hide-m{display:none !important}.inv-show-m{display:inline-flex !important}}

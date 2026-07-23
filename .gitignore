@@ -18,3 +18,4 @@ netlify.env
 npm-debug.log*
 .vercel
 .firecrawl/
+design_handoff/
