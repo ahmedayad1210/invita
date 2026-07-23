@@ -191,25 +191,25 @@ button, input, select, textarea { font: inherit; }
   will-change: transform;
 }
 @keyframes kf_151_71_translate_0 {
-  0% { transform: translate(-1600px, 0); }
-  5% { transform: translate(-1599.961px, 0.104px); }
-  10% { transform: translate(-1599.923px, 0.208px); }
-  15% { transform: translate(-1599.884px, 0.312px); }
-  20% { transform: translate(-1599.846px, 0.417px); }
-  25% { transform: translate(-1599.807px, 0.521px); }
-  30% { transform: translate(-1599.769px, 0.625px); }
-  35% { transform: translate(-1417.381px, 0.729px); }
-  40% { transform: translate(-951.23px, 0.833px); }
-  45% { transform: translate(-556.712px, 0.937px); }
-  50% { transform: translate(-245.083px, 1.041px); }
-  55% { transform: translate(-44.336px, 1.145px); }
-  60% { transform: translate(0.462px, 1.25px); }
-  65% { transform: translate(0.501px, 1.354px); }
-  70% { transform: translate(0.539px, 1.458px); }
-  75% { transform: translate(0.578px, 1.562px); }
-  80% { transform: translate(0.616px, 1.666px); }
-  85% { transform: translate(0.628px, 1.698px); }
-  100% { transform: translate(0.628px, 1.698px); }
+  0% { translate: -1600px 0; }
+  5% { translate: -1599.961px 0.104px; }
+  10% { translate: -1599.923px 0.208px; }
+  15% { translate: -1599.884px 0.312px; }
+  20% { translate: -1599.846px 0.417px; }
+  25% { translate: -1599.807px 0.521px; }
+  30% { translate: -1599.769px 0.625px; }
+  35% { translate: -1417.381px 0.729px; }
+  40% { translate: -951.23px 0.833px; }
+  45% { translate: -556.712px 0.937px; }
+  50% { translate: -245.083px 1.041px; }
+  55% { translate: -44.336px 1.145px; }
+  60% { translate: 0.462px 1.25px; }
+  65% { translate: 0.501px 1.354px; }
+  70% { translate: 0.539px 1.458px; }
+  75% { translate: 0.578px 1.562px; }
+  80% { translate: 0.616px 1.666px; }
+  85% { translate: 0.628px 1.698px; }
+  100% { translate: 0.628px 1.698px; }
 }
 
 .branches-row {
@@ -259,6 +259,7 @@ button, input, select, textarea { font: inherit; }
   align-items: center;
   justify-content: space-between;
   gap: 0.5rem;
+  width: 100%;
   direction: ltr; /* match Figma 151:65 header order */
 }
 
@@ -285,16 +286,45 @@ button, input, select, textarea { font: inherit; }
   font-size: 0.6875rem;
 }
 
-.branch-tag img,
-.branch-badge img,
-.btn-call img,
-.btn-maps img,
-.btn-search img,
-.btn-all img {
-  width: auto;
-  height: auto;
+/* Figma icon leaf sizing — fixed box + fill (never auto) */
+.branch-tag img {
+  width: 16px;
+  height: 16px;
   flex: none;
   display: block;
+  object-fit: contain;
+}
+.branch-badge img {
+  width: 8px;
+  height: 8px;
+  flex: none;
+  display: block;
+  object-fit: contain;
+}
+.btn-call img,
+.btn-maps img {
+  width: 18px;
+  height: 18px;
+  flex: none;
+  display: block;
+  object-fit: contain;
+}
+.btn-search img,
+.btn-all img {
+  width: 20px;
+  height: 20px;
+  flex: none;
+  display: block;
+  object-fit: contain;
+}
+
+.branch-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  width: 100%;
+  text-align: right;
+  flex: 1;
 }
 
 .branch-card__name {
@@ -311,7 +341,6 @@ button, input, select, textarea { font: inherit; }
   font-size: 0.8125rem;
   color: var(--branch-addr);
   line-height: 1.45;
-  flex: 1;
 }
 
 .branch-card__actions {
@@ -363,7 +392,7 @@ button, input, select, textarea { font: inherit; }
 .branches-ctas {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 1.25rem; /* Figma 151:329 gap 20px */
   justify-content: center;
   direction: rtl;
 }
@@ -425,6 +454,7 @@ button, input, select, textarea { font: inherit; }
   .branches-container {
     animation: none !important;
     transform: none !important;
+    translate: none !important;
   }
 }
 
