@@ -1,5 +1,26 @@
 (() => {
   const WA = '964776664044';
+
+  // Restart Figma branches motion when the section enters the viewport
+  const track = document.getElementById('branches-track');
+  const section = document.getElementById('branches');
+  if (track && section && 'IntersectionObserver' in window) {
+    const restart = () => {
+      track.style.animation = 'none';
+      void track.offsetWidth;
+      track.style.animation = '';
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) restart();
+        });
+      },
+      { threshold: 0.25 }
+    );
+    io.observe(section);
+  }
+
   const form = document.getElementById('contact-form');
   const status = document.getElementById('form-status');
   if (!form) return;
