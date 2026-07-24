@@ -8,7 +8,7 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url));
 // next, supabase, and emailjs all require certain relaxations.
 // 'unsafe-inline' for scripts is needed by Next.js App Router hydration
 // and EmailJS inline initialisation. Tighten via nonces in future.
-const CSP = [
+const CSP_BASE = [
   "default-src 'self'",
   "script-src 'self' 'unsafe-inline' 'unsafe-eval'",
   "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
@@ -16,10 +16,16 @@ const CSP = [
   "img-src 'self' data: blob: https://images.unsplash.com https://plus.unsplash.com https://res.cloudinary.com https://*.supabase.co",
   "connect-src 'self' https://*.supabase.co wss://*.supabase.co https://api.emailjs.com",
   "frame-src https://www.openstreetmap.org",
-  "frame-ancestors 'none'",
   "base-uri 'self'",
   "form-action 'self'",
-].join("; ");
+];
+
+// Default policy: the page may not be framed by anyone.
+const CSP = [...CSP_BASE, "frame-ancestors 'none'"].join("; ");
+
+// The Sahar OS dashboards under /noloco/* are published as embeddable iframes
+// (e.g. into Softr / Noloco / Netlify surfaces), so they must permit framing.
+const CSP_EMBEDDABLE = [...CSP_BASE, "frame-ancestors *"].join("; ");
 
 const nextConfig: NextConfig = {
   turbopack: {
@@ -68,15 +74,27 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["http://192.168.0.113:3000"],
 
   async headers() {
+    const shared = [
+      { key: "X-Content-Type-Options", value: "nosniff" },
+      { key: "Referrer-Policy",        value: "strict-origin-when-cross-origin" },
+      { key: "Permissions-Policy",     value: "camera=(), microphone=(), geolocation=()" },
+    ];
     return [
       {
-        source: "/:path*",
+        // Everything except the embeddable /noloco dashboards stays frame-locked.
+        source: "/((?!noloco).*)",
         headers: [
-          { key: "X-Content-Type-Options",  value: "nosniff" },
-          { key: "X-Frame-Options",          value: "DENY" },
-          { key: "Referrer-Policy",          value: "strict-origin-when-cross-origin" },
-          { key: "Permissions-Policy",       value: "camera=(), microphone=(), geolocation=()" },
-          { key: "Content-Security-Policy",  value: CSP },
+          ...shared,
+          { key: "X-Frame-Options",         value: "DENY" },
+          { key: "Content-Security-Policy", value: CSP },
+        ],
+      },
+      {
+        // Embeddable Sahar OS dashboards — framing allowed, no X-Frame-Options.
+        source: "/noloco/:path*",
+        headers: [
+          ...shared,
+          { key: "Content-Security-Policy", value: CSP_EMBEDDABLE },
         ],
       },
     ];
