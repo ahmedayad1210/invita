@@ -4,6 +4,7 @@ node_modules/
 # Next.js
 .next/
 out/
+public/sahar/
 
 # environment variables - NEVER commit these
 .env
@@ -18,3 +19,4 @@ netlify.env
 npm-debug.log*
 .vercel
 .firecrawl/
+design_handoff/

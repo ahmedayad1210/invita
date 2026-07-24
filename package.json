@@ -5,9 +5,10 @@
   "description": "Invita — Ultra-luxury IV Drips + DNA Lab (Baghdad)",
   "scripts": {
     "dev": "next dev --webpack",
-    "build": "next build",
+    "build": "node scripts/sync-sahar-public.mjs && next build",
     "start": "next start",
     "lint": "next lint",
+    "sync:sahar": "node scripts/sync-sahar-public.mjs",
     "scrape:instagram": "node scripts/scrape-instagram.mjs",
     "scrape:instagram:hq": "node scripts/scrape-instagram.mjs --hq-only",
     "test:auth": "node scripts/test-auth.mjs https://invitadrips.com",

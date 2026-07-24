@@ -1,0 +1,663 @@
+/* Sahar Health Care Group — Figma 8V4nL4LvCJvPShIZjRoFRy */
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800&display=swap');
+
+:root {
+  --blue-50: #eef4fb;
+  --blue-100: #d9e6f5;
+  --blue-200: #b7cce6;
+  --blue-300: #8fb1d7;
+  --blue-400: #7ba3cf;
+  --blue-500: #6189c6;
+  --blue-600: #4a6f99;
+  --blue-700: #3d5a80;
+  --blue-800: #2b3a4f;
+  --blue-900: #1a2433;
+  --pink-100: #fdeef5;
+  --pink-200: #f6a6d1;
+  --pink-500: #ff72bf;
+  --pink-600: #e85aa8;
+  --ink: #1f2a37;
+  --muted: #5b6b7c;
+  --white: #ffffff;
+  --radius-pill: 999px;
+  --radius-lg: 36px;
+  --radius-md: 22px;
+  --radius-sm: 14px;
+  --shadow: 0 18px 40px rgba(43, 58, 79, 0.14);
+  --container: 1180px;
+  --font: 'Tajawal', system-ui, sans-serif;
+  --wa: 9647766664544;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: var(--font);
+  color: var(--ink);
+  background: linear-gradient(180deg, #f7fafc 0%, #eef3f8 40%, #f7fafc 100%);
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  text-wrap: pretty;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; text-decoration: none; }
+button, input, select, textarea { font: inherit; }
+h1, h2, h3, h4 { line-height: 1.25; margin: 0 0 0.5rem; font-weight: 800; }
+p { margin: 0 0 1rem; }
+
+.skip-link {
+  position: absolute;
+  inset-inline-start: 1rem;
+  top: -3rem;
+  background: var(--blue-800);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  z-index: 100;
+}
+.skip-link:focus { top: 1rem; }
+
+.container {
+  width: min(100% - 1.75rem, var(--container));
+  margin-inline: auto;
+}
+
+/* —— Top bar —— */
+.topbar {
+  padding: 0.85rem 0 0.35rem;
+}
+.topbar-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.phone-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  background: var(--blue-500);
+  color: white;
+  padding: 0.55rem 1rem;
+  border-radius: var(--radius-pill);
+  font-weight: 700;
+  font-size: 0.92rem;
+  white-space: nowrap;
+  box-shadow: 0 10px 22px rgba(97, 137, 198, 0.35);
+}
+.phone-chip .num { direction: ltr; unicode-bidi: isolate; }
+.search {
+  flex: 1;
+  min-width: 180px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--blue-100);
+  border-radius: var(--radius-pill);
+  padding: 0.55rem 1rem;
+  color: var(--blue-700);
+}
+.search input {
+  border: 0;
+  background: transparent;
+  width: 100%;
+  outline: none;
+  color: var(--ink);
+}
+.icon-row {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+.icon-btn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  border: 0;
+  background: var(--blue-100);
+  color: var(--blue-700);
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  position: relative;
+  font-weight: 800;
+  font-size: 0.85rem;
+}
+.icon-btn .badge {
+  position: absolute;
+  top: -2px;
+  inset-inline-end: -2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--blue-500);
+  color: white;
+  font-size: 0.65rem;
+  display: grid;
+  place-items: center;
+}
+
+/* —— Nav —— */
+.site-header { position: sticky; top: 0; z-index: 50; backdrop-filter: blur(10px); background: color-mix(in srgb, #f7fafc 88%, transparent); padding-bottom: 0.65rem; }
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  overflow-x: auto;
+  background: var(--blue-200);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.65rem;
+  scrollbar-width: none;
+}
+.nav-pill::-webkit-scrollbar { display: none; }
+.nav-pill a {
+  white-space: nowrap;
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--blue-800);
+}
+.nav-pill a:hover,
+.nav-pill a[aria-current="page"] {
+  background: white;
+  color: var(--blue-600);
+}
+.nav-toggle {
+  display: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  border: 1px solid var(--blue-200);
+  background: white;
+  cursor: pointer;
+}
+
+/* —— Buttons —— */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1.45rem;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid transparent;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
+}
+.btn:hover { transform: translateY(-1px); }
+.btn-primary {
+  background: var(--blue-500);
+  color: white;
+  box-shadow: 0 10px 24px rgba(97, 137, 198, 0.35);
+}
+.btn-primary:hover { background: var(--blue-600); }
+.btn-ghost {
+  background: color-mix(in srgb, white 22%, transparent);
+  color: white;
+  border-color: rgba(255,255,255,0.55);
+  backdrop-filter: blur(6px);
+}
+.btn-dark {
+  background: var(--blue-800);
+  color: white;
+}
+.btn-pink {
+  background: var(--pink-500);
+  color: white;
+  box-shadow: 0 10px 24px rgba(255, 114, 191, 0.28);
+}
+.btn-light {
+  background: white;
+  color: var(--blue-700);
+}
+.btn-sm { padding: 0.5rem 1rem; font-size: 0.88rem; }
+
+/* —— Hero —— */
+.hero {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  min-height: min(72vh, 640px);
+  color: white;
+  display: grid;
+  align-items: end;
+  background:
+    linear-gradient(180deg, rgba(26,36,51,0.18) 0%, rgba(43,58,79,0.72) 100%),
+    url('../assets/img/photos/hero-team.webp') center 30% / cover no-repeat,
+    var(--blue-700);
+  box-shadow: var(--shadow);
+}
+.hero-inner {
+  padding: 4.5rem 1.5rem 3.25rem;
+  text-align: center;
+  max-width: 52rem;
+  margin-inline: auto;
+}
+.hero h1 {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  margin-bottom: 0.25rem;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.35);
+}
+.hero .brand-line {
+  font-size: clamp(1.05rem, 2.2vw, 1.35rem);
+  font-weight: 700;
+  opacity: 0.95;
+  margin-bottom: 0.75rem;
+}
+.hero .lead {
+  max-width: 42ch;
+  margin: 0 auto 1.5rem;
+  opacity: 0.95;
+}
+.hero-ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+/* —— Pharmacy banner —— */
+.pharmacy {
+  margin-top: 1.35rem;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-700));
+  color: white;
+  position: relative;
+  min-height: 320px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  padding: 2.5rem 1.25rem;
+  box-shadow: var(--shadow);
+}
+.pharmacy::before {
+  content: 'س';
+  position: absolute;
+  font-size: clamp(10rem, 28vw, 18rem);
+  font-weight: 800;
+  opacity: 0.12;
+  line-height: 1;
+  pointer-events: none;
+}
+.pharmacy-card {
+  position: relative;
+  z-index: 1;
+  background: color-mix(in srgb, var(--blue-800) 55%, transparent);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255,255,255,0.18);
+  border-radius: var(--radius-md);
+  padding: 1.5rem 1.35rem;
+  width: min(100%, 640px);
+}
+.pharmacy-card h2 { font-size: clamp(1.35rem, 2.5vw, 1.85rem); }
+.pharmacy-card p { margin: 0 0 1.1rem; opacity: 0.92; }
+
+/* —— Section heads —— */
+.section { padding: 3.75rem 0; }
+.section-head {
+  text-align: center;
+  margin-bottom: 1.85rem;
+}
+.section-head .eyebrow {
+  display: inline-block;
+  color: var(--blue-600);
+  font-weight: 800;
+  font-size: 0.85rem;
+  margin-bottom: 0.35rem;
+}
+.section-head h2 {
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  color: var(--blue-800);
+}
+.section-head p {
+  color: var(--muted);
+  max-width: 48ch;
+  margin-inline: auto;
+}
+
+/* —— Services —— */
+.services {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: 2.75rem 1.25rem;
+  background:
+    linear-gradient(180deg, rgba(238,244,251,0.92), rgba(238,244,251,0.96)),
+    url('../assets/img/photos/clinic-team.webp') center / cover;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.9rem;
+}
+.service-card {
+  background: color-mix(in srgb, var(--blue-500) 78%, transparent);
+  color: white;
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1.15rem;
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.2);
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  min-height: 180px;
+}
+.service-card h3 { font-size: 1.08rem; margin: 0; }
+.service-card p { margin: 0; font-size: 0.9rem; opacity: 0.92; flex: 1; }
+.service-card .btn { align-self: flex-start; margin-top: 0.35rem; }
+
+/* —— Doctors —— */
+.doctors-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+}
+.doctor-card {
+  text-align: center;
+}
+.doctor-photo {
+  aspect-ratio: 3/4;
+  border-radius: var(--radius-md) var(--radius-md) 0 0;
+  background:
+    linear-gradient(180deg, transparent 55%, rgba(43,58,79,0.15)),
+    var(--doctor-bg, linear-gradient(160deg, var(--blue-200), var(--blue-400))) center top / cover no-repeat;
+}
+.doctor-body {
+  background: var(--blue-100);
+  border-radius: 0 0 var(--radius-md) var(--radius-md);
+  padding: 0.95rem 0.85rem 1.1rem;
+  margin-top: -0.35rem;
+  position: relative;
+}
+.doctor-body h3 { font-size: 1rem; margin-bottom: 0.15rem; color: var(--blue-800); }
+.doctor-body .spec { color: var(--blue-600); font-size: 0.86rem; margin-bottom: 0.7rem; }
+
+/* —— Feature image bands (exact Figma exports) —— */
+.figma-band {
+  margin: 1.25rem 0;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--blue-50);
+}
+.figma-band img {
+  width: 100%;
+  height: auto;
+}
+.figma-band-link {
+  display: block;
+  position: relative;
+}
+.hotspots {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.hotspot {
+  position: absolute;
+  pointer-events: auto;
+  border-radius: var(--radius-pill);
+  /* invisible hit area over Figma CTAs */
+  opacity: 0;
+}
+
+/* —— Pink / blue feature copy bands —— */
+.feature {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 1.25rem;
+  align-items: center;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  padding: clamp(1.5rem, 3vw, 2.75rem);
+  margin: 1.25rem 0;
+}
+.feature-pink { background: linear-gradient(180deg, var(--pink-100), #fff); }
+.feature-blue { background: linear-gradient(135deg, var(--blue-500), var(--blue-700)); color: white; }
+.feature-blue p { color: rgba(255,255,255,0.9); }
+.feature-media {
+  border-radius: 50%;
+  aspect-ratio: 1;
+  max-width: 360px;
+  margin-inline: auto;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+.feature-media img { width: 100%; height: 100%; object-fit: cover; }
+.tag-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0.85rem 0 1.1rem;
+}
+.tag {
+  background: var(--pink-200);
+  color: #7a2f5a;
+  padding: 0.35rem 0.85rem;
+  border-radius: var(--radius-pill);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+/* —— Branches —— */
+.branches {
+  background: var(--blue-50);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 0;
+  overflow: hidden;
+}
+.branches-track-wrap {
+  overflow: hidden;
+  margin-top: 1.25rem;
+  mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.branches-track {
+  display: flex;
+  gap: 1rem;
+  width: max-content;
+  animation: branches-in 2s linear infinite;
+  will-change: transform;
+}
+@keyframes branches-in {
+  0% { transform: translate3d(55%, 0, 0); }
+  60% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+[dir="rtl"] .branches-track {
+  animation-name: branches-in-rtl;
+}
+@keyframes branches-in-rtl {
+  0% { transform: translate3d(-55%, 0, 0); }
+  60% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(0, 0, 0); }
+}
+.branch-card {
+  width: min(280px, 72vw);
+  flex: none;
+  background: white;
+  border-radius: var(--radius-md);
+  padding: 1.25rem;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--blue-100);
+}
+.branch-card h3 { font-size: 1.05rem; color: var(--blue-800); margin-bottom: 0.35rem; }
+.branch-card p { font-size: 0.9rem; color: var(--muted); margin-bottom: 0.85rem; }
+
+.map-cta {
+  margin-top: 1.75rem;
+  background: linear-gradient(135deg, var(--blue-500), var(--blue-800));
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 2.75rem 1.5rem;
+  text-align: center;
+}
+.map-pin {
+  width: 78px;
+  height: 78px;
+  margin: 0 auto 1rem;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.12);
+  display: grid;
+  place-items: center;
+  font-size: 2.1rem;
+  border: 2px solid rgba(255,255,255,0.25);
+}
+
+/* —— Auth —— */
+.auth {
+  padding: 3.5rem 0;
+}
+.auth-card {
+  width: min(100%, 460px);
+  margin-inline: auto;
+  background: white;
+  border-radius: 28px;
+  padding: 2rem 1.5rem;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+.auth-card h2 { color: var(--blue-800); margin-bottom: 1.1rem; }
+.field { text-align: start; margin-bottom: 0.85rem; }
+.field label {
+  display: block;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+.field input, .field select, .field textarea {
+  width: 100%;
+  min-height: 48px;
+  border-radius: 14px;
+  border: 1px solid var(--blue-200);
+  padding: 0.65rem 0.95rem;
+  background: var(--blue-50);
+}
+.field textarea { min-height: 110px; resize: vertical; }
+.field input:focus, .field select:focus, .field textarea:focus {
+  outline: 2px solid var(--blue-400);
+  outline-offset: 1px;
+  background: white;
+}
+.auth-card .btn { width: 100%; margin-top: 0.35rem; }
+.form-note { margin-top: 0.75rem; font-size: 0.9rem; color: var(--muted); min-height: 1.3em; }
+
+/* —— Footer —— */
+.site-footer {
+  background: var(--blue-800);
+  color: rgba(255,255,255,0.88);
+  padding: 3.25rem 0 1.35rem;
+  margin-top: 1rem;
+}
+.footer-top {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr 1fr;
+  gap: 1.75rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(255,255,255,0.12);
+}
+.logo-mark {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, var(--blue-400), var(--blue-700));
+  color: white;
+  display: grid;
+  place-items: center;
+  font-size: 1.55rem;
+  font-weight: 800;
+  margin-bottom: 0.85rem;
+}
+.footer-col h4 { color: white; margin-bottom: 0.75rem; font-size: 1rem; }
+.footer-col a, .footer-col p {
+  display: block;
+  font-size: 0.92rem;
+  opacity: 0.82;
+  margin-bottom: 0.4rem;
+}
+.footer-col a:hover { opacity: 1; }
+.footer-bottom {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+  padding-top: 1.15rem;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+.socials { display: flex; gap: 0.55rem; }
+.socials a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.25);
+  display: grid;
+  place-items: center;
+}
+
+/* —— Reveal —— */
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.65s cubic-bezier(.2,0,.2,1), transform 0.65s cubic-bezier(.2,0,.2,1);
+}
+.reveal.in { opacity: 1; transform: none; }
+
+/* —— Page: section landing —— */
+.section-page {
+  background: #0f1720;
+  min-height: 100vh;
+}
+.section-page .back {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.85rem 1rem;
+  background: rgba(15,23,32,0.85);
+  backdrop-filter: blur(10px);
+  color: white;
+}
+.section-page .canvas {
+  max-width: 1366px;
+  margin: 0 auto;
+  position: relative;
+}
+.section-page .canvas img { width: 100%; height: auto; }
+
+@media (max-width: 980px) {
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  .doctors-grid { grid-template-columns: repeat(2, 1fr); }
+  .feature { grid-template-columns: 1fr; text-align: center; }
+  .feature-media { max-width: 280px; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  .hero-ctas, .pharmacy-card .hero-ctas { justify-content: center; }
+}
+@media (max-width: 720px) {
+  .nav-toggle { display: grid; place-items: center; }
+  .nav-pill {
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    border-radius: 18px;
+    padding: 0.65rem;
+  }
+  .nav-pill.open { display: flex; }
+  .services-grid, .doctors-grid, .footer-top { grid-template-columns: 1fr; }
+  .phone-chip span:not(.num) { display: none; }
+  .topbar-row { justify-content: space-between; }
+  .search { order: 3; flex-basis: 100%; }
+  .hero { min-height: 68vh; border-radius: 24px; }
+  .pharmacy, .services, .branches, .map-cta, .feature { border-radius: 24px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .branches-track { animation: none; transform: none; }
+  .reveal { opacity: 1; transform: none; transition: none; }
+}
