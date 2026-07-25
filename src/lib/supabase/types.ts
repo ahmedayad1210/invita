@@ -170,6 +170,27 @@ export interface NotificationRecord {
 }
 
 // ─────────────────────────────────────────────
+// MAKE.COM WATCHDOG
+// ─────────────────────────────────────────────
+
+export type MakeHealthStatus = "healthy" | "degraded" | "down" | "unknown";
+
+export interface MakeScenarioHealth {
+  id:            string;
+  scenario_id:   string;
+  scenario_name: string | null;
+  status:        MakeHealthStatus;
+  is_active:     boolean | null;
+  is_invalid:    boolean | null;
+  dlq_count:     number | null;
+  action_taken:  string;
+  problems:      string[];
+  detail:        Record<string, unknown>;
+  alerted_at:    string | null;
+  checked_at:    string;
+}
+
+// ─────────────────────────────────────────────
 // DATABASE TYPE
 // Written to match the exact internal shape
 // that @supabase/supabase-js expects
@@ -341,6 +362,36 @@ export type Database = {
           sort_order?:    number;
           is_active?:     boolean;
           updated_at?:    string;
+        };
+        Relationships: [];
+      };
+      make_scenario_health: {
+        Row: MakeScenarioHealth;
+        Insert: {
+          id?:            string;
+          scenario_id:    string;
+          scenario_name?: string | null;
+          status?:        MakeHealthStatus;
+          is_active?:     boolean | null;
+          is_invalid?:    boolean | null;
+          dlq_count?:     number | null;
+          action_taken?:  string;
+          problems?:      string[];
+          detail?:        Record<string, unknown>;
+          alerted_at?:    string | null;
+          checked_at?:    string;
+        };
+        Update: {
+          scenario_name?: string | null;
+          status?:        MakeHealthStatus;
+          is_active?:     boolean | null;
+          is_invalid?:    boolean | null;
+          dlq_count?:     number | null;
+          action_taken?:  string;
+          problems?:      string[];
+          detail?:        Record<string, unknown>;
+          alerted_at?:    string | null;
+          checked_at?:    string;
         };
         Relationships: [];
       };

@@ -38,6 +38,7 @@
 
 [functions]
   node_bundler = "esbuild"
+  directory = "netlify/functions"
 
 [functions."___netlify-server-handler"]
   included_files = ["!.next/cache/**"]
