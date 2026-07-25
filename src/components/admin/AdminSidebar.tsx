@@ -10,6 +10,7 @@ import {
   LogOut,
   CalendarDays,
   ImageIcon,
+  Activity,
 } from "lucide-react";
 
 const NAV = [
@@ -22,6 +23,7 @@ const NAV = [
   { label: "DNA Lab",   href: "/admin/dna",        icon: <Users           size={16} /> },
   { label: "Services",  href: "/admin/services",   icon: <Scissors        size={16} /> },
   { label: "Clinicians", href: "/admin/stylists",  icon: <Users           size={16} /> },
+  { label: "Make Watchdog", href: "/admin/make-health", icon: <Activity size={16} /> },
 ];
 
 export default function AdminSidebar() {
