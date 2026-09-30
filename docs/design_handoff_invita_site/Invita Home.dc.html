@@ -1,0 +1,1704 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="_ds/modernist-14b07f22-9730-47ba-ba25-221214847d2c/styles.css">
+<script src="_ds/modernist-14b07f22-9730-47ba-ba25-221214847d2c/_ds_bundle.js"></script>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;display=swap">
+<style>
+@font-face{font-family:"Plain";src:url("uploads/Plain-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Plain";src:url("uploads/Plain-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Plain";src:url("uploads/Plain-Medium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"Plain";src:url("uploads/Plain-Bold.otf") format("opentype");font-weight:600 800;font-display:swap}
+:root{
+--color-bg:#F2EDE3;
+--color-surface:#E8E1D2;
+--color-text:#0D2551;
+--color-divider:color-mix(in srgb,#8A6E2E 32%,transparent);
+--color-gold:#C3A15A;
+--color-gold-700:#8A6E2E;
+--color-surface-2:#FAF6EE;
+--color-accent:#0D2551;
+--color-accent-2:#93A8D8;
+--color-accent-100:#E2E7F3;
+--color-accent-200:#CBD5EB;
+--color-accent-300:#93A8D8;
+--color-accent-400:#6E86C0;
+--color-accent-500:#4A6096;
+--color-accent-600:#0A1C3E;
+--color-accent-700:#6B5320;
+--color-accent-800:#071630;
+--color-accent-900:#050F22;
+--color-neutral-100:#EBE7D9;
+--color-neutral-200:#E0DBC9;
+--color-neutral-300:#CEC8B2;
+--color-neutral-400:#B0AA92;
+--color-neutral-500:#918B73;
+--color-neutral-600:#736E58;
+--color-neutral-700:#585443;
+--color-neutral-800:#3C392E;
+--color-neutral-900:#171A20;
+--font-heading:"Plain","Alexandria",system-ui,sans-serif;
+--font-heading-weight:700;
+--font-body:"Plain","Alexandria",system-ui,sans-serif;
+--radius-sm:6px;
+--radius-md:10px;
+--radius-lg:14px;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F2EDE3;text-wrap:pretty}
+a{color:#8A6E2E}
+a:hover{color:#0D2551}
+summary::-webkit-details-marker{display:none}
+.inv-car::-webkit-scrollbar{display:none}
+@keyframes inv-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes inv-drop{0%{transform:translateY(0) scale(1);opacity:0}10%{opacity:1}78%{transform:translateY(330px) scale(1);opacity:1}88%{transform:translateY(330px) scale(1.8);opacity:.85}100%{transform:translateY(330px) scale(2.6);opacity:0}}
+@keyframes inv-pulse{0%,100%{opacity:.25}50%{opacity:1}}
+@keyframes inv-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes inv-grow{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes inv-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+@keyframes inv-zoom{from{transform:scale(1)}to{transform:scale(1.07)}}
+[dir="rtl"]{--font-heading:"Alexandria",system-ui,sans-serif;--font-body:"Alexandria",system-ui,sans-serif;font-family:var(--font-body)}
+[dir="rtl"] *{letter-spacing:0 !important}
+.inv-show-m{display:none !important}
+@media (max-width:760px){.inv-hide-m{display:none !important}.inv-show-m{display:inline-flex !important}}
+@media (max-width:860px){.inv-stack{grid-template-columns:1fr !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+
+/* ── premium motion layer ── */
+@keyframes invUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes invGrowX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes invKen{from{transform:scale(1.06)}to{transform:scale(1)}}
+@keyframes invNavShadow{from{box-shadow:0 0 0 rgba(10,20,40,0)}to{box-shadow:0 10px 34px rgba(10,20,40,.1)}}
+@supports (animation-timeline: view()){
+main>section,main>header>div{animation:invUp .8s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 24%}
+hr.hr{transform-origin:0 50%;animation:invGrowX 1.1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 40%}
+nav.nav{animation:invNavShadow .01s linear both;animation-timeline:scroll(root);animation-range:0 140px}
+}
+header[data-screen-label] img{animation:invKen 12s cubic-bezier(.2,.6,.3,1) both}
+.card{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s cubic-bezier(.2,.7,.2,1),border-color .45s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 26px 52px rgba(15,35,65,.15)}
+a.btn,button.btn{transition:transform .3s ease,box-shadow .3s ease,filter .3s ease}
+a.btn:hover,button.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,35,65,.2)}
+a.btn:active,button.btn:active{transform:translateY(0)}
+figure{overflow:visible}
+figure div{overflow:hidden}
+figure img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+figure:hover img{transform:scale(1.04)}
+::selection{background:#C3A15A;color:#0D2551}
+main h1,main h2{text-wrap:balance}
+@media (prefers-reduced-motion:reduce){main>section,main>header>div,hr.hr,header[data-screen-label] img{animation:none!important}figure img{transition:none}}
+
+/* ── premium v2 layer ── */
+@property --invGold{syntax:'<percentage>';inherits:false;initial-value:0%}
+main h2{animation:invBlurIn .9s cubic-bezier(.2,.7,.2,1) both}
+@supports (animation-timeline: view()){main h2{animation-timeline:view();animation-range:entry 0% entry 30%}}
+@keyframes invBlurIn{from{opacity:0;filter:blur(6px);transform:translateY(14px)}to{opacity:1;filter:none;transform:none}}
+#menu article{position:relative}
+#menu article a[href] img{transition:transform 1.4s cubic-bezier(.16,.7,.2,1)}
+#menu article:hover a[href] img{transform:scale(1.055)}
+#menu article a[href]{overflow:hidden}
+#menu article a[href]::after{content:"";position:absolute;inset:0;background:linear-gradient(to top,rgba(8,20,38,.42),transparent 42%);opacity:0;transition:opacity .5s ease;pointer-events:none}
+#menu article:hover a[href]::after{opacity:1}
+a.btn-primary{position:relative;overflow:hidden}
+a.btn-primary::before{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 32%,rgba(255,255,255,.35) 50%,transparent 68%);transform:translateX(-120%);transition:transform .8s cubic-bezier(.3,.6,.2,1)}
+a.btn-primary:hover::before{transform:translateX(120%)}
+nav.nav>a{position:relative}
+nav.nav>a::after{content:"";position:absolute;inset-inline:0;bottom:-4px;height:2px;background:#C3A15A;transform:scaleX(0);transform-origin:0 50%;transition:transform .35s cubic-bezier(.2,.7,.2,1)}
+nav.nav>a:hover::after{transform:scaleX(1)}
+.inv-car figure div img{transition:transform 1.2s cubic-bezier(.16,.7,.2,1)}
+.inv-car figure:hover div img{transform:scale(1.05)}
+img[alt*="طبيب"]{transition:transform .6s cubic-bezier(.2,.7,.2,1),box-shadow .6s ease}
+img[alt*="طبيب"]:hover{transform:translateY(-8px) scale(1.02);box-shadow:0 28px 60px rgba(0,0,0,.5)}
+#matcher button{transition:transform .3s ease,box-shadow .3s ease,background .3s ease,color .3s ease}
+#matcher button:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(15,35,65,.16)}
+@media (prefers-reduced-motion:reduce){main h2{animation:none!important}#menu article a[href] img,.inv-car figure div img{transition:none}}
+
+/* ── colour depth layer ── */
+#celebs,#how,#standard,#book,#membership{background:#FAF6EE}
+#celebs,#how,#standard,#book,#membership{box-shadow:inset 0 1px 0 color-mix(in srgb,#8A6E2E 18%,transparent),inset 0 -1px 0 color-mix(in srgb,#8A6E2E 18%,transparent)}
+main>section[style*="0F2341"],main>header[style*="0F2341"],section[style*="#0D2551"]{background-image:radial-gradient(120% 130% at 50% -10%,#1B3A6B 0%,#123056 38%,#0A1F42 72%,#061229 100%)!important}
+hr.hr,main hr{border-top:none!important;height:2px;background:linear-gradient(to right,color-mix(in srgb,#8A6E2E 60%,transparent),color-mix(in srgb,#8A6E2E 14%,transparent))!important}
+main a:not([class*="btn"]):hover{text-decoration-color:#C3A15A;text-underline-offset:3px}
+hr.hr{width:64px!important;border-radius:2px}
+#inv-prog{position:fixed;top:0;inset-inline-start:0;height:3px;width:100%;transform:scaleX(0);transform-origin:0 50%;background:linear-gradient(90deg,#8A6E2E,#C3A15A 55%,#E8D5A6);z-index:60;pointer-events:none;animation:inv-prog auto linear both;animation-timeline:scroll(root)}
+@keyframes inv-prog{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+main h2>span[style*="color:#C3A15A"],main h2 span[style*="#C3A15A"]{color:#C3A15A}
+
+main>section[style*="radial-gradient"]::after{content:"";position:absolute;inset:0;pointer-events:none;background-image:radial-gradient(rgba(217,179,68,.09) 1px,transparent 1px);background-size:4px 4px;mix-blend-mode:overlay;opacity:.55}
+main article.card,main .card{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s cubic-bezier(.2,.7,.2,1),border-color .35s ease}
+main article.card:hover,main .card:hover{border-color:color-mix(in srgb,#8A6E2E 60%,transparent);box-shadow:0 26px 52px rgba(15,35,65,.15),0 0 0 1px color-mix(in srgb,#8A6E2E 30%,transparent)}
+nav.nav{border-bottom:1px solid color-mix(in srgb,#8A6E2E 26%,transparent)}
+main h2::selection,main h1::selection{background:#0D2551;color:#C3A15A}
+/* ── modern layer (toggle: prop "modern") ── */
+@keyframes invAurora{0%{transform:translate3d(-8%,-4%,0) scale(1)}50%{transform:translate3d(6%,4%,0) scale(1.15)}100%{transform:translate3d(-8%,-4%,0) scale(1)}}
+[data-modern="on"]::before{content:"";position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.07;mix-blend-mode:multiply;background-image:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0naHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmcnIHdpZHRoPScxNjAnIGhlaWdodD0nMTYwJz48ZmlsdGVyIGlkPSduJz48ZmVUdXJidWxlbmNlIHR5cGU9J2ZyYWN0YWxOb2lzZScgYmFzZUZyZXF1ZW5jeT0nLjg1JyBudW1PY3RhdmVzPSczJyBzdGl0Y2hUaWxlcz0nc3RpdGNoJy8+PC9maWx0ZXI+PHJlY3Qgd2lkdGg9JzEwMCUnIGhlaWdodD0nMTAwJScgZmlsdGVyPSd1cmwoI24pJy8+PC9zdmc+")}
+[data-modern="on"] nav.nav{top:12px!important;margin:12px auto 0;max-width:min(1200px,calc(100% - 24px));border-radius:999px;border:1px solid color-mix(in srgb,#0D2551 10%,transparent)!important;background:color-mix(in srgb,#FAF6EE 62%,transparent)!important;backdrop-filter:blur(20px) saturate(1.4)!important;box-shadow:0 10px 40px rgba(13,37,81,.08),inset 0 1px 0 rgba(255,255,255,.6)!important;padding-inline:clamp(14px,2vw,24px)!important}
+[data-modern="on"] nav.nav>a::after{bottom:-2px;height:1.5px;border-radius:2px}
+[data-modern="on"] main>header[data-screen-label]{margin:-70px clamp(6px,1vw,14px) 0;border-radius:0 0 36px 36px;padding-top:70px}
+[data-modern="on"] main>header[data-screen-label]::before{content:"";position:absolute;width:70vmax;height:70vmax;inset-inline-end:-20vmax;top:-30vmax;border-radius:50%;background:radial-gradient(circle,rgba(195,161,90,.34),rgba(195,161,90,0) 62%);filter:blur(40px);animation:invAurora 22s ease-in-out infinite;pointer-events:none;z-index:1;mix-blend-mode:screen}
+[data-modern="on"] main>header[data-screen-label]>div:last-of-type{z-index:2}
+[data-modern="on"][dir="ltr"] main h1{font-size:clamp(40px,6.6vw,104px)!important;line-height:.98!important;letter-spacing:-.045em!important;font-weight:600!important}
+[data-modern="on"][dir="ltr"] main h2{letter-spacing:-.03em!important;line-height:1.1!important;font-weight:600!important}
+[data-modern="on"] main>section[style*="radial-gradient"],[data-modern="on"] main>section[style*="#0D2551"]{margin:clamp(6px,1vw,14px);border-radius:clamp(22px,3vw,36px);isolation:isolate}
+[data-modern="on"] #celebs,[data-modern="on"] #how,[data-modern="on"] #standard,[data-modern="on"] #book,[data-modern="on"] #membership{box-shadow:none;margin:clamp(6px,1vw,14px);border-radius:clamp(22px,3vw,36px);border:1px solid color-mix(in srgb,#0D2551 7%,transparent)}
+[data-modern="on"] main>section[data-screen-label="Poster close"]{margin:clamp(6px,1vw,14px);border-radius:clamp(22px,3vw,36px)}
+[data-modern="on"] main .card,[data-modern="on"] main article{border-radius:22px!important}
+[data-modern="on"] main figure div,[data-modern="on"] #menu article a[href]{border-radius:18px!important}
+[data-modern="on"] main .card:hover{transform:translateY(-6px) scale(1.01)}
+[data-modern="on"] a.btn,[data-modern="on"] button.btn{border-radius:999px!important;letter-spacing:-.005em}
+[data-modern="on"] a.btn-primary{box-shadow:0 8px 24px rgba(195,161,90,.35),inset 0 1px 0 rgba(255,255,255,.4)}
+[data-modern="on"] a.btn:hover .inv-arr,[data-modern="on"] a.btn:hover{gap:12px}
+[data-modern="on"] main p[style*="letter-spacing:.06em"],[data-modern="on"] main p[style*="letter-spacing:.08em"]{text-transform:uppercase;font-size:11.5px!important;letter-spacing:.18em!important}
+[data-modern="on"][dir="rtl"] main p[style*="letter-spacing:.06em"]{font-size:13px!important}
+[data-modern="on"] :focus-visible{outline:2px solid #C3A15A;outline-offset:3px;border-radius:10px}
+[data-modern="on"] main img{border-radius:inherit}
+@media (max-width:760px){[data-modern="on"] main>header[data-screen-label]{margin-inline:0;border-radius:0 0 26px 26px}[data-modern="on"] nav.nav{border-radius:22px}}
+@media (prefers-reduced-motion:reduce){[data-modern="on"] main>header[data-screen-label]::before{animation:none}}
+</style>
+<meta name="ext-resource-dependency" content="assets/bottles/cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/bottles/dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/bottles/edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/bottles/energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/bottles/fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/bottles/hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/bottles/immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/bottles/jet-fuel.png">
+<meta name="ext-resource-dependency" content="assets/bottles/myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/bottles/nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/bottles/panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/bottles/skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/bottles/weight-loss.png">
+<meta name="ext-resource-dependency" content="assets/social/post-cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/social/post-dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/social/post-edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/social/post-energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/post-fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/social/post-hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/social/post-immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/post-myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/social/post-nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/social/post-panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/social/post-skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/social/post-weight-loss.png">
+<meta name="ext-resource-dependency" content="assets/social/story-cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/social/story-dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/social/story-edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/social/story-energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/story-fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/social/story-hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/social/story-immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/story-myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/social/story-nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/social/story-panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/social/story-skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/social/story-weight-loss.png">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-23 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-23.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-24 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-24.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25 3.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25 4.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-18.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-19 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-19 4.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20 3.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20 4.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6084-2.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6085-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6086-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6087-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6088-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6089-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6090-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6091-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6092-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6093-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6094-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6095-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6096-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6097-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6098-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/AQMpXqXVbFi7bEDGUrpKYfxTUYsc_wzn7w8dV_KpJ9VDt18ahug0ElVb8brx4MD.mp4">
+<meta name="ext-resource-dependency" content="uploads/AQNPlIc8mINu5iOhJn1uWMIwgid1kPHtrBkbheyNrwIvFEHuFIt47NCfjq_d9KI.mp4">
+<meta name="ext-resource-dependency" content="uploads/AQP81b4gmt9SwhC1oMysGalwoQadkEVqjghhpSmvq4uvrzKW0kr43ev1lrOxJ69aX4fce76R1b.mp4">
+<meta name="ext-resource-dependency" content="uploads/AQPg2jbm6_bam_fHYG7VOmPpfw7K5bkQQMzwxboC_K5cTskRE5ewL7l2Fd9PxoL.mp4">
+<meta name="ext-resource-dependency" content="uploads/vvv.mp4">
+<meta name="ext-resource-dependency" content="assets/social/post-glutathione.png">
+<meta name="ext-resource-dependency" content="assets/social/post-vitamin-d3.png">
+<meta name="ext-resource-dependency" content="assets/social/story-glutathione.png">
+<meta name="ext-resource-dependency" content="assets/social/story-vitamin-d3.png">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-19.jpg">
+</helmet>
+<div dir="{{ dir }}" data-modern="{{ modern }}" style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body)">
+<div id="inv-prog" aria-hidden="true"></div>
+
+<sc-if value="{{ showPromo }}" hint-placeholder-val="{{ true }}">
+<div style="background:var(--color-accent-100);color:var(--color-accent-800);font-size:13px;display:flex;justify-content:center;align-items:center;gap:14px;flex-wrap:wrap;padding:8px clamp(20px,5vw,72px);border-bottom:1px solid var(--color-accent-300)">
+  <span>{{ t.promo.body }}</span>
+  <a href="https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A" target="_blank" rel="noopener" style="color:var(--color-accent-800);font-weight:700">{{ t.promo.cta }} {{ arrow }}</a>
+</div>
+</sc-if>
+
+<template id="__bundler_thumbnail" data-bg-color="#0D2551">
+  <svg viewBox="0 0 1200 800" xmlns="http://www.w3.org/2000/svg">
+    <rect width="1200" height="800" fill="#0D2551"></rect>
+    <g fill="#C3A15A"><circle cx="600" cy="310" r="30"></circle><circle cx="600" cy="212" r="18"></circle><circle cx="685" cy="261" r="18"></circle><circle cx="685" cy="359" r="18"></circle><circle cx="600" cy="408" r="18"></circle><circle cx="515" cy="359" r="18"></circle><circle cx="515" cy="261" r="18"></circle></g>
+    <text x="600" y="560" font-family="Georgia,serif" font-size="84" fill="#F0EDE4" text-anchor="middle">Invita</text>
+    <text x="600" y="622" font-family="Georgia,serif" font-size="30" fill="#93A8D8" text-anchor="middle" letter-spacing="8">IV VITAMINS THERAPY</text>
+  </svg>
+</template>
+<nav class="nav" aria-label="Main" style="position:sticky;top:0;z-index:60;background:color-mix(in srgb,#F2EDE3 72%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);padding-inline:max(clamp(20px,5vw,72px),calc((100% - 1200px) / 2 + clamp(20px,5vw,72px)))">
+  <span class="nav-brand" style="display:flex;align-items:center;gap:11px">
+    <img src="uploads/Prancheta 2.png" alt="" style="height:34px;width:auto;display:block">
+    <img src="uploads/Prancheta 14.png" alt="Invita — IV Vitamins Therapy" style="height:19px;width:auto;display:block">
+  </span>
+  <a href="Invita IV Menu.dc.html" class="inv-hide-m">{{ t.nav.menu }}</a>
+  <a href="Invita Science.dc.html" class="inv-hide-m">{{ t.nav.science }}</a>
+  <a href="#clinics" class="inv-hide-m">{{ t.nav.clinics }}</a>
+  <a href="Invita Partners.dc.html" class="inv-hide-m">{{ t.nav.partners }}</a>
+  <button type="button" class="btn btn-secondary" onClick="{{ toggleLang }}" aria-label="Switch language" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;border-radius:10px;border:1px solid var(--color-divider);color:var(--color-text);background:transparent;cursor:pointer;white-space:nowrap">{{ langLabel }}</button>
+  <a href="https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;background:#0D2551;color:#F0EDE4;white-space:nowrap">{{ t.nav.book }}</a>
+  <button type="button" class="inv-show-m" onClick="{{ navToggle }}" aria-expanded="{{ navOpen }}" aria-label="Menu" style="align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;border:1px solid var(--color-divider);background:transparent;color:var(--color-text);cursor:pointer;font-size:18px;line-height:1;padding:0">☰</button>
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;inset-inline:0;background:#F2EDE3;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent);box-shadow:0 24px 48px rgba(6,16,30,.18);display:flex;flex-direction:column;padding:8px clamp(20px,5vw,72px) 16px">
+      <a href="Invita IV Menu.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.menu }}</a>
+      <a href="Invita Science.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.science }}</a>
+      <a href="#clinics" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.clinics }}</a>
+      <a href="Invita Partners.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.partners }}</a>
+      <a href="https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A" target="_blank" rel="noopener" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.book }}</a>
+    </div>
+  </sc-if>
+</nav>
+
+<main id="main">
+
+<header data-screen-label="Hero" style="position:relative;overflow:hidden;background:linear-gradient(160deg,#081426,#0D2551 55%,#0C1E38);min-height:min(94vh,940px);display:flex;flex-direction:column">
+  <div aria-hidden="true" style="position:absolute;inset:0">
+    <img src="uploads/hero-clinic.jpg" alt="" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:72% 28%;opacity:.78;animation:invKen 16s cubic-bezier(.2,.6,.3,1) both">
+    <div style="position:absolute;inset:0;background:linear-gradient(100deg,#081426 4%,rgba(8,20,38,.82) 30%,rgba(8,20,38,.18) 62%,rgba(8,20,38,.4))"></div>
+    <div style="position:absolute;inset:0;background:linear-gradient(to top,#081426 0%,transparent 24%)"></div>
+    <div style="position:absolute;top:-25%;inset-inline-end:-10%;width:min(55vw,640px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,179,68,.17),transparent 60%);animation:inv-pulse 9s ease-in-out infinite"></div>
+    <div style="position:absolute;bottom:-30%;inset-inline-start:-12%;width:min(50vw,560px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(160,177,221,.13),transparent 60%);animation:inv-pulse 11s ease-in-out 2s infinite"></div>
+  </div>
+  <div style="position:relative;max-width:1200px;width:100%;margin:auto auto 0;padding:clamp(72px,11vh,132px) clamp(20px,5vw,72px) clamp(28px,4vh,44px)">
+    <p style="display:inline-flex;align-items:center;gap:10px;margin:0 0 22px;padding:8px 16px;border-radius:999px;border:1px solid rgba(217,179,68,.45);background:rgba(217,179,68,.08);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-family:var(--font-heading);font-weight:700;font-size:12.5px;letter-spacing:.06em;color:#C3A15A;animation:inv-up .7s cubic-bezier(.2,0,.2,1) both"><span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:#C3A15A;box-shadow:0 0 12px #C3A15A;flex:none"></span>{{ t.hero.badge }}</p>
+    <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,5.4vw,76px);line-height:1.22;letter-spacing:-0.02em;margin:0;max-width:20ch;color:#F0EDE4">
+      <span style="display:block;animation:inv-up .8s cubic-bezier(.2,0,.2,1) .12s both">{{ t.hero.l1 }}</span>
+      <span style="display:block;animation:inv-up .8s cubic-bezier(.2,0,.2,1) .28s both;color:#C3A15A">{{ t.hero.l2 }}</span>
+    </h1>
+    <p style="font-size:clamp(15.5px,1.5vw,18.5px);line-height:1.75;max-width:54ch;margin:22px 0 0;color:rgba(240,237,228,.82);animation:inv-up .8s cubic-bezier(.2,0,.2,1) .42s both">{{ t.hero.sub }}</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:32px;animation:inv-up .8s cubic-bezier(.2,0,.2,1) .54s both">
+      <a href="https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A" target="_blank" rel="noopener" class="btn btn-primary" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 28px;font-family:var(--font-heading);font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;border-radius:12px;background:#C3A15A;color:#0D2551;white-space:nowrap;box-shadow:0 14px 34px rgba(217,179,68,.28)">{{ t.hero.ctaBook }}</a>
+      <a href="#menu" class="btn" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;font-family:var(--font-heading);font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;border-radius:12px;border:1px solid rgba(240,237,228,.3);color:#F0EDE4;background:rgba(255,255,255,.06);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);white-space:nowrap">{{ t.hero.ctaMenu }} {{ arrow }}</a>
+      <a href="#clinics" class="btn btn-secondary" style="display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:14px 24px;font-family:var(--font-heading);font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;border-radius:12px;border:1px solid transparent;color:rgba(240,237,228,.75);background:transparent;white-space:nowrap">{{ t.hero.ctaClinics }}</a>
+    </div>
+    <p style="margin:26px 0 0;font-size:14px;color:rgba(240,237,228,.62);animation:inv-up .8s cubic-bezier(.2,0,.2,1) .62s both">{{ t.hero.fromLine }} <a href="https://wa.me/9647748885559" target="_blank" rel="noopener" style="font-weight:700;color:#C3A15A;text-decoration:none"><span dir="ltr">+964 774 888 5559</span></a></p>
+  </div>
+  <div style="position:relative;max-width:1200px;width:100%;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(36px,5vh,56px)">
+    <div style="display:flex;gap:10px;flex-wrap:wrap;animation:inv-up .8s cubic-bezier(.2,0,.2,1) .72s both">
+      <sc-for list="{{ heroTags }}" as="tg" hint-placeholder-count="3">
+        <span class="tag" style="display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;letter-spacing:.02em;padding:10px 16px;border-radius:12px;border:1px solid rgba(240,237,228,.18);background:rgba(255,255,255,.06);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);color:rgba(240,237,228,.88)"><span aria-hidden="true" style="width:5px;height:5px;border-radius:50%;background:#C3A15A;flex:none"></span>{{ tg }}</span>
+      </sc-for>
+    </div>
+  </div>
+  <div aria-hidden="true" style="position:absolute;bottom:14px;inset-inline:0;display:flex;justify-content:center;pointer-events:none">
+    <span style="width:1px;height:34px;background:linear-gradient(to bottom,transparent,#C3A15A);animation:inv-pulse 2.4s ease-in-out infinite"></span>
+  </div>
+</header>
+
+<section data-screen-label="Trust strip" style="background:var(--color-surface);border-top:2px solid var(--color-divider)">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(24px,3vw,40px) clamp(20px,5vw,72px);display:flex;align-items:center;justify-content:space-between;gap:clamp(20px,3vw,48px);flex-wrap:wrap">
+    <div style="flex:1;min-width:260px">
+      <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(17px,1.8vw,21px);line-height:1.35;margin:0">{{ t.trust.title }}</p>
+      <p style="font-size:13.5px;line-height:1.65;margin:6px 0 0;max-width:58ch;color:color-mix(in srgb,var(--color-text) 72%,transparent)">{{ t.trust.sub }}</p>
+    </div>
+    <div style="display:flex;align-items:center;gap:clamp(16px,2.5vw,32px);flex-wrap:wrap">
+      <img src="assets/brand/badge-american-iv.png" alt="American IV Association" style="height:52px;width:auto;display:block;mix-blend-mode:multiply">
+      <img src="assets/brand/badge-kmca.png" alt="KMCA — Kurdistan Medicines Control Agency" style="height:44px;width:auto;display:block;mix-blend-mode:multiply">
+      <span style="font-family:var(--font-heading);font-weight:700;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 64%,transparent);border-inline-start:2px solid var(--gold,#C3A15A);padding-inline-start:14px">{{ t.trust.liqui }}</span>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Doctors of Baghdad" style="background:radial-gradient(120% 130% at 50% -10%,#1B3A6B 0%,#123056 38%,#0A1F42 72%,#061229 100%);position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('uploads/Prancheta 2.png');background-size:150px;background-repeat:repeat;opacity:.05;pointer-events:none"></div>
+  <div dir="rtl" style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(44px,5vw,72px) clamp(20px,5vw,72px) 0;text-align:center">
+    <p style="display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:600;letter-spacing:.06em;color:#C3A15A;margin:0 0 16px"><span aria-hidden="true" style="width:34px;height:1px;background:linear-gradient(to left,transparent,#C3A15A)"></span>موثوق طبياً<span aria-hidden="true" style="width:34px;height:1px;background:linear-gradient(to right,transparent,#C3A15A)"></span></p>
+    <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(26px,3.4vw,44px);line-height:1.45;letter-spacing:-0.01em;margin:0;color:#F0EDE4;max-width:26ch;margin-inline:auto">يثق بنا <span style="color:#C3A15A">نخبة من أطباء العراق</span></h2>
+    <p style="font-size:clamp(14px,1.6vw,17px);line-height:1.8;margin:14px auto 0;max-width:52ch;color:rgba(240,237,228,.8)">نوفر للأطباء والعيادات حلولاً متكاملة للعلاج الوريدي تشمل البروتوكولات العلاجية، التدريب السريري، والدعم العلمي المستمر.</p>
+  </div>
+  <div style="position:relative;padding:clamp(28px,3.5vw,44px) 0 clamp(44px,5vw,72px)">
+    <div dir="ltr" data-marquee="60" style="display:flex;gap:clamp(14px,1.8vw,22px);width:max-content;padding-inline-start:clamp(14px,1.8vw,22px);animation:inv-tick 80s linear infinite">
+      <sc-for list="{{ doctorCards }}" as="dc" hint-placeholder-count="6">
+        <img data-inv-src="{{ dc }}" ref="{{ srcRef }}" alt="طبيب معتمد — Invita" loading="lazy" style="width:min(72vw,300px);aspect-ratio:1024/1031;object-fit:cover;border-radius:18px;box-shadow:0 16px 40px rgba(0,0,0,.35);display:block;flex:none">
+      </sc-for>
+    </div>
+    <div aria-hidden="true" style="position:absolute;inset-block:0;inset-inline-start:0;width:clamp(30px,6vw,110px);background:linear-gradient(to right,#0D2551,transparent);pointer-events:none;z-index:1"></div>
+    <div aria-hidden="true" style="position:absolute;inset-block:0;inset-inline-end:0;width:clamp(30px,6vw,110px);background:linear-gradient(to left,#0D2551,transparent);pointer-events:none;z-index:1"></div>
+  </div>
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(48px,6vw,80px)">
+    <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin:0 0 24px">
+      <span aria-hidden="true" style="width:30px;height:1px;background:linear-gradient(to right,transparent,#C3A15A)"></span>
+      <p style="font-size:12.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#C3A15A;margin:0">{{ t.docExp.kicker }}</p>
+      <span aria-hidden="true" style="width:30px;height:1px;background:linear-gradient(to left,transparent,#C3A15A)"></span>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px">
+        <div style="position:relative;border-radius:18px;overflow:hidden;aspect-ratio:9/16;background:#061229;border:1px solid rgba(217,179,68,.28);box-shadow:0 18px 44px rgba(0,0,0,.45)">
+          <video onPlay="{{ expPlay }}" data-autoplay="1" autoPlay="autoplay" muted="muted" loop="loop" src="uploads/AQPg2jbm6_bam_fHYG7VOmPpfw7K5bkQQMzwxboC_K5cTskRE5ewL7l2Fd9PxoL.mp4" controls="controls" playsInline="playsinline" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#061229"></video>
+        </div>
+        <div style="position:relative;border-radius:18px;overflow:hidden;aspect-ratio:9/16;background:#061229;border:1px solid rgba(217,179,68,.28);box-shadow:0 18px 44px rgba(0,0,0,.45)">
+          <video onPlay="{{ expPlay }}" data-autoplay="1" autoPlay="autoplay" muted="muted" loop="loop" src="uploads/AQMpXqXVbFi7bEDGUrpKYfxTUYsc_wzn7w8dV_KpJ9VDt18ahug0ElVb8brx4MD.mp4" controls="controls" playsInline="playsinline" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#061229"></video>
+        </div>
+        <div style="position:relative;border-radius:18px;overflow:hidden;aspect-ratio:9/16;background:#061229;border:1px solid rgba(217,179,68,.28);box-shadow:0 18px 44px rgba(0,0,0,.45)">
+          <video onPlay="{{ expPlay }}" data-autoplay="1" autoPlay="autoplay" muted="muted" loop="loop" src="uploads/AQNPlIc8mINu5iOhJn1uWMIwgid1kPHtrBkbheyNrwIvFEHuFIt47NCfjq_d9KI.mp4" controls="controls" playsInline="playsinline" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#061229"></video>
+        </div>
+        <div style="position:relative;border-radius:18px;overflow:hidden;aspect-ratio:9/16;background:#061229;border:1px solid rgba(217,179,68,.28);box-shadow:0 18px 44px rgba(0,0,0,.45)">
+          <video onPlay="{{ expPlay }}" data-autoplay="1" autoPlay="autoplay" muted="muted" loop="loop" src="uploads/AQP81b4gmt9SwhC1oMysGalwoQadkEVqjghhpSmvq4uvrzKW0kr43ev1lrOxJ69aX4fce76R1b.mp4" controls="controls" playsInline="playsinline" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#061229"></video>
+        </div>
+    </div>
+  </div>
+</section>
+
+
+<section data-screen-label="What you get" style="border-top:2px solid var(--color-divider)">
+  <div style="max-width:1200px;margin:0 auto;padding:26px clamp(20px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px clamp(20px,3vw,48px)">
+    <sc-for list="{{ t.get }}" as="g" hint-placeholder-count="4">
+      <div style="display:flex;gap:12px;align-items:baseline">
+        <span aria-hidden="true" style="width:8px;height:8px;border-radius:50%;background:#C3A15A;flex:none"></span>
+        <div>
+          <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin:0">{{ g.t }}</p>
+          <p style="font-size:13px;margin:3px 0 0;color:color-mix(in srgb,var(--color-text) 64%,transparent)">{{ g.b }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<div data-screen-label="Use-case ticker" aria-hidden="true" style="border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider);overflow:hidden">
+  <div dir="ltr" data-marquee="45" style="display:flex;width:max-content;animation:inv-tick 48s linear infinite">
+    <sc-for list="{{ tickerItems }}" as="u" hint-placeholder-count="8">
+      <span style="display:flex;align-items:center;gap:18px;padding:10px 0 10px 18px;font-size:12px;text-transform:uppercase;letter-spacing:.1em;white-space:nowrap;color:color-mix(in srgb,var(--color-text) 70%,transparent)"><span style="width:6px;height:6px;border-radius:50%;background:#C3A15A;flex:none"></span>{{ u }}</span>
+    </sc-for>
+  </div>
+</div>
+
+<section data-screen-label="Stats" ref="{{ statsRef }}" style="background:radial-gradient(120% 130% at 50% -10%,#1B3A6B 0%,#123056 38%,#0A1F42 72%,#061229 100%);position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('uploads/Prancheta 2.png');background-size:150px;background-repeat:repeat;opacity:.05;pointer-events:none"></div>
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(44px,5vw,72px) clamp(20px,5vw,72px);position:relative">
+    <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#C3A15A;margin:0 0 24px">{{ t.stats.kicker }}</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:32px 24px">
+      <sc-for list="{{ stats }}" as="s" hint-placeholder-count="4">
+        <div style="border-top:1px solid rgba(217,179,68,.35);padding-top:18px">
+          <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,3.6vw,50px);line-height:1;margin:0;font-feature-settings:'tnum' 1;background:linear-gradient(160deg,#E8D5A6,#C3A15A 55%,#A88742);-webkit-background-clip:text;background-clip:text;color:transparent">{{ s.val }}</p>
+          <p style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:rgba(240,237,228,.75);margin:12px 0 0;max-width:22ch">{{ s.label }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section id="menu" data-screen-label="Drip menu">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr class="hr" style="margin:0">
+    <div style="padding:clamp(48px,6vw,88px) 0">
+      <div style="display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;justify-content:space-between;margin-bottom:36px">
+        <div>
+          <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.menu.kicker }}</p>
+          <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 14px">{{ t.menu.title }}</h2>
+          <p style="font-size:16px;max-width:56ch;margin:0;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ t.menu.lead }}</p>
+        </div>
+        <div class="seg" role="radiogroup" aria-label="Filter by tier" style="display:inline-flex;overflow:hidden;border:1px solid var(--color-divider);border-radius:10px">
+          <sc-for list="{{ tierOpts }}" as="o" hint-placeholder-count="5">
+            <label class="seg-opt" style="{{ o.style }}"><input type="radio" name="tier" checked="{{ o.active }}" onChange="{{ o.pick }}" style="position:absolute;opacity:0;width:0;height:0;pointer-events:none"><span>{{ o.label }}</span></label>
+          </sc-for>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,270px),1fr));gap:clamp(18px,2.5vw,28px)">
+        <sc-for list="{{ drips }}" as="d" hint-placeholder-count="6">
+          <article style="display:flex;flex-direction:column;background:#FFFFFF;border:1px solid var(--color-divider);border-radius:20px;overflow:hidden;box-shadow:0 6px 18px rgba(15,35,65,.08);transition:transform .35s ease,box-shadow .35s ease" style-hover="transform:translateY(-6px);box-shadow:0 18px 40px rgba(15,35,65,.16)">
+            <a href="{{ d.href }}" style="position:relative;display:block;aspect-ratio:9/16;background:#0D2551">
+              <sc-if value="{{ d.hasStory }}" hint-placeholder-val="{{ true }}">
+                <img data-inv-src="{{ d.story }}" ref="{{ srcRef }}" alt="{{ d.name }} — Invita" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block">
+              </sc-if>
+              <sc-if value="{{ d.noStory }}" hint-placeholder-val="{{ false }}">
+                <img data-inv-src="{{ d.story }}" ref="{{ srcRef }}" alt="{{ d.name }} — Invita" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;background:#EAE3D8">
+              </sc-if>
+              <span style="position:absolute;top:12px;inset-inline-start:12px;display:inline-flex;align-items:center;font-size:11px;font-weight:600;letter-spacing:.05em;padding:4px 11px;border-radius:999px;background:rgba(240,237,228,.9);color:#0D2551;backdrop-filter:blur(4px)">{{ d.tierLabel }}</span>
+            </a>
+            <div style="display:flex;flex-direction:column;gap:8px;flex:1;padding:18px 18px 20px">
+              <div style="display:flex;align-items:baseline;justify-content:space-between;gap:10px">
+                <h3 style="font-size:19px;line-height:1.15;letter-spacing:-0.01em;margin:0"><a href="{{ d.href }}" style="color:inherit;text-decoration:none">{{ d.name }}</a></h3>
+                <span style="font-family:var(--font-heading);font-weight:800;font-size:15.5px;white-space:nowrap;font-feature-settings:'tnum' 1">{{ d.price }}</span>
+              </div>
+              <p style="font-size:13px;font-weight:600;margin:0;color:var(--color-accent-700)">{{ d.tag }} · {{ d.mins }}</p>
+              <p style="font-size:13.5px;line-height:1.6;margin:0;color:color-mix(in srgb,var(--color-text) 74%,transparent)">{{ d.desc }}</p>
+              <div style="display:flex;gap:10px;align-items:center;margin-top:auto;padding-top:10px">
+                <button type="button" onClick="{{ d.book }}" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:13.5px;line-height:1.2;border-radius:10px;border:none;color:#F0EDE4;background:#0D2551;cursor:pointer;white-space:nowrap">{{ t.menu.book }} {{ arrow }}</button>
+                <a href="{{ d.href }}" style="display:inline-flex;align-items:center;gap:6px;font-family:var(--font-heading);font-weight:700;font-size:13.5px;text-decoration:none;color:#0D2551;border-bottom:2px solid #C3A15A;padding-bottom:2px">{{ t.menu.details }} {{ arrow }}</a>
+              </div>
+            </div>
+          </article>
+        </sc-for>
+      </div>
+      <p style="font-size:12.5px;margin:16px 0 0;color:color-mix(in srgb,var(--color-text) 58%,transparent);max-width:70ch">{{ t.menu.disclaimer }}</p>
+    </div>
+  </div>
+</section>
+
+
+<section id="celebs" data-screen-label="Proof">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr class="hr" style="margin:0">
+    <div style="padding:clamp(44px,5vw,72px) 0">
+      <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:flex-end;justify-content:space-between;margin-bottom:26px">
+        <div>
+          <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.celebs.kicker }}</p>
+          <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.12;letter-spacing:-0.015em;margin:0 0 12px">{{ t.celebs.title }}</h2>
+          <p style="font-size:16px;max-width:56ch;margin:0;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ t.celebs.lead }}</p>
+        </div>
+        <div style="display:flex;gap:10px">
+          <button type="button" onClick="{{ celebLeft }}" aria-label="{{ t.celebs.prev }}" style="width:44px;height:44px;border-radius:50%;border:1px solid var(--color-divider);background:transparent;color:#0D2551;display:grid;place-items:center;cursor:pointer;font-size:18px;line-height:1">←</button>
+          <button type="button" onClick="{{ celebRight }}" aria-label="{{ t.celebs.next }}" style="width:44px;height:44px;border-radius:50%;border:1px solid var(--color-divider);background:#0D2551;color:#F0EDE4;display:grid;place-items:center;cursor:pointer;font-size:18px;line-height:1">→</button>
+        </div>
+      </div>
+      <div class="inv-car" ref="{{ celebRef }}" style="display:flex;gap:18px;overflow-x:auto;padding:6px 4px 16px;scrollbar-width:none">
+        <sc-for list="{{ celebs }}" as="c" hint-placeholder-count="5">
+          <figure style="flex:none;width:min(74vw,290px);margin:0">
+            <div style="aspect-ratio:4/5;border-radius:18px;overflow:hidden;box-shadow:var(--shadow-md);background:#E0DBC9;transition:transform .35s ease" style-hover="transform:translateY(-5px)">
+              <img data-inv-src="{{ c.img }}" ref="{{ srcRef }}" alt="{{ c.name }}" loading="lazy" style="width:100%;height:100%;object-fit:cover;object-position:top;display:block">
+            </div>
+            <figcaption style="display:flex;flex-direction:column;gap:2px;margin-top:12px;padding:10px 18px;background:#E7E3D4;border-radius:0 16px 16px 16px;width:fit-content">
+              <strong style="font-family:var(--font-heading);font-weight:700;font-size:14.5px">{{ c.name }}</strong>
+              <span style="font-size:12.5px;color:color-mix(in srgb,var(--color-text) 60%,transparent)">{{ c.handle }}</span>
+            </figcaption>
+          </figure>
+        </sc-for>
+      </div>
+      <p style="font-size:12.5px;margin:10px 0 0;color:color-mix(in srgb,var(--color-text) 58%,transparent);max-width:70ch">{{ t.celebs.note }}</p>
+    </div>
+      <div style="margin-top:clamp(36px,4.5vw,64px);padding-top:clamp(30px,3.5vw,44px);border-top:1px solid var(--color-divider)">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.quotes.kicker }}</p>
+      <h3 style="font-size:clamp(21px,2.3vw,27px);line-height:1.1;letter-spacing:-0.015em;margin:0 0 28px">{{ t.quotes.title }}</h3>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:28px clamp(24px,3.5vw,56px)">
+        <sc-for list="{{ t.quotes.items }}" as="q" hint-placeholder-count="3">
+          <figure style="margin:0;border-top:2px solid var(--color-divider);padding-top:18px;animation:inv-up .8s cubic-bezier(.2,0,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 30%">
+            <div aria-label="5-star review" role="img" style="display:flex;gap:4px;margin-bottom:12px">
+              <span style="width:7px;height:7px;border-radius:50%;background:#C3A15A"></span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#C3A15A"></span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#C3A15A"></span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#C3A15A"></span>
+              <span style="width:7px;height:7px;border-radius:50%;background:#C3A15A"></span>
+            </div>
+            <blockquote style="margin:0;font-family:var(--font-heading);font-weight:800;font-size:16.5px;line-height:1.45;letter-spacing:-0.005em">{{ q.text }}</blockquote>
+            <figcaption style="font-size:13px;margin-top:12px;color:color-mix(in srgb,var(--color-text) 62%,transparent)">{{ q.who }}</figcaption>
+          </figure>
+        </sc-for>
+      </div>
+      </div>
+      <div style="margin-top:clamp(36px,4.5vw,64px);padding-top:clamp(30px,3.5vw,44px);border-top:1px solid var(--color-divider)">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:28px">
+        <div>
+          <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.ig.kicker }}</p>
+          <h3 style="font-size:clamp(21px,2.3vw,27px);line-height:1.08;letter-spacing:-0.015em;margin:0">{{ t.ig.title }}</h3>
+        </div>
+        <a href="https://www.instagram.com/invita_iv_drips/" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;border:1px solid var(--color-divider);color:#0D2551;background:transparent;white-space:nowrap">{{ t.ig.follow }}</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:12px">
+        <a href="https://www.instagram.com/invita_iv_drips/" target="_blank" rel="noopener" style="aspect-ratio:1;border-radius:16px;overflow:hidden;display:block;transition:transform .35s ease" style-hover="transform:scale(1.03)"><img src="assets/social/post-energy-boost.png" alt="Energy Boost — Invita Instagram post" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></a>
+        <a href="https://www.instagram.com/invita_iv_drips/" target="_blank" rel="noopener" style="aspect-ratio:1;border-radius:16px;overflow:hidden;display:block;transition:transform .35s ease" style-hover="transform:scale(1.03)"><img src="assets/social/post-skin-radiance.png" alt="Skin Radiance — Invita Instagram post" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></a>
+        <a href="https://www.instagram.com/invita_iv_drips/" target="_blank" rel="noopener" style="aspect-ratio:1;border-radius:16px;overflow:hidden;display:block;transition:transform .35s ease" style-hover="transform:scale(1.03)"><img src="assets/social/post-nad-plus.png" alt="NAD+ — Invita Instagram post" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></a>
+        <a href="https://www.instagram.com/invita_iv_drips/" target="_blank" rel="noopener" style="aspect-ratio:1;border-radius:16px;overflow:hidden;display:block;transition:transform .35s ease" style-hover="transform:scale(1.03)"><img src="assets/social/post-immune-boost.png" alt="Immune Boost — Invita Instagram post" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></a>
+        <a href="https://www.instagram.com/invita_iv_drips/" target="_blank" rel="noopener" style="aspect-ratio:1;border-radius:16px;overflow:hidden;display:block;transition:transform .35s ease" style-hover="transform:scale(1.03)"><img src="assets/social/post-myers-cocktail.png" alt="Myer's Cocktail — Invita Instagram post" loading="lazy" style="width:100%;height:100%;object-fit:cover;display:block"></a>
+      </div>
+      </div>
+    
+  </div>
+</section>
+
+<section id="matcher" data-screen-label="Wellness matcher">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr class="hr" style="margin:0">
+    <div style="padding:clamp(48px,6vw,88px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.matcher.kicker }}</p>
+      <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 14px">{{ t.matcher.title }}</h2>
+      <p style="font-size:16px;max-width:56ch;margin:0 0 28px;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ t.matcher.lead }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:10px">
+        <sc-for list="{{ goals }}" as="g" hint-placeholder-count="6">
+          <button type="button" style="{{ g.style }}" onClick="{{ g.pick }}">{{ g.label }}</button>
+        </sc-for>
+      </div>
+      <sc-if value="{{ hasGoal }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:36px;border-top:2px solid var(--color-divider)">
+          <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:20px 0 6px">{{ t.matcher.resultsTitle }}</p>
+          <sc-for list="{{ matches }}" as="m" hint-placeholder-count="3">
+            <div style="display:grid;grid-template-columns:52px minmax(160px,1fr) auto;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--color-divider)">
+              <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin:0;color:var(--color-accent);font-feature-settings:'tnum' 1">{{ m.rank }}</p>
+              <div style="display:flex;flex-direction:column;gap:2px">
+                <span style="font-family:var(--font-heading);font-weight:800;font-size:18px">{{ m.name }}</span>
+                <span style="font-size:13.5px;color:color-mix(in srgb,var(--color-text) 66%,transparent)">{{ m.tag }}</span>
+              </div>
+              <div style="display:flex;gap:12px;align-items:center;justify-content:flex-end;flex-wrap:wrap">
+                <span style="font-family:var(--font-heading);font-weight:800;font-size:15px;font-feature-settings:'tnum' 1">{{ m.price }}</span>
+                <button type="button" onClick="{{ m.book }}" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;border-radius:10px;background:#0D2551;color:#F0EDE4;border:none;cursor:pointer;white-space:nowrap">{{ t.menu.book }}</button>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </sc-if>
+    </div>
+  </div>
+</section>
+
+<section id="how" data-screen-label="How it works + the visit">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr class="hr" style="margin:0">
+    <div style="padding:clamp(48px,6vw,88px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.how.kicker }}</p>
+      <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 24px">{{ t.how.title }}</h2>
+      <div>
+        <sc-for list="{{ t.how.steps }}" as="st" hint-placeholder-count="3">
+          <div style="display:grid;grid-template-columns:minmax(64px,140px) minmax(0,1fr);gap:16px clamp(24px,4vw,64px);align-items:baseline;padding:26px 0;border-top:2px solid var(--color-divider);animation:inv-up .8s cubic-bezier(.2,0,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 32%">
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin:0;font-feature-settings:'tnum' 1;position:relative"><span aria-hidden="true" style="position:absolute;inset-inline-start:-2px;top:-8px;width:8px;height:8px;border-radius:50%;background:#C3A15A"></span><span style="padding-inline-start:14px">{{ st.n }}</span></p>
+            <div>
+              <h3 style="font-size:clamp(20px,2.2vw,26px);line-height:1.15;letter-spacing:-0.01em;margin:0 0 8px">{{ st.title }}</h3>
+              <p style="font-size:15.5px;line-height:1.7;margin:0;max-width:60ch;color:color-mix(in srgb,var(--color-text) 78%,transparent)">{{ st.body }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+      <div style="margin-top:clamp(40px,5vw,68px);padding-top:clamp(30px,3.5vw,44px);border-top:2px solid var(--color-divider)">
+      <div>
+        <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.visit.kicker }}</p>
+        <h3 style="font-size:clamp(21px,2.3vw,27px);line-height:1.15;letter-spacing:-0.01em;margin:0 0 14px">{{ t.visit.title }}</h3>
+        <p style="font-size:16px;line-height:1.7;margin:0 0 28px;max-width:52ch;color:color-mix(in srgb,var(--color-text) 78%,transparent)">{{ t.visit.copy }}</p>
+        <div style="border-top:2px solid var(--color-divider);padding:16px 0;display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:17px">{{ t.visit.suiteName }}</span>
+          <span style="font-size:14px;color:color-mix(in srgb,var(--color-text) 66%,transparent)">{{ t.visit.suiteDesc }}</span>
+        </div>
+        <div style="border-top:2px solid var(--color-divider);padding:16px 0;display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:17px">{{ t.visit.homeName }}</span>
+          <span style="font-size:14px;color:color-mix(in srgb,var(--color-text) 66%,transparent)">{{ t.visit.homeDesc }}</span>
+        </div>
+        <p style="font-size:12.5px;margin:16px 0 0;color:color-mix(in srgb,var(--color-text) 58%,transparent);font-feature-settings:'tnum' 1">{{ t.visit.hours }}</p>
+      </div>
+      <figure style="margin:0;position:relative;width:100%;max-width:440px;justify-self:center;aspect-ratio:3/4;border-radius:26px;padding:12px;box-sizing:border-box;background:linear-gradient(145deg,rgba(255,255,255,.55),rgba(255,255,255,.18));backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);border:1px solid rgba(255,255,255,.6);box-shadow:0 30px 70px rgba(15,35,65,.22),inset 0 1px 0 rgba(255,255,255,.7)">
+        <div style="position:relative;width:100%;height:100%;border-radius:16px;overflow:hidden;box-shadow:0 8px 24px rgba(15,35,65,.18)">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="photo-suite" shape="rect" fit="cover" placeholder="Invita suite photo" hint-size="100%,100%" style="width:100%;height:100%"></x-import>
+          <figcaption style="position:absolute;inset-inline-start:14px;bottom:14px;display:inline-flex;align-items:center;gap:9px;padding:8px 14px;border-radius:12px;background:rgba(15,35,65,.42);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(240,237,228,.28);color:#F0EDE4">
+            <span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:#C3A15A;flex:none"></span>
+            <span style="font-family:var(--font-heading);font-weight:700;font-size:13px;letter-spacing:.01em">{{ t.visit.suiteName }}</span>
+          </figcaption>
+        </div>
+      </figure>
+      </div>
+    
+  </div>
+</section>
+
+<section id="science" data-screen-label="Science">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr class="hr" style="margin:0">
+    <div style="padding:clamp(48px,6vw,88px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#14413C;margin:0 0 14px">{{ t.science.kicker }}</p>
+      <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 14px">{{ t.science.title }}</h2>
+      <p style="font-size:16px;max-width:58ch;margin:0 0 36px;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ t.science.copy }}</p>
+      <div style="max-width:820px;display:flex;flex-direction:column;gap:22px;margin-bottom:44px">
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:16px;font-size:13.5px;margin-bottom:8px"><span style="text-transform:uppercase;letter-spacing:.06em;color:color-mix(in srgb,var(--color-text) 72%,transparent)">{{ t.science.ivLabel }}</span><span style="font-family:var(--font-heading);font-weight:800;color:var(--color-accent);font-size:16px">{{ t.science.ivVal }}</span></div>
+          <div style="height:22px;background:color-mix(in srgb,#14413C 12%,transparent)"><div style="height:100%;width:100%;background:linear-gradient(90deg,#14413C,#1F6157);transform-origin:0 50%;animation:inv-grow 1.1s cubic-bezier(.2,0,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 45%"></div></div>
+        </div>
+        <div>
+          <div style="display:flex;justify-content:space-between;gap:16px;font-size:13.5px;margin-bottom:8px"><span style="text-transform:uppercase;letter-spacing:.06em;color:color-mix(in srgb,var(--color-text) 72%,transparent)">{{ t.science.oralLabel }}</span><span style="font-family:var(--font-heading);font-weight:800;color:var(--color-neutral-600);font-size:16px">{{ t.science.oralVal }}</span></div>
+          <div style="height:22px;background:color-mix(in srgb,#14413C 12%,transparent)"><div style="height:100%;width:26%;background:#93A8D8;transform-origin:0 50%;animation:inv-grow 1.1s cubic-bezier(.2,0,.2,1) .15s both;animation-timeline:view();animation-range:entry 0% entry 45%"></div></div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
+        <sc-for list="{{ t.science.props }}" as="p" hint-placeholder-count="4">
+          <div class="card" style="transition:transform .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-5px);box-shadow:var(--shadow-md)"><span class="card-kicker">{{ p.n }}</span><h3 class="card-title">{{ p.t }}</h3><p class="card-body" style="font-size:13.5px;line-height:1.65">{{ p.b }}</p></div>
+        </sc-for>
+      </div>
+      <p style="margin:28px 0 0"><a href="Invita Science.dc.html" style="font-family:var(--font-heading);font-weight:700;font-size:15px;text-decoration:none">{{ t.science.more }} {{ arrow }}</a></p>
+    </div>
+  </div>
+</section>
+
+<section id="standard" data-screen-label="Standard + certifications">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr class="hr" style="margin:0">
+    <div style="padding:clamp(44px,5vw,72px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.standard.kicker }}</p>
+      <h2 style="font-size:clamp(26px,3.2vw,40px);line-height:1.1;letter-spacing:-0.015em;margin:0 0 24px">{{ t.standard.title }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px clamp(28px,4vw,64px);max-width:1040px">
+        <sc-for list="{{ t.standard.items }}" as="it" hint-placeholder-count="6">
+          <p style="display:flex;gap:12px;align-items:baseline;font-size:15px;line-height:1.6;margin:0"><span aria-hidden="true" style="color:#B8952F;font-family:var(--font-heading);font-weight:800;flex:none">✓</span><span>{{ it }}</span></p>
+        </sc-for>
+      </div>
+    </div>
+      <div style="margin-top:clamp(36px,4.5vw,60px);padding-top:clamp(30px,3.5vw,44px);padding-bottom:clamp(44px,5vw,72px);border-top:1px solid var(--color-divider);display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:32px clamp(32px,5vw,80px);align-items:start">
+      <div>
+        <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 12px">{{ t.certs.kicker }}</p>
+        <h3 style="font-size:clamp(21px,2.3vw,27px);line-height:1.2;letter-spacing:-0.01em;margin:0 0 12px;max-width:24ch">{{ t.certs.title }}</h3>
+        <p style="font-size:15.5px;line-height:1.7;max-width:50ch;margin:0 0 22px;color:color-mix(in srgb,var(--color-text) 78%,transparent)">{{ t.certs.lead }}</p>
+        <a class="btn btn-primary" href="https://wa.me/9647748885559" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;line-height:1.2;text-decoration:none;border-radius:10px;background:#0D2551;color:#F0EDE4;white-space:nowrap">{{ t.certs.cta }}</a>
+      </div>
+      <div style="display:grid;gap:16px">
+        <div class="card" style="border:1px solid var(--color-divider);border-radius:18px;padding:24px;background:#FFFDF8;display:flex;gap:18px;align-items:flex-start">
+          <span aria-hidden="true" style="width:46px;height:46px;flex:none;border-radius:50%;background:#0D2551;color:#C3A15A;display:grid;place-items:center;font-family:var(--font-heading);font-weight:800;font-size:12px">ISO</span>
+          <div>
+            <h4 style="font-family:var(--font-heading);font-weight:800;font-size:19px;margin:2px 0 6px">ISO 13485</h4>
+            <p style="font-size:14px;line-height:1.65;margin:0 0 8px;color:color-mix(in srgb,var(--color-text) 74%,transparent)">{{ t.certs.c1 }}</p>
+            <a href="uploads/KAPSAM-SAGLIK-ISO-13485-.pdf" target="_blank" rel="noopener" style="font-size:14px;font-weight:600">{{ t.certs.view }} {{ arrow }}</a>
+          </div>
+        </div>
+        <div class="card" style="border:1px solid var(--color-divider);border-radius:18px;padding:24px;background:#FFFDF8;display:flex;gap:18px;align-items:flex-start">
+          <span aria-hidden="true" style="width:46px;height:46px;flex:none;border-radius:50%;background:#0D2551;color:#C3A15A;display:grid;place-items:center;font-family:var(--font-heading);font-weight:800;font-size:12px">ISO</span>
+          <div>
+            <h4 style="font-family:var(--font-heading);font-weight:800;font-size:19px;margin:2px 0 6px">ISO 14001</h4>
+            <p style="font-size:14px;line-height:1.65;margin:0 0 8px;color:color-mix(in srgb,var(--color-text) 74%,transparent)">{{ t.certs.c2 }}</p>
+            <a href="uploads/Kapsam-Saglik-ISO-14001.pdf" target="_blank" rel="noopener" style="font-size:14px;font-weight:600">{{ t.certs.view }} {{ arrow }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="film" data-screen-label="Films">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr class="hr" style="margin:0">
+    <div style="padding:clamp(44px,5vw,72px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ pb.kicker }}</p>
+      <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.2;letter-spacing:-0.015em;margin:0 0 14px">{{ pb.title }}</h2>
+      <p style="font-size:16px;max-width:58ch;margin:0 0 28px;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ pb.copy }}</p>
+      <div style="position:relative;aspect-ratio:16/9;border-radius:22px;overflow:hidden;box-shadow:var(--shadow-lg);background:#0D2551">
+        <video ref="{{ filmRef }}" src="uploads/vvv.mp4" controls="controls" playsInline="playsinline" preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;background:#0D2551"></video>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+        <a href="Invita Partners.dc.html" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:10px 18px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;line-height:1.2;text-decoration:none;border-radius:10px;background:#0D2551;color:#F0EDE4;white-space:nowrap">{{ pb.btn }} {{ arrow }}</a>
+      </div>
+
+      <div style="margin-top:clamp(32px,4vw,56px);padding-top:clamp(28px,3vw,40px);border-top:1px solid var(--color-divider)">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.video.kicker }}</p>
+      <h3 style="font-size:clamp(21px,2.3vw,27px);line-height:1.1;letter-spacing:-0.015em;margin:0 0 12px">{{ t.video.title }}</h3>
+      <p style="font-size:16px;max-width:56ch;margin:0 0 26px;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ t.video.lead }}</p>
+      <div style="position:relative;aspect-ratio:16/9;border-radius:20px;overflow:hidden;background:#131A26;box-shadow:0 24px 60px rgba(15,35,65,.25)">
+        <iframe src="video/Invita Clinic Video.dc.html" title="{{ t.video.title }}" loading="lazy" style="position:absolute;inset:0;width:100%;height:100%;border:none;display:block"></iframe>
+      </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="book" data-screen-label="Booking">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr class="hr" style="margin:0">
+    <div style="padding:clamp(48px,6vw,88px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.booking.kicker }}</p>
+      <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 14px">{{ t.booking.title }}</h2>
+      <p style="font-size:16px;max-width:58ch;margin:0 0 32px;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ t.booking.lead }}</p>
+      <div style="border:1px solid color-mix(in srgb,#0D2551 18%,transparent);display:flex;flex-wrap:wrap;background:color-mix(in srgb,#FFFFFF 45%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-radius:20px;overflow:hidden;box-shadow:var(--shadow-md)">
+        <div style="flex:1;min-width:210px;padding:20px 24px;border-inline-end:2px solid var(--color-divider)">
+          <sc-for list="{{ bookRail }}" as="s" hint-placeholder-count="4">
+            <div style="display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--color-divider)">
+              <span style="{{ s.numStyle }}">{{ s.n }}</span>
+              <span style="{{ s.labelStyle }}">{{ s.label }}</span>
+            </div>
+          </sc-for>
+          <p style="font-size:12px;line-height:1.6;margin:18px 0 0;color:color-mix(in srgb,var(--color-text) 58%,transparent)">{{ t.booking.trust }}</p>
+        </div>
+        <div style="flex:2.6;min-width:300px;padding:clamp(20px,3vw,32px)">
+
+          <sc-if value="{{ isStep1 }}" hint-placeholder-val="{{ true }}">
+            <h3 style="font-size:22px;margin:0 0 18px">{{ t.booking.chooseTitle }}</h3>
+            <div style="display:flex;flex-wrap:wrap;gap:10px">
+              <sc-for list="{{ protoOpts }}" as="p" hint-placeholder-count="8">
+                <button type="button" style="{{ p.style }}" onClick="{{ p.pick }}">{{ p.label }}</button>
+              </sc-for>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isStep2 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;justify-content:space-between;gap:16px;align-items:baseline;flex-wrap:wrap;margin-bottom:18px">
+              <h3 style="font-size:22px;margin:0">{{ bookDripLabel }}</h3>
+              <button type="button" onClick="{{ backTo1 }}" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 13px;font-family:var(--font-heading);font-weight:700;font-size:13.5px;line-height:1.2;border-radius:10px;border:1px solid var(--color-divider);color:#0D2551;background:transparent;cursor:pointer;white-space:nowrap">{{ t.booking.change }}</button>
+            </div>
+            <p style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 10px">{{ t.booking.locTitle }}</p>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin-bottom:26px">
+              <sc-for list="{{ locOpts }}" as="l" hint-placeholder-count="2">
+                <button type="button" onClick="{{ l.pick }}" style="{{ l.style }}">
+                  <span style="font-family:var(--font-heading);font-weight:800;font-size:16px;display:block">{{ l.title }}</span>
+                  <span style="font-size:13px;opacity:.7;display:block;margin-top:4px">{{ l.sub }}</span>
+                </button>
+              </sc-for>
+            </div>
+            <p style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 10px">{{ t.booking.dateTitle }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:26px">
+              <sc-for list="{{ days }}" as="dy" hint-placeholder-count="7">
+                <button type="button" onClick="{{ dy.pick }}" style="{{ dy.style }}">
+                  <span style="display:block;font-size:11px;text-transform:uppercase;letter-spacing:.06em;opacity:.7">{{ dy.wd }}</span>
+                  <span style="display:block;font-family:var(--font-heading);font-weight:800;font-size:18px;font-feature-settings:'tnum' 1">{{ dy.dnum }}</span>
+                </button>
+              </sc-for>
+            </div>
+            <p style="font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 10px">{{ t.booking.timeTitle }}</p>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;margin-bottom:28px">
+              <sc-for list="{{ slots }}" as="sl" hint-placeholder-count="8">
+                <button type="button" style="{{ sl.style }}" disabled="{{ sl.off }}" onClick="{{ sl.pick }}">{{ sl.label }}</button>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <button type="button" style="{{ contBtnStyle }}" disabled="{{ cantSchedule }}" onClick="{{ contStep3 }}">{{ t.booking.continue }} {{ arrow }}</button>
+            </div>
+          </sc-if>
+
+          <sc-if value="{{ isStep3 }}" hint-placeholder-val="{{ false }}">
+            <h3 style="font-size:22px;margin:0 0 18px">{{ t.booking.detailsTitle }}</h3>
+            <form onSubmit="{{ submitBooking }}" novalidate="novalidate" style="display:flex;flex-direction:column;gap:16px;max-width:460px">
+              <div class="field">
+                <label for="bk-name" style="display:block;font-size:12px;margin-bottom:5px;color:color-mix(in srgb,var(--color-text) 70%,transparent)">{{ t.booking.nameL }} <span aria-hidden="true" style="color:var(--color-accent)">*</span></label>
+                <input id="bk-name" class="input" type="text" value="{{ nameVal }}" onChange="{{ setName }}" required="required" aria-required="true" autoComplete="name" style="width:100%;min-height:38px;padding:9px 12px;font:inherit;font-size:14px;color:var(--color-text);background:rgba(255,255,255,.55);border:1px solid var(--color-divider);border-radius:10px;box-sizing:border-box">
+              </div>
+              <div class="field">
+                <label for="bk-phone" style="display:block;font-size:12px;margin-bottom:5px;color:color-mix(in srgb,var(--color-text) 70%,transparent)">{{ t.booking.phoneL }} <span aria-hidden="true" style="color:var(--color-accent)">*</span></label>
+                <input id="bk-phone" class="input" type="tel" dir="ltr" value="{{ phoneVal }}" onChange="{{ setPhone }}" required="required" aria-required="true" aria-describedby="bk-err" autoComplete="tel" placeholder="+964 7XX XXX XXXX" style="width:100%;min-height:38px;padding:9px 12px;font:inherit;font-size:14px;color:var(--color-text);background:rgba(255,255,255,.55);border:1px solid var(--color-divider);border-radius:10px;box-sizing:border-box">
+              </div>
+              <div class="field">
+                <label for="bk-note" style="display:block;font-size:12px;margin-bottom:5px;color:color-mix(in srgb,var(--color-text) 70%,transparent)">{{ t.booking.noteL }}</label>
+                <textarea id="bk-note" class="input" value="{{ noteVal }}" onChange="{{ setNote }}" style="width:100%;min-height:90px;resize:vertical;padding:9px 12px;font:inherit;font-size:14px;color:var(--color-text);background:rgba(255,255,255,.55);border:1px solid var(--color-divider);border-radius:10px;box-sizing:border-box"></textarea>
+              </div>
+              <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}">
+                <p id="bk-err" role="alert" style="margin:0;font-size:13.5px;color:var(--color-accent-700)">{{ t.booking.err }}</p>
+              </sc-if>
+              <div style="display:flex;gap:12px;flex-wrap:wrap">
+                <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;border-radius:10px;background:#0D2551;color:#F0EDE4;border:none;cursor:pointer;white-space:nowrap">{{ t.booking.confirm }}</button>
+                <button type="button" onClick="{{ backTo2 }}" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;border-radius:10px;border:1px solid var(--color-divider);color:#0D2551;background:transparent;cursor:pointer;white-space:nowrap">{{ t.booking.back }}</button>
+              </div>
+            </form>
+          </sc-if>
+
+          <sc-if value="{{ isStep4 }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+              <span aria-hidden="true" style="width:28px;height:28px;border-radius:50%;background:var(--color-accent);color:var(--color-bg);display:grid;place-items:center;font-weight:800;font-family:var(--font-heading)">✓</span>
+              <h3 style="font-size:24px;margin:0">{{ t.booking.confTitle }}</h3>
+            </div>
+            <p style="font-size:15px;margin:0 0 20px;max-width:52ch;color:color-mix(in srgb,var(--color-text) 78%,transparent)">{{ t.booking.confBody }}</p>
+            <div style="border-top:2px solid var(--color-divider);max-width:520px">
+              <sc-for list="{{ sumRows }}" as="r" hint-placeholder-count="4">
+                <div style="display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid var(--color-divider);font-size:14.5px">
+                  <span style="text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:color-mix(in srgb,var(--color-text) 62%,transparent);align-self:center">{{ r.k }}</span>
+                  <span style="font-family:var(--font-heading);font-weight:800;text-align:end">{{ r.v }}</span>
+                </div>
+              </sc-for>
+            </div>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:24px">
+              <a href="https://wa.me/9647748885559" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;background:#0D2551;color:#F0EDE4;white-space:nowrap">{{ t.booking.whatsapp }}</a>
+              <button type="button" onClick="{{ resetBooking }}" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;border-radius:10px;border:1px solid var(--color-divider);color:#0D2551;background:transparent;cursor:pointer;white-space:nowrap">{{ t.booking.again }}</button>
+            </div>
+          </sc-if>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clinics" data-screen-label="For clinics / B2B" style="background:var(--color-surface);border-top:2px solid var(--color-divider);border-bottom:2px solid var(--color-divider)">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(20px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:40px clamp(32px,5vw,88px)">
+    <div>
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.b2b.kicker }}</p>
+      <h2 style="font-size:clamp(28px,3.4vw,42px);line-height:1.1;letter-spacing:-0.015em;margin:0 0 14px">{{ t.b2b.title }}</h2>
+      <p style="font-size:16px;line-height:1.7;margin:0 0 24px;max-width:54ch;color:color-mix(in srgb,var(--color-text) 78%,transparent)">{{ t.b2b.copy }}</p>
+      <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(40px,4.4vw,60px);line-height:1;color:var(--color-accent);margin:0;font-feature-settings:'tnum' 1">{{ t.b2b.stat }}</p>
+      <p style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 68%,transparent);margin:10px 0 28px;max-width:30ch">{{ t.b2b.statL }}</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a class="btn btn-primary" href="https://wa.me/9647748885559" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;background:#0D2551;color:#F0EDE4;white-space:nowrap">{{ t.b2b.cta }}</a>
+        <a class="btn btn-secondary" href="mailto:info@invitadrips.com" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;border:1px solid var(--color-divider);color:var(--color-text);background:transparent;white-space:nowrap">{{ t.b2b.cta2 }}</a>
+      </div>
+    </div>
+    <div>
+      <sc-for list="{{ t.b2b.points }}" as="p" hint-placeholder-count="4">
+        <div style="border-top:2px solid var(--color-divider);padding:18px 0">
+          <h3 style="font-size:18px;margin:0 0 6px;position:relative"><span aria-hidden="true" style="display:inline-block;width:8px;height:8px;border-radius:50%;background:#C3A15A;margin-inline-end:10px"></span>{{ p.t }}</h3>
+          <p style="font-size:14.5px;line-height:1.65;margin:0;padding-inline-start:18px;color:color-mix(in srgb,var(--color-text) 74%,transparent)">{{ p.b }}</p>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+
+<section id="membership" data-screen-label="Membership + DNA">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <div style="padding:clamp(48px,6vw,88px) 0 clamp(32px,4vw,56px)">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.membership.kicker }}</p>
+      <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 28px">{{ t.membership.title }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:clamp(24px,4vw,56px)">
+        <sc-for list="{{ memTiers }}" as="m" hint-placeholder-count="2">
+          <div style="{{ m.style }}">
+            <div style="display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;padding-top:16px">
+              <h3 style="font-size:22px;margin:0">{{ m.name }}</h3>
+              <sc-if value="{{ m.hasTag }}" hint-placeholder-val="{{ false }}"><span class="tag" style="display:inline-flex;align-items:center;font-size:11px;letter-spacing:.02em;padding:3px 10px;border-radius:8px;background:#F0E2B4;color:#6C5716">{{ m.tag }}</span></sc-if>
+            </div>
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:19px;margin:6px 0 14px;font-feature-settings:'tnum' 1">{{ m.price }}</p>
+            <sc-for list="{{ m.perks }}" as="pk" hint-placeholder-count="4">
+              <p style="font-size:14.5px;line-height:1.55;margin:0 0 10px;display:flex;gap:10px;align-items:baseline"><span aria-hidden="true" style="width:7px;height:7px;border-radius:50%;background:#C3A15A;flex:none;transform:translateY(-1px)"></span><span>{{ pk }}</span></p>
+            </sc-for>
+          </div>
+        </sc-for>
+      </div>
+      <div style="margin-top:28px"><a href="https://wa.me/9647748885559" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;border:1px solid var(--color-divider);color:#0D2551;background:transparent;white-space:nowrap">{{ t.membership.cta }} {{ arrow }}</a></div>
+    </div>
+    <div style="border-top:2px solid var(--color-divider);padding:26px 0 clamp(40px,5vw,64px);display:flex;flex-wrap:wrap;gap:16px clamp(24px,4vw,56px);align-items:baseline">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0;flex:none">{{ t.dna.kicker }}</p>
+      <p style="font-size:15px;margin:0;max-width:52ch;color:color-mix(in srgb,var(--color-text) 76%,transparent)"><strong style="color:var(--color-text)">{{ t.dna.title }}</strong> {{ t.dna.copy }}</p>
+      <a href="https://wa.me/9647748885559" target="_blank" rel="noopener" style="font-size:14px;font-weight:600">{{ t.dna.link }} {{ arrow }}</a>
+    </div>
+  </div>
+</section>
+
+
+
+<section id="faq" data-screen-label="FAQ">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr class="hr" style="margin:0">
+    <div style="padding:clamp(48px,6vw,88px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--color-accent-700);margin:0 0 14px">{{ t.faq.kicker }}</p>
+      <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.08;letter-spacing:-0.015em;margin:0 0 24px">{{ t.faq.title }}</h2>
+      <div style="border-bottom:2px solid var(--color-divider);max-width:860px">
+        <sc-for list="{{ t.faq.items }}" as="f" hint-placeholder-count="4">
+          <details style="border-top:2px solid var(--color-divider)">
+            <summary style="list-style:none;cursor:pointer;display:flex;justify-content:space-between;gap:20px;align-items:baseline;padding:18px 0;font-family:var(--font-heading);font-weight:800;font-size:clamp(16px,1.8vw,19px)">{{ f.q }}<span aria-hidden="true" style="color:var(--color-accent);font-size:20px;flex:none">+</span></summary>
+            <p style="margin:0;padding:0 0 20px;max-width:66ch;font-size:15px;line-height:1.7;color:color-mix(in srgb,var(--color-text) 80%,transparent)">{{ f.a }}</p>
+          </details>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Poster close" style="background:linear-gradient(150deg,#D6B771,#C3A15A 45%,#B08F45);color:#0D2551;position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;background-image:url('uploads/Prancheta 2.png');background-size:170px;background-repeat:repeat;opacity:.06;pointer-events:none"></div>
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(56px,7vw,96px) clamp(20px,5vw,72px);position:relative">
+    <img src="uploads/Prancheta 2.png" alt="" style="height:clamp(56px,7vw,84px);width:auto;display:block;margin-bottom:30px">
+    <h2 style="font-size:clamp(32px,4.4vw,58px);line-height:1.32;letter-spacing:-0.015em;margin:0;color:#0D2551">
+      <span style="display:block">{{ t.close.l1 }}</span>
+      <span style="display:block">{{ t.close.l2 }}</span>
+    </h2>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:36px">
+      <a class="btn btn-ghost" href="https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;color:#0D2551;border:1.5px solid rgba(15,35,65,.55);white-space:nowrap">{{ t.close.ctaBook }}</a>
+      <a class="btn btn-ghost" href="#clinics" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;color:#0D2551;border:1.5px solid rgba(15,35,65,.55);white-space:nowrap">{{ t.close.ctaPartner }}</a>
+    </div>
+  </div>
+</section>
+
+<footer data-screen-label="Footer">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(44px,5vw,72px) clamp(20px,5vw,72px) 32px">
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:36px clamp(24px,4vw,56px)">
+      <div>
+        <p style="margin:0 0 12px;display:flex;align-items:center;gap:10px"><img src="uploads/Prancheta 2.png" alt="" style="height:30px;width:auto;display:block"><img src="uploads/Prancheta 14.png" alt="Invita" style="height:17px;width:auto;display:block"></p>
+        <p style="font-size:13.5px;margin:0 0 14px;color:color-mix(in srgb,var(--color-text) 72%,transparent)">{{ t.footer.tagline }}</p>
+        <p style="font-size:12px;line-height:1.65;margin:0;max-width:36ch;color:color-mix(in srgb,var(--color-text) 58%,transparent)">{{ t.footer.disclaimer }}</p>
+      </div>
+      <div>
+        <h6 style="margin:0 0 12px">{{ t.footer.contact }}</h6>
+        <p style="font-size:14px;margin:0 0 6px"><a href="tel:+9647748885559" style="color:inherit;text-decoration:none"><span dir="ltr">+964 774 888 5559</span></a></p>
+        <p style="font-size:14px;margin:0 0 6px"><a href="mailto:info@invitadrips.com" style="color:inherit;text-decoration:none">info@invitadrips.com</a></p>
+        <p style="font-size:14px;margin:0 0 6px"><a href="https://www.instagram.com/invita_iv_drips" target="_blank" rel="noopener" style="color:inherit;text-decoration:none">@invita_iv_drips</a></p>
+        <p style="font-size:14px;margin:0;color:color-mix(in srgb,var(--color-text) 72%,transparent)">{{ t.footer.address }}</p>
+      </div>
+      <div>
+        <h6 style="margin:0 0 12px">{{ t.footer.hours }}</h6>
+        <p style="font-size:13.5px;margin:0;line-height:1.9;color:color-mix(in srgb,var(--color-text) 72%,transparent);font-feature-settings:'tnum' 1">{{ t.footer.hoursLines }}</p>
+      </div>
+      <div>
+        <h6 style="margin:0 0 12px">{{ t.footer.explore }}</h6>
+        <sc-for list="{{ t.footer.links }}" as="ln" hint-placeholder-count="6">
+          <p style="margin:0 0 8px"><a href="{{ ln.href }}" style="color:inherit;text-decoration:none;font-size:14px">{{ ln.label }}</a></p>
+        </sc-for>
+      </div>
+    </div>
+    <hr class="hr" style="margin:36px 0 16px">
+    <p style="font-size:12.5px;margin:0;color:color-mix(in srgb,var(--color-text) 58%,transparent)">{{ t.footer.copyright }}</p>
+  </div>
+</footer>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;lang&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;en&quot;, &quot;ar&quot;], &quot;default&quot;: &quot;en&quot;, &quot;tsType&quot;: &quot;\&quot;en\&quot; | \&quot;ar\&quot;&quot;, &quot;section&quot;: &quot;Language&quot;}, &quot;showPromo&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Header&quot;}, &quot;modern&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;on&quot;, &quot;off&quot;], &quot;default&quot;: &quot;on&quot;, &quot;tsType&quot;: &quot;\&quot;on\&quot; | \&quot;off\&quot;&quot;, &quot;section&quot;: &quot;Style&quot;}}">
+class Component extends DCLogic {
+  state = {
+    lang: null, tier: 'all', openDrip: null, goal: null,
+    bookStep: 1, bookDrip: null, bookLoc: null, bookDay: null, bookTime: null,
+    name: '', phone: '', note: '', formErr: false, bookRef: null,
+    statP: 0
+  };
+
+  POSTS = ['energy-boost','immune-boost','hair-skin-nails','panthenol-b5','myers-cocktail','dopamin-booster','skin-radiance','nad-plus','weight-loss','fertility-libido','cola-drip-iron','edta-chelation'];
+
+  STORIES = {"energy-boost":"assets/social/story-energy-boost.png","immune-boost":"assets/social/story-immune-boost.png","hair-skin-nails":"assets/social/story-hair-skin-nails.png","panthenol-b5":"assets/social/story-panthenol-b5.png","myers-cocktail":"assets/social/story-myers-cocktail.png","dopamin-booster":"assets/social/story-dopamin-booster.png","skin-radiance":"assets/social/story-skin-radiance.png","nad-plus":"assets/social/story-nad-plus.png","weight-loss":"assets/social/story-weight-loss.png","fertility-libido":"assets/social/story-fertility-libido.png","cola-drip-iron":"assets/social/story-cola-drip-iron.png","edta-chelation":"assets/social/story-edta-chelation.png","jet-fuel":"assets/bag-jet-fuel.png"};
+  POST_IMGS = {"energy-boost":"assets/social/post-energy-boost.png","immune-boost":"assets/social/post-immune-boost.png","hair-skin-nails":"assets/social/post-hair-skin-nails.png","panthenol-b5":"assets/social/post-panthenol-b5.png","myers-cocktail":"assets/social/post-myers-cocktail.png","dopamin-booster":"assets/social/post-dopamin-booster.png","skin-radiance":"assets/social/post-skin-radiance.png","nad-plus":"assets/social/post-nad-plus.png","weight-loss":"assets/social/post-weight-loss.png","fertility-libido":"assets/social/post-fertility-libido.png","cola-drip-iron":"assets/social/post-cola-drip-iron.png","edta-chelation":"assets/social/post-edta-chelation.png"};
+
+  DOCTOR_CARDS = ["uploads/PHOTO-2026-05-20-12-56-23.jpg","uploads/PHOTO-2026-05-20-12-56-23 2.jpg","uploads/PHOTO-2026-05-20-12-56-24.jpg","uploads/PHOTO-2026-05-20-12-56-24 2.jpg","uploads/PHOTO-2026-05-20-12-56-25.jpg","uploads/PHOTO-2026-05-20-12-56-25 2.jpg","uploads/PHOTO-2026-05-20-12-56-25 3.jpg","uploads/PHOTO-2026-05-20-12-56-25 4.jpg","uploads/PHOTO-2026-05-20-12-58-18.jpg","uploads/PHOTO-2026-05-20-12-58-19 2.jpg","uploads/PHOTO-2026-05-20-12-58-19 4.jpg","uploads/PHOTO-2026-05-20-12-58-20.jpg","uploads/PHOTO-2026-05-20-12-58-20 2.jpg","uploads/PHOTO-2026-05-20-12-58-20 3.jpg","uploads/PHOTO-2026-05-20-12-58-20 4.jpg"];
+
+  DRIPS = [
+    { slug: 'energy-boost', tier: 'Wellness', min: 45, price: 150000, name: 'Energy Boost',
+      formula: 'B1 100mg · B2 25mg · B3 200mg · B6 250mg · B12 1000mcg · Magnesium Sulphate 200mg · Amino Acids',
+      en: { tag: 'Instant recharge against chronic fatigue and burnout', desc: 'Fast energy, better mood and focus, and support for nerves and muscles — for busy professionals, parents, or those recovering from illness.' },
+      ar: { tag: 'جلسة تنشيط فورية ضد التعب المزمن والإجهاد', desc: 'طاقة سريعة، مزاج وتركيز أفضل، ودعم للأعصاب والعضلات — للمهنيين المشغولين أو المتعافين من المرض.' } },
+    { slug: 'immune-boost', tier: 'Wellness', min: 45, price: 165000, name: 'Immune Boost',
+      formula: 'Vitamin C 1000mg · Zinc 100mg · Calcium 2mmol · Potassium 5mmol · Bicarbonate 25mmol',
+      en: { tag: 'Fortify defences and recover faster', desc: 'Strengthens the immune system, reduces how often and how long you get sick, speeds healing, and boosts resistance to viruses.' },
+      ar: { tag: 'تقوية المناعة وتعافٍ أسرع', desc: 'تقوية جهاز المناعة، تقليل تكرار ومدة الإصابة بالأمراض، تسريع الشفاء وتعزيز مقاومة الفيروسات.' } },
+    { slug: 'hair-skin-nails', tier: 'Beauty', min: 45, price: 180000, name: 'Hair, Nail & Skin',
+      formula: 'Biotin 10,000mcg · Zinc 10mg/ml',
+      en: { tag: 'Biotin boost for beauty from within', desc: 'Strengthens hair and stimulates growth, reduces shedding and breakage, improves skin freshness, and boosts nail health.' },
+      ar: { tag: 'بيوتين لجمالٍ من الداخل', desc: 'تقوية الشعر وتحفيز نموه، تقليل التساقط والتقصف، تحسين نضارة البشرة وتعزيز صحة الأظافر.' } },
+    { slug: 'panthenol-b5', tier: 'Beauty', min: 45, price: 175000, name: 'Panthenol (B5)',
+      formula: 'Dexpanthenol 250mg/ml',
+      en: { tag: 'Deep hydration and cellular renewal', desc: 'Deep skin hydration, cellular repair, calming of irritation, and restoration of natural radiance.' },
+      ar: { tag: 'ترطيب عميق وتجديد الخلايا', desc: 'ترطيب عميق للبشرة، إصلاح الخلايا، تهدئة التهيجات، واستعادة الإشراق الطبيعي.' } },
+    { slug: 'myers-cocktail', tier: 'Signature', min: 45, price: 210000, name: "Myer's Cocktail",
+      formula: 'Vitamin C 1000mg · B1, B2, B3, B6, B12 · Magnesium 200mg · Calcium 100mg · Zinc 10mg · NAD+ 100mg',
+      en: { tag: 'The original multi-nutrient wellness infusion', desc: 'A comprehensive session supporting energy, immunity, and nerves — reducing stress and fatigue while improving overall health.' },
+      ar: { tag: 'التركيبة الغذائية الأصلية متعددة العناصر', desc: 'جلسة شاملة لدعم الطاقة والمناعة والأعصاب، تقليل التوتر والإجهاد، وتحسين الصحة العامة.' } },
+    { slug: 'dopamin-booster', tier: 'Performance', min: 45, price: 195000, name: 'Dopamin Booster',
+      formula: 'Citicoline 250mg / 5ml',
+      en: { tag: 'Sharper focus, memory, and mental performance', desc: 'Enhances memory, increases focus and attention, improves mental performance, and supports nerve cells.' },
+      ar: { tag: 'تركيز وذاكرة وأداء ذهني', desc: 'يعزّز الذاكرة، يزيد التركيز والانتباه، يحسّن الأداء الذهني، ويدعم الخلايا العصبية.' } },
+    { slug: 'skin-radiance', tier: 'Beauty', min: 45, price: 225000, name: 'Skin Radiance',
+      formula: 'Glutathione 2.4g · Vitamin C 1000mg',
+      en: { tag: 'Brighten, even out, and glow', desc: 'Brightens and evens skin tone, reduces pigmentation, deeply hydrates, detoxifies the body, and delays signs of ageing.' },
+      ar: { tag: 'تفتيح وتوحيد وإشراقة', desc: 'تفتيح وتوحيد لون البشرة، تقليل التصبغات، ترطيب عميق، تنقية الجسم من السموم وتأخير علامات التقدم بالعمر.' } },
+    { slug: 'nad-plus', tier: 'Signature', min: 90, price: 285000, name: 'NAD+ Drips',
+      formula: 'NAD+ 500mg in each Invita vial',
+      en: { tag: 'Cellular energy and anti-ageing', desc: 'Instant restoration of cellular energy, sharp mental focus, exceptional clarity, advanced nerve support, and resistance to ageing.' },
+      ar: { tag: 'طاقة خلوية ومكافحة الشيخوخة', desc: 'استعادة فورية للطاقة الخلوية، تركيز ذهني حاد، صفاء استثنائي، دعم متقدم للأعصاب، ومقاومة الشيخوخة.' } },
+    { slug: 'weight-loss', tier: 'Wellness', min: 45, price: 195000, name: 'Weight Loss Drip',
+      formula: 'L-Carnitine 1000mg · Glutamine 300mg · Arginine 1g',
+      en: { tag: 'Burn fat and support lean muscle', desc: 'Stimulates fat burning, raises energy during dieting, improves physical performance, and supports muscle building.' },
+      ar: { tag: 'حرق الدهون ودعم العضلات', desc: 'تحفّز حرق الدهون، ترفع الطاقة أثناء الرجيم، تحسّن الأداء البدني وتدعم بناء العضلات.' } },
+    { slug: 'fertility-libido', tier: 'Signature', min: 45, price: 240000, name: 'Fertility & Libido',
+      formula: 'Glutathione 1.2g · L-Carnitine 1000mg · MIC (Methionine – Inositol – Choline)',
+      en: { tag: 'Fertility, hormonal balance, and vitality', desc: 'Supports fertility for men and women, improves hormonal balance, and boosts sexual energy and overall vitality.' },
+      ar: { tag: 'خصوبة وتوازن هرموني وحيوية', desc: 'دعم الخصوبة للرجال والنساء، تحسين التوازن الهرموني، وتعزيز الطاقة الجنسية والحيوية العامة.' } },
+    { slug: 'cola-drip-iron', tier: 'Wellness', min: 30, price: 180000, name: 'Cola Drip (Iron)',
+      formula: 'Iron Sucrose 200mg / 10ml',
+      en: { tag: 'Treat anaemia and raise haemoglobin', desc: 'Treats anaemia, raises haemoglobin, reduces dizziness and fatigue, and improves activity and energy.' },
+      ar: { tag: 'علاج فقر الدم ورفع الهيموغلوبين', desc: 'علاج فقر الدم، رفع الهيموغلوبين، تقليل الدوخة والتعب، وتحسين النشاط والطاقة.' } },
+    { slug: 'jet-fuel', tier: 'Performance', min: 45, price: 175000, name: 'Jet Fuel',
+      formula: 'B12 1000mcg · B2 25mg · B3 200mg · B6 250mg · Magnesium 250mg · Vitamin C 500mg',
+      en: { tag: 'Power and endurance for body and mind', desc: 'Boosts physical and mental energy, raises stamina, and relieves exhaustion — ideal for athletes and those with demanding workloads.' },
+      ar: { tag: 'قوة وتحمّل للجسم والذهن', desc: 'تعزيز الطاقة البدنية والذهنية، رفع القدرة على التحمّل وتخفيف الإرهاق — مثالية للرياضيين وأصحاب الأعمال المجهدة.' } },
+    { slug: 'edta-chelation', tier: 'Signature', min: 90, price: 240000, name: 'EDTA Chelation',
+      formula: 'EDTA 150mg/ml',
+      en: { tag: 'Vascular detox and heart health', desc: 'Cleanses blood vessels, removes toxic heavy metals, and supports heart and circulatory health.' },
+      ar: { tag: 'ديتوكس الأوعية وصحة القلب', desc: 'تنقية الأوعية الدموية، إزالة المعادن السامة، ودعم صحة القلب والدورة الدموية.' } }
+  ];
+
+  ICONS = {
+    'energy-boost': 'assets/bottles/energy-boost.png',
+    'immune-boost': 'assets/bottles/immune-boost.png',
+    'hair-skin-nails': 'assets/bottles/hair-skin-nails.png',
+    'panthenol-b5': 'assets/bottles/panthenol-b5.png',
+    'myers-cocktail': 'assets/bottles/myers-cocktail.png',
+    'dopamin-booster': 'assets/bottles/dopamin-booster.png',
+    'skin-radiance': 'assets/bottles/skin-radiance.png',
+    'nad-plus': 'assets/bottles/nad-plus.png',
+    'weight-loss': 'assets/bottles/weight-loss.png',
+    'fertility-libido': 'assets/bottles/fertility-libido.png',
+    'cola-drip-iron': 'assets/bottles/cola-drip-iron.png',
+    'jet-fuel': 'assets/bottles/jet-fuel.png',
+    'edta-chelation': 'assets/bottles/edta-chelation.png'
+  };
+
+  GOALS = [
+    { id: 'energy', en: 'Energy & fatigue', ar: 'الطاقة والإرهاق', drips: ['energy-boost', 'jet-fuel', 'nad-plus'] },
+    { id: 'immunity', en: 'Immunity', ar: 'المناعة', drips: ['immune-boost', 'myers-cocktail', 'cola-drip-iron'] },
+    { id: 'beauty', en: 'Beauty & glow', ar: 'الجمال والإشراقة', drips: ['skin-radiance', 'hair-skin-nails', 'panthenol-b5'] },
+    { id: 'focus', en: 'Focus & memory', ar: 'التركيز والذاكرة', drips: ['dopamin-booster', 'nad-plus', 'jet-fuel'] },
+    { id: 'longevity', en: 'Longevity & anti-ageing', ar: 'طول العمر ومكافحة الشيخوخة', drips: ['nad-plus', 'edta-chelation', 'myers-cocktail'] },
+    { id: 'detox', en: 'Detox & balance', ar: 'التنقية والتوازن', drips: ['edta-chelation', 'skin-radiance', 'weight-loss'] }
+  ];
+
+  USES = {
+    'energy-boost': { en: ['Fatigue', 'Burnout', 'Post-illness recovery'], ar: ['الإرهاق', 'الإنهاك', 'التعافي بعد المرض'] },
+    'immune-boost': { en: ['Cold & flu season', 'Prevention', 'Faster healing'], ar: ['موسم البرد والإنفلونزا', 'الوقاية', 'تعافٍ أسرع'] },
+    'hair-skin-nails': { en: ['Hair thickness', 'Nail strength', 'Skin freshness'], ar: ['كثافة الشعر', 'قوة الأظافر', 'نضارة البشرة'] },
+    'panthenol-b5': { en: ['Deep hydration', 'Skin repair', 'Radiance'], ar: ['ترطيب عميق', 'إصلاح البشرة', 'إشراقة'] },
+    'myers-cocktail': { en: ['Overall wellness', 'Immunity', 'Stress & fatigue'], ar: ['العافية العامة', 'المناعة', 'التوتر والإجهاد'] },
+    'dopamin-booster': { en: ['Focus', 'Memory', 'Mental clarity'], ar: ['التركيز', 'الذاكرة', 'الصفاء الذهني'] },
+    'skin-radiance': { en: ['Brightening', 'Even tone', 'Anti-ageing'], ar: ['تفتيح', 'توحيد اللون', 'مكافحة الشيخوخة'] },
+    'nad-plus': { en: ['Cellular energy', 'Anti-ageing', 'Cognition'], ar: ['طاقة خلوية', 'مكافحة الشيخوخة', 'الإدراك'] },
+    'weight-loss': { en: ['Fat burning', 'Metabolism', 'Lean muscle'], ar: ['حرق الدهون', 'الاستقلاب', 'العضلات'] },
+    'fertility-libido': { en: ['Fertility', 'Hormonal balance', 'Libido'], ar: ['الخصوبة', 'التوازن الهرموني', 'الرغبة'] },
+    'cola-drip-iron': { en: ['Anaemia', 'Low haemoglobin', 'Fatigue'], ar: ['فقر الدم', 'نقص الهيموغلوبين', 'التعب'] },
+    'jet-fuel': { en: ['Endurance', 'Focus', 'Pre-event'], ar: ['التحمّل', 'التركيز', 'قبل المنافسات'] },
+    'edta-chelation': { en: ['Detox', 'Heavy metals', 'Heart health'], ar: ['ديتوكس', 'المعادن الثقيلة', 'صحة القلب'] }
+  };
+
+  CELEBS = [
+    { img: 'uploads/IMG_6084-2.jpg', name: 'Mona Kattan', handle: '@monakattan' },
+    { img: 'uploads/IMG_6096-1.jpg', name: 'Mohamed Ramadan', handle: '@mohamedramadanws' },
+    { img: 'uploads/IMG_6086-1.jpg', name: 'Taim AlFalasi', handle: '@taimalfalasi' },
+    { img: 'uploads/IMG_6085-1.jpg', name: 'Rita Kahawaty', handle: '@ritakahawaty' },
+    { img: 'uploads/IMG_6091-1.jpg', name: 'Saoud Alkaabi', handle: '@saoudalkaabi' },
+    { img: 'uploads/IMG_6090-1.jpg', name: 'Diana Ganeeva', handle: '@diana.dxb' },
+    { img: 'uploads/IMG_6087-1.jpg', name: 'Zoya Sakr', handle: '@zoyasakr' },
+    { img: 'uploads/IMG_6089-1.jpg', name: 'Heba Saad', handle: '@habah_saad' },
+    { img: 'uploads/IMG_6092-1.jpg', name: 'Dalia El Ali', handle: '@deebydalia' },
+    { img: 'uploads/IMG_6093-1.jpg', name: 'Aliyah Raey', handle: '@aliyahraey' },
+    { img: 'uploads/IMG_6098-1.jpg', name: 'Lamiya Slimani', handle: '@lamiyaslimani' },
+    { img: 'uploads/IMG_6097-1.jpg', name: 'Aseel', handle: '@aseel' },
+    { img: 'uploads/IMG_6095-1.jpg', name: 'Leen Jadan', handle: '@leenjadan' },
+    { img: 'uploads/IMG_6094-1.jpg', name: 'Ahmed', handle: '@twistedcurlz' },
+    { img: 'uploads/IMG_6088-1.jpg', name: 'Asallah Kamel', handle: '@asallahkamel' }
+  ];
+
+  EN = {
+    nav: { menu: 'IV Drips', science: 'Science', clinics: 'For Clinics', partners: 'Partners', book: 'Book your appointment' },
+    promo: { body: 'Book a session — get a complimentary wellness assessment.', cta: 'Book now' },
+    hero: {
+      badge: 'Registered with the Iraqi Ministry of Health', l1: 'The leading company behind', l2: 'modern IV therapy in Iraq.',
+      sub: 'IV solutions designed to the latest international protocols — for health, wellness, and performance.',
+      ctaBook: 'Book your appointment', ctaMenu: 'Explore the drip menu', ctaClinics: 'For clinics & partners',
+      fromLine: 'Drips from 150,000 IQD · Same-week appointments · Call or WhatsApp',
+      tags: ['Iraq\u2019s first officially registered IV brand', 'Official Liquivida® USA distributor', 'American IV Association verified']
+    },
+    trust: {
+      title: 'Iraq\u2019s first registered IV drips brand.',
+      sub: 'A registered pharmaceutical brand distributed exclusively through licensed medical offices — every formulation GMP-tested to international standards.',
+      liqui: 'Premium IV therapy by Liquivida® USA'
+    },
+    get: [
+      { t: 'Licensed medical professionals', b: 'Every drip administered by trained clinicians' },
+      { t: 'Free wellness assessment', b: 'A medical consultation before every session' },
+      { t: 'Suite or at-home', b: 'Al-Mansour private suites · nurse visits across Baghdad' },
+      { t: 'Open 7 days', b: 'Sun–Thu 9–20 · Fri 14–20 · Sat 10–18' }
+    ],
+    addons: {
+      kicker: 'Enhance your session', title: 'Add-ons.',
+      note: 'Add to any drip session — ask your clinician during your consultation.',
+      items: [
+        { name: 'Oxygen Bar', desc: 'Boost oxygen levels and choose your scent: Lavender, Peppermint, or Oud. 20 minutes of pure rejuvenation.' },
+        { name: 'Head, Neck & Shoulder Massage', desc: 'Release built-up tension while your nutrients absorb. Stimulates blood flow and endorphin release.' },
+        { name: 'Foot Reflexology', desc: 'Targeted pressure-point massage for deep relaxation and stress relief.' },
+        { name: 'Athletic Recovery Program', desc: 'For athletes: supports muscle repair, boosts immunity, oxygenates cells, enhances performance.' },
+        { name: 'Mini Facial', desc: '30 minutes of cleansing, exfoliating, and moisturising while your drip does its work.' }
+      ]
+    },
+    standard: {
+      kicker: 'The Invita standard', title: 'What sets Invita apart.',
+      items: [
+        'Iraq\u2019s first officially registered IV therapy brand — operating under Ministry of Health regulations',
+        'Official Liquivida\u00ae licensed partner — Baghdad\u2019s authorised distributor of USA clinical protocols',
+        'Manufactured under international pharmaceutical standards for quality and sterility',
+        'American IV Association verified partner',
+        'A medical professional with you through the whole session — transparent IQD pricing, no hidden fees',
+        'Clinical training and supply for 37+ healthcare providers nationwide'
+      ]
+    },
+    quotes: {
+      kicker: 'Client stories', title: 'Hear it from Baghdad.',
+      items: [
+        { text: '\u201cThe IV Radiance drip was unlike anything I\u2019ve tried before. My skin looked incredible and I felt re-energised from the inside out.\u201d', who: 'Client, Baghdad — 5-star review' },
+        { text: '\u201cI\u2019ve been to IV clinics abroad and was thrilled to finally have this level of quality right here in Baghdad. The VIP drip gave me energy I hadn\u2019t felt in years.\u201d', who: 'Client, Baghdad — 5-star review' },
+        { text: '\u201cThe fact that these are Liquivida USA formulas — the same ones used in America — makes a huge difference. You feel the quality.\u201d', who: 'Client, Baghdad — 5-star review' }
+      ]
+    },
+    ticker: ['Memory & Focus', 'Energy Boost', 'Immune Support', 'Detoxification', 'Chronic Fatigue', 'Blood Pressure', 'Anxiety', 'Muscle Recovery', 'Libido', 'Thyroid & Adrenal Health', 'Menopause', 'Post-travel Recovery', 'Metabolism', 'Athletic Performance', 'Skin & Radiance', 'Hangover Recovery', 'Sleep Improvement', 'Anti-Aging'],
+    stats: { kicker: 'By the numbers — a growing healthcare network', labels: ['Officially registered IV brand in Iraq', 'Healthcare providers in network', 'IV treatments delivered', 'Licensed medical professionals'] },
+    menu: {
+      kicker: 'The Invita catalogue', title: 'Thirteen Liquivida® protocols.',
+      lead: 'Every protocol begins with a private medical consultation. Filter by tier, open a row for the clinical formula, book in one tap.',
+      all: 'All', book: 'Book', bestFor: 'Best for', formula: 'Clinical formula', details: 'View full details',
+      disclaimer: 'Price includes a complimentary medical assessment. Your clinician may recommend adjustments based on your individual needs.'
+    },
+    tiers: { Signature: 'Signature', Wellness: 'Wellness', Performance: 'Performance', Beauty: 'Beauty' },
+    matcher: { kicker: 'Personalised matching', title: 'Which drip fits you?', lead: 'Pick a goal — we recommend the Invita protocols that match.', resultsTitle: 'Your recommended protocols' },
+    how: {
+      kicker: 'The process', title: 'Consult. Infuse. Feel it.',
+      steps: [
+        { n: '01', title: 'Consult', body: 'Your session starts with a 15-minute medical consultation. We review your health history, lifestyle, and goals to recommend the right drip protocol.' },
+        { n: '02', title: 'Infuse', body: 'Your customised IV drip is administered by a trained medical professional. You relax while a precision blend of nutrients enters your bloodstream directly — bypassing the digestive system entirely.' },
+        { n: '03', title: 'Feel it', body: 'Because vitamins and minerals go straight into circulation, results are fast. Most clients feel increased energy, clarity, and wellbeing within hours — not days.' }
+      ]
+    },
+    science: {
+      more: 'Published research & case studies',
+      kicker: 'The science', title: '100% absorption. Zero digestive loss.',
+      copy: 'When vitamins are taken orally, the gastrointestinal tract limits how much your body can absorb. IV therapy delivers nutrients directly into circulation — fully, and fast.',
+      ivLabel: 'IV infusion — direct to the bloodstream', ivVal: '100%',
+      oralLabel: 'Oral supplements — limited by digestion', oralVal: '10–30%',
+      props: [
+        { n: '01', t: '100% absorption', b: 'Oral supplements deliver only 10–30% of their nutrients. IV therapy delivers directly into the bloodstream — fully absorbed, zero digestive loss.' },
+        { n: '02', t: 'Liquivida® USA formulas', b: 'Every drip we administer is a clinically developed Liquivida® formula — the same trusted protocols used across the United States, now in Baghdad.' },
+        { n: '03', t: 'Medical grade & safe', b: 'All treatments are prescribed by a qualified medical professional after a comprehensive health consultation, using pharmaceutical-grade ingredients.' },
+        { n: '04', t: 'Free wellness consult', b: 'Every client receives a complimentary wellness assessment with one of our medical professionals before any treatment is recommended.' }
+      ]
+    },
+    visit: {
+      kicker: 'The visit', title: 'A private suite in Al-Mansour. Or your home.',
+      copy: 'No waiting-room chaos. Refreshments, a calm private space, and a medical professional with you through the whole session — before, during, and after.',
+      suiteName: 'Invita Suite — Al-Mansour', suiteDesc: 'Private infusion suites. By appointment only.',
+      homeName: 'At-Home Service', homeDesc: 'Licensed nurse visits across Baghdad. Premium add-on.',
+      hours: 'Sun–Thu 9:00–20:00 · Fri 14:00–20:00 · Sat 10:00–18:00'
+    },
+    booking: {
+      kicker: 'Concierge booking', title: 'Book your consultation.',
+      lead: 'You are not buying a product — you are starting a medically guided wellness experience, with a complimentary assessment before any treatment.',
+      steps: ['Your protocol', 'Your visit', 'Your details', 'Confirmed'],
+      chooseTitle: 'Choose your protocol', locTitle: 'Where would you like your session?',
+      dateTitle: 'Pick a date', timeTitle: 'Available times', detailsTitle: 'Your details',
+      nameL: 'Full name', phoneL: 'Phone (WhatsApp)', noteL: 'Health goals (optional)',
+      err: 'Please enter your name and a valid WhatsApp number.',
+      back: 'Back', continue: 'Continue', confirm: 'Confirm booking', change: 'Change',
+      confTitle: 'Request received', confBody: 'Our medical team will confirm your appointment on WhatsApp within 24 hours. Keep your booking reference.',
+      refL: 'Booking reference', sumProtocol: 'Protocol', sumWhere: 'Where', sumWhen: 'When', sumName: 'Name',
+      whatsapp: 'Chat on WhatsApp', again: 'New booking',
+      trust: 'Licensed professionals · Private suite · Liquivida® USA formulas'
+    },
+    docExp: {
+      kicker: 'Doctors experience',
+      title: 'The doctors\u2019 recommendation series.',
+      lead: 'Short films where partner physicians explain why they administer Invita protocols in their own practice.'
+    },
+    certs: {
+      kicker: 'Certifications',
+      title: 'Certified as a top IV drip pharmaceutical facility.',
+      lead: 'Our IV formulas are produced in internationally certified pharmaceutical facilities — quality and environmental management standards you can verify yourself.',
+      c1: 'Medical devices — quality management systems. The international standard for pharmaceutical and medical manufacturing quality.',
+      c2: 'Environmental management systems — certified responsible, controlled production environments.',
+      view: 'View certificate (PDF)',
+      cta: 'Ask us about our certifications'
+    },
+    b2b: {
+      kicker: 'For clinics & partners', title: 'Serious healthcare, supplied.',
+      copy: 'We are not a beauty spa or a vitamin bar. Invita is a serious healthcare company — clinical education, administration protocols, regulatory compliance, and a trusted supply chain included.',
+      stat: '37+', statL: 'Healthcare providers already in the Invita network',
+      points: [
+        { t: 'Professional training', b: 'Clinical education, protocols, and onboarding for partner facilities.' },
+        { t: 'Wholesale supply', b: 'Clinical Liquivida® formulas for clinics and hospitals nationwide.' },
+        { t: 'Protocols & compliance', b: 'Standardised administration, documentation, and Ministry of Health alignment.' },
+        { t: 'Medical support', b: 'A direct line to our clinical team for network partners.' }
+      ],
+      cta: 'Become a partner', cta2: 'Request information'
+    },
+    membership: {
+      kicker: 'Invita Circle', title: 'Membership.',
+      tiers: [
+        { name: 'Invita Circle', price: '2,400,000 IQD / year', tag: '', perks: ['Monthly Immunity Shield IV', 'Priority concierge booking', '15% on DNA panels', 'At-home nurse visits (2/year)'] },
+        { name: 'Longevity', price: '5,800,000 IQD / year', tag: 'Most requested', perks: ['Everything in Circle', 'Quarterly NAD+ Performance', 'Annual Longevity DNA panel', 'Dedicated clinician line'] }
+      ],
+      cta: 'Request a membership consultation'
+    },
+    dna: { kicker: 'Invita DNA Lab', title: 'Genomic intelligence.', copy: 'DNA panels with private interpretation — nutrition, longevity, and pharmacogenomics.', link: 'Talk to our medical team' },
+    video: { kicker: 'On screen', title: 'Discover your next infusion.', lead: 'Every formula, its ingredients, and its benefits — in two minutes.' },
+    celebs: { kicker: 'Global wellness', title: 'Celebrities love IV drips.', lead: 'From athletes and artists to wellness pioneers — IV therapy has become a trusted ritual for energy, recovery, and glow.', note: 'Public figures photographed during IV wellness sessions at leading clinics across the region.', prev: 'Scroll back', next: 'Scroll forward' },
+    film: { kicker: 'Inside Invita', title: 'See the experience.', copy: 'A calm private suite, precise clinical work, and Liquivida\u00ae USA formulas — watch what a session feels like before you book.', note: 'Drop a poster image on the frame — send us your clinic film and it will play right here.' },
+    ig: { kicker: '@invita_iv_drips', title: 'From the suite.', follow: 'Follow on Instagram' },
+    faq: {
+      kicker: 'Questions', title: 'Questions, answered plainly.',
+      items: [
+        { q: 'Is IV drip therapy safe?', a: 'Yes. All Invita IV protocols are Liquivida® USA formulas developed by board-certified emergency physicians and pharmacists. Every treatment is administered by trained medical professionals, and a safety consultation before treatment ensures we select the right protocol for you.' },
+        { q: 'How long does a session take?', a: 'A typical IV drip session takes 30–60 minutes. NAD+ protocols run about 90 minutes. This follows a short 15-minute medical consultation where we review your health history and goals.' },
+        { q: 'I already take vitamins — why IV?', a: 'When vitamins are taken orally, the gastrointestinal tract limits absorption — often just 10–30%. IV therapy delivers nutrients directly into the bloodstream at 100% absorption. If you want to actually feel the difference, IV is the superior method.' },
+        { q: 'How often should I come in?', a: 'Your Invita medical professional will recommend a personalised schedule based on your consultation. Some clients benefit from weekly sessions; others come monthly for maintenance.' },
+        { q: 'Does it really work?', a: 'Yes — benefits are fast and tangible because nutrients bypass the digestive system and enter your bloodstream immediately. Reported results include more energy and mental clarity, stronger immunity, faster athletic recovery, better sleep, improved mood, healthier skin, and jet-lag or hangover relief.' },
+        { q: 'Who can receive IV therapy?', a: 'Most healthy adults are eligible. Our pre-treatment consultation follows medical eligibility criteria to ensure the therapy is appropriate and safe for each individual. Invita\u2019s treatments optimise wellness — they do not treat or diagnose medical conditions.' },
+        { q: 'What should I expect when I arrive?', a: 'You\u2019ll be welcomed by our team, offered refreshments, and settled into a comfortable private space. A medical professional will be with you throughout your session and available for questions before, during, and after.' }
+      ]
+    },
+    close: { l1: 'Ready to work with', l2: 'Iraq\u2019s IV therapy leader?', ctaBook: 'Book a wellness session', ctaPartner: 'Become a partner' },
+    footer: {
+      tagline: 'Iraq\u2019s Leading IV Therapy Company',
+      contact: 'Contact', hours: 'Hours', explore: 'Explore',
+      address: 'AL-Lord Office, Baghdad, Iraq',
+      hoursLines: 'Sun – Thu: 9:00 – 20:00 — Friday: 14:00 – 20:00 — Saturday: 10:00 – 18:00',
+      links: [
+        { label: 'IV Drips', href: '#menu' }, { label: 'The science', href: '#science' },
+        { label: 'For clinics', href: '#clinics' }, { label: 'Booking', href: 'https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A' },
+        { label: 'Membership', href: '#membership' }, { label: 'Infusion menu (print)', href: 'Invita Menu.html' }, { label: 'Instagram', href: 'https://www.instagram.com/invita_iv_drips/' }
+      ],
+      disclaimer: 'All treatments are administered by licensed medical professionals. Invita operates under Iraqi Ministry of Health regulations.',
+      copyright: '© 2026 Invita — Official Liquivida® USA distributor, Baghdad.'
+    }
+  };
+
+  AR = {
+    nav: { menu: 'العلاجات الوريدية', science: 'المنهج العلمي', clinics: 'للعيادات', partners: 'شركاؤنا', book: 'احجز استشارتك' },
+    promo: { body: 'تشمل كل جلسة تقييماً طبياً مجانياً قبل العلاج.', cta: 'احجز الآن' },
+    hero: {
+      badge: 'مسجل لدى وزارة الصحة العراقية', l1: 'الشركة الرائدة وراء', l2: 'العلاج الوريدي الحديث في العراق.',
+      sub: 'نقدّم حلول العلاج الوريدي للأفراد والعيادات والمراكز الطبية وفق معايير دولية، مدعومة ببروتوكولات قائمة على الأدلة العلمية وشراكات مع علامات عالمية رائدة.',
+      ctaBook: 'احجز استشارتك', ctaMenu: 'استكشف برامج العلاج الوريدي', ctaClinics: 'للعيادات والشركاء',
+      fromLine: 'تبدأ الجلسات من 150,000 د.ع · مواعيد على مدار الأسبوع · هاتف أو واتساب',
+      tags: ['أول علامة عراقية متخصصة بالعلاج الوريدي', 'شريك معتمد لمنتجات Liquivida®', 'بروتوكولات علاجية وفق المعايير الدولية']
+    },
+    trust: {
+      title: 'أول علامة مسجّلة للعلاج الوريدي في العراق.',
+      sub: 'علامة دوائية مسجّلة تُوزَّع حصرياً عبر عيادات ومكاتب طبية مرخّصة — وكل تركيبة مختبرة وفق معايير GMP الدولية.',
+      liqui: 'علاج وريدي فاخر من Liquivida® الأمريكية'
+    },
+    get: [
+      { t: 'كوادر طبية مرخّصة', b: 'تُعطى جميع الجلسات بإشراف متخصصين سريريين معتمدين' },
+      { t: 'تقييم طبي مجاني', b: 'استشارة طبية متخصصة قبل كل جلسة' },
+      { t: 'في الجناح أو المنزل', b: 'أجنحة خاصة في المنصور · زيارات تمريضية في بغداد' },
+      { t: 'سبعة أيام في الأسبوع', b: 'الأحد–الخميس 9–20 · الجمعة 14–20 · السبت 10–18' }
+    ],
+    addons: {
+      kicker: 'استكمل جلستك', title: 'الخدمات الإضافية.',
+      note: 'تُضاف إلى أي جلسة — استشر أخصائيك خلال التقييم.',
+      items: [
+        { name: 'بار الأكسجين', desc: 'جلسة أكسجين لعشرين دقيقة مع روائح مختارة: لافندر، نعناع، أو عود.' },
+        { name: 'مساج الرأس والرقبة والكتفين', desc: 'جلسة استرخاء أثناء العلاج — تنشّط الدورة الدموية وتخفف التوتر.' },
+        { name: 'رفلكسولوجي القدم', desc: 'مساج نقاط الضغط لاسترخاء عميق.' },
+        { name: 'برنامج التعافي الرياضي', desc: 'برنامج مخصص للرياضيين يدعم استشفاء العضلات والأداء.' },
+        { name: 'فيشل سريع', desc: 'ثلاثون دقيقة من التنظيف والترطيب أثناء جلستك.' }
+      ]
+    },
+    standard: {
+      kicker: 'معيار إنفيتا', title: 'التزامنا بالجودة.',
+      items: [
+        'أول علامة عراقية متخصصة بالعلاج الوريدي — تعمل وفق لوائح وزارة الصحة',
+        'شريك معتمد لمنتجات Liquivida\u00ae — البروتوكولات السريرية الأمريكية في بغداد',
+        'تصنيع وفق المعايير الدوائية الدولية للجودة والتعقيم',
+        'عضوية معتمدة في American IV Association',
+        'إشراف طبي طوال الجلسة — وأسعار معلنة بالدينار دون رسوم إضافية',
+        'تدريب سريري وتوريد لأكثر من 37 جهة رعاية صحية'
+      ]
+    },
+    quotes: {
+      kicker: 'قصص العملاء', title: 'من بغداد.',
+      items: [
+        { text: '\u201cمغذي الإشراقة كان مختلفاً عن كل ما جربته. بشرتي بدت رائعة وشعرت بتجدد الطاقة من الداخل.\u201d', who: 'عميلة، بغداد — تقييم 5 نجوم' },
+        { text: '\u201cزرت عيادات وريدية في الخارج، وسعدت أخيراً بوجود هذا المستوى من الجودة هنا في بغداد. مغذي VIP أعطاني طاقة لم أشعر بها منذ سنوات.\u201d', who: 'عميل، بغداد — تقييم 5 نجوم' },
+        { text: '\u201cكون هذه صيغ Liquivida الأمريكية — نفس المستخدمة في أمريكا — يصنع فرقاً كبيراً. تشعر بالجودة.\u201d', who: 'عميلة، بغداد — تقييم 5 نجوم' }
+      ]
+    },
+    ticker: ['الذاكرة والتركيز', 'تعزيز الطاقة', 'دعم المناعة', 'إزالة السموم', 'التعب المزمن', 'ضغط الدم', 'التوتر والقلق', 'تعافي العضلات', 'الحيوية', 'صحة الغدة الدرقية', 'انقطاع الطمث', 'التعافي بعد السفر', 'الاستقلاب', 'الأداء الرياضي', 'البشرة والإشراق', 'استعادة النشاط', 'تحسين النوم', 'مكافحة الشيخوخة'],
+    stats: { kicker: 'بالأرقام', labels: ['علامة علاج وريدي مسجّلة في العراق', 'مقدّم رعاية صحية في الشبكة', 'علاج وريدي مُقدَّم', 'متخصص طبي مرخّص'] },
+    menu: {
+      kicker: 'كتالوج إنفيتا', title: 'ثلاثة عشر بروتوكولاً من Liquivida®.',
+      lead: 'يبدأ كل بروتوكول باستشارة طبية خاصة. اختر الفئة، واطّلع على التركيبة السريرية، واحجز مباشرة.',
+      all: 'الكل', book: 'احجز', bestFor: 'مناسب لـ', formula: 'التركيبة السريرية', details: 'عرض التفاصيل الكاملة',
+      disclaimer: 'يشمل السعر تقييماً طبياً مجانياً. قد يوصي الطبيب بتعديل البروتوكول وفق حالتك الفردية.'
+    },
+    tiers: { Signature: 'المميّزة', Wellness: 'العافية', Performance: 'الأداء', Beauty: 'الجمال' },
+    matcher: { kicker: 'مطابقة شخصية', title: 'أي بروتوكول يناسبك؟', lead: 'حدّد هدفك الصحي — ونرشّح لك البروتوكول الأنسب.', resultsTitle: 'البروتوكولات المرشّحة لك' },
+    how: {
+      kicker: 'العملية', title: 'استشارة. المغذي المناسب. نتيجة.',
+      steps: [
+        { n: '01', title: 'الاستشارة', body: 'تبدأ كل جلسة باستشارة طبية لمراجعة تاريخك الصحي وأهدافك، وتحديد البروتوكول الأنسب.' },
+        { n: '02', title: 'الجلسة', body: 'يُعطى العلاج بإشراف متخصص طبي بينما تستريح — وتصل المغذيات إلى الدورة الدموية مباشرة.' },
+        { n: '03', title: 'النتيجة', body: 'يلاحظ معظم العملاء تحسّناً في الطاقة والتركيز خلال ساعات من الجلسة.' }
+      ]
+    },
+    science: {
+      more: 'الأبحاث المنشورة ودراسات الحالة',
+      kicker: 'المنهج العلمي', title: 'توافر حيوي كامل. دون فقدان هضمي.',
+      copy: 'يحدّ الجهاز الهضمي من امتصاص الفيتامينات الفموية. يوصل العلاج الوريدي المغذيات مباشرة إلى الدورة الدموية — بامتصاص كامل وفاعلية أعلى.',
+      ivLabel: 'العلاج الوريدي — مباشرة إلى الدم', ivVal: '100%',
+      oralLabel: 'المكملات الفموية — يحدّها الهضم', oralVal: '10–30%',
+      props: [
+        { n: '01', t: 'توافر حيوي كامل', b: 'توصل المكملات الفموية 10–30% فقط من مغذياتها، فيما يصل العلاج الوريدي إلى الدورة الدموية مباشرة.' },
+        { n: '02', t: 'صيغ Liquivida® الأمريكية', b: 'بروتوكولات سريرية مطوّرة في الولايات المتحدة — تُقدَّم اليوم في بغداد وفق المعايير ذاتها.' },
+        { n: '03', t: 'إشراف طبي', b: 'تُصرف جميع العلاجات بعد تقييم طبي شامل، وبمكونات بدرجة صيدلانية.' },
+        { n: '04', t: 'تقييم طبي مجاني', b: 'يخضع كل عميل لتقييم طبي مجاني قبل التوصية بأي بروتوكول.' }
+      ]
+    },
+    visit: {
+      kicker: 'الزيارة', title: 'جناح خاص في المنصور. أو في منزلك.',
+      copy: 'مساحة خاصة هادئة وضيافة راقية، مع متخصص طبي يرافقك قبل الجلسة وأثناءها وبعدها.',
+      suiteName: 'جناح إنفيتا — المنصور', suiteDesc: 'أجنحة علاج خاصة. بحجز مسبق فقط.',
+      homeName: 'الخدمة المنزلية', homeDesc: 'زيارات تمريضية مرخّصة في بغداد — خدمة مميزة.',
+      hours: 'الأحد–الخميس 9:00–20:00 · الجمعة 14:00–20:00 · السبت 10:00–18:00'
+    },
+    booking: {
+      kicker: 'حجز كونسيرج', title: 'احجز استشارتك.',
+      lead: 'تجربة رعاية بإرشاد طبي — تبدأ بتقييم مجاني قبل أي علاج.',
+      steps: ['بروتوكولك', 'زيارتك', 'بياناتك', 'التأكيد'],
+      chooseTitle: 'اختر بروتوكولك', locTitle: 'أين تفضّل جلستك؟',
+      dateTitle: 'اختر التاريخ', timeTitle: 'الأوقات المتاحة', detailsTitle: 'بياناتك',
+      nameL: 'الاسم الكامل', phoneL: 'الهاتف (واتساب)', noteL: 'أهدافك الصحية (اختياري)',
+      err: 'يرجى إدخال الاسم ورقم واتساب صحيح.',
+      back: 'رجوع', continue: 'متابعة', confirm: 'تأكيد الحجز', change: 'تغيير',
+      confTitle: 'تم استلام طلبك', confBody: 'سيتواصل فريقنا الطبي لتأكيد موعدك عبر واتساب خلال 24 ساعة. يرجى الاحتفاظ برقم الحجز.',
+      refL: 'رقم الحجز', sumProtocol: 'البروتوكول', sumWhere: 'المكان', sumWhen: 'الموعد', sumName: 'الاسم',
+      whatsapp: 'تواصل عبر واتساب', again: 'حجز جديد',
+      trust: 'كوادر طبية مرخّصة · جناح خاص · صيغ Liquivida® الأمريكية'
+    },
+    docExp: {
+      kicker: 'تجربة الأطباء',
+      title: 'سلسلة توصيات الأطباء.',
+      lead: 'شهادات مصوّرة يوضح فيها الأطباء الشركاء أسباب اعتمادهم بروتوكولات إنفيتا في عياداتهم.'
+    },
+    certs: {
+      kicker: 'الشهادات',
+      title: 'معتمدون كمنشأة دوائية رائدة للمغذيات الوريدية.',
+      lead: 'تُنتَج صيغنا الوريدية في منشآت دوائية حاصلة على اعتمادات دولية — معايير جودة وإدارة بيئية يمكنك التحقق منها بنفسك.',
+      c1: 'الأجهزة الطبية — أنظمة إدارة الجودة. المعيار الدولي لجودة التصنيع الدوائي والطبي.',
+      c2: 'أنظمة الإدارة البيئية — بيئات إنتاج مسؤولة وخاضعة للرقابة.',
+      view: 'عرض الشهادة (PDF)',
+      cta: 'اسألنا عن شهاداتنا'
+    },
+    b2b: {
+      kicker: 'للعيادات والشركاء', title: 'شريك موثوق للأطباء والعيادات.',
+      copy: 'نوفر للمؤسسات الصحية منظومة متكاملة: تعليماً سريرياً، وبروتوكولات إعطاء موحّدة، وامتثالاً تنظيمياً، وسلسلة توريد موثوقة.',
+      stat: '37+', statL: 'جهة رعاية صحية ضمن شبكة إنفيتا',
+      points: [
+        { t: 'التدريب السريري', b: 'تعليم سريري وبروتوكولات وتأهيل لكوادر المرافق الشريكة.' },
+        { t: 'التوريد المؤسسي', b: 'صيغ Liquivida® السريرية للعيادات والمستشفيات في عموم العراق.' },
+        { t: 'البروتوكولات والامتثال', b: 'إعطاء موحّد وتوثيق دقيق وتوافق مع لوائح وزارة الصحة.' },
+        { t: 'الدعم العلمي', b: 'خط مباشر مع فريقنا السريري لدعم شركاء الشبكة.' }
+      ],
+      cta: 'كن شريكاً', cta2: 'اطلب معلومات'
+    },
+    membership: {
+      kicker: 'دائرة إنفيتا', title: 'العضوية.',
+      tiers: [
+        { name: 'Invita Circle', price: '2,400,000 د.ع / سنوياً', tag: '', perks: ['جلسة Immunity Shield شهرية', 'أولوية الحجز عبر الكونسيرج', 'خصم 15% على فحوصات DNA', 'زيارتان منزليتان سنوياً'] },
+        { name: 'Longevity', price: '5,800,000 د.ع / سنوياً', tag: 'الأكثر طلباً', perks: ['كل مزايا الدائرة', 'NAD+ Performance كل ربع سنة', 'فحص Longevity DNA سنوي', 'خط مباشر مع الطبيب'] }
+      ],
+      cta: 'اطلب استشارة العضوية'
+    },
+    dna: { kicker: 'مختبر إنفيتا للحمض النووي', title: 'ذكاء جينومي.', copy: 'فحوصات جينية مع تفسير طبي خاص — للتغذية وطول العمر والاستجابة الدوائية.', link: 'تحدث مع فريقنا الطبي' },
+    video: { kicker: 'على الشاشة', title: 'اكتشف جلستك القادمة.', lead: 'كل تركيبة، ومكوناتها، وفوائدها — في دقيقتين.' },
+    celebs: { kicker: 'العافية العالمية', title: 'المشاهير يحبون العلاج الوريدي.', lead: 'من الرياضيين إلى روّاد العافية — أصبح العلاج الوريدي جزءاً من روتين الأداء والتعافي حول العالم.', note: 'شخصيات عامة خلال جلسات علاج وريدي في عيادات رائدة في المنطقة.', prev: 'السابق', next: 'التالي' },
+    film: { kicker: 'داخل إنفيتا', title: 'شاهد التجربة.', copy: 'جناح هادئ وممارسة سريرية دقيقة وصيغ Liquivida\u00ae — شاهد تجربة الجلسة قبل حجزها.', note: 'أسقط صورة الغلاف على الإطار — أرسل فيديو عيادتك وسيُعرض هنا.' },
+    ig: { kicker: '@invita_iv_drips', title: 'من الجناح.', follow: 'تابعنا على إنستغرام' },
+    faq: {
+      kicker: 'أسئلة', title: 'أسئلة، بإجابات واضحة.',
+      items: [
+        { q: 'هل العلاج الوريدي آمن؟', a: 'نعم. جميع البروتوكولات صيغ Liquivida® طوّرها أطباء وصيادلة معتمدون، وتُعطى بإشراف متخصصين طبيين — مع تقييم سلامة قبل كل علاج.' },
+        { q: 'كم تستغرق الجلسة؟', a: 'عادة 30–60 دقيقة، وبروتوكولات NAD+ نحو 90 دقيقة — بعد استشارة طبية قصيرة (15 دقيقة) لمراجعة تاريخك الصحي وأهدافك.' },
+        { q: 'أتناول الفيتامينات — لماذا الوريدي؟', a: 'الامتصاص الفموي محدود (10–30% تقريباً). يوصل العلاج الوريدي المغذيات إلى الدورة الدموية مباشرة وبتوافر حيوي كامل.' },
+        { q: 'كم مرة أحتاج الجلسات؟', a: 'يوصي أخصائيك بجدول شخصي بعد الاستشارة — جلسات أسبوعية لبعض الأهداف أو شهرية للصيانة.' },
+        { q: 'ما النتائج المتوقعة؟', a: 'تصل المغذيات إلى الدورة الدموية مباشرة، لذا يلاحظ معظم العملاء تحسناً في الطاقة والتركيز والنوم والتعافي خلال وقت قصير.' },
+        { q: 'من يمكنه تلقي العلاج الوريدي؟', a: 'معظم البالغين الأصحاء مؤهلون. يخضع كل عميل لتقييم أهلية طبي قبل العلاج. علاجات إنفيتا لتحسين العافية — لا لتشخيص الأمراض أو علاجها.' },
+        { q: 'ماذا أتوقع عند وصولي؟', a: 'يستقبلك فريقنا في مساحة خاصة مريحة، ويرافقك متخصص طبي طوال الجلسة للإجابة عن أسئلتك.' }
+      ]
+    },
+    close: { l1: 'ابدأ رحلتك مع', l2: 'رواد العلاج الوريدي في العراق.', ctaBook: 'احجز جلستك الآن', ctaPartner: 'كن شريكاً' },
+    footer: {
+      tagline: 'الشركة الرائدة للعلاج الوريدي في العراق',
+      contact: 'تواصل', hours: 'ساعات العمل', explore: 'استكشف',
+      address: 'مكتب اللورد، بغداد، العراق',
+      hoursLines: 'الأحد – الخميس: 9:00 – 20:00 — الجمعة: 14:00 – 20:00 — السبت: 10:00 – 18:00',
+      links: [
+        { label: 'المغذيات الوريدية', href: '#menu' }, { label: 'العلم', href: '#science' },
+        { label: 'للعيادات', href: '#clinics' }, { label: 'الحجز', href: 'https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A' },
+        { label: 'العضوية', href: '#membership' }, { label: 'قائمة العلاجات (للطباعة)', href: 'Invita Menu.html' }, { label: 'إنستغرام', href: 'https://www.instagram.com/invita_iv_drips/' }
+      ],
+      disclaimer: 'تُقدَّم جميع العلاجات بإشراف متخصصين طبيين مرخّصين، وفق لوائح وزارة الصحة العراقية.',
+      copyright: '© 2026 إنفيتا — الشريك المعتمد لمنتجات Liquivida® في العراق.'
+    }
+  };
+
+  componentDidMount() {
+    try { const saved = localStorage.getItem('invita-lang'); if (saved === 'ar' || saved === 'en') this.setState({ lang: saved }); } catch (e) {}
+    this._driveMarquees();
+    this._wireAutoplay();
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) { this.setState({ statP: 1 }); return; }
+    const el = this._statsEl;
+    if (!el || typeof IntersectionObserver === 'undefined') { this.setState({ statP: 1 }); return; }
+    const io = new IntersectionObserver((entries) => {
+      if (entries[0] && entries[0].isIntersecting) { io.disconnect(); this._countUp(); }
+    }, { threshold: 0.25 });
+    io.observe(el);
+    this._io = io;
+  }
+  componentWillUnmount() { if (this._io) this._io.disconnect(); }
+
+
+  _wireAutoplay() {
+    setTimeout(() => {
+      document.querySelectorAll('video[data-autoplay]').forEach((v) => {
+        v.muted = true;
+        const kick = () => { if (v.paused) v.play().catch(() => {}); };
+        kick();
+        v.addEventListener('canplay', kick, { once: true });
+      });
+    }, 300);
+  }
+
+  _driveMarquees() {
+    if (this._mrf) return;
+    const off = new WeakMap();
+    let last = Date.now();
+    const ch = new MessageChannel();
+    ch.port1.onmessage = () => {
+      const now = Date.now();
+      const dt = (now - last) / 1000;
+      if (dt >= 0.03) {
+        last = now;
+        const d = Math.min(dt, 0.1);
+        document.querySelectorAll('[data-marquee]').forEach((el) => {
+          const sp = parseFloat(el.getAttribute('data-marquee')) || 60;
+          let o = (off.get(el) || 0) - sp * d;
+          const half = el.scrollWidth / 2;
+          if (half > 0 && -o >= half) o += half;
+          off.set(el, o);
+          if (el.style.animation !== 'none') el.style.animation = 'none';
+          el.style.transform = 'translate3d(' + o + 'px,0,0)';
+        });
+        const cel = this._celebEl;
+        if (cel && !this._celebHold) {
+          this._celebNext = this._celebNext || now + 3500;
+          if (now >= this._celebNext) {
+            this._celebNext = now + 3500;
+            const stepW = Math.min(320, cel.clientWidth * 0.8);
+            if (Math.abs(cel.scrollLeft) + cel.clientWidth >= cel.scrollWidth - 12) this._celebTarget = 0;
+            else this._celebTarget = cel.scrollLeft + (getComputedStyle(cel).direction === 'rtl' ? -stepW : stepW);
+          }
+        }
+        if (cel && this._celebTarget != null) {
+          const diff = this._celebTarget - cel.scrollLeft;
+          cel.scrollLeft += Math.sign(diff) * Math.min(Math.abs(diff), 900 * d);
+          if (Math.abs(diff) < 2) { cel.scrollLeft = this._celebTarget; this._celebTarget = null; }
+        }
+      }
+      ch.port2.postMessage(0);
+    };
+    this._mrf = ch;
+    ch.port2.postMessage(0);
+  }
+
+  _countUp() {
+    const t0 = performance.now(), dur = 1500;
+    const step = (now) => {
+      const p = Math.min((now - t0) / dur, 1);
+      const q = Math.round((1 - Math.pow(1 - p, 3)) * 24) / 24;
+      if (q !== this.state.statP) this.setState({ statP: q });
+      if (p < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  _lang() { return this.state.lang || this.props.lang || 'en'; }
+
+  _scrollToBook() {
+    const el = document.getElementById('book');
+    if (el) {
+      const y = el.getBoundingClientRect().top + window.scrollY - 64;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  }
+
+  _celebScroll(d) {
+    const el = this._celebEl;
+    if (!el) return;
+    const fig = el.querySelector('figure');
+    const stride = fig ? fig.getBoundingClientRect().width + 18 : 308;
+    const perPage = Math.max(1, Math.floor(el.clientWidth / stride));
+    const idx = Math.round(el.scrollLeft / stride);
+    el.scrollTo({ left: (idx + d * perPage) * stride, behavior: 'smooth' });
+  }
+
+  _startBooking(slug) {
+    this.setState({ bookDrip: slug, bookStep: 2, formErr: false });
+    this._scrollToBook();
+  }
+
+  renderVals() {
+    const lang = this._lang();
+    const ar = lang === 'ar';
+    const t = ar ? this.AR : this.EN;
+    const fmtPrice = (n) => n.toLocaleString('en-US') + (ar ? ' د.ع' : ' IQD');
+    const chip = (active, extra) => Object.assign({
+      display: 'inline-flex', alignItems: 'center', justifyContent: 'center', gap: '6px',
+      padding: '9px 16px', fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '14px',
+      lineHeight: 1.2, borderRadius: '10px', cursor: 'pointer', whiteSpace: 'nowrap',
+      border: active ? '1px solid #0D2551' : '1px solid color-mix(in srgb,#0D2551 24%,transparent)',
+      background: active ? '#0D2551' : 'transparent', color: active ? '#F0EDE4' : '#0D2551'
+    }, extra || {});
+    const s = this.state;
+
+    // drip menu
+    const all = this.DRIPS;
+    const filtered = s.tier === 'all' ? all : all.filter((d) => d.tier === s.tier);
+    const drips = filtered.map((d) => {
+      const i = all.indexOf(d);
+      const loc = ar ? d.ar : d.en;
+      return {
+        num: String(i + 1).padStart(2, '0'), name: d.name, tag: loc.tag, desc: loc.desc, formula: d.formula, icon: this.ICONS[d.slug], href: 'Invita Drip.dc.html#' + d.slug, post: this.POST_IMGS[d.slug] || null, story: this.STORIES[d.slug], hasStory: this.POSTS.includes(d.slug), noStory: !this.POSTS.includes(d.slug),
+        tierLabel: t.tiers[d.tier], price: fmtPrice(d.price),
+        mins: ar ? d.min + ' دقيقة' : d.min + ' min',
+        uses: (this.USES[d.slug] || { en: [], ar: [] })[ar ? 'ar' : 'en'],
+        open: s.openDrip === d.slug, panelId: 'panel-' + d.slug,
+        toggle: () => this.setState((st) => ({ openDrip: st.openDrip === d.slug ? null : d.slug })),
+        book: () => this._startBooking(d.slug)
+      };
+    });
+    const tierOpts = [{ id: 'all', label: t.menu.all }].concat(
+      ['Signature', 'Wellness', 'Performance', 'Beauty'].map((id) => ({ id, label: t.tiers[id] }))
+    ).map((o) => {
+      const active = s.tier === o.id;
+      return {
+        label: o.label, active,
+        style: { display: 'inline-flex', alignItems: 'center', gap: '6px', padding: '8px 13px', fontSize: '13px', fontWeight: 600, cursor: 'pointer', background: active ? '#0D2551' : 'transparent', color: active ? '#F0EDE4' : '#0D2551' },
+        pick: () => this.setState({ tier: o.id, openDrip: null })
+      };
+    });
+
+    // matcher
+    const goals = this.GOALS.map((g) => ({
+      label: ar ? g.ar : g.en,
+      style: chip(s.goal === g.id),
+      pick: () => this.setState({ goal: g.id })
+    }));
+    const goalDef = this.GOALS.find((g) => g.id === s.goal);
+    const matches = goalDef ? goalDef.drips.map((slug, idx) => {
+      const d = all.find((x) => x.slug === slug);
+      return {
+        rank: String(idx + 1).padStart(2, '0'), name: d.name,
+        tag: ar ? d.ar.tag : d.en.tag, price: fmtPrice(d.price),
+        book: () => this._startBooking(d.slug)
+      };
+    }) : [];
+
+    // stats
+    const p = s.statP;
+    const statNums = [null, 37, 5000, 12];
+    const stats = t.stats.labels.map((label, i) => ({
+      label,
+      val: i === 0 ? (ar ? 'الأولى' : '1st') : Math.round(statNums[i] * p).toLocaleString('en-US') + '+'
+    }));
+
+    // booking
+    const step = s.bookStep;
+    const bookRail = t.booking.steps.map((label, i) => {
+      const n = i + 1, on = step >= n;
+      return {
+        n: '0' + n, label,
+        numStyle: { width: '26px', height: '26px', borderRadius: '50%', display: 'grid', placeItems: 'center', flex: 'none', fontSize: '11px', fontWeight: 800, fontFamily: 'var(--font-heading)', background: on ? 'var(--color-accent)' : 'var(--color-neutral-300)', color: on ? 'var(--color-bg)' : 'var(--color-neutral-700)' },
+        labelStyle: { fontSize: '12.5px', textTransform: 'uppercase', letterSpacing: '0.06em', opacity: step === n ? 1 : 0.55, fontWeight: step === n ? 700 : 400 }
+      };
+    });
+    const protoOpts = all.map((d) => ({
+      label: d.name + ' · ' + fmtPrice(d.price),
+      style: chip(s.bookDrip === d.slug, { whiteSpace: 'normal', textAlign: 'start' }),
+      pick: () => this.setState({ bookDrip: d.slug, bookStep: 2 })
+    }));
+    const selDrip = all.find((d) => d.slug === s.bookDrip);
+    const bookDripLabel = selDrip ? selDrip.name + ' — ' + fmtPrice(selDrip.price) : '';
+    const locDefs = [
+      { id: 'suite', title: t.visit.suiteName, sub: t.visit.suiteDesc },
+      { id: 'home', title: t.visit.homeName, sub: t.visit.homeDesc }
+    ];
+    const optStyle = (active) => ({
+      textAlign: 'start', cursor: 'pointer', padding: '14px 16px', fontFamily: 'var(--font-body)', color: 'var(--color-text)', borderRadius: '12px',
+      border: active ? '2px solid var(--color-accent)' : '2px solid var(--color-divider)',
+      background: active ? 'var(--color-accent-100)' : 'transparent'
+    });
+    const locOpts = locDefs.map((l) => ({ title: l.title, sub: l.sub, style: optStyle(s.bookLoc === l.id), pick: () => this.setState({ bookLoc: l.id }) }));
+    const dayFmt = new Intl.DateTimeFormat(ar ? 'ar-IQ' : 'en-GB', { weekday: 'short' });
+    const days = [];
+    for (let i = 1; i <= 7; i++) {
+      const dt = new Date(); dt.setDate(dt.getDate() + i); dt.setHours(12, 0, 0, 0);
+      const ts = dt.getTime(), active = s.bookDay === ts;
+      days.push({
+        wd: dayFmt.format(dt), dnum: String(dt.getDate()),
+        style: Object.assign(optStyle(active), { padding: '10px 14px', minWidth: '62px', textAlign: 'center' }),
+        pick: () => this.setState({ bookDay: ts, bookTime: null })
+      });
+    }
+    const slotBase = ['09:00', '09:30', '10:00', '11:00', '12:00', '13:00', '16:00', '16:30', '17:00', '18:00', '19:00', '19:30'];
+    const dayNum = s.bookDay ? new Date(s.bookDay).getDate() : 0;
+    const slots = slotBase.map((label, i) => {
+      const off = !s.bookDay || i === (dayNum * 5) % 12 || i === (dayNum * 5 + 4) % 12;
+      return {
+        label, off,
+        style: chip(s.bookTime === label, { fontFeatureSettings: "'tnum' 1", opacity: off ? 0.4 : 1, cursor: off ? 'not-allowed' : 'pointer' }),
+        pick: () => this.setState({ bookTime: label })
+      };
+    });
+    const cantSchedule = !(s.bookLoc && s.bookDay && s.bookTime);
+    const whenStr = s.bookDay
+      ? new Intl.DateTimeFormat(ar ? 'ar-IQ' : 'en-GB', { weekday: 'long', day: 'numeric', month: 'long' }).format(new Date(s.bookDay)) + ' · ' + (s.bookTime || '')
+      : '';
+    const locSel = locDefs.find((l) => l.id === s.bookLoc);
+    const sumRows = [
+      { k: t.booking.refL, v: s.bookRef || '' },
+      { k: t.booking.sumProtocol, v: selDrip ? selDrip.name : '' },
+      { k: t.booking.sumWhere, v: locSel ? locSel.title : '' },
+      { k: t.booking.sumWhen, v: whenStr },
+      { k: t.booking.sumName, v: s.name }
+    ];
+
+    return {
+      t, dir: ar ? 'rtl' : 'ltr', modern: this.props.modern ?? 'on', arrow: ar ? '←' : '→',
+      expPlay: (e) => { document.querySelectorAll('video').forEach((v) => { if (v !== e.target && !v.muted) v.pause(); }); },
+      navOpen: !!this.state.navOpen, navToggle: () => this.setState({ navOpen: !this.state.navOpen }), navClose: () => this.setState({ navOpen: false }),
+      langLabel: ar ? 'EN' : 'عربي',
+      toggleLang: () => { const nx = ar ? 'en' : 'ar'; try { localStorage.setItem('invita-lang', nx); } catch (e) {} this.setState({ lang: nx }); },
+      showPromo: this.props.showPromo ?? true,
+      heroTags: t.hero.tags,
+      tickerItems: t.ticker.concat(t.ticker),
+      doctorCards: this.DOCTOR_CARDS.concat(this.DOCTOR_CARDS),
+      srcRef: (el) => { if (el) { const s = el.getAttribute('data-inv-src'); if (s && el.getAttribute('src') !== s) el.setAttribute('src', s); } },
+      statsRef: (el) => { this._statsEl = el; },
+      celebs: this.CELEBS,
+      celebRef: (el) => { this._celebEl = el; if (el && !el._invAuto) { el._invAuto = true; el.addEventListener('pointerenter', () => { this._celebHold = true; }); el.addEventListener('pointerleave', () => { this._celebHold = false; }); el.addEventListener('touchstart', () => { this._celebHold = true; setTimeout(() => { this._celebHold = false; }, 6000); }, { passive: true }); } },
+      celebLeft: () => this._celebScroll(-1),
+      celebRight: () => this._celebScroll(1),
+      stats, tierOpts, drips, goals, matches, hasGoal: !!goalDef,
+      bookRail, protoOpts, bookDripLabel, locOpts, days, slots, cantSchedule,
+      contBtnStyle: Object.assign(chip(true), { opacity: cantSchedule ? 0.45 : 1, cursor: cantSchedule ? 'not-allowed' : 'pointer' }),
+      isStep1: step === 1, isStep2: step === 2, isStep3: step === 3, isStep4: step === 4,
+      backTo1: () => this.setState({ bookStep: 1 }),
+      backTo2: () => this.setState({ bookStep: 2, formErr: false }),
+      contStep3: () => this.setState({ bookStep: 3 }),
+      nameVal: s.name, phoneVal: s.phone, noteVal: s.note,
+      setName: (e) => this.setState({ name: e.target.value }),
+      setPhone: (e) => this.setState({ phone: e.target.value }),
+      setNote: (e) => this.setState({ note: e.target.value }),
+      hasErr: s.formErr,
+      pb: ar
+        ? { kicker: 'شركاؤنا', title: 'موثوقون لدى العيادات في أنحاء العراق.', copy: 'شاهد كيف تتعاون إنفيتا مع العيادات والمستشفيات والأطباء — تدريب وتوريد ودعم سريري تحت سقف واحد.', btn: 'صفحة شركائنا' }
+        : { kicker: 'Our partners', title: 'Trusted by clinics across Iraq.', copy: 'Watch how Invita partners with clinics, hospitals, and physicians — training, supply, and clinical support under one roof.', btn: 'Visit our partners page' },
+      filmRef: (el) => {
+        if (el && !el._invWired) {
+          el._invWired = true;
+          const K = 'invita-film-pos';
+          const saved = parseFloat(localStorage.getItem(K));
+          el.addEventListener('loadedmetadata', () => {
+            if (!isNaN(saved) && saved > 1 && saved < el.duration - 2) el.currentTime = saved;
+          });
+          el.addEventListener('timeupdate', () => {
+            if (!el.paused) localStorage.setItem(K, String(el.currentTime));
+          });
+        }
+      },
+      submitBooking: (e) => {
+        e.preventDefault();
+        const digits = (s.phone.match(/\d/g) || []).length;
+        if (!s.name.trim() || digits < 9) { this.setState({ formErr: true }); return; }
+        this.setState({ formErr: false, bookRef: 'INV-' + (1000 + Math.floor(Math.random() * 9000)), bookStep: 4 });
+        this._scrollToBook();
+      },
+      resetBooking: () => this.setState({ bookStep: 1, bookDrip: null, bookLoc: null, bookDay: null, bookTime: null, name: '', phone: '', note: '', bookRef: null, formErr: false }),
+      sumRows,
+      memTiers: t.membership.tiers.map((m) => ({
+        name: m.name, price: m.price, perks: m.perks, tag: m.tag, hasTag: !!m.tag,
+        style: { borderTop: m.tag ? '3px solid #C3A15A' : '2px solid var(--color-divider)' }
+      }))
+    };
+  }
+}
+</script>
+</body>
+</html>

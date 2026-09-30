@@ -15,7 +15,7 @@
   font-family: var(--font-serif);
   font-size: clamp(2.5rem, 7vw, 6.5rem);
   font-weight: 300;
-  color: #f0ede4;
+  color: #F2EDE3;
   line-height: 1.05;
   letter-spacing: -0.02em;
   margin-bottom: 1.5rem;
@@ -57,15 +57,15 @@
   display: inline-flex;
   align-items: center;
   padding: 0.875rem 1.75rem;
-  background-color: #f0ede4;
-  color: #0F2341;
+  background-color: #F2EDE3;
+  color: #0D2551;
   font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 500;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   border-radius: 9999px;
-  border: 1.5px solid #f0ede4;
+  border: 1.5px solid #F2EDE3;
   transition: all 0.3s ease;
   text-decoration: none;
 }
@@ -73,7 +73,7 @@
 .btn-hero-primary:hover {
   background-color: #b8965a;
   border-color: #b8965a;
-  color: #f0ede4;
+  color: #F2EDE3;
 }
 
 .btn-hero-secondary {
@@ -99,8 +99,8 @@
   justify-content: center;
   gap: 1rem;
   padding: 0.5rem 1rem;
-  background: #0F2341;
-  color: #f0ede4;
+  background: #0D2551;
+  color: #F2EDE3;
   font-size: 0.8125rem;
 }
 
@@ -111,7 +111,7 @@
 
 .section-pillars {
   padding: 5rem 1.5rem;
-  background: #f0ede4;
+  background: #F2EDE3;
 }
 
 .pillars-grid {
@@ -137,7 +137,7 @@
 
 .pillar-card-accent {
   background: #2C1810;
-  color: #f0ede4;
+  color: #F2EDE3;
 }
 
 .pillar-title {
@@ -164,7 +164,7 @@
   font-size: 0.6875rem;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #6b7a94;
+  color: #4A6096;
   margin-bottom: 0.75rem;
 }
 
@@ -176,7 +176,7 @@
 }
 
 .page-lead {
-  color: #6b7a94;
+  color: #4A6096;
   line-height: 1.75;
 }
 
@@ -210,13 +210,13 @@
 
 .protocol-tagline {
   font-style: italic;
-  color: #6b7a94;
+  color: #4A6096;
   margin: 0.5rem 0;
 }
 
 .protocol-meta {
   font-size: 0.875rem;
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 .cta-band {
@@ -228,10 +228,19 @@
   max-width: 720px;
 }
 
+.drip-detail-poster {
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin-bottom: 2rem;
+  border-radius: 0.75rem;
+}
+
 .back-link {
   display: inline-block;
   margin-bottom: 1.5rem;
-  color: #6b7a94;
+  color: #4A6096;
   text-decoration: none;
 }
 
@@ -262,7 +271,7 @@
   display: block;
   font-size: 0.8125rem;
   margin-bottom: 0.375rem;
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 .intake-field textarea {
@@ -300,14 +309,14 @@
   font-family: var(--font-serif);
   font-size: clamp(1.75rem, 3vw, 2.5rem);
   font-weight: 400;
-  color: #0f2341;
+  color: #0D2551;
   margin-bottom: 0.5rem;
 }
 
 .step-desc {
   font-family: var(--font-sans);
   font-size: 0.9rem;
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 .category-filter {
@@ -329,16 +338,16 @@
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6b7a94;
+  color: #4A6096;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .category-filter-btn.active,
 .category-filter-btn:hover {
-  border-color: #0f2341;
-  background: #0f2341;
-  color: #f0ede4;
+  border-color: #0D2551;
+  background: #0D2551;
+  color: #F2EDE3;
 }
 
 .booking-empty-state {
@@ -357,7 +366,7 @@
 }
 
 .booking-empty-state p {
-  color: #6b7a94;
+  color: #4A6096;
   margin-bottom: 1.25rem;
 }
 
@@ -375,7 +384,7 @@
 }
 
 .hero-clinics-link a:hover {
-  color: #d9b344;
+  color: #C3A15A;
 }
 
 .booking-guest-contact {
@@ -390,7 +399,7 @@
   font-family: var(--font-serif);
   font-size: 1.125rem;
   margin-bottom: 1rem;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .booking-schedule-card {
@@ -418,7 +427,7 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .booking-week-nav-btn:disabled {
@@ -430,7 +439,7 @@
   font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 500;
-  color: #0f2341;
+  color: #0D2551;
   letter-spacing: 0.05em;
 }
 
@@ -447,7 +456,7 @@
   font-weight: 500;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  color: #6b7a94;
+  color: #4A6096;
   padding-bottom: 0.5rem;
 }
 
@@ -471,7 +480,7 @@
   font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 400;
-  color: #0f2341;
+  color: #0D2551;
   margin-bottom: 1.25rem;
 }
 
@@ -488,9 +497,9 @@
 }
 
 .booking-service-card.selected {
-  background: #0f2341;
-  border-color: #0f2341;
-  color: #f0ede4;
+  background: #0D2551;
+  border-color: #0D2551;
+  color: #F2EDE3;
 }
 
 .step-actions {
@@ -519,11 +528,11 @@ html[dir="rtl"] .booking-week-nav {
   font-size: 0.6875rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 .step-label.active {
-  color: #0F2341;
+  color: #0D2551;
 }
 
 .step-label.done {
@@ -588,7 +597,7 @@ html[dir="rtl"] .booking-week-nav {
 
 .liquivida-badge-text em {
   font-style: normal;
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 .hero-liquivida {
@@ -606,7 +615,7 @@ html[dir="rtl"] .booking-week-nav {
 .lead-capture {
   padding: 4rem 1.5rem;
   background: #2C1810;
-  color: #f0ede4;
+  color: #F2EDE3;
 }
 
 .lead-capture-inner {
@@ -635,7 +644,7 @@ html[dir="rtl"] .booking-week-nav {
   border: 1px solid rgba(250, 247, 242, 0.2);
   border-radius: 0.5rem;
   background: rgba(255, 255, 255, 0.08);
-  color: #f0ede4;
+  color: #F2EDE3;
 }
 
 .about-liquivida-grid {
@@ -708,8 +717,8 @@ html[dir="rtl"] .booking-week-nav {
 
 .footer-cta-banner {
   padding: 4rem 1.5rem;
-  background: linear-gradient(135deg, #0F2341, #1A3358);
-  color: #f0ede4;
+  background: linear-gradient(135deg, #0D2551, #1B3A6B);
+  color: #F2EDE3;
   text-align: center;
 }
 
@@ -748,12 +757,12 @@ html[dir="rtl"] .booking-week-nav {
 
 .faq-answer {
   padding-bottom: 1.25rem;
-  color: #6b7a94;
+  color: #4A6096;
   line-height: 1.75;
 }
 
 .text-muted {
-  color: #6b7a94;
+  color: #4A6096;
   margin: 1rem 0;
 }
 
@@ -783,12 +792,12 @@ html[dir="rtl"] .booking-week-nav {
 .trust-bar-text {
   font-family: var(--font-sans);
   font-size: 0.8125rem;
-  color: #0f2341;
+  color: #0D2551;
   letter-spacing: 0.04em;
 }
 
 .trust-bar-muted {
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 /* Testimonials carousel */
@@ -806,7 +815,7 @@ html[dir="rtl"] .booking-week-nav {
   font-family: var(--font-serif);
   font-size: clamp(1.75rem, 3.5vw, 2.75rem);
   font-weight: 400;
-  color: #0f2341;
+  color: #0D2551;
   margin: 0.5rem 0;
 }
 
@@ -830,12 +839,12 @@ html[dir="rtl"] .booking-week-nav {
   scroll-snap-align: start;
   padding: 2rem;
   border: 1px solid rgba(26, 26, 26, 0.08);
-  background: #f0ede4;
+  background: #F2EDE3;
   border-radius: 0.5rem;
 }
 
 .testimonial-stars {
-  color: #d9b344;
+  color: #C3A15A;
   font-size: 0.875rem;
   margin-bottom: 1rem;
   letter-spacing: 0.1em;
@@ -859,13 +868,13 @@ html[dir="rtl"] .booking-week-nav {
   font-family: var(--font-sans);
   font-size: 0.875rem;
   font-weight: 500;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .testimonial-role {
   font-family: var(--font-sans);
   font-size: 0.75rem;
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 /* Benefits gallery */
@@ -892,7 +901,7 @@ html[dir="rtl"] .booking-week-nav {
   right: 0;
   padding: 1.5rem;
   background: linear-gradient(transparent, rgba(26, 26, 26, 0.75));
-  color: #f0ede4;
+  color: #F2EDE3;
   font-family: var(--font-serif);
   font-size: 1.25rem;
 }
@@ -929,13 +938,13 @@ html[dir="rtl"] .booking-week-nav {
   font-family: var(--font-serif);
   font-size: 1.25rem;
   margin-bottom: 0.5rem;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .addon-preview-body p {
   font-family: var(--font-sans);
   font-size: 0.875rem;
-  color: #6b7a94;
+  color: #4A6096;
   line-height: 1.7;
 }
 
@@ -1110,7 +1119,7 @@ html[dir="rtl"] .booking-week-nav {
   font-family: var(--font-sans);
   font-size: 0.8125rem;
   font-weight: 500;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .social-wall-meta span {
@@ -1155,7 +1164,7 @@ html[dir="rtl"] .booking-week-nav {
   margin: 0.75rem 0 1rem;
   font-size: 0.9375rem;
   line-height: 1.75;
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 .instagram-stats {
@@ -1176,14 +1185,14 @@ html[dir="rtl"] .booking-week-nav {
   font-family: var(--font-serif);
   font-size: 1.25rem;
   font-weight: 500;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .instagram-stats span {
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 .instagram-follow-btn {
@@ -1200,7 +1209,7 @@ html[dir="rtl"] .booking-week-nav {
   font-size: 0.75rem;
   letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: #6b7a94;
+  color: #4A6096;
   margin-bottom: 0.75rem;
 }
 
@@ -1218,16 +1227,16 @@ html[dir="rtl"] .booking-week-nav {
   padding: 0.45rem 0.9rem;
   border-radius: 9999px;
   border: 1px solid rgba(196, 149, 106, 0.35);
-  background: #f0ede4;
+  background: #F2EDE3;
   font-size: 0.8125rem;
-  color: #0f2341;
+  color: #0D2551;
   transition: all 0.25s ease;
 }
 
 .instagram-highlight-pill:hover {
-  background: #0f2341;
-  color: #f0ede4;
-  border-color: #0f2341;
+  background: #0D2551;
+  color: #F2EDE3;
+  border-color: #0D2551;
 }
 
 .instagram-grid {
@@ -1258,7 +1267,7 @@ html[dir="rtl"] .booking-week-nav {
   align-items: center;
   justify-content: center;
   background: rgba(15, 35, 65, 0.35);
-  color: #f0ede4;
+  color: #F2EDE3;
   opacity: 0;
   transition: opacity 0.25s ease;
 }
@@ -1565,19 +1574,19 @@ html[dir="rtl"] .booking-week-nav {
 }
 
 .network-stat-check {
-  color: #d9b344;
+  color: #C3A15A;
   font-size: 0.75rem;
 }
 
 .network-stat strong {
   font-family: var(--font-serif);
   font-size: 1.35rem;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .network-stat span:last-child {
   font-size: 0.78rem;
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 .clinic-directory-toolbar {
@@ -1599,7 +1608,7 @@ html[dir="rtl"] .booking-week-nav {
   border-radius: 9999px;
   background: #fff;
   border: 1px solid rgba(196, 149, 106, 0.2);
-  color: #6b7a94;
+  color: #4A6096;
 }
 
 .clinic-search input {
@@ -1607,7 +1616,7 @@ html[dir="rtl"] .booking-week-nav {
   border: none;
   background: transparent;
   font-size: 0.875rem;
-  color: #0f2341;
+  color: #0D2551;
   outline: none;
 }
 
@@ -1622,7 +1631,7 @@ html[dir="rtl"] .booking-week-nav {
   border: 1px solid rgba(196, 149, 106, 0.2);
   background: #fff;
   font-size: 0.78rem;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .clinic-filters {
@@ -1638,21 +1647,21 @@ html[dir="rtl"] .booking-week-nav {
   border: 1px solid rgba(196, 149, 106, 0.25);
   background: transparent;
   font-size: 0.75rem;
-  color: #6b7a94;
+  color: #4A6096;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .clinic-filter-btn.is-active,
 .clinic-filter-btn:hover {
-  background: #0f2341;
-  color: #f0ede4;
-  border-color: #0f2341;
+  background: #0D2551;
+  color: #F2EDE3;
+  border-color: #0D2551;
 }
 
 .clinic-directory-count {
   font-size: 0.8125rem;
-  color: #6b7a94;
+  color: #4A6096;
   margin-bottom: 1.25rem;
 }
 
@@ -1722,21 +1731,21 @@ html[dir="rtl"] .booking-week-nav {
   font-size: 0.68rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: #d9b344;
+  color: #C3A15A;
   margin-bottom: 0.35rem;
 }
 
 .clinic-card-name {
   font-family: var(--font-serif);
   font-size: 1.05rem;
-  color: #0f2341;
+  color: #0D2551;
   margin-bottom: 0.35rem;
 }
 
 .clinic-card-location,
 .clinic-card-meta {
   font-size: 0.78rem;
-  color: #6b7a94;
+  color: #4A6096;
   line-height: 1.5;
 }
 
@@ -1759,7 +1768,7 @@ html[dir="rtl"] .booking-week-nav {
 .clinic-map-label,
 .clinic-map-note {
   font-size: 0.78rem;
-  color: #6b7a94;
+  color: #4A6096;
   margin-bottom: 0.75rem;
 }
 
@@ -1792,9 +1801,9 @@ html[dir="rtl"] .booking-week-nav {
 }
 
 .clinic-pagination button.is-active {
-  background: #0f2341;
-  color: #f0ede4;
-  border-color: #0f2341;
+  background: #0D2551;
+  color: #F2EDE3;
+  border-color: #0D2551;
 }
 
 .clinic-logo {
@@ -1802,7 +1811,7 @@ html[dir="rtl"] .booking-week-nav {
   align-items: center;
   justify-content: center;
   border-radius: 9999px;
-  background: #f0ede4;
+  background: #F2EDE3;
   border: 2px solid rgba(196, 149, 106, 0.35);
   overflow: hidden;
 }
@@ -1810,7 +1819,7 @@ html[dir="rtl"] .booking-week-nav {
 .clinic-logo-initials {
   font-family: var(--font-serif);
   font-size: 0.85rem;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .clinic-profile-hero {
@@ -1839,7 +1848,7 @@ html[dir="rtl"] .booking-week-nav {
   position: relative;
   z-index: 1;
   padding: 3rem 0;
-  color: #f0ede4;
+  color: #F2EDE3;
 }
 
 .clinic-profile-sections {
@@ -1921,8 +1930,8 @@ html[dir="rtl"] .booking-week-nav {
 /* ── Science spotlight (NAD+ from uploaded symposium content) ── */
 
 .science-spotlight {
-  background: linear-gradient(135deg, #0f2341 0%, #2a1a12 100%);
-  color: #f0ede4;
+  background: linear-gradient(135deg, #0D2551 0%, #2a1a12 100%);
+  color: #F2EDE3;
 }
 
 .science-spotlight-inner {
@@ -1937,7 +1946,7 @@ html[dir="rtl"] .booking-week-nav {
 }
 
 .science-spotlight-copy .page-title {
-  color: #f0ede4;
+  color: #F2EDE3;
   text-align: start;
 }
 
@@ -2199,7 +2208,7 @@ html[dir="rtl"] .booking-week-nav {
 .partner-resources-title {
   font-family: var(--font-serif);
   font-size: 1.25rem;
-  color: #0f2341;
+  color: #0D2551;
   text-align: center;
   margin-bottom: 1.25rem;
 }
@@ -2237,7 +2246,7 @@ html[dir="rtl"] .booking-week-nav {
 .partner-resource-name {
   font-family: var(--font-serif);
   font-size: 0.95rem;
-  color: #0f2341;
+  color: #0D2551;
   margin-bottom: 0.2rem;
 }
 
@@ -2377,7 +2386,7 @@ html[dir="rtl"] .booking-week-nav {
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1.25rem;
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .wellness-matcher-result-list {
@@ -2400,8 +2409,8 @@ html[dir="rtl"] .booking-week-nav {
   width: 1.75rem;
   height: 1.75rem;
   border-radius: 9999px;
-  background: #0f2341;
-  color: #f0ede4;
+  background: #0D2551;
+  color: #F2EDE3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2476,9 +2485,9 @@ html[dir="rtl"] .booking-week-nav {
 
 .instagram-filter-btn.is-active,
 .instagram-topic-btn.is-active {
-  background: #0f2341;
-  color: #f0ede4;
-  border-color: #0f2341;
+  background: #0D2551;
+  color: #F2EDE3;
+  border-color: #0D2551;
 }
 
 .instagram-filter-count {
@@ -2516,7 +2525,7 @@ html[dir="rtl"] .booking-week-nav {
   height: 1.75rem;
   border-radius: 9999px;
   background: rgba(15, 35, 65, 0.75);
-  color: #f0ede4;
+  color: #F2EDE3;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -2534,7 +2543,7 @@ html[dir="rtl"] .booking-week-nav {
   padding: 0.2rem 0.45rem;
   border-radius: 9999px;
   background: rgba(15, 35, 65, 0.75);
-  color: #f0ede4;
+  color: #F2EDE3;
   font-size: 0.6875rem;
 }
 
@@ -2737,7 +2746,7 @@ html[dir="rtl"] .booking-week-nav {
   padding: 0.2rem 0.55rem;
   border-radius: 9999px;
   background: rgba(184, 150, 90, 0.12);
-  color: #0f2341;
+  color: #0D2551;
 }
 
 .journal-card-link {
@@ -2809,7 +2818,7 @@ html[dir="rtl"] .booking-week-nav {
 .provider-map-canvas {
   position: relative;
   aspect-ratio: 16 / 10;
-  background: linear-gradient(180deg, #e8eef5 0%, #d4dce8 100%);
+  background: linear-gradient(180deg, #e8eef5 0%, #CBD5EB 100%);
   border-radius: 0.75rem;
   border: 1px solid rgba(15, 35, 65, 0.12);
   overflow: hidden;
@@ -2821,8 +2830,8 @@ html[dir="rtl"] .booking-week-nav {
   height: 12px;
   margin: -6px 0 0 -6px;
   border-radius: 9999px;
-  background: #0f2341;
-  border: 2px solid #f0ede4;
+  background: #0D2551;
+  border: 2px solid #F2EDE3;
   cursor: pointer;
   transition: transform 0.2s ease;
 }
@@ -2870,8 +2879,8 @@ html[dir="rtl"] .booking-week-nav {
   width: 3.25rem;
   height: 3.25rem;
   border-radius: 9999px;
-  background: #0f2341;
-  color: #f0ede4;
+  background: #0D2551;
+  color: #F2EDE3;
   border: none;
   cursor: pointer;
   box-shadow: 0 8px 24px rgba(15, 35, 65, 0.25);
@@ -2917,8 +2926,8 @@ html[dir="rtl"] .booking-week-nav {
 }
 
 .wellness-assistant-msg--user {
-  background: #0f2341;
-  color: #f0ede4;
+  background: #0D2551;
+  color: #F2EDE3;
   align-self: flex-end;
   max-width: 85%;
 }

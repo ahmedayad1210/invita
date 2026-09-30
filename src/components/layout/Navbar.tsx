@@ -89,7 +89,7 @@ export default function Navbar() {
                 fontSize:      "0.8rem",
                 fontWeight:    isActive(link.href) ? 500 : 400,
                 letterSpacing: "0.06em",
-                color:         isActive(link.href) ? "#0F2341" : "#6B7A94",
+                color:         isActive(link.href) ? "#0D2551" : "#4A6096",
                 padding:       "0.375rem 0.875rem",
                 borderRadius:  "9999px",
                 backgroundColor: isActive(link.href)
@@ -101,13 +101,13 @@ export default function Navbar() {
               onClick={startProgress}
               onMouseEnter={(e) => {
                 if (!isActive(link.href)) {
-                  e.currentTarget.style.color           = "#0F2341";
+                  e.currentTarget.style.color           = "#0D2551";
                   e.currentTarget.style.backgroundColor = "rgba(15,35,65,0.04)";
                 }
               }}
               onMouseLeave={(e) => {
                 if (!isActive(link.href)) {
-                  e.currentTarget.style.color           = "#6B7A94";
+                  e.currentTarget.style.color           = "#4A6096";
                   e.currentTarget.style.backgroundColor = "transparent";
                 }
               }}
@@ -139,7 +139,7 @@ export default function Navbar() {
                   fontFamily:      "'DM Sans', sans-serif",
                   fontSize:        "0.8rem",
                   fontWeight:      500,
-                  color:           "#0F2341",
+                  color:           "#0D2551",
                   padding:         "0.375rem 0.875rem 0.375rem 0.375rem",
                   borderRadius:    "9999px",
                   border:          "1.5px solid rgba(15,35,65,0.12)",
@@ -148,22 +148,22 @@ export default function Navbar() {
                 }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = "rgba(196,149,106,0.5)";
-                  e.currentTarget.style.color = "#D9B344";
+                  e.currentTarget.style.color = "#C3A15A";
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.borderColor = "rgba(15,35,65,0.12)";
-                  e.currentTarget.style.color = "#0F2341";
+                  e.currentTarget.style.color = "#0D2551";
                 }}
               >
                 <span style={{
                   width:           "26px",
                   height:          "26px",
                   borderRadius:    "9999px",
-                  background:      "linear-gradient(135deg, #D9B344 0%, #B8965A 100%)",
+                  background:      "linear-gradient(135deg, #C3A15A 0%, #B8965A 100%)",
                   display:         "flex",
                   alignItems:      "center",
                   justifyContent:  "center",
-                  color:           "#F0EDE4",
+                  color:           "#F2EDE3",
                   fontSize:        "0.625rem",
                   fontWeight:      600,
                   letterSpacing:   "0.05em",
@@ -182,7 +182,7 @@ export default function Navbar() {
                   fontSize:      "0.8rem",
                   fontWeight:    400,
                   letterSpacing: "0.06em",
-                  color:         "#6B7A94",
+                  color:         "#4A6096",
                   padding:       "0.375rem 0.75rem",
                   borderRadius:  "9999px",
                   background:    "none",
@@ -191,8 +191,8 @@ export default function Navbar() {
                   transition:    "all 0.25s ease",
                   whiteSpace:    "nowrap",
                 }}
-                onMouseEnter={(e) => { e.currentTarget.style.color = "#0F2341"; }}
-                onMouseLeave={(e) => { e.currentTarget.style.color = "#6B7A94"; }}
+                onMouseEnter={(e) => { e.currentTarget.style.color = "#0D2551"; }}
+                onMouseLeave={(e) => { e.currentTarget.style.color = "#4A6096"; }}
               >
                 {t.nav.logout}
               </button>
@@ -209,14 +209,14 @@ export default function Navbar() {
                 fontSize:      "0.8rem",
                 fontWeight:    400,
                 letterSpacing: "0.06em",
-                color:         "#6B7A94",
+                color:         "#4A6096",
                 padding:       "0.375rem 0.75rem",
                 borderRadius:  "9999px",
                 transition:    "all 0.25s ease",
                 whiteSpace:    "nowrap",
               }}
-              onMouseEnter={(e) => { e.currentTarget.style.color = "#0F2341"; }}
-              onMouseLeave={(e) => { e.currentTarget.style.color = "#6B7A94"; }}
+              onMouseEnter={(e) => { e.currentTarget.style.color = "#0D2551"; }}
+              onMouseLeave={(e) => { e.currentTarget.style.color = "#4A6096"; }}
             >
               {t.nav.login}
             </Link>
@@ -241,10 +241,10 @@ export default function Navbar() {
               height:          "38px",
               borderRadius:    "9999px",
               border:          "1.5px solid rgba(15,35,65,0.15)",
-              backgroundColor: menuOpen ? "#0F2341" : "transparent",
+              backgroundColor: menuOpen ? "#0D2551" : "transparent",
               alignItems:      "center",
               justifyContent:  "center",
-              color:           menuOpen ? "#F0EDE4" : "#0F2341",
+              color:           menuOpen ? "#F2EDE3" : "#0D2551",
               transition:      "all 0.3s ease",
               flexShrink:      0,
             }}
@@ -287,18 +287,18 @@ export default function Navbar() {
             display:         "flex",
             alignItems:      "center",
             justifyContent:  "center",
-            color:           "#0F2341",
+            color:           "#0D2551",
             transition:      "all 0.3s ease",
             zIndex:          61,
           }}
           onMouseEnter={(e) => {
-            e.currentTarget.style.backgroundColor = "#0F2341";
-            e.currentTarget.style.color           = "#F0EDE4";
-            e.currentTarget.style.borderColor     = "#0F2341";
+            e.currentTarget.style.backgroundColor = "#0D2551";
+            e.currentTarget.style.color           = "#F2EDE3";
+            e.currentTarget.style.borderColor     = "#0D2551";
           }}
           onMouseLeave={(e) => {
             e.currentTarget.style.backgroundColor = "transparent";
-            e.currentTarget.style.color           = "#0F2341";
+            e.currentTarget.style.color           = "#0D2551";
             e.currentTarget.style.borderColor     = "rgba(15,35,65,0.2)";
           }}
         >
@@ -315,7 +315,7 @@ export default function Navbar() {
             fontFamily:    "'Cormorant Garamond', Georgia, serif",
             fontSize:      "1.125rem",
             fontWeight:    300,
-            color:         "#0F2341",
+            color:         "#0D2551",
             letterSpacing: "0.1em",
             opacity:       0.5,
             whiteSpace:    "nowrap",
@@ -342,7 +342,7 @@ export default function Navbar() {
                   className="overlay-menu-link"
                   onClick={() => setMenuOpen(false)}
                   style={{
-                    color: isActive(link.href) ? "#D9B344" : "#0F2341",
+                    color: isActive(link.href) ? "#C3A15A" : "#0D2551",
                   }}
                 >
                   {locale === "en" ? link.label : link.labelAr}
@@ -384,7 +384,7 @@ export default function Navbar() {
                     fontSize:      "0.8125rem",
                     fontWeight:    400,
                     letterSpacing: "0.08em",
-                    color:         "#6B7A94",
+                    color:         "#4A6096",
                     background:    "none",
                     border:        "none",
                     cursor:        "pointer",
@@ -421,7 +421,7 @@ export default function Navbar() {
             style={{
               fontFamily:    "'DM Sans', sans-serif",
               fontSize:      "0.75rem",
-              color:         "#6B7A94",
+              color:         "#4A6096",
               letterSpacing: "0.1em",
             }}
           >

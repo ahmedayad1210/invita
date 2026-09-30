@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;display=swap">
+<style>
+@font-face{font-family:"Plain";src:url("uploads/Plain-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Plain";src:url("uploads/Plain-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Plain";src:url("uploads/Plain-Medium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"Plain";src:url("uploads/Plain-Bold.otf") format("opentype");font-weight:600 800;font-display:swap}
+:root{
+--color-bg:#F2EDE3;--color-surface:#E8E1D2;--color-text:#0D2551;
+--color-divider:color-mix(in srgb,#8A6E2E 32%,transparent);
+--color-gold:#C3A15A;
+--color-gold-700:#8A6E2E;
+--color-surface-2:#FAF6EE;
+--font-heading:"Plain","Alexandria",system-ui,sans-serif;
+--font-body:"Plain","Alexandria",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:#F2EDE3;text-wrap:pretty}
+a{color:#8A6E2E}
+a:hover{color:#0D2551}
+@keyframes inv-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes inv-tick{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+[dir="rtl"]{--font-heading:"Alexandria",system-ui,sans-serif;--font-body:"Alexandria",system-ui,sans-serif;font-family:var(--font-body)}
+[dir="rtl"] *{letter-spacing:0 !important}
+.inv-show-m{display:none !important}
+@media (max-width:760px){.inv-hide-m{display:none !important}.inv-show-m{display:inline-flex !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;animation-iteration-count:1 !important;transition-duration:.01ms !important}}
+
+/* ── premium motion layer ── */
+@keyframes invUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes invGrowX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes invKen{from{transform:scale(1.06)}to{transform:scale(1)}}
+@keyframes invNavShadow{from{box-shadow:0 0 0 rgba(10,20,40,0)}to{box-shadow:0 10px 34px rgba(10,20,40,.1)}}
+@supports (animation-timeline: view()){
+main>section,main>header>div{animation:invUp .8s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 24%}
+hr.hr{transform-origin:0 50%;animation:invGrowX 1.1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 40%}
+nav.nav{animation:invNavShadow .01s linear both;animation-timeline:scroll(root);animation-range:0 140px}
+}
+header[data-screen-label] img{animation:invKen 12s cubic-bezier(.2,.6,.3,1) both}
+.card{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s cubic-bezier(.2,.7,.2,1),border-color .45s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 26px 52px rgba(15,35,65,.15)}
+a.btn,button.btn{transition:transform .3s ease,box-shadow .3s ease,filter .3s ease}
+a.btn:hover,button.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,35,65,.2)}
+a.btn:active,button.btn:active{transform:translateY(0)}
+figure{overflow:visible}
+figure div{overflow:hidden}
+figure img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+figure:hover img{transform:scale(1.04)}
+::selection{background:#C3A15A;color:#0D2551}
+main h1,main h2{text-wrap:balance}
+@media (prefers-reduced-motion:reduce){main>section,main>header>div,hr.hr,header[data-screen-label] img{animation:none!important}figure img{transition:none}}
+
+/* ── colour depth layer ── */
+main>section:nth-of-type(even):not([style*="background"]){background:#FAF6EE}
+main>section[style*="0F2341"],main>header[style*="0F2341"],section[style*="#0D2551"]{background-image:radial-gradient(120% 130% at 50% -10%,#1B3A6B 0%,#123056 38%,#0A1F42 72%,#061229 100%)!important}
+hr.hr,main hr{border-top:none!important;height:2px;background:linear-gradient(to right,color-mix(in srgb,#8A6E2E 60%,transparent),color-mix(in srgb,#8A6E2E 14%,transparent))!important}
+main a:not([class*="btn"]):hover{text-decoration-color:#C3A15A;text-underline-offset:3px}
+main h2>span[style*="color:#C3A15A"],main h2 span[style*="#C3A15A"]{color:#C3A15A}
+</style>
+<meta name="ext-resource-dependency" content="assets/bottles/cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/bottles/dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/bottles/edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/bottles/energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/bottles/fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/bottles/hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/bottles/immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/bottles/jet-fuel.png">
+<meta name="ext-resource-dependency" content="assets/bottles/myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/bottles/nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/bottles/panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/bottles/skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/bottles/weight-loss.png">
+<meta name="ext-resource-dependency" content="assets/social/post-cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/social/post-dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/social/post-edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/social/post-energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/post-fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/social/post-glutathione.png">
+<meta name="ext-resource-dependency" content="assets/social/post-hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/social/post-immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/post-myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/social/post-nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/social/post-panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/social/post-skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/social/post-vitamin-d3.png">
+<meta name="ext-resource-dependency" content="assets/social/post-weight-loss.png">
+<meta name="ext-resource-dependency" content="assets/social/story-cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/social/story-dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/social/story-edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/social/story-energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/story-fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/social/story-glutathione.png">
+<meta name="ext-resource-dependency" content="assets/social/story-hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/social/story-immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/story-myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/social/story-nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/social/story-panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/social/story-skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/social/story-vitamin-d3.png">
+<meta name="ext-resource-dependency" content="assets/social/story-weight-loss.png">
+<meta name="ext-resource-dependency" content="assets/bag-cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/bag-dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/bag-edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/bag-energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/bag-fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/bag-hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/bag-immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/bag-jet-fuel.png">
+<meta name="ext-resource-dependency" content="assets/bag-myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/bag-nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/bag-panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/bag-skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/bag-weight-loss.png">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-23 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-23.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-24 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-24.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25 3.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25 4.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-18.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-19 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-19 4.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-19.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20 3.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20 4.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6084-2.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6085-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6086-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6087-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6088-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6089-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6090-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6091-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6092-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6093-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6094-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6095-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6096-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6097-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6098-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/AQMpXqXVbFi7bEDGUrpKYfxTUYsc_wzn7w8dV_KpJ9VDt18ahug0ElVb8brx4MD.mp4">
+<meta name="ext-resource-dependency" content="uploads/AQNPlIc8mINu5iOhJn1uWMIwgid1kPHtrBkbheyNrwIvFEHuFIt47NCfjq_d9KI.mp4">
+<meta name="ext-resource-dependency" content="uploads/AQP81b4gmt9SwhC1oMysGalwoQadkEVqjghhpSmvq4uvrzKW0kr43ev1lrOxJ69aX4fce76R1b.mp4">
+<meta name="ext-resource-dependency" content="uploads/AQPg2jbm6_bam_fHYG7VOmPpfw7K5bkQQMzwxboC_K5cTskRE5ewL7l2Fd9PxoL.mp4">
+<meta name="ext-resource-dependency" content="uploads/Invita Partners Reel.mp4">
+<meta name="ext-resource-dependency" content="uploads/ee.mp4">
+</helmet>
+<div dir="{{ dir }}" style="background:var(--color-bg);color:var(--color-text);font-family:var(--font-body);min-height:100vh">
+
+<nav aria-label="Main" style="position:sticky;top:0;z-index:60;background:color-mix(in srgb,#F2EDE3 72%,transparent);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);display:flex;align-items:center;gap:22px;padding:14px max(clamp(20px,5vw,72px),calc((100% - 1200px) / 2 + clamp(20px,5vw,72px)));border-bottom:1px solid var(--color-divider)">
+  <a href="Invita Home.dc.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;margin-inline-end:auto">
+    <img src="uploads/Prancheta 2.png" alt="" style="height:34px;width:auto;display:block">
+    <img src="uploads/Prancheta 14.png" alt="Invita — IV Vitamins Therapy" style="height:19px;width:auto;display:block">
+  </a>
+  <a href="Invita Home.dc.html" class="inv-hide-m" style="color:var(--color-text);text-decoration:none;font-size:14px">{{ t.nav.home }}</a>
+  <a href="#doctors" class="inv-hide-m" style="color:var(--color-text);text-decoration:none;font-size:14px">{{ t.nav.doctors }}</a>
+  <a href="Invita IV Menu.dc.html" class="inv-hide-m" style="color:var(--color-text);text-decoration:none;font-size:14px">{{ t.nav.drips }}</a>
+  <a href="Invita Science.dc.html" class="inv-hide-m" style="color:var(--color-text);text-decoration:none;font-size:14px">{{ t.nav.science }}</a>
+  <button type="button" onClick="{{ toggleLang }}" aria-label="Switch language" style="display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;border-radius:10px;border:1px solid var(--color-divider);color:#0D2551;background:transparent;cursor:pointer;white-space:nowrap">{{ langLabel }}</button>
+  <a href="#form" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;background:#0D2551;color:#F0EDE4;white-space:nowrap">{{ t.nav.form }}</a>
+  <button type="button" class="inv-show-m" onClick="{{ navToggle }}" aria-expanded="{{ navOpen }}" aria-label="Menu" style="align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;border:1px solid var(--color-divider);background:transparent;color:#0D2551;cursor:pointer;font-size:18px;line-height:1;padding:0">☰</button>
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;inset-inline:0;background:#F2EDE3;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent);box-shadow:0 24px 48px rgba(6,16,30,.18);display:flex;flex-direction:column;padding:8px clamp(20px,5vw,72px) 16px">
+      <a href="Invita Home.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.home }}</a>
+      <a href="Invita IV Menu.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.drips }}</a>
+      <a href="Invita Science.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.science }}</a>
+      <a href="#doctors" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.doctors }}</a>
+      <a href="#form" onClick="{{ navClose }}" style="padding:13px 2px;color:#0D2551;text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid color-mix(in srgb,#0D2551 16%,transparent)">{{ t.nav.form }}</a>
+    </div>
+  </sc-if>
+</nav>
+
+<main>
+
+<header data-screen-label="Video hero" style="border-bottom:2px solid var(--color-divider)">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(36px,5vw,64px) clamp(20px,5vw,72px);display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:clamp(28px,4vw,64px);align-items:center">
+    <div>
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B5320;margin:0 0 14px;animation:inv-up .7s cubic-bezier(.2,0,.2,1) .05s both">{{ t.hero.kicker }}</p>
+      <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(30px,3.6vw,50px);line-height:1.22;letter-spacing:-0.015em;margin:0;max-width:18ch;animation:inv-up .7s cubic-bezier(.2,0,.2,1) .18s both">{{ t.hero.title }}</h1>
+      <p style="font-size:16.5px;line-height:1.7;max-width:52ch;margin:16px 0 0;color:color-mix(in srgb,var(--color-text) 80%,transparent);animation:inv-up .7s cubic-bezier(.2,0,.2,1) .32s both">{{ t.hero.sub }}</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;animation:inv-up .7s cubic-bezier(.2,0,.2,1) .45s both">
+        <a href="#doctors" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;line-height:1.2;text-decoration:none;border-radius:10px;background:#0D2551;color:#F0EDE4;white-space:nowrap">{{ t.hero.ctaDoctors }}</a>
+        <a href="#form" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;line-height:1.2;text-decoration:none;border-radius:10px;border:1px solid var(--color-divider);color:#0D2551;background:transparent;white-space:nowrap">{{ t.hero.ctaJoin }}</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:18px clamp(22px,3vw,44px);margin-top:clamp(28px,4vw,44px);animation:inv-up .7s cubic-bezier(.2,0,.2,1) .58s both">
+        <sc-for list="{{ t.hero.stats }}" as="st" hint-placeholder-count="3">
+          <div style="border-top:2px solid #C3A15A;padding-top:10px">
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(22px,2.4vw,32px);line-height:1;color:#0D2551;margin:0;font-feature-settings:'tnum' 1">{{ st.v }}</p>
+            <p style="font-size:12.5px;letter-spacing:.04em;color:color-mix(in srgb,var(--color-text) 70%,transparent);margin:7px 0 0;max-width:16ch">{{ st.l }}</p>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+    <div style="position:relative;border-radius:20px;overflow:hidden;background:#061229;box-shadow:0 24px 60px rgba(15,35,65,.25);animation:inv-up .7s cubic-bezier(.2,0,.2,1) .3s both">
+      <video ref="{{ heroVidRef }}" src="uploads/Invita Partners Reel.mp4" autoPlay="autoplay" muted="muted" loop="loop" playsInline="playsinline" preload="auto" aria-hidden="true" style="display:block;width:100%;max-height:72vh;object-fit:contain;background:#061229"></video>
+      <button type="button" onClick="{{ toggleSound }}" style="position:absolute;bottom:14px;inset-inline-end:14px;z-index:2;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:8px 14px;font-family:var(--font-heading);font-weight:700;font-size:12.5px;line-height:1.2;border-radius:10px;border:1px solid rgba(240,237,228,.5);color:#F0EDE4;background:rgba(15,35,65,.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);cursor:pointer;white-space:nowrap">{{ soundLabel }}</button>
+    </div>
+  </div>
+</header>
+
+<div data-screen-label="Trust ticker" aria-hidden="true" style="background:#0D2551;border-top:1px solid rgba(240,237,228,.18);overflow:hidden">
+  <div dir="ltr" data-marquee="50" style="display:flex;width:max-content;animation:inv-tick 30s linear infinite">
+    <sc-for list="{{ tickerItems }}" as="u" hint-placeholder-count="6">
+      <span style="display:flex;align-items:center;gap:18px;padding:10px 0 10px 18px;font-size:12px;text-transform:uppercase;letter-spacing:.14em;white-space:nowrap;color:rgba(240,237,228,.75)"><span style="width:6px;height:6px;border-radius:50%;background:#C3A15A;flex:none"></span>{{ u }}</span>
+    </sc-for>
+  </div>
+</div>
+
+<section id="doctors" data-screen-label="Meet our doctors">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(48px,6vw,88px) clamp(20px,5vw,72px)">
+    <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B5320;margin:0 0 14px">{{ t.docs.kicker }}</p>
+    <h2 style="font-size:clamp(28px,3.6vw,46px);line-height:1.2;letter-spacing:-0.015em;margin:0 0 14px">{{ t.docs.title }}</h2>
+    <p style="font-size:16px;max-width:58ch;margin:0 0 32px;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ t.docs.lead }}</p>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px">
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-1" shape="rect" fit="contain" placeholder="Doctor card 1" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-2" shape="rect" fit="contain" placeholder="Doctor card 2" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-3" shape="rect" fit="contain" placeholder="Doctor card 3" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-4" shape="rect" fit="contain" placeholder="Doctor card 4" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-5" shape="rect" fit="contain" placeholder="Doctor card 5" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-6" shape="rect" fit="contain" placeholder="Doctor card 6" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-7" shape="rect" fit="contain" placeholder="Doctor card 7" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-8" shape="rect" fit="contain" placeholder="Doctor card 8" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-9" shape="rect" fit="contain" placeholder="Doctor card 9" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-10" shape="rect" fit="contain" placeholder="Doctor card 10" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-11" shape="rect" fit="contain" placeholder="Doctor card 11" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;overflow:hidden;aspect-ratio:1/1;background:rgba(255,255,255,.45);border:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(15,35,65,.1)"><x-import component-from-global-scope="image-slot" from="./image-slot.js" id="doc-12" shape="rect" fit="contain" placeholder="Doctor card 12" hint-size="100%,100%" style="width:100%;height:100%"></x-import></div>
+      <div style="border-radius:16px;aspect-ratio:1/1;background:#0D2551;box-shadow:0 8px 22px rgba(15,35,65,.2);display:flex;flex-direction:column;justify-content:center;gap:10px;padding:22px;box-sizing:border-box">
+        <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(38px,4vw,56px);line-height:1;color:#C3A15A;margin:0;font-feature-settings:'tnum' 1">{{ t.docs.plusV }}</p>
+        <p style="font-size:14.5px;line-height:1.55;margin:0;color:rgba(240,237,228,.9)">{{ t.docs.plusL }}</p>
+      </div>
+    </div>
+    <p style="font-size:12.5px;margin:14px 0 0;color:color-mix(in srgb,var(--color-text) 58%,transparent)">{{ t.docs.note }}</p>
+    <a href="#form" style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:26px;padding:clamp(18px,2.5vw,26px) 24px;font-family:var(--font-heading);font-weight:800;font-size:clamp(18px,2.4vw,26px);line-height:1.3;text-align:center;text-decoration:none;border-radius:16px;background:#C3A15A;color:#0D2551;box-shadow:0 14px 36px rgba(217,179,68,.35)" style-hover="background:#E2C25E">{{ t.docs.cta }} {{ arrow }}</a>
+  </div>
+</section>
+
+<section id="experience" data-screen-label="Doctors Experience">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr style="border:none;border-top:2px solid var(--color-divider);margin:0">
+    <div style="padding:clamp(44px,5vw,72px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B5320;margin:0 0 14px">Doctors Experience</p>
+      <h2 style="font-size:clamp(26px,3.2vw,40px);line-height:1.2;letter-spacing:-0.015em;margin:0 0 14px">{{ t.exp.title }}</h2>
+      <p style="font-size:16px;max-width:58ch;margin:0 0 28px;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ t.exp.lead }}</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;max-width:1100px">
+        <div style="border-radius:16px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 10px 28px rgba(15,35,65,.12);background:#061229">
+          <video onPlay="{{ expPlay }}" data-autoplay="1" autoPlay="autoplay" muted="muted" loop="loop" src="uploads/AQPg2jbm6_bam_fHYG7VOmPpfw7K5bkQQMzwxboC_K5cTskRE5ewL7l2Fd9PxoL.mp4" controls="controls" playsInline="playsinline" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#061229"></video>
+        </div>
+        <div style="border-radius:16px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 10px 28px rgba(15,35,65,.12);background:#061229">
+          <video onPlay="{{ expPlay }}" data-autoplay="1" autoPlay="autoplay" muted="muted" loop="loop" src="uploads/AQMpXqXVbFi7bEDGUrpKYfxTUYsc_wzn7w8dV_KpJ9VDt18ahug0ElVb8brx4MD.mp4" controls="controls" playsInline="playsinline" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#061229"></video>
+        </div>
+        <div style="border-radius:16px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 10px 28px rgba(15,35,65,.12);background:#061229">
+          <video onPlay="{{ expPlay }}" data-autoplay="1" autoPlay="autoplay" muted="muted" loop="loop" src="uploads/AQNPlIc8mINu5iOhJn1uWMIwgid1kPHtrBkbheyNrwIvFEHuFIt47NCfjq_d9KI.mp4" controls="controls" playsInline="playsinline" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#061229"></video>
+        </div>
+        <div style="border-radius:16px;overflow:hidden;aspect-ratio:9/16;box-shadow:0 10px 28px rgba(15,35,65,.12);background:#061229">
+          <video onPlay="{{ expPlay }}" data-autoplay="1" autoPlay="autoplay" muted="muted" loop="loop" src="uploads/AQP81b4gmt9SwhC1oMysGalwoQadkEVqjghhpSmvq4uvrzKW0kr43ev1lrOxJ69aX4fce76R1b.mp4" controls="controls" playsInline="playsinline" preload="metadata" style="display:block;width:100%;height:100%;object-fit:cover;background:#061229"></video>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Brand poster" style="background:radial-gradient(120% 130% at 50% -10%,#1B3A6B 0%,#123056 38%,#0A1F42 72%,#061229 100%);position:relative;overflow:hidden">
+  <img src="uploads/Prancheta 2.png" alt="" aria-hidden="true" style="position:absolute;inset-inline-end:-60px;top:-60px;width:clamp(220px,26vw,380px);opacity:.16;transform:rotate(12deg)">
+  <img src="uploads/Prancheta 2.png" alt="" aria-hidden="true" style="position:absolute;inset-inline-start:-80px;bottom:-90px;width:clamp(180px,20vw,300px);opacity:.1;transform:rotate(-8deg)">
+  <div style="position:relative;max-width:1200px;margin:0 auto;padding:clamp(56px,8vw,110px) clamp(20px,5vw,72px);text-align:center">
+    <img src="uploads/Prancheta 2.png" alt="" style="height:clamp(44px,5vw,64px);width:auto;display:block;margin:0 auto 22px">
+    <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(34px,5.4vw,72px);line-height:1.18;letter-spacing:-0.015em;margin:0;color:#F0EDE4;max-width:18ch;margin-inline:auto">{{ t.poster.line }}</h2>
+    <p style="font-size:clamp(12px,1.3vw,14px);letter-spacing:.32em;text-transform:uppercase;color:#C3A15A;margin:26px 0 0">IV Vitamins Therapy · Baghdad, Iraq</p>
+  </div>
+</section>
+
+<section id="why" data-screen-label="Why clinics choose Invita">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr style="border:none;border-top:2px solid var(--color-divider);margin:0">
+    <div style="padding:clamp(44px,5vw,72px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B5320;margin:0 0 14px">{{ t.why.kicker }}</p>
+      <h2 style="font-size:clamp(26px,3.4vw,42px);line-height:1.2;letter-spacing:-0.015em;margin:0 0 28px;max-width:24ch">{{ t.why.title }}</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:14px">
+        <sc-for list="{{ t.why.items }}" as="w" hint-placeholder-count="8">
+          <div style="border:1px solid var(--color-divider);border-radius:14px;padding:18px 20px;background:rgba(255,255,255,.35);display:flex;gap:14px;align-items:flex-start">
+            <span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:#C3A15A;flex:none;margin-top:7px"></span>
+            <div>
+              <h3 style="font-size:16.5px;margin:0 0 6px">{{ w.t }}</h3>
+              <p style="font-size:14px;line-height:1.65;margin:0;color:color-mix(in srgb,var(--color-text) 74%,transparent)">{{ w.b }}</p>
+            </div>
+          </div>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="certs" data-screen-label="Certifications">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px)">
+    <hr style="border:none;border-top:2px solid var(--color-divider);margin:0">
+    <div style="padding:clamp(44px,5vw,72px) 0">
+      <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B5320;margin:0 0 14px">{{ t.certs.kicker }}</p>
+      <h2 style="font-size:clamp(26px,3.4vw,42px);line-height:1.2;letter-spacing:-0.015em;margin:0 0 14px;max-width:26ch">{{ t.certs.title }}</h2>
+      <p style="font-size:16px;line-height:1.7;max-width:58ch;margin:0 0 28px;color:color-mix(in srgb,var(--color-text) 76%,transparent)">{{ t.certs.lead }}</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;max-width:900px">
+        <div style="border:1px solid var(--color-divider);border-radius:16px;padding:24px;background:rgba(255,255,255,.4);display:flex;flex-direction:column;gap:10px">
+          <span aria-hidden="true" style="width:44px;height:44px;border-radius:50%;background:#0D2551;color:#C3A15A;display:grid;place-items:center;font-family:var(--font-heading);font-weight:800;font-size:12px">ISO</span>
+          <h3 style="font-size:19px;margin:6px 0 0">ISO 13485</h3>
+          <p style="font-size:14px;line-height:1.65;margin:0;color:color-mix(in srgb,var(--color-text) 74%,transparent)">{{ t.certs.c1 }}</p>
+          <a href="uploads/KAPSAM-SAGLIK-ISO-13485-.pdf" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;margin-top:4px">{{ t.certs.view }} {{ arrow }}</a>
+        </div>
+        <div style="border:1px solid var(--color-divider);border-radius:16px;padding:24px;background:rgba(255,255,255,.4);display:flex;flex-direction:column;gap:10px">
+          <span aria-hidden="true" style="width:44px;height:44px;border-radius:50%;background:#0D2551;color:#C3A15A;display:grid;place-items:center;font-family:var(--font-heading);font-weight:800;font-size:12px">ISO</span>
+          <h3 style="font-size:19px;margin:6px 0 0">ISO 14001</h3>
+          <p style="font-size:14px;line-height:1.65;margin:0;color:color-mix(in srgb,var(--color-text) 74%,transparent)">{{ t.certs.c2 }}</p>
+          <a href="uploads/Kapsam-Saglik-ISO-14001.pdf" target="_blank" rel="noopener" style="font-size:14px;font-weight:600;margin-top:4px">{{ t.certs.view }} {{ arrow }}</a>
+        </div>
+      </div>
+      <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px">
+        <a href="#form" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:12px 22px;font-family:var(--font-heading);font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;border-radius:10px;background:#0D2551;color:#F0EDE4;white-space:nowrap">{{ t.certs.cta }} {{ arrow }}</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section data-screen-label="Join banner" style="background:radial-gradient(120% 130% at 50% -10%,#1B3A6B 0%,#123056 38%,#0A1F42 72%,#061229 100%);color:#F0EDE4">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(44px,6vw,80px) clamp(20px,5vw,72px);display:flex;justify-content:space-between;align-items:center;gap:28px;flex-wrap:wrap">
+    <div>
+      <h2 style="font-size:clamp(26px,3.4vw,42px);line-height:1.25;letter-spacing:-0.015em;margin:0;color:#F0EDE4;max-width:24ch">{{ t.join.q }}</h2>
+      <p style="font-size:16px;line-height:1.7;margin:12px 0 0;max-width:52ch;color:rgba(240,237,228,.85)">{{ t.join.body }}</p>
+    </div>
+    <a href="#form" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:13px 24px;font-family:var(--font-heading);font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;border-radius:10px;background:#C3A15A;color:#0D2551;white-space:nowrap;flex:none">{{ t.join.btn }} {{ arrow }}</a>
+  </div>
+</section>
+
+<section id="form" data-screen-label="B2B form">
+  <div style="max-width:1200px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(56px,7vw,96px)">
+    <div style="padding:clamp(44px,5vw,72px) 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:36px clamp(32px,5vw,88px)">
+      <div>
+        <p style="font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6B5320;margin:0 0 14px">{{ t.form.kicker }}</p>
+        <h2 style="font-size:clamp(26px,3.2vw,40px);line-height:1.2;letter-spacing:-0.015em;margin:0 0 14px">{{ t.form.title }}</h2>
+        <p style="font-size:16px;line-height:1.7;margin:0 0 22px;max-width:50ch;color:color-mix(in srgb,var(--color-text) 78%,transparent)">{{ t.form.lead }}</p>
+        <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(36px,4vw,52px);line-height:1;color:#C3A15A;margin:0;font-feature-settings:'tnum' 1">50+</p>
+        <p style="font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:color-mix(in srgb,var(--color-text) 68%,transparent);margin:10px 0 0;max-width:30ch">{{ t.form.statL }}</p>
+      </div>
+      <div style="border:1px solid var(--color-divider);border-radius:18px;padding:clamp(20px,3vw,30px);background:rgba(255,255,255,.4)">
+
+        <sc-if value="{{ notSent }}" hint-placeholder-val="{{ true }}">
+          <form onSubmit="{{ submit }}" novalidate="novalidate" style="display:flex;flex-direction:column;gap:16px">
+            <div>
+              <label for="pt-org" style="display:block;font-size:12px;margin-bottom:5px;color:color-mix(in srgb,var(--color-text) 70%,transparent)">{{ t.form.orgL }} <span aria-hidden="true" style="color:#6B5320">*</span></label>
+              <input id="pt-org" type="text" value="{{ orgVal }}" onChange="{{ setOrg }}" required="required" aria-required="true" autoComplete="organization" style="width:100%;min-height:38px;padding:9px 12px;font:inherit;font-size:14px;color:var(--color-text);background:rgba(255,255,255,.6);border:1px solid var(--color-divider);border-radius:10px;box-sizing:border-box">
+            </div>
+            <div>
+              <label for="pt-person" style="display:block;font-size:12px;margin-bottom:5px;color:color-mix(in srgb,var(--color-text) 70%,transparent)">{{ t.form.personL }} <span aria-hidden="true" style="color:#6B5320">*</span></label>
+              <input id="pt-person" type="text" value="{{ personVal }}" onChange="{{ setPerson }}" required="required" aria-required="true" autoComplete="name" style="width:100%;min-height:38px;padding:9px 12px;font:inherit;font-size:14px;color:var(--color-text);background:rgba(255,255,255,.6);border:1px solid var(--color-divider);border-radius:10px;box-sizing:border-box">
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px">
+              <div>
+                <label for="pt-phone" style="display:block;font-size:12px;margin-bottom:5px;color:color-mix(in srgb,var(--color-text) 70%,transparent)">{{ t.form.phoneL }} <span aria-hidden="true" style="color:#6B5320">*</span></label>
+                <input id="pt-phone" type="tel" dir="ltr" value="{{ phoneVal }}" onChange="{{ setPhone }}" required="required" aria-required="true" aria-describedby="pt-err" autoComplete="tel" placeholder="+964 7XX XXX XXXX" style="width:100%;min-height:38px;padding:9px 12px;font:inherit;font-size:14px;color:var(--color-text);background:rgba(255,255,255,.6);border:1px solid var(--color-divider);border-radius:10px;box-sizing:border-box">
+              </div>
+              <div>
+                <label for="pt-email" style="display:block;font-size:12px;margin-bottom:5px;color:color-mix(in srgb,var(--color-text) 70%,transparent)">{{ t.form.emailL }}</label>
+                <input id="pt-email" type="email" dir="ltr" value="{{ emailVal }}" onChange="{{ setEmail }}" autoComplete="email" style="width:100%;min-height:38px;padding:9px 12px;font:inherit;font-size:14px;color:var(--color-text);background:rgba(255,255,255,.6);border:1px solid var(--color-divider);border-radius:10px;box-sizing:border-box">
+              </div>
+            </div>
+            <div>
+              <p style="font-size:12px;margin:0 0 8px;color:color-mix(in srgb,var(--color-text) 70%,transparent)">{{ t.form.typeL }}</p>
+              <div style="display:flex;flex-wrap:wrap;gap:8px">
+                <sc-for list="{{ typeOpts }}" as="tp" hint-placeholder-count="5">
+                  <button type="button" style="{{ tp.style }}" onClick="{{ tp.pick }}">{{ tp.label }}</button>
+                </sc-for>
+              </div>
+            </div>
+            <div>
+              <label for="pt-msg" style="display:block;font-size:12px;margin-bottom:5px;color:color-mix(in srgb,var(--color-text) 70%,transparent)">{{ t.form.msgL }}</label>
+              <textarea id="pt-msg" value="{{ msgVal }}" onChange="{{ setMsg }}" style="width:100%;min-height:90px;resize:vertical;padding:9px 12px;font:inherit;font-size:14px;color:var(--color-text);background:rgba(255,255,255,.6);border:1px solid var(--color-divider);border-radius:10px;box-sizing:border-box"></textarea>
+            </div>
+            <sc-if value="{{ hasErr }}" hint-placeholder-val="{{ false }}">
+              <p id="pt-err" role="alert" style="margin:0;font-size:13.5px;color:#8E2013">{{ t.form.err }}</p>
+            </sc-if>
+            <div style="display:flex;gap:12px;flex-wrap:wrap">
+              <button type="submit" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 20px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;line-height:1.2;border-radius:10px;background:#0D2551;color:#F0EDE4;border:none;cursor:pointer;white-space:nowrap">{{ t.form.submit }} {{ arrow }}</button>
+            </div>
+            <p style="font-size:12px;line-height:1.6;margin:0;color:color-mix(in srgb,var(--color-text) 58%,transparent)">{{ t.form.trust }}</p>
+          </form>
+        </sc-if>
+
+        <sc-if value="{{ sent }}" hint-placeholder-val="{{ false }}">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:8px">
+            <span aria-hidden="true" style="width:26px;height:26px;border-radius:50%;background:#C3A15A;color:#0D2551;display:grid;place-items:center;font-weight:800;font-family:var(--font-heading)">✓</span>
+            <h3 style="font-size:22px;margin:0">{{ t.form.confTitle }}</h3>
+          </div>
+          <p style="font-size:15px;margin:0 0 20px;max-width:48ch;color:color-mix(in srgb,var(--color-text) 78%,transparent)">{{ t.form.confBody }}</p>
+          <div style="border-top:2px solid var(--color-divider)">
+            <sc-for list="{{ sumRows }}" as="r" hint-placeholder-count="4">
+              <div style="display:flex;justify-content:space-between;gap:20px;padding:11px 0;border-bottom:1px solid var(--color-divider);font-size:14.5px">
+                <span style="text-transform:uppercase;letter-spacing:.06em;font-size:12px;color:color-mix(in srgb,var(--color-text) 62%,transparent);align-self:center">{{ r.k }}</span>
+                <span style="font-family:var(--font-heading);font-weight:800;text-align:end">{{ r.v }}</span>
+              </div>
+            </sc-for>
+          </div>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:22px">
+            <a href="https://wa.me/9647748885559" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;background:#0D2551;color:#F0EDE4;white-space:nowrap">{{ t.form.whatsapp }}</a>
+            <button type="button" onClick="{{ reset }}" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;border-radius:10px;border:1px solid var(--color-divider);color:#0D2551;background:transparent;cursor:pointer;white-space:nowrap">{{ t.form.again }}</button>
+          </div>
+        </sc-if>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer style="background:#0D2551;color:#F0EDE4">
+  <div style="max-width:1200px;margin:0 auto;padding:clamp(30px,4vw,48px) clamp(20px,5vw,72px)">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+      <img src="uploads/Prancheta 11.png" alt="Invita" style="height:18px;width:auto;display:block">
+      <p style="font-size:14.5px;margin:0;color:rgba(240,237,228,.9);font-feature-settings:'tnum' 1"><a href="tel:+9647748885559" style="color:#F0EDE4;text-decoration:none"><span dir="ltr">077 4888 5559</span></a> · <a href="Invita Home.dc.html" style="color:#F0EDE4;text-decoration:none">www.invitadrips.com</a> · <a href="mailto:management@invitadrips.com" style="color:#F0EDE4;text-decoration:none">management@invitadrips.com</a></p>
+    </div>
+    <hr style="border:none;border-top:1px solid rgba(240,237,228,.2);margin:18px 0 14px">
+    <p style="font-size:12.5px;margin:0;color:rgba(240,237,228,.65)">{{ t.footer.excl }}</p>
+  </div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;lang&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;en&quot;,&quot;ar&quot;],&quot;default&quot;:&quot;ar&quot;,&quot;tsType&quot;:&quot;\&quot;en\&quot; | \&quot;ar\&quot;&quot;,&quot;section&quot;:&quot;Language&quot;}}">
+class Component extends DCLogic {
+  state = { lang: null, muted: true, org: '', person: '', phone: '', email: '', type: null, msg: '', err: false, ref: null };
+
+  EN = {
+    nav: { home: 'Home', doctors: 'Our doctors', drips: 'Drip menu', science: 'Science', form: 'Join as a partner' },
+    hero: {
+      kicker: 'Our partner doctors',
+      title: 'Trusted by doctors. Loved by clients.',
+      sub: 'An elite group of physicians and specialists in Baghdad administer Invita IV drips within their own clinics — official Liquivida® formulas, clinical protocols, and continuous scientific support.',
+      ctaDoctors: 'Meet our doctors', ctaJoin: 'Join as a partner now',
+      stats: [
+        { v: '50+', l: 'Clinics & medical centres' },
+        { v: '18+', l: 'Partner doctors' },
+        { v: 'Liquivida®', l: 'Certified formulas' }
+      ]
+    },
+    docs: {
+      kicker: 'Our doctors', title: 'Meet our doctors.',
+      lead: 'Partner physicians and specialists offering Invita IV drips within their clinics across Baghdad.',
+      note: 'Drop each doctor\u2019s photo onto a card — names and titles can be added under each one.',
+      plusV: '+100', plusL: 'other doctors & elite clinics love Invita IV drips',
+      cta: 'Ask about supplying IV drips for your clinic'
+    },
+    exp: {
+      title: 'The doctors\u2019 recommendation series.',
+      lead: 'Short films where partner physicians share why they administer Invita protocols in their own practice.'
+    },
+    why: {
+      kicker: 'Why Invita', title: 'Why do these clinics choose Invita?',
+      items: [
+        { t: 'Liquivida® formulas', b: 'Developed inside pharmaceutical facilities specialised in pharmaceutical compounding.' },
+        { t: 'Certified high quality', b: 'Products prepared under certified manufacturing and safety standards.' },
+        { t: 'Evidence-based', b: 'Treatment protocols with clinical documentation and references, available on request.' },
+        { t: 'Training & scientific support', b: 'Continuous education for medical staff — before and after the service launches.' },
+        { t: 'Partner to 50+ clinics', b: 'Medical and aesthetic centres across every part of Iraq.' },
+        { t: 'Integrated solutions', b: 'Covering IV therapy and DNA testing under one partnership.' },
+        { t: 'Technical & operational support', b: 'Ensuring protocols are applied to the highest quality standards.' },
+        { t: 'Dedicated follow-up team', b: 'Following up with clinics and providing scientific and technical consultation.' }
+      ]
+    },
+    poster: { line: 'Performance starts from the inside out.' },
+    certs: {
+      kicker: 'Certifications',
+      title: 'Certified as a top IV drip pharmaceutical facility.',
+      lead: 'Our IV formulas are produced in internationally certified pharmaceutical facilities — quality and environmental management standards you can verify.',
+      c1: 'Medical devices — quality management systems. The international standard for pharmaceutical and medical manufacturing quality.',
+      c2: 'Environmental management systems — certified responsible, controlled production environments.',
+      view: 'View certificate (PDF)',
+      cta: 'Ask us more about our certifications'
+    },
+    join: {
+      q: 'Are you a doctor or a clinic looking to join?',
+      body: 'Partner with Invita and offer IV drips to your patients — supply, training, and clinical support included.',
+      btn: 'Join as a partner now'
+    },
+    form: {
+      kicker: 'Become a partner', title: 'Tell us about your facility.',
+      lead: 'Fill this in and our clinical team will reply on WhatsApp within 24 hours with supply terms, training options, and onboarding steps.',
+      statL: 'Clinics & medical centres already partnered with Invita',
+      orgL: 'Facility / clinic name', personL: 'Contact person', phoneL: 'Phone (WhatsApp)', emailL: 'Email (optional)',
+      typeL: 'Facility type', msgL: 'What are you looking for? (optional)',
+      submit: 'Send partnership request',
+      err: 'Please enter the facility name, contact person, and a valid WhatsApp number.',
+      confTitle: 'Request received', confBody: 'Our clinical team will contact you on WhatsApp within 24 hours. Keep your reference.',
+      refL: 'Reference', orgS: 'Facility', typeS: 'Type', personS: 'Contact',
+      whatsapp: 'Chat on WhatsApp', again: 'New request',
+      trust: 'Exclusively for licensed clinics and centres · Liquivida® USA formulas · Clinical training included',
+      types: ['Clinic', 'Hospital', 'Medical centre', 'Physician', 'Other']
+    },
+    footer: { excl: 'Exclusively for licensed clinics and medical centres — Baghdad, Iraq. © 2026 Invita.' }
+  };
+
+  AR = {
+    nav: { home: 'الرئيسية', doctors: 'أطباؤنا', drips: 'قائمة العلاجات', science: 'المنهج العلمي', form: 'انضم كشريك' },
+    hero: {
+      kicker: 'شركاؤنا من الأطباء',
+      title: 'شريك موثوق للأطباء والعيادات.',
+      sub: 'يعتمد نخبة من أطباء العراق بروتوكولات إنفيتا للعلاج الوريدي في عياداتهم — صيغ Liquivida® معتمدة، وتدريب سريري، ودعم علمي مستمر.',
+      ctaDoctors: 'تعرّف على أطبائنا', ctaJoin: 'انضم إلى شبكة الشركاء',
+      stats: [
+        { v: '50+', l: 'عيادة ومركز طبي' },
+        { v: '18+', l: 'طبيب شريك' },
+        { v: 'Liquivida®', l: 'تركيبات معتمدة' }
+      ]
+    },
+    docs: {
+      kicker: 'أطباؤنا', title: 'تعرّف على أطبائنا.',
+      lead: 'أطباء واختصاصيون شركاء يقدمون علاجات إنفيتا الوريدية ضمن عياداتهم في بغداد.',
+      note: 'أسقط صورة كل طبيب على البطاقة — يمكن إضافة الأسماء والألقاب تحت كل صورة.',
+      plusV: '+100', plusL: 'طبيب وعيادة ضمن شبكة إنفيتا في العراق',
+      cta: 'استفسر عن توفير العلاج الوريدي لعيادتك'
+    },
+    exp: {
+      title: 'سلسلة توصيات الأطباء.',
+      lead: 'شهادات مصوّرة يوضح فيها الأطباء الشركاء أسباب اعتمادهم بروتوكولات إنفيتا.'
+    },
+    why: {
+      kicker: 'لماذا إنفيتا', title: 'لماذا يعتمد الأطباء إنفيتا؟',
+      items: [
+        { t: 'تركيبات Liquivida®', b: 'تُطوَّر داخل منشآت دوائية متخصصة في الـ Pharmaceutical Compounding.' },
+        { t: 'جودة معتمدة', b: 'منتجات تُحضَّر وفق معايير تصنيع وسلامة دولية.' },
+        { t: 'قائمة على الأدلة العلمية', b: 'بروتوكولات علاجية مع وثائق ومراجع سريرية متوفرة عند الطلب.' },
+        { t: 'تدريب ودعم علمي مستمر', b: 'للكادر الطبي قبل وبعد بدء تقديم الخدمة.' },
+        { t: 'شريك لأكثر من 50 عيادة', b: 'ومركز طبي في مختلف أنحاء العراق.' },
+        { t: 'حلول متكاملة', b: 'تشمل العلاج الوريدي (IV Therapy) وفحوصات الحمض النووي (DNA).' },
+        { t: 'دعم فني وتشغيلي مستمر', b: 'لضمان تطبيق البروتوكولات بأعلى معايير الجودة.' },
+        { t: 'فريق متخصص للمتابعة', b: 'لمتابعة العيادات وتقديم الاستشارات العلمية والتقنية.' }
+      ]
+    },
+    poster: { line: 'الأداء يبدأ من الداخل إلى الخارج.' },
+    certs: {
+      kicker: 'الشهادات',
+      title: 'معتمدون كمنشأة دوائية رائدة للمغذيات الوريدية.',
+      lead: 'تُنتَج صيغنا الوريدية في منشآت دوائية حاصلة على اعتمادات دولية — معايير جودة وإدارة بيئية يمكنك التحقق منها.',
+      c1: 'الأجهزة الطبية — أنظمة إدارة الجودة. المعيار الدولي لجودة التصنيع الدوائي والطبي.',
+      c2: 'أنظمة الإدارة البيئية — بيئات إنتاج مسؤولة وخاضعة للرقابة.',
+      view: 'عرض الشهادة (PDF)',
+      cta: 'اسألنا المزيد عن شهاداتنا'
+    },
+    join: {
+      q: 'هل أنت طبيب أو عيادة وتريد الانضمام؟',
+      body: 'انضم إلى شبكة إنفيتا وقدّم العلاج الوريدي لمراجعيك — مع التوريد والتدريب والدعم السريري.',
+      btn: 'انضم كشريك الآن'
+    },
+    form: {
+      kicker: 'كن شريكاً', title: 'حدّثنا عن مرفقك.',
+      lead: 'املأ النموذج وسيتواصل فريقنا السريري عبر واتساب خلال 24 ساعة بشروط التوريد وخيارات التدريب وخطوات الانضمام.',
+      statL: 'عيادة ومركز طبي ضمن شبكة إنفيتا',
+      orgL: 'اسم المرفق / العيادة', personL: 'الشخص المسؤول', phoneL: 'الهاتف (واتساب)', emailL: 'البريد الإلكتروني (اختياري)',
+      typeL: 'نوع المرفق', msgL: 'ماذا تبحث عنه؟ (اختياري)',
+      submit: 'أرسل طلب الشراكة',
+      err: 'يرجى إدخال اسم المرفق والشخص المسؤول ورقم واتساب صحيح.',
+      confTitle: 'تم استلام طلبك', confBody: 'سيتواصل معك فريقنا السريري عبر واتساب خلال 24 ساعة. يرجى الاحتفاظ برقم المرجع.',
+      refL: 'المرجع', orgS: 'المرفق', typeS: 'النوع', personS: 'المسؤول',
+      whatsapp: 'تواصل عبر واتساب', again: 'طلب جديد',
+      trust: 'حصرياً للعيادات والمراكز المرخّصة · صيغ Liquivida® المعتمدة · التدريب السريري مشمول',
+      types: ['عيادة', 'مستشفى', 'مركز طبي', 'طبيب', 'أخرى']
+    },
+    footer: { excl: 'حصرياً للعيادات والمراكز المرخّصة — بغداد، العراق. © 2026 إنفيتا.' }
+  };
+
+  componentDidMount() {
+    try { const saved = localStorage.getItem('invita-lang'); if (saved === 'ar' || saved === 'en') this.setState({ lang: saved }); } catch (e) {}
+    this._driveMarquees();
+    document.querySelectorAll('video[data-autoplay]').forEach((v) => {
+      v.muted = true;
+      const kick = () => { if (v.paused) v.play().catch(() => {}); };
+      kick();
+      v.addEventListener('canplay', kick);
+      if (typeof IntersectionObserver !== 'undefined') {
+        const io = new IntersectionObserver((es) => { if (es[0] && es[0].isIntersecting && v.paused && v.muted) kick(); }, { threshold: 0.3 });
+        io.observe(v);
+      }
+    });
+  }
+
+  _driveMarquees() {
+    if (this._mrf) return;
+    const off = new WeakMap();
+    let last = Date.now();
+    const ch = new MessageChannel();
+    ch.port1.onmessage = () => {
+      const now = Date.now();
+      const dt = (now - last) / 1000;
+      if (dt >= 0.03) {
+        last = now;
+        const d = Math.min(dt, 0.1);
+        document.querySelectorAll('[data-marquee]').forEach((el) => {
+          const sp = parseFloat(el.getAttribute('data-marquee')) || 60;
+          let o = (off.get(el) || 0) - sp * d;
+          const half = el.scrollWidth / 2;
+          if (half > 0 && -o >= half) o += half;
+          off.set(el, o);
+          if (el.style.animation !== 'none') el.style.animation = 'none';
+          el.style.transform = 'translate3d(' + o + 'px,0,0)';
+        });
+        const cel = this._celebEl;
+        if (cel && this._celebTarget != null) {
+          const diff = this._celebTarget - cel.scrollLeft;
+          cel.scrollLeft += Math.sign(diff) * Math.min(Math.abs(diff), 900 * d);
+          if (Math.abs(diff) < 2) { cel.scrollLeft = this._celebTarget; this._celebTarget = null; }
+        }
+      }
+      ch.port2.postMessage(0);
+    };
+    this._mrf = ch;
+    ch.port2.postMessage(0);
+  }
+
+
+  renderVals() {
+    const ar = (this.state.lang || this.props.lang || 'en') === 'ar';
+    const t = ar ? this.AR : this.EN;
+    const s = this.state;
+    const chip = (active) => ({
+      display: 'inline-flex', alignItems: 'center', justifyContent: 'center', padding: '8px 14px',
+      fontFamily: 'var(--font-heading)', fontWeight: 700, fontSize: '13.5px', lineHeight: 1.2,
+      borderRadius: '10px', cursor: 'pointer', whiteSpace: 'nowrap',
+      border: active ? '1px solid #0D2551' : '1px solid color-mix(in srgb,#0D2551 24%,transparent)',
+      background: active ? '#0D2551' : 'transparent', color: active ? '#F0EDE4' : '#0D2551'
+    });
+    const ticker = ['Trusted by doctors', 'Loved by clients', 'Liquivida® USA', 'Baghdad, Iraq'];
+    return {
+      t, dir: ar ? 'rtl' : 'ltr', arrow: ar ? '←' : '→',
+      navOpen: !!s.navOpen, navToggle: () => this.setState({ navOpen: !this.state.navOpen }), navClose: () => this.setState({ navOpen: false }),
+      langLabel: ar ? 'EN' : 'عربي',
+      toggleLang: () => { const nx = ar ? 'en' : 'ar'; try { localStorage.setItem('invita-lang', nx); } catch (e) {} this.setState({ lang: nx }); },
+      tickerItems: ticker.concat(ticker, ticker, ticker),
+      heroVidRef: (el) => {
+        this._vid = el;
+        if (el) {
+          el.muted = s.muted;
+          if (!el._invAuto) {
+            el._invAuto = true;
+            const kick = () => { if (el.paused) el.play().catch(() => {}); };
+            kick();
+            el.addEventListener('canplay', kick);
+            el.addEventListener('loadeddata', kick);
+            el.addEventListener('pause', () => { if (el.muted && !el.ended) setTimeout(kick, 100); });
+            document.addEventListener('visibilitychange', () => { if (!document.hidden) kick(); });
+            const once = () => { kick(); document.removeEventListener('pointerdown', once); };
+            document.addEventListener('pointerdown', once);
+          }
+        }
+      },
+      soundLabel: ar ? (s.muted ? 'تشغيل الصوت' : 'كتم الصوت') : (s.muted ? 'Sound on' : 'Sound off'),
+      toggleSound: () => {
+        const m = !this.state.muted;
+        if (this._vid) this._vid.muted = m;
+        this.setState({ muted: m });
+      },
+      expPlay: (e) => {
+        document.querySelectorAll('video').forEach((v) => { if (v !== e.target && !v.muted) v.pause(); });
+      },
+      typeOpts: t.form.types.map((label, i) => ({
+        label, style: chip(s.type === i), pick: () => this.setState({ type: i })
+      })),
+      orgVal: s.org, personVal: s.person, phoneVal: s.phone, emailVal: s.email, msgVal: s.msg,
+      setOrg: (e) => this.setState({ org: e.target.value }),
+      setPerson: (e) => this.setState({ person: e.target.value }),
+      setPhone: (e) => this.setState({ phone: e.target.value }),
+      setEmail: (e) => this.setState({ email: e.target.value }),
+      setMsg: (e) => this.setState({ msg: e.target.value }),
+      hasErr: s.err, notSent: !s.ref, sent: !!s.ref,
+      submit: (e) => {
+        e.preventDefault();
+        const digits = (s.phone.match(/\d/g) || []).length;
+        if (!s.org.trim() || !s.person.trim() || digits < 9) { this.setState({ err: true }); return; }
+        this.setState({ err: false, ref: 'PTR-' + (1000 + Math.floor(Math.random() * 9000)) });
+      },
+      reset: () => this.setState({ org: '', person: '', phone: '', email: '', type: null, msg: '', err: false, ref: null }),
+      sumRows: [
+        { k: t.form.refL, v: s.ref || '' },
+        { k: t.form.orgS, v: s.org },
+        { k: t.form.typeS, v: s.type == null ? '—' : t.form.types[s.type] },
+        { k: t.form.personS, v: s.person }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

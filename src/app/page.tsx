@@ -1,81 +1,53 @@
-import { Suspense } from "react";
-import dynamic from "next/dynamic";
-import Navbar from "@/components/layout/Navbar";
-import Footer from "@/components/layout/Footer";
-import HeroSection from "@/components/home/HeroSection";
-import TrustAuthoritySection from "@/components/home/TrustAuthoritySection";
-import StatsSection from "@/components/home/StatsSection";
-import ScienceSpotlightSection from "@/components/home/ScienceSpotlightSection";
-import ServicesPreview from "@/components/home/ServicesPreview";
-import AboutLiquividaSection from "@/components/home/AboutLiquividaSection";
-import HowItWorks from "@/components/home/HowItWorks";
-import CertificationsSection from "@/components/home/CertificationsSection";
-import FaqPreview from "@/components/home/FaqPreview";
-import FooterCtaBanner from "@/components/home/FooterCtaBanner";
-import SectionSkeleton from "@/components/patterns/SectionSkeleton";
+import "./lapis-home.css";
 import JsonLd from "@/components/seo/JsonLd";
 import { localBusinessJsonLd } from "@/lib/seo";
 import { getHomepageHeroBanner } from "@/lib/media/homepage-banners.server";
+import { LapisHero, LapisNav, TrustStrip } from "@/components/lapis/LapisTop";
+import { DoctorsBand, StatsBand, UseCaseTicker, WhatYouGet } from "@/components/lapis/LapisBands";
+import { DripMenu, Matcher, Proof } from "@/components/lapis/LapisMenu";
+import { Films, HowAndVisit, ScienceTeaser, StandardAndCerts } from "@/components/lapis/LapisStory";
+import {
+  Booking,
+  ClinicsB2B,
+  Faq,
+  LapisFooter,
+  MembershipDna,
+  PosterClose,
+} from "@/components/lapis/LapisConvert";
 
-/** Below-fold sections — code-split so hero + menu preview first */
-const InvitaGallerySection = dynamic(
-  () => import("@/components/home/InvitaGallerySection"),
-  { loading: () => <SectionSkeleton minHeight="20rem" /> }
-);
-const ProfessionalTrainingSection = dynamic(
-  () => import("@/components/home/ProfessionalTrainingSection"),
-  { loading: () => <SectionSkeleton minHeight="14rem" /> }
-);
-const HealthcarePartnersSection = dynamic(
-  () => import("@/components/home/HealthcarePartnersSection"),
-  { loading: () => <SectionSkeleton minHeight="16rem" /> }
-);
-const InstagramFeed = dynamic(
-  () => import("@/components/home/InstagramFeed"),
-  { loading: () => <SectionSkeleton minHeight="18rem" /> }
-);
-const WellnessMatcherSection = dynamic(
-  () => import("@/components/home/WellnessMatcherSection"),
-  { loading: () => <SectionSkeleton minHeight="16rem" /> }
-);
-const AddOnsPreview = dynamic(
-  () => import("@/components/home/AddOnsPreview"),
-  { loading: () => <SectionSkeleton minHeight="14rem" /> }
-);
-const TwoPillarSection = dynamic(
-  () => import("@/components/home/TwoPillarSection"),
-  { loading: () => <SectionSkeleton minHeight="12rem" /> }
-);
-
+/**
+ * Home — Lapis & Bone + Modern layer (docs/design_handoff_invita_site).
+ * 19 sections, in the handoff order.
+ */
 export default async function HomePage() {
   const heroBanner = await getHomepageHeroBanner();
 
   return (
-    <>
+    <div className="lb">
       <JsonLd data={localBusinessJsonLd()} />
-      <Navbar />
+      <div className="lb-prog" aria-hidden="true" />
+      <LapisNav />
       <main id="main-content">
-        <HeroSection bannerUrl={heroBanner?.url} bannerAlt={heroBanner?.alt} />
-        <TrustAuthoritySection />
-        <StatsSection />
-        <ServicesPreview />
-        <WellnessMatcherSection />
-        <TwoPillarSection />
-        <HowItWorks />
-        <AboutLiquividaSection />
-        <AddOnsPreview />
-        <InvitaGallerySection />
-        <Suspense fallback={<SectionSkeleton minHeight="14rem" />}>
-          <CertificationsSection />
-        </Suspense>
-        <ScienceSpotlightSection />
-        <ProfessionalTrainingSection variant="homepage" />
-        <HealthcarePartnersSection />
-        <InstagramFeed />
-        <FaqPreview />
-        <FooterCtaBanner />
+        {/* 1 */} <LapisHero bannerUrl={heroBanner?.url} bannerAlt={heroBanner?.alt} />
+        {/* 2 */} <TrustStrip />
+        {/* 3 */} <DoctorsBand />
+        {/* 4 */} <WhatYouGet />
+        {/* 5 */} <UseCaseTicker />
+        {/* 6 */} <StatsBand />
+        {/* 7 */} <DripMenu />
+        {/* 8 */} <Proof />
+        {/* 9 */} <Matcher />
+        {/* 10 */} <HowAndVisit />
+        {/* 11 */} <ScienceTeaser />
+        {/* 12 */} <StandardAndCerts />
+        {/* 13 */} <Films />
+        {/* 14 */} <Booking />
+        {/* 15 */} <ClinicsB2B />
+        {/* 16 */} <MembershipDna />
+        {/* 17 */} <Faq />
+        {/* 18 */} <PosterClose />
       </main>
-      <Footer />
-    </>
+      {/* 19 */} <LapisFooter />
+    </div>
   );
 }

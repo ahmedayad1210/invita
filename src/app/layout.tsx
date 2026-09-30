@@ -14,7 +14,7 @@ import { LocaleProvider } from "@/contexts/LocaleContext";
 import FigmaCaptureLoader from "@/components/dev/FigmaCaptureLoader";
 import ClientShell from "@/components/layout/ClientShell";
 import PromoStrip from "@/components/layout/PromoStrip";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Alexandria, Cormorant_Garamond, DM_Sans } from "next/font/google";
 import localFont from "next/font/local";
 
 const plain = localFont({
@@ -22,7 +22,7 @@ const plain = localFont({
     { path: "../../public/fonts/plain/Plain-Light.otf", weight: "300", style: "normal" },
     { path: "../../public/fonts/plain/Plain-Regular.otf", weight: "400", style: "normal" },
     { path: "../../public/fonts/plain/Plain-Medium.otf", weight: "500", style: "normal" },
-    { path: "../../public/fonts/plain/Plain-Bold.otf", weight: "600", style: "normal" },
+    { path: "../../public/fonts/plain/Plain-Bold.otf", weight: "600 800", style: "normal" },
   ],
   variable: "--font-plain",
   display: "swap",
@@ -36,6 +36,13 @@ const cormorant = Cormorant_Garamond({
   weight: ["300", "400", "500"],
   style: ["normal", "italic"],
   variable: "--font-cormorant",
+  display: "swap",
+});
+
+const alexandria = Alexandria({
+  subsets: ["arabic", "latin"],
+  weight: ["300", "400", "500", "600", "700", "800"],
+  variable: "--font-alexandria",
   display: "swap",
 });
 
@@ -102,7 +109,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${cormorant.variable} ${dmSans.variable} ${plain.variable}`}
+      className={`${cormorant.variable} ${dmSans.variable} ${plain.variable} ${alexandria.variable}`}
     >
       <body className="bg-ivory text-charcoal antialiased">
         <FigmaCaptureLoader />

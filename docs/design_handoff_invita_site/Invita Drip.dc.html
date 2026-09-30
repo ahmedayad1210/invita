@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alexandria:wght@300;400;500;600;700;800&amp;display=swap">
+<style>
+@font-face{font-family:"Plain";src:url("uploads/Plain-Light.otf") format("opentype");font-weight:300;font-display:swap}
+@font-face{font-family:"Plain";src:url("uploads/Plain-Regular.otf") format("opentype");font-weight:400;font-display:swap}
+@font-face{font-family:"Plain";src:url("uploads/Plain-Medium.otf") format("opentype");font-weight:500;font-display:swap}
+@font-face{font-family:"Plain";src:url("uploads/Plain-Bold.otf") format("opentype");font-weight:600 800;font-display:swap}
+:root{
+--navy:#0D2551;--deep:#0A1F42;--mid:#16305A;--gold:#C3A15A;--gold2:#E8D5A6;--ivory:#F0EDE4;
+--divider:rgba(240,237,228,.16);
+--font-heading:"Plain","Alexandria",system-ui,sans-serif;
+--font-body:"Plain","Alexandria",system-ui,sans-serif;
+}
+html{scroll-behavior:smooth}
+body{margin:0;background:#0A1F42;text-wrap:pretty}
+a{color:#C3A15A}
+a:hover{color:#F0EDE4}
+@keyframes inv-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-18px)}}
+@keyframes inv-floatb{0%,100%{transform:translateY(0)}50%{transform:translateY(-11px)}}
+@keyframes inv-pulse{0%,100%{opacity:.45;transform:scale(1)}50%{opacity:.8;transform:scale(1.07)}}
+@keyframes inv-aurora{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+@keyframes inv-drift{0%{transform:translateY(10px);opacity:0}25%{opacity:.9}100%{transform:translateY(-70px);opacity:0}}
+@keyframes inv-spin{to{transform:rotate(360deg)}}
+@keyframes inv-shimmer{0%{background-position:200% 0}100%{background-position:-200% 0}}
+@keyframes inv-marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes inv-rise{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes inv-reveal{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes inv-prog{from{width:0}to{width:100%}}
+@keyframes inv-stick{from{transform:translateY(120%);opacity:0}to{transform:translateY(0);opacity:1}}
+[data-reveal]{opacity:1;transform:none;animation:inv-reveal .7s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 34%}
+[data-progress]{animation:inv-prog linear both;animation-timeline:scroll(root)}
+[data-sticky]{animation:inv-stick .01s linear both;animation-timeline:scroll(root);animation-range:420px 560px}
+[dir="rtl"]{--font-heading:"Alexandria",system-ui,sans-serif;--font-body:"Alexandria",system-ui,sans-serif;font-family:var(--font-body)}
+[dir="rtl"] *{letter-spacing:0 !important}
+.inv-show-m{display:none !important}
+@media (max-width:760px){.inv-hide-m{display:none !important}.inv-show-m{display:inline-flex !important}}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none !important;transition-duration:.01ms !important}[data-reveal]{opacity:1 !important;transform:none !important}}
+
+/* ── premium motion layer ── */
+@keyframes invUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:none}}
+@keyframes invGrowX{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+@keyframes invKen{from{transform:scale(1.06)}to{transform:scale(1)}}
+@keyframes invNavShadow{from{box-shadow:0 0 0 rgba(10,20,40,0)}to{box-shadow:0 10px 34px rgba(10,20,40,.1)}}
+@supports (animation-timeline: view()){
+main>section,main>header>div{animation:invUp .8s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 24%}
+hr.hr{transform-origin:0 50%;animation:invGrowX 1.1s cubic-bezier(.2,.7,.2,1) both;animation-timeline:view();animation-range:entry 0% entry 40%}
+nav.nav{animation:invNavShadow .01s linear both;animation-timeline:scroll(root);animation-range:0 140px}
+}
+header[data-screen-label] img{animation:invKen 12s cubic-bezier(.2,.6,.3,1) both}
+.card{transition:transform .45s cubic-bezier(.2,.7,.2,1),box-shadow .45s cubic-bezier(.2,.7,.2,1),border-color .45s ease}
+.card:hover{transform:translateY(-6px);box-shadow:0 26px 52px rgba(15,35,65,.15)}
+a.btn,button.btn{transition:transform .3s ease,box-shadow .3s ease,filter .3s ease}
+a.btn:hover,button.btn:hover{transform:translateY(-2px);box-shadow:0 12px 26px rgba(15,35,65,.2)}
+a.btn:active,button.btn:active{transform:translateY(0)}
+figure{overflow:visible}
+figure div{overflow:hidden}
+figure img{transition:transform 1.2s cubic-bezier(.2,.7,.2,1)}
+figure:hover img{transform:scale(1.04)}
+::selection{background:#C3A15A;color:#0D2551}
+main h1,main h2{text-wrap:balance}
+@media (prefers-reduced-motion:reduce){main>section,main>header>div,hr.hr,header[data-screen-label] img{animation:none!important}figure img{transition:none}}
+
+main a:not([class*="btn"]):hover{text-decoration-color:#C3A15A;text-underline-offset:3px}
+</style>
+<meta name="ext-resource-dependency" content="assets/bottles/cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/bottles/dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/bottles/edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/bottles/energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/bottles/fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/bottles/hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/bottles/immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/bottles/jet-fuel.png">
+<meta name="ext-resource-dependency" content="assets/bottles/myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/bottles/nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/bottles/panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/bottles/skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/bottles/weight-loss.png">
+<meta name="ext-resource-dependency" content="assets/social/post-cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/social/post-dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/social/post-edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/social/post-energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/post-fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/social/post-glutathione.png">
+<meta name="ext-resource-dependency" content="assets/social/post-hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/social/post-immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/post-myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/social/post-nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/social/post-panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/social/post-skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/social/post-vitamin-d3.png">
+<meta name="ext-resource-dependency" content="assets/social/post-weight-loss.png">
+<meta name="ext-resource-dependency" content="assets/social/story-cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/social/story-dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/social/story-edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/social/story-energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/story-fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/social/story-glutathione.png">
+<meta name="ext-resource-dependency" content="assets/social/story-hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/social/story-immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/social/story-myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/social/story-nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/social/story-panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/social/story-skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/social/story-vitamin-d3.png">
+<meta name="ext-resource-dependency" content="assets/social/story-weight-loss.png">
+<meta name="ext-resource-dependency" content="assets/bag-cola-drip-iron.png">
+<meta name="ext-resource-dependency" content="assets/bag-dopamin-booster.png">
+<meta name="ext-resource-dependency" content="assets/bag-edta-chelation.png">
+<meta name="ext-resource-dependency" content="assets/bag-energy-boost.png">
+<meta name="ext-resource-dependency" content="assets/bag-fertility-libido.png">
+<meta name="ext-resource-dependency" content="assets/bag-hair-skin-nails.png">
+<meta name="ext-resource-dependency" content="assets/bag-immune-boost.png">
+<meta name="ext-resource-dependency" content="assets/bag-jet-fuel.png">
+<meta name="ext-resource-dependency" content="assets/bag-myers-cocktail.png">
+<meta name="ext-resource-dependency" content="assets/bag-nad-plus.png">
+<meta name="ext-resource-dependency" content="assets/bag-panthenol-b5.png">
+<meta name="ext-resource-dependency" content="assets/bag-skin-radiance.png">
+<meta name="ext-resource-dependency" content="assets/bag-weight-loss.png">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-23 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-23.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-24 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-24.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25 3.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25 4.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-56-25.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-18.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-19 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-19 4.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-19.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20 2.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20 3.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20 4.jpg">
+<meta name="ext-resource-dependency" content="uploads/PHOTO-2026-05-20-12-58-20.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6084-2.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6085-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6086-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6087-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6088-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6089-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6090-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6091-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6092-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6093-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6094-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6095-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6096-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6097-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/IMG_6098-1.jpg">
+<meta name="ext-resource-dependency" content="uploads/AQMpXqXVbFi7bEDGUrpKYfxTUYsc_wzn7w8dV_KpJ9VDt18ahug0ElVb8brx4MD.mp4">
+<meta name="ext-resource-dependency" content="uploads/AQNPlIc8mINu5iOhJn1uWMIwgid1kPHtrBkbheyNrwIvFEHuFIt47NCfjq_d9KI.mp4">
+<meta name="ext-resource-dependency" content="uploads/AQP81b4gmt9SwhC1oMysGalwoQadkEVqjghhpSmvq4uvrzKW0kr43ev1lrOxJ69aX4fce76R1b.mp4">
+<meta name="ext-resource-dependency" content="uploads/AQPg2jbm6_bam_fHYG7VOmPpfw7K5bkQQMzwxboC_K5cTskRE5ewL7l2Fd9PxoL.mp4">
+<meta name="ext-resource-dependency" content="uploads/Invita Partners Reel.mp4">
+<meta name="ext-resource-dependency" content="uploads/ee.mp4">
+</helmet>
+<div ref="{{ rootRef }}" dir="{{ dir }}" style="background:linear-gradient(180deg,#0A1F42,#0D2551 40%,#0C1E38);color:var(--ivory);font-family:var(--font-body);min-height:100vh;overflow-x:hidden">
+
+<div aria-hidden="true" style="position:fixed;top:0;inset-inline-start:0;height:3px;width:0;z-index:90;background:linear-gradient(90deg,#C3A15A,#E8D5A6);box-shadow:0 0 12px rgba(217,179,68,.6)" data-progress="1"></div>
+
+<nav aria-label="Main" style="position:sticky;top:0;z-index:70;background:color-mix(in srgb,#0A1F42 68%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:flex;align-items:center;gap:22px;padding:14px max(clamp(20px,5vw,72px),calc((100% - 1120px) / 2 + clamp(20px,5vw,72px)));border-bottom:1px solid var(--divider)">
+  <a href="Invita Home.dc.html" style="display:flex;align-items:center;gap:11px;text-decoration:none;margin-inline-end:auto">
+    <img src="uploads/Prancheta 11.png" alt="Invita — IV Vitamins Therapy" style="height:22px;width:auto;display:block">
+  </a>
+  <a href="Invita IV Menu.dc.html" class="inv-hide-m" style="color:var(--ivory);text-decoration:none;font-size:14px">{{ t.allDrips }}</a>
+  <a href="Invita Science.dc.html" class="inv-hide-m" style="color:var(--ivory);text-decoration:none;font-size:14px">{{ t.science }}</a>
+  <a href="Invita Partners.dc.html" class="inv-hide-m" style="color:var(--ivory);text-decoration:none;font-size:14px">{{ t.partners }}</a>
+  <button type="button" onClick="{{ toggleLang }}" aria-label="Switch language" style="display:inline-flex;align-items:center;justify-content:center;padding:8px 14px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;border-radius:10px;border:1px solid var(--divider);color:var(--ivory);background:transparent;cursor:pointer;white-space:nowrap" style-hover="border-color:#C3A15A;color:#C3A15A">{{ langLabel }}</button>
+  <a href="https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:9px 16px;font-family:var(--font-heading);font-weight:700;font-size:14px;line-height:1.2;text-decoration:none;border-radius:10px;background:#C3A15A;color:#0D2551;white-space:nowrap;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-2px);box-shadow:0 10px 24px rgba(217,179,68,.35)">{{ t.book }}</a>
+  <button type="button" class="inv-show-m" onClick="{{ navToggle }}" aria-expanded="{{ navOpen }}" aria-label="Menu" style="align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;border:1px solid var(--divider);background:transparent;color:var(--ivory);cursor:pointer;font-size:18px;line-height:1;padding:0">☰</button>
+  <sc-if value="{{ navOpen }}" hint-placeholder-val="{{ false }}">
+    <div style="position:absolute;top:100%;inset-inline:0;background:#0A1F42;border-bottom:1px solid rgba(240,237,228,.14);box-shadow:0 24px 48px rgba(6,16,30,.18);display:flex;flex-direction:column;padding:8px clamp(20px,5vw,72px) 16px">
+      <a href="Invita Home.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:var(--ivory);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid rgba(240,237,228,.14)">{{ t.home }}</a>
+      <a href="Invita IV Menu.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:var(--ivory);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid rgba(240,237,228,.14)">{{ t.allDrips }}</a>
+      <a href="Invita Science.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:var(--ivory);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid rgba(240,237,228,.14)">{{ t.science }}</a>
+      <a href="Invita Partners.dc.html" onClick="{{ navClose }}" style="padding:13px 2px;color:var(--ivory);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid rgba(240,237,228,.14)">{{ t.partners }}</a>
+      <a href="https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A" target="_blank" rel="noopener" onClick="{{ navClose }}" style="padding:13px 2px;color:var(--ivory);text-decoration:none;font-family:var(--font-heading);font-weight:700;font-size:15px;border-bottom:1px solid rgba(240,237,228,.14)">{{ t.book }}</a>
+    </div>
+  </sc-if>
+</nav>
+
+<header style="position:relative;overflow:hidden">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(120deg,#0A1F42,#16305A,#0D2551,#123056);background-size:320% 320%;animation:inv-aurora 20s ease infinite"></div>
+  <div aria-hidden="true" style="position:absolute;top:-15%;inset-inline-end:-8%;width:min(60vw,620px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,179,68,.16),transparent 62%);filter:blur(10px);animation:inv-pulse 9s ease-in-out infinite"></div>
+  <img src="assets/poster-molecule.png" alt="" aria-hidden="true" style="position:absolute;top:6%;inset-inline-start:-90px;width:280px;opacity:.05;filter:brightness(0) invert(1);animation:inv-spin 80s linear infinite">
+  <span aria-hidden="true" style="position:absolute;left:16%;top:70%;width:8px;height:8px;border-radius:50%;background:#C3A15A;filter:blur(1px);animation:inv-drift 7s ease-in infinite .4s"></span>
+  <span aria-hidden="true" style="position:absolute;left:38%;top:80%;width:5px;height:5px;border-radius:50%;background:#E8D5A6;animation:inv-drift 9s ease-in infinite 1.6s"></span>
+  <span aria-hidden="true" style="position:absolute;left:64%;top:76%;width:7px;height:7px;border-radius:50%;background:#C3A15A;filter:blur(1px);animation:inv-drift 8s ease-in infinite 2.4s"></span>
+  <span aria-hidden="true" style="position:absolute;left:82%;top:66%;width:5px;height:5px;border-radius:50%;background:#E8D5A6;animation:inv-drift 10s ease-in infinite .9s"></span>
+
+  <div style="position:relative;max-width:1120px;margin:0 auto;padding:clamp(28px,4vw,44px) clamp(20px,5vw,72px) clamp(40px,6vw,72px)">
+    <nav aria-label="Breadcrumb" style="font-size:13px;color:rgba(240,237,228,.6);margin-bottom:clamp(24px,4vw,44px)">
+      <a href="Invita Home.dc.html" style="color:inherit;text-decoration:none">{{ t.home }}</a>
+      <span aria-hidden="true" style="padding:0 8px">/</span>
+      <a href="Invita Home.dc.html#menu" style="color:inherit;text-decoration:none">{{ t.menu }}</a>
+      <span aria-hidden="true" style="padding:0 8px">/</span>
+      <span style="color:var(--ivory)">{{ d.name }}</span>
+    </nav>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(310px,1fr));gap:clamp(28px,4vw,64px);align-items:center">
+      <div>
+        <span style="display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:6px 14px;border-radius:999px;border:1px solid rgba(217,179,68,.45);color:#C3A15A;background:rgba(217,179,68,.08);animation:inv-rise .6s ease both"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:#C3A15A"></span>{{ d.tierLabel }}</span>
+        <h1 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(40px,6vw,76px);line-height:1.15;letter-spacing:-0.02em;margin:18px 0 0;color:var(--ivory);animation:inv-rise .7s ease .08s both">{{ d.name }}</h1>
+        <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(19px,2.4vw,28px);line-height:1.3;margin:14px 0 0;background:linear-gradient(100deg,#C3A15A 15%,#E8D5A6 50%,#C3A15A 85%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;color:transparent;animation:inv-shimmer 5s linear infinite,inv-rise .7s ease .16s both">{{ slogan }}</p>
+        <p style="font-size:17px;line-height:1.7;max-width:46ch;margin:18px 0 0;color:rgba(240,237,228,.82);animation:inv-rise .7s ease .24s both">{{ d.tag }}</p>
+
+        <div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:30px;animation:inv-rise .7s ease .32s both">
+          <div style="min-width:130px;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--divider);backdrop-filter:blur(8px)">
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(20px,2.4vw,26px);line-height:1;margin:0;color:var(--ivory);font-feature-settings:'tnum' 1"><span data-countup="1" data-target="{{ priceNum }}" data-pre="{{ pricePre }}" data-suf="{{ priceSuf }}">{{ priceDisplay }}</span></p>
+            <p style="font-size:12px;letter-spacing:.04em;color:rgba(240,237,228,.6);margin:8px 0 0">{{ t.perSession }}</p>
+          </div>
+          <div style="min-width:120px;padding:14px 18px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--divider);backdrop-filter:blur(8px)">
+            <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(20px,2.4vw,26px);line-height:1;margin:0;color:var(--ivory);font-feature-settings:'tnum' 1"><span data-countup="1" data-target="{{ minNum }}" data-pre="" data-suf="{{ minSuf }}">{{ minDisplay }}</span></p>
+            <p style="font-size:12px;letter-spacing:.04em;color:rgba(240,237,228,.6);margin:8px 0 0">{{ t.approxTime }}</p>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:26px;animation:inv-rise .7s ease .4s both">
+          <a href="{{ waBook }}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 26px;font-family:var(--font-heading);font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;border-radius:12px;background:#C3A15A;color:#0D2551;white-space:nowrap;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-3px);box-shadow:0 14px 30px rgba(217,179,68,.4)">{{ t.bookThis }} {{ arrow }}</a>
+          <a href="https://wa.me/9647748885559" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:13px 24px;font-family:var(--font-heading);font-weight:700;font-size:15px;line-height:1.2;text-decoration:none;border-radius:12px;border:1px solid var(--divider);color:var(--ivory);background:rgba(255,255,255,.04);white-space:nowrap;transition:border-color .25s ease,transform .25s ease" style-hover="border-color:#C3A15A;transform:translateY(-3px)">{{ t.whatsapp }}</a>
+        </div>
+      </div>
+
+      <div ref="{{ artRef }}" style="position:relative;display:flex;justify-content:center;transition:transform .45s cubic-bezier(.2,.7,.2,1)">
+        <div style="position:relative;width:100%;max-width:420px;border-radius:26px;overflow:hidden;background:linear-gradient(160deg,#F4F1E8,#E7E0D0);box-shadow:0 30px 70px rgba(6,14,26,.4),inset 0 1px 0 rgba(255,255,255,.6);padding:clamp(24px,3vw,36px);box-sizing:border-box;display:grid;place-items:center;aspect-ratio:4/5">
+          <div aria-hidden="true" style="position:absolute;top:14px;inset-inline-end:18px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:rgba(15,35,65,.42)">Liquivida®</div>
+          <div aria-hidden="true" style="position:absolute;width:66%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,179,68,.4),transparent 62%);filter:blur(8px)"></div>
+          <div aria-hidden="true" style="position:absolute;bottom:13%;width:54%;height:26px;border-radius:50%;background:radial-gradient(ellipse,rgba(15,35,65,.22),transparent 72%);filter:blur(5px)"></div>
+          <div style="position:relative;width:100%;height:100%;display:grid;place-items:center;animation:inv-float 6.5s ease-in-out infinite">{{ bagEl }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div aria-hidden="true" style="overflow:hidden;border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);background:rgba(217,179,68,.05);padding:13px 0">
+  <div dir="ltr" data-marquee="55" style="display:flex;width:max-content;animation:inv-marquee 28s linear infinite">
+    <sc-for list="{{ ingredientsx2 }}" as="ing" hint-placeholder-count="8">
+      <span style="display:inline-flex;align-items:center;gap:12px;padding:0 26px;font-size:12.5px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;color:rgba(240,237,228,.72)"><span aria-hidden="true" style="width:6px;height:6px;border-radius:50%;background:#C3A15A;flex:none"></span>{{ ing }}</span>
+    </sc-for>
+  </div>
+</div>
+
+<section style="max-width:1120px;margin:0 auto;padding:clamp(52px,7vw,104px) clamp(20px,5vw,72px)">
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(30px,4vw,64px)">
+    <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#C3A15A;margin:0 0 14px">{{ t.overview }}</p>
+      <p style="font-size:17px;line-height:1.8;margin:0;color:rgba(240,237,228,.86)">{{ d.desc }}</p>
+      <sc-if value="{{ d.hasNote }}" hint-placeholder-val="{{ false }}">
+        <div style="margin-top:22px;border-inline-start:3px solid #C3A15A;background:rgba(217,179,68,.07);border-radius:0 12px 12px 0;padding:14px 18px;font-size:14.5px;line-height:1.65;color:rgba(240,237,228,.82)">{{ d.note }}</div>
+      </sc-if>
+    </div>
+    <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .12s,transform .7s cubic-bezier(.2,.7,.2,1) .12s">
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#C3A15A;margin:0 0 16px">{{ t.formula }}</p>
+      <div style="display:flex;flex-direction:column;gap:10px">
+        <sc-for list="{{ ingredients }}" as="ing" hint-placeholder-count="5">
+          <div style="display:flex;align-items:center;gap:12px;padding:13px 16px;border-radius:12px;background:rgba(255,255,255,.05);border:1px solid var(--divider)">
+            <span aria-hidden="true" style="width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,#C3A15A,#E8D5A6);flex:none;box-shadow:0 0 10px rgba(217,179,68,.5)"></span>
+            <span dir="ltr" style="font-family:var(--font-heading);font-weight:700;font-size:14.5px;color:var(--ivory);text-align:start">{{ ing }}</span>
+          </div>
+        </sc-for>
+      </div>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#C3A15A;margin:24px 0 12px">{{ t.bestFor }}</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px">
+        <sc-for list="{{ d.goodFor }}" as="g" hint-placeholder-count="3">
+          <span style="display:inline-flex;align-items:center;font-size:12.5px;padding:6px 13px;border-radius:9px;background:rgba(240,237,228,.09);border:1px solid var(--divider);color:var(--ivory)">{{ g }}</span>
+        </sc-for>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(52px,7vw,104px)">
+  <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+    <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#C3A15A;margin:0 0 14px">{{ t.benefits }}</p>
+    <h2 style="font-size:clamp(26px,3.4vw,42px);line-height:1.18;letter-spacing:-0.015em;margin:0 0 30px">{{ d.tag }}</h2>
+  </div>
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:16px">
+    <sc-for list="{{ benefitCards }}" as="b" hint-placeholder-count="4">
+      <div data-reveal="1" style="{{ b.style }}">
+        <div style="position:relative;padding:24px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--divider);height:100%;box-sizing:border-box;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(217,179,68,.5);box-shadow:0 18px 40px rgba(0,0,0,.3)">
+          <span style="font-family:var(--font-heading);font-weight:800;font-size:14px;color:#C3A15A;font-feature-settings:'tnum' 1">{{ b.n }}</span>
+          <p style="font-size:16px;line-height:1.55;margin:14px 0 0;color:var(--ivory)">{{ b.t }}</p>
+        </div>
+      </div>
+    </sc-for>
+  </div>
+</section>
+
+<sc-if value="{{ hasEvidence }}" hint-placeholder-val="{{ false }}">
+<section data-screen-label="Clinical evidence" style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(52px,7vw,104px)">
+  <div style="border:1px solid rgba(217,179,68,.4);border-radius:18px;background:rgba(217,179,68,.06);padding:clamp(24px,3.5vw,40px)">
+    <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#C3A15A;margin:0 0 12px">{{ t.evKicker }}</p>
+    <p style="font-size:16px;line-height:1.75;margin:0 0 22px;max-width:66ch;color:rgba(240,237,228,.86)">{{ evBody }}</p>
+    <div style="display:flex;gap:14px;flex-wrap:wrap;margin-bottom:22px">
+      <sc-for list="{{ evStats }}" as="s" hint-placeholder-count="2">
+        <div style="min-width:170px;flex:1;max-width:280px;padding:16px 18px;border-radius:14px;background:rgba(255,255,255,.05);border:1px solid var(--divider)">
+          <p style="font-family:var(--font-heading);font-weight:800;font-size:clamp(24px,2.8vw,32px);line-height:1;margin:0;color:#C3A15A;font-feature-settings:'tnum' 1">{{ s.v }}</p>
+          <p style="font-size:12.5px;line-height:1.55;margin:9px 0 0;color:rgba(240,237,228,.72)">{{ s.l }}</p>
+        </div>
+      </sc-for>
+    </div>
+    <a href="Invita Science.dc.html" style="font-size:14px;font-weight:700;font-family:var(--font-heading);color:#C3A15A;text-decoration:none">{{ t.evLink }} {{ arrow }}</a>
+  </div>
+</section>
+</sc-if>
+
+<section style="position:relative;background:linear-gradient(180deg,rgba(22,48,90,.5),transparent)">
+  <div style="max-width:1120px;margin:0 auto;padding:clamp(52px,7vw,104px) clamp(20px,5vw,72px)">
+    <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#C3A15A;margin:0 0 14px">{{ t.howKicker }}</p>
+      <h2 style="font-size:clamp(26px,3.4vw,42px);line-height:1.18;letter-spacing:-0.015em;margin:0 0 34px">{{ t.howTitle }}</h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:18px">
+      <sc-for list="{{ stepCards }}" as="s" hint-placeholder-count="3">
+        <div data-reveal="1" style="{{ s.style }}">
+          <div style="position:relative;padding:26px;border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--divider);height:100%;box-sizing:border-box">
+            <div style="width:46px;height:46px;border-radius:50%;display:grid;place-items:center;font-family:var(--font-heading);font-weight:800;font-size:16px;color:#0D2551;background:linear-gradient(135deg,#C3A15A,#E8D5A6);box-shadow:0 0 18px rgba(217,179,68,.4);margin-bottom:16px">{{ s.n }}</div>
+            <h3 style="font-size:18px;margin:0 0 8px">{{ s.t }}</h3>
+            <p style="font-size:14.5px;line-height:1.65;margin:0;color:rgba(240,237,228,.76)">{{ s.b }}</p>
+          </div>
+        </div>
+      </sc-for>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:900px;margin:0 auto;padding:clamp(52px,7vw,104px) clamp(20px,5vw,72px)">
+  <h2 data-reveal="1" style="font-size:clamp(26px,3.4vw,42px);line-height:1.18;letter-spacing:-0.015em;margin:0 0 24px;opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">{{ t.faqTitle }}</h2>
+  <div data-reveal="1" style="opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1) .1s,transform .7s cubic-bezier(.2,.7,.2,1) .1s">
+    <sc-for list="{{ faqs }}" as="f" hint-placeholder-count="5">
+      <div style="border-top:1px solid var(--divider)">
+        <button type="button" onClick="{{ f.toggle }}" aria-expanded="{{ f.open }}" style="all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:16px;width:100%;padding:20px 0;font-family:var(--font-heading);font-weight:700;font-size:17px;color:var(--ivory)">
+          <span>{{ f.q }}</span>
+          <span aria-hidden="true" style="{{ f.signStyle }}">+</span>
+        </button>
+        <div style="{{ f.panelStyle }}">
+          <p style="margin:0;padding:0 0 22px;font-size:15px;line-height:1.75;max-width:72ch;color:rgba(240,237,228,.78)">{{ f.a }}</p>
+        </div>
+      </div>
+    </sc-for>
+    <div style="border-top:1px solid var(--divider)"></div>
+  </div>
+  <p style="font-size:12.5px;line-height:1.7;margin:22px 0 0;color:rgba(240,237,228,.5)">{{ t.disclaimer }}</p>
+</section>
+
+<section style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(40px,5vw,64px)">
+  <div data-reveal="1" style="display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-bottom:22px;opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)">
+    <div>
+      <p style="font-size:12px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:#C3A15A;margin:0 0 10px">{{ t.exploreKicker }}</p>
+      <h2 style="font-size:clamp(24px,3vw,36px);line-height:1.18;letter-spacing:-0.015em;margin:0">{{ t.exploreTitle }}</h2>
+    </div>
+    <a href="Invita Home.dc.html#menu" style="font-size:14px;font-weight:700;font-family:var(--font-heading);text-decoration:none;white-space:nowrap">{{ t.allDrips }} {{ arrow }}</a>
+  </div>
+  <div style="display:flex;gap:16px;overflow-x:auto;padding:6px 2px 18px;scrollbar-width:none">
+    <sc-for list="{{ related }}" as="r" hint-placeholder-count="6">
+      <a href="{{ r.href }}" style="flex:none;width:230px;scroll-snap-align:start;text-decoration:none;color:var(--ivory)">
+        <div style="border-radius:18px;background:rgba(255,255,255,.05);border:1px solid var(--divider);padding:18px 18px 20px;transition:transform .3s ease,border-color .3s ease,box-shadow .3s ease" style-hover="transform:translateY(-6px);border-color:rgba(217,179,68,.5);box-shadow:0 18px 40px rgba(0,0,0,.32)">
+          <div style="height:168px;display:grid;place-items:center;border-radius:12px;background:#ECE6DC;overflow:hidden;margin-bottom:14px">{{ r.imgEl }}</div>
+          <span style="font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:#C3A15A">{{ r.tier }}</span>
+          <h3 style="font-size:17px;margin:6px 0 6px">{{ r.name }}</h3>
+          <p style="font-size:13px;margin:0;color:rgba(240,237,228,.66);font-feature-settings:'tnum' 1">{{ r.price }}</p>
+        </div>
+      </a>
+    </sc-for>
+  </div>
+</section>
+
+<section style="position:relative;overflow:hidden;margin:0 clamp(16px,4vw,72px) clamp(48px,6vw,88px);border-radius:26px">
+  <div aria-hidden="true" style="position:absolute;inset:0;background:linear-gradient(120deg,#123056,#16305A,#0D2551);background-size:300% 300%;animation:inv-aurora 16s ease infinite"></div>
+  <div aria-hidden="true" style="position:absolute;top:-40%;inset-inline-end:-10%;width:min(50vw,460px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,rgba(217,179,68,.2),transparent 62%);animation:inv-pulse 8s ease-in-out infinite"></div>
+  <div data-reveal="1" style="position:relative;max-width:900px;margin:0 auto;padding:clamp(44px,6vw,80px) clamp(24px,5vw,64px);text-align:center;opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)">
+    <h2 style="font-family:var(--font-heading);font-weight:800;font-size:clamp(28px,4vw,50px);line-height:1.18;letter-spacing:-0.02em;margin:0;color:var(--ivory)">{{ slogan }}</h2>
+    <p style="font-size:16px;line-height:1.7;margin:16px auto 0;max-width:52ch;color:rgba(240,237,228,.8)">{{ t.ctaBody }}</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px">
+      <a href="https://wa.me/9647748885559?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20Invita%20%E2%80%94%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%AC%D9%84%D8%B3%D8%A9%20%D8%B9%D9%84%D8%A7%D8%AC%20%D9%88%D8%B1%D9%8A%D8%AF%D9%8A" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;justify-content:center;gap:7px;padding:14px 30px;font-family:var(--font-heading);font-weight:700;font-size:15.5px;line-height:1.2;text-decoration:none;border-radius:12px;background:#C3A15A;color:#0D2551;white-space:nowrap;transition:transform .25s ease,box-shadow .25s ease" style-hover="transform:translateY(-3px);box-shadow:0 14px 30px rgba(217,179,68,.4)">{{ t.bookThis }} {{ arrow }}</a>
+    </div>
+  </div>
+</section>
+
+<section style="max-width:1120px;margin:0 auto;padding:0 clamp(20px,5vw,72px) clamp(44px,6vw,72px);display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap">
+  <a href="{{ prevHref }}" style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--ivory);padding:18px 20px;border-radius:14px;border:1px solid var(--divider);background:rgba(255,255,255,.04);transition:border-color .25s ease" style-hover="border-color:#C3A15A">
+    <span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(240,237,228,.55)">{{ arrowPrev }} {{ t.prev }}</span>
+    <span style="font-family:var(--font-heading);font-weight:800;font-size:17px">{{ prevName }}</span>
+  </a>
+  <a href="{{ nextHref }}" style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:5px;text-decoration:none;color:var(--ivory);text-align:end;padding:18px 20px;border-radius:14px;border:1px solid var(--divider);background:rgba(255,255,255,.04);transition:border-color .25s ease" style-hover="border-color:#C3A15A">
+    <span style="font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:rgba(240,237,228,.55)">{{ t.next }} {{ arrowNext }}</span>
+    <span style="font-family:var(--font-heading);font-weight:800;font-size:17px">{{ nextName }}</span>
+  </a>
+</section>
+
+<footer style="background:#08111F;border-top:1px solid var(--divider)">
+  <div style="max-width:1120px;margin:0 auto;padding:26px clamp(20px,5vw,72px);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap">
+    <img src="uploads/Prancheta 11.png" alt="Invita" style="height:18px;width:auto;display:block">
+    <p style="font-size:14px;margin:0;color:rgba(240,237,228,.75)"><a href="tel:+9647748885559" style="color:var(--ivory);text-decoration:none"><span dir="ltr">077 4888 5559</span></a> · <a href="mailto:info@invitadrips.com" style="color:var(--ivory);text-decoration:none">info@invitadrips.com</a> · AL-Lord Office, Baghdad</p>
+  </div>
+</footer>
+
+<div data-sticky="1" style="position:fixed;left:0;right:0;bottom:0;z-index:80;transform:translateY(120%);opacity:0;transition:transform .45s cubic-bezier(.2,.7,.2,1),opacity .45s ease;background:color-mix(in srgb,#08111F 82%,transparent);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-top:1px solid var(--divider)">
+  <div style="max-width:1120px;margin:0 auto;padding:12px clamp(16px,5vw,72px);display:flex;align-items:center;gap:14px">
+    <div style="min-width:0">
+      <p style="font-family:var(--font-heading);font-weight:800;font-size:15px;margin:0;color:var(--ivory);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">{{ d.name }}</p>
+      <p style="font-size:12.5px;margin:2px 0 0;color:#C3A15A;font-feature-settings:'tnum' 1">{{ d.price }}</p>
+    </div>
+    <a href="{{ waBook }}" target="_blank" rel="noopener" style="margin-inline-start:auto;display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:11px 22px;font-family:var(--font-heading);font-weight:700;font-size:14.5px;line-height:1.2;text-decoration:none;border-radius:11px;background:#C3A15A;color:#0D2551;white-space:nowrap">{{ t.bookThis }} {{ arrow }}</a>
+  </div>
+</div>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;: {&quot;width&quot;: 1120, &quot;height&quot;: 900}, &quot;lang&quot;: {&quot;editor&quot;: &quot;enum&quot;, &quot;options&quot;: [&quot;en&quot;, &quot;ar&quot;], &quot;default&quot;: &quot;en&quot;, &quot;tsType&quot;: &quot;\&quot;en\&quot; | \&quot;ar\&quot;&quot;, &quot;section&quot;: &quot;Language&quot;}}">
+class Component extends DCLogic {
+  ORDER = ['energy-boost','immune-boost','hair-skin-nails','panthenol-b5','myers-cocktail','dopamin-booster','skin-radiance','nad-plus','weight-loss','fertility-libido','cola-drip-iron','jet-fuel','edta-chelation'];
+
+  DRIPS = {
+    'energy-boost': { tier: 'Wellness', min: 45, price: 150000, name: 'Energy Boost',
+      formula: 'B1 100mg · B2 25mg · B3 200mg · B6 250mg · B12 1000mcg · Magnesium Sulphate 200mg · Amino Acids',
+      en: { tag: 'Instant recharge against chronic fatigue and burnout', desc: 'A fast-acting infusion for anyone running on empty — busy professionals, parents, or those recovering from illness. It replenishes the B-vitamins and magnesium your body burns through under stress, restoring clean energy, steadier mood, and sharper focus without the crash of caffeine or sugar.',
+        benefits: ['Fast, clean energy without the crash','Better mood, focus, and stress response','Replenishes B-vitamins and magnesium','Supports nerves and muscle recovery'],
+        goodFor: ['Busy professionals','Post-illness fatigue','Low daily energy'] },
+      ar: { tag: 'شحن فوري ضد التعب المزمن والإجهاد', desc: 'تركيبة سريعة المفعول لكل من يشعر بالإنهاك — للمهنيين المشغولين والآباء أو المتعافين من المرض. يعوّض فيتامينات B والمغنيسيوم التي يستهلكها الجسم تحت الضغط، فيعيد طاقة نظيفة ومزاجاً أكثر استقراراً وتركيزاً أوضح دون هبوط الكافيين أو السكر.',
+        benefits: ['طاقة سريعة ونظيفة دون هبوط','مزاج وتركيز أفضل واستجابة أفضل للتوتر','تعويض فيتامينات B والمغنيسيوم','دعم الأعصاب وتعافي العضلات'],
+        goodFor: ['المهنيون المشغولون','التعب بعد المرض','انخفاض الطاقة اليومية'] } },
+    'immune-boost': { tier: 'Wellness', min: 45, price: 165000, name: 'Immune Boost',
+      formula: 'Vitamin C 1000mg · Zinc 100mg · Calcium 2mmol · Potassium 5mmol · Bicarbonate 25mmol',
+      en: { tag: 'Fortify your defences and recover faster', desc: 'A high-dose vitamin C and zinc infusion that reinforces your immune system at the first sign of a cold — or preventively before travel and through flu season. Delivered straight to the bloodstream for rapid, high absorption.',
+        benefits: ['High-dose vitamin C to fortify defences','Zinc to support immune response','Helps shorten and soften illness','Ideal before travel or flu season'],
+        goodFor: ['Before travel','Cold & flu season','Feeling run down'] },
+      ar: { tag: 'حصّن مناعتك وتعافَ أسرع', desc: 'تركيبة بجرعة عالية من فيتامين C والزنك يعزّز جهاز المناعة عند أول أعراض البرد — أو وقائياً قبل السفر وخلال موسم الإنفلونزا. يصل مباشرة إلى الدم لامتصاص سريع وعالٍ.',
+        benefits: ['جرعة عالية من فيتامين C لتقوية المناعة','زنك لدعم الاستجابة المناعية','يساعد على تقصير وتخفيف المرض','مثالي قبل السفر أو موسم الإنفلونزا'],
+        goodFor: ['قبل السفر','موسم البرد والإنفلونزا','الشعور بالإرهاق'] } },
+    'hair-skin-nails': { tier: 'Beauty', min: 45, price: 180000, name: 'Hair, Nail & Skin',
+      formula: 'Biotin 10,000mcg · Zinc 10mg/ml',
+      en: { tag: 'Biotin boost for beauty from within', desc: 'A concentrated biotin and zinc infusion targeting hair thickness, nail strength, and skin health from the inside out. A favourite for postpartum shedding, brittle nails, and dull skin — best over a short weekly course.',
+        benefits: ['High-dose biotin for hair and nails','Reduces shedding and breakage','Improves skin freshness and glow','Ideal for postpartum or brittle nails'],
+        goodFor: ['Thinning hair','Brittle nails','Dull skin'] },
+      ar: { tag: 'بيوتين لجمالٍ من الداخل', desc: 'تركيبة مركّزة من البيوتين والزنك يستهدف كثافة الشعر وقوة الأظافر وصحة البشرة من الداخل. خيار مفضّل لتساقط ما بعد الولادة والأظافر الهشة والبشرة الباهتة — يُفضّل ضمن جلسات أسبوعية قصيرة.',
+        benefits: ['بيوتين بجرعة عالية للشعر والأظافر','تقليل التساقط والتقصف','تحسين نضارة البشرة وإشراقها','مثالي لما بعد الولادة أو الأظافر الهشة'],
+        goodFor: ['تساقط الشعر','الأظافر الهشة','البشرة الباهتة'] } },
+    'panthenol-b5': { tier: 'Beauty', min: 45, price: 175000, name: 'Panthenol (B5)',
+      formula: 'Dexpanthenol 250mg/ml',
+      en: { tag: 'Deep hydration and cellular renewal', desc: 'A dexpanthenol infusion that deeply hydrates skin at the cellular level, supports repair, calms irritation and redness, and restores a natural, healthy radiance.',
+        benefits: ['Deep, lasting skin hydration','Supports cellular repair','Calms irritation and redness','Restores natural radiance'],
+        goodFor: ['Dry, dehydrated skin','Irritated skin','Dullness'] },
+      ar: { tag: 'ترطيب عميق وتجديد الخلايا', desc: 'تركيبة من الدكسبانثينول يرطّب البشرة بعمق على مستوى الخلايا، ويدعم الإصلاح، ويهدّئ التهيّج والاحمرار، ويعيد إشراقاً طبيعياً وصحياً.',
+        benefits: ['ترطيب عميق ودائم للبشرة','دعم إصلاح الخلايا','تهدئة التهيّج والاحمرار','استعادة الإشراق الطبيعي'],
+        goodFor: ['البشرة الجافة','البشرة المتهيجة','البهتان'] } },
+    'myers-cocktail': { tier: 'Signature', min: 45, price: 210000, name: "Myer's Cocktail",
+      formula: 'Vitamin C 1000mg · B1, B2, B3, B6, B12 · Magnesium 200mg · Calcium 100mg · Zinc 10mg · NAD+ 100mg',
+      en: { tag: 'The original broad-spectrum wellness infusion', desc: 'The classic multi-nutrient blend, refined by Invita — supporting energy, immunity, and the nervous system in one comprehensive session. A trusted go-to for chronic fatigue, tension, and overall wellbeing.',
+        benefits: ['The original broad-spectrum wellness blend','Supports energy, immunity, and nerves','Eases stress, fatigue, and tension','A trusted go-to for overall wellbeing'],
+        goodFor: ['General wellness','Chronic fatigue','Stress & tension'] },
+      ar: { tag: 'التركيبة الأصلية واسعة الطيف للعافية', desc: 'الخلطة الكلاسيكية متعددة العناصر بصياغة إنفيتا — تدعم الطاقة والمناعة والجهاز العصبي في جلسة شاملة واحدة. خيار موثوق للتعب المزمن والتوتر والعافية العامة.',
+        benefits: ['الخلطة الأصلية واسعة الطيف للعافية','دعم الطاقة والمناعة والأعصاب','تخفيف التوتر والإجهاد والتشنج','الخيار الموثوق للعافية العامة'],
+        goodFor: ['العافية العامة','التعب المزمن','التوتر والإجهاد'] } },
+    'dopamin-booster': { tier: 'Performance', min: 45, price: 195000, name: 'Dopamin Booster',
+      formula: 'Citicoline 250mg / 5ml',
+      en: { tag: 'Sharper focus, memory, and mental performance', desc: 'A citicoline infusion that supports memory, focus, and mental clarity while fuelling brain function under pressure — ideal for demanding mental work and study.',
+        benefits: ['Sharper focus and attention','Supports memory and mental clarity','Fuels brain function under pressure','Supports healthy nerve cells'],
+        goodFor: ['Demanding mental work','Brain fog','Study & focus'] },
+      ar: { tag: 'تركيز وذاكرة وأداء ذهني أفضل', desc: 'تركيبة من السيتيكولين يدعم الذاكرة والتركيز والصفاء الذهني ويغذّي وظائف الدماغ تحت الضغط — مثالي للعمل الذهني المكثف والدراسة.',
+        benefits: ['تركيز وانتباه أعلى','دعم الذاكرة والصفاء الذهني','تغذية وظائف الدماغ تحت الضغط','دعم صحة الخلايا العصبية'],
+        goodFor: ['العمل الذهني المكثف','التشويش الذهني','الدراسة والتركيز'] } },
+    'skin-radiance': { tier: 'Beauty', min: 45, price: 225000, name: 'Skin Radiance',
+      formula: 'Glutathione 2.4g · Vitamin C 1000mg',
+      en: { tag: 'Brighten, even out, and glow', desc: 'A glutathione and vitamin C infusion — pairing the "master antioxidant" with high-dose C to brighten and even skin tone, reduce pigmentation over time, detoxify, and delay visible signs of ageing.',
+        benefits: ['Glutathione, the master antioxidant','Brightens and evens skin tone','Reduces pigmentation over time','Detoxifies and delays signs of ageing'],
+        goodFor: ['Uneven tone','Pre-event glow','Dull, tired skin'] },
+      ar: { tag: 'تفتيح وتوحيد وإشراقة', desc: 'تركيبة من الغلوتاثيون وفيتامين C — يجمع "مضاد الأكسدة الأعظم" مع جرعة عالية من فيتامين C لتفتيح وتوحيد لون البشرة، وتقليل التصبغات مع الوقت، وتنقية الجسم، وتأخير علامات الشيخوخة الظاهرة.',
+        benefits: ['غلوتاثيون، مضاد الأكسدة الأعظم','تفتيح وتوحيد لون البشرة','تقليل التصبغات مع الوقت','تنقية الجسم وتأخير علامات الشيخوخة'],
+        goodFor: ['لون غير موحّد','إشراقة قبل المناسبات','بشرة باهتة ومتعبة'] } },
+    'nad-plus': { tier: 'Signature', min: 90, price: 285000, name: 'NAD+ Drips',
+      formula: 'NAD+ 500mg in each Invita vial',
+      en: { tag: 'Cellular energy and anti-ageing', desc: 'NAD+ is essential to how your cells make energy and repair themselves. This slow infusion helps restore cellular energy at the source, sharpen mental clarity, and support the nervous system — a cornerstone of longevity protocols.',
+        benefits: ['Restores cellular energy at the source','Sharp mental focus and clarity','Advanced nerve and brain support','Helps counter age-related decline'],
+        goodFor: ['Anti-ageing','Mental clarity','Cellular recovery'],
+        note: 'Best results come from a short loading course of 4–6 sessions, followed by monthly maintenance. Infused slowly over ~90 minutes and titrated for comfort by your clinician.' },
+      ar: { tag: 'طاقة خلوية ومكافحة الشيخوخة', desc: 'NAD+ أساسي لطريقة إنتاج خلاياك للطاقة وإصلاح نفسها. هذه التركيبة البطيئة يساعد على استعادة الطاقة الخلوية من مصدرها، وشحذ الصفاء الذهني، ودعم الجهاز العصبي — ركيزة في بروتوكولات إطالة العمر.',
+        benefits: ['استعادة الطاقة الخلوية من مصدرها','تركيز ذهني حاد وصفاء','دعم متقدم للأعصاب والدماغ','مقاومة التراجع المرتبط بالعمر'],
+        goodFor: ['مكافحة الشيخوخة','الصفاء الذهني','التعافي الخلوي'],
+        note: 'أفضل النتائج تأتي من جلسات تحميل قصيرة (4–6 جلسات) تليها صيانة شهرية. يُسرَّب ببطء خلال ~90 دقيقة ويُضبط للراحة بإشراف طبيبك.' } },
+    'weight-loss': { tier: 'Wellness', min: 45, price: 195000, name: 'Weight Loss Drip',
+      formula: 'L-Carnitine 1000mg · Glutamine 300mg · Arginine 1g',
+      en: { tag: 'Burn fat and support lean muscle', desc: 'An amino-acid infusion that helps stimulate fat metabolism, sustain energy through a calorie deficit, and preserve lean muscle — a supportive companion to a clinician-guided diet and training plan.',
+        benefits: ['Stimulates fat metabolism','Sustains energy while dieting','Supports lean muscle','Complements diet and training'],
+        goodFor: ['Active weight-loss plans','Low energy on a diet','Body recomposition'] },
+      ar: { tag: 'حرق الدهون ودعم العضلات', desc: 'تركيبة من الأحماض الأمينية يساعد على تحفيز أيض الدهون، والحفاظ على الطاقة أثناء العجز في السعرات، والمحافظة على العضلات — رفيق داعم لبرنامج حمية وتدريب بإشراف طبي.',
+        benefits: ['تحفيز أيض الدهون','الحفاظ على الطاقة أثناء الرجيم','دعم العضلات','مكمّل للحمية والتمرين'],
+        goodFor: ['برامج إنقاص الوزن','انخفاض الطاقة أثناء الحمية','إعادة تكوين الجسم'] } },
+    'fertility-libido': { tier: 'Signature', min: 45, price: 240000, name: 'Fertility & Libido',
+      formula: 'Glutathione 1.2g · L-Carnitine 1000mg · MIC (Methionine – Inositol – Choline)',
+      en: { tag: 'Fertility, hormonal balance, and vitality', desc: 'A targeted blend supporting fertility for men and women, encouraging hormonal balance, and boosting libido and overall vitality — with antioxidant support for reproductive health.',
+        benefits: ['Supports fertility for men and women','Encourages hormonal balance','Boosts libido and vitality','Antioxidant support for reproductive health'],
+        goodFor: ['Hormonal balance','Low vitality','Reproductive wellness'] },
+      ar: { tag: 'خصوبة وتوازن هرموني وحيوية', desc: 'خلطة مستهدفة تدعم الخصوبة للرجال والنساء، وتعزّز التوازن الهرموني، وترفع الرغبة والحيوية العامة — مع دعم مضاد للأكسدة للصحة الإنجابية.',
+        benefits: ['دعم الخصوبة للرجال والنساء','تعزيز التوازن الهرموني','رفع الرغبة والحيوية','دعم مضاد للأكسدة للصحة الإنجابية'],
+        goodFor: ['التوازن الهرموني','انخفاض الحيوية','الصحة الإنجابية'] } },
+    'cola-drip-iron': { tier: 'Wellness', min: 30, price: 180000, name: 'Cola Drip (Iron)',
+      formula: 'Iron Sucrose 200mg / 10ml',
+      en: { tag: 'Treat anaemia and raise haemoglobin', desc: 'An iron sucrose infusion to correct iron-deficiency anaemia, raise haemoglobin, and relieve the dizziness and fatigue that come with low iron — restoring day-to-day activity and energy.',
+        benefits: ['Treats iron-deficiency anaemia','Raises haemoglobin levels','Reduces dizziness and fatigue','Restores activity and energy'],
+        goodFor: ['Iron deficiency','Low haemoglobin','Persistent fatigue'] },
+      ar: { tag: 'علاج فقر الدم ورفع الهيموغلوبين', desc: 'تركيبة من سكروز الحديد لتصحيح فقر الدم الناتج عن نقص الحديد، ورفع الهيموغلوبين، وتخفيف الدوخة والتعب المصاحبين لنقص الحديد — لاستعادة النشاط والطاقة اليومية.',
+        benefits: ['علاج فقر الدم الناتج عن نقص الحديد','رفع مستويات الهيموغلوبين','تقليل الدوخة والتعب','استعادة النشاط والطاقة'],
+        goodFor: ['نقص الحديد','انخفاض الهيموغلوبين','التعب المستمر'] } },
+    'jet-fuel': { tier: 'Performance', min: 45, price: 175000, name: 'Jet Fuel',
+      formula: 'B12 1000mcg · B2 25mg · B3 200mg · B6 250mg · Magnesium 250mg · Vitamin C 500mg',
+      en: { tag: 'Power and endurance for body and mind', desc: 'A high-octane B-vitamin and magnesium blend that boosts physical and mental energy, raises stamina, and relieves exhaustion fast — ideal before events, competitions, or demanding work stretches.',
+        benefits: ['Powerful physical and mental energy','Raises stamina and endurance','Relieves exhaustion fast','Ideal before events and heavy work'],
+        goodFor: ['Athletes','Demanding schedules','Pre-event boost'] },
+      ar: { tag: 'قوة وتحمّل للجسم والذهن', desc: 'خلطة عالية الفعالية من فيتامينات B والمغنيسيوم تعزّز الطاقة البدنية والذهنية، وترفع القدرة على التحمّل، وتخفّف الإرهاق سريعاً — مثالية قبل المناسبات والمنافسات أو فترات العمل المجهدة.',
+        benefits: ['طاقة بدنية وذهنية قوية','رفع القدرة على التحمّل','تخفيف الإرهاق سريعاً','مثالية قبل المناسبات والأعمال المجهدة'],
+        goodFor: ['الرياضيون','الجداول المزدحمة','دفعة قبل المناسبات'] } },
+    'edta-chelation': { tier: 'Signature', min: 90, price: 240000, name: 'EDTA Chelation',
+      formula: 'EDTA 150mg/ml',
+      en: { tag: 'Vascular detox and heart health', desc: 'A chelation infusion that binds and helps clear toxic heavy metals from the body, supports cleansing of the blood vessels, and backs heart and circulatory health — always as part of a physician-guided protocol.',
+        benefits: ['Helps clear toxic heavy metals','Supports vascular cleansing','Backs heart and circulatory health','Part of a physician-guided protocol'],
+        goodFor: ['Heavy-metal detox','Vascular health','Heart support'],
+        note: 'EDTA chelation is a medical protocol delivered over multiple sessions and requires clinician assessment before starting.' },
+      ar: { tag: 'ديتوكس الأوعية وصحة القلب', desc: 'تركيبة مخلبية يرتبط بالمعادن الثقيلة السامة ويساعد على إزالتها من الجسم، ويدعم تنقية الأوعية الدموية، ويدعم صحة القلب والدورة الدموية — دائماً ضمن بروتوكول بإشراف طبي.',
+        benefits: ['يساعد على إزالة المعادن الثقيلة السامة','دعم تنقية الأوعية الدموية','دعم صحة القلب والدورة الدموية','ضمن بروتوكول بإشراف طبي'],
+        goodFor: ['ديتوكس المعادن الثقيلة','صحة الأوعية','دعم القلب'],
+        note: 'يُعطى العلاج المخلبي EDTA كبروتوكول طبي عبر عدة جلسات ويتطلب تقييماً طبياً قبل البدء.' } }
+  };
+
+  BAGS = {"energy-boost":"assets/bag-energy-boost.png","immune-boost":"assets/bag-immune-boost.png","hair-skin-nails":"assets/bag-hair-skin-nails.png","panthenol-b5":"assets/bag-panthenol-b5.png","myers-cocktail":"assets/bag-myers-cocktail.png","dopamin-booster":"assets/bag-dopamin-booster.png","skin-radiance":"assets/bag-skin-radiance.png","nad-plus":"assets/bag-nad-plus.png","weight-loss":"assets/bag-weight-loss.png","fertility-libido":"assets/bag-fertility-libido.png","cola-drip-iron":"assets/bag-cola-drip-iron.png","edta-chelation":"assets/bag-edta-chelation.png","jet-fuel":"assets/bag-jet-fuel.png"};
+
+  UI = {
+    en: { allDrips: 'All drips', book: 'Book', home: 'Home', partners: 'Partners', science: 'Science', menu: 'Drip menu', perSession: 'per session', approxTime: 'approx. time',
+      evKicker: 'Clinical evidence — with Liquivida', evLink: 'Explore the science',
+      bookThis: 'Book this drip', whatsapp: 'Ask on WhatsApp', overview: 'Overview', benefits: 'What it helps with',
+      formula: 'Clinical formula', bestFor: 'Best for', howKicker: 'How it works', howTitle: 'Three simple steps.',
+      faqTitle: 'Common questions', prev: 'Previous', next: 'Next',
+      exploreKicker: 'Explore more', exploreTitle: 'Other Invita protocols',
+      ctaBody: 'Every session begins with a private medical consultation. Book in one tap — at our clinic or as a home service in Baghdad.',
+      disclaimer: 'IV therapy is prescribed and administered by licensed medical professionals after an individual assessment. Formulas and suitability are determined by your clinician. This page is informational and not medical advice.' },
+    ar: { allDrips: 'كل المغذيات', book: 'احجز', home: 'الرئيسية', partners: 'شركاؤنا', science: 'المنهج العلمي', menu: 'قائمة المغذيات', perSession: 'للجلسة',
+      evKicker: 'أدلة سريرية — بالشراكة مع ليكويفيدا', evLink: 'اكتشف المنهج العلمي', approxTime: 'الوقت التقريبي',
+      bookThis: 'احجز هذا المغذّي', whatsapp: 'اسأل عبر واتساب', overview: 'نظرة عامة', benefits: 'فيمَ يساعد',
+      formula: 'التركيبة السريرية', bestFor: 'مناسب لـ', howKicker: 'كيف تتم', howTitle: 'ثلاث خطوات بسيطة.',
+      faqTitle: 'أسئلة شائعة', prev: 'السابق', next: 'التالي',
+      exploreKicker: 'اكتشف المزيد', exploreTitle: 'بروتوكولات إنفيتا الأخرى',
+      ctaBody: 'كل جلسة تبدأ باستشارة طبية خاصة. احجز بلمسة واحدة — في عيادتنا أو كخدمة منزلية في بغداد.',
+      disclaimer: 'يُوصف العلاج الوريدي ويُعطى من مختصين طبيين مرخّصين بعد تقييم فردي. تُحدَّد التركيبات ومدى ملاءمتها من قبل طبيبك. هذه الصفحة للمعلومات وليست نصيحة طبية.' }
+  };
+
+  TIERS = { en: { Signature: 'Signature', Wellness: 'Wellness', Performance: 'Performance', Beauty: 'Beauty' },
+            ar: { Signature: 'المميّزة', Wellness: 'العافية', Performance: 'الأداء', Beauty: 'الجمال' } };
+
+  STEPS = {
+    en: [
+      { n: '01', t: 'Medical consultation', b: 'A licensed clinician reviews your health and goals before any drip is prepared.' },
+      { n: '02', t: 'Personalised infusion', b: 'Your Liquivida® formula is prepared and administered by a medical professional while you relax.' },
+      { n: '03', t: 'Feel the difference', b: 'Many feel the effects right away; others notice the full benefit within 24 hours.' }
+    ],
+    ar: [
+      { n: '01', t: 'استشارة طبية', b: 'يراجع طبيب مرخّص حالتك وأهدافك قبل تحضير أي مغذٍّ.' },
+      { n: '02', t: 'جلسة مخصّصة', b: 'تُحضَّر تركيبة Liquivida® ويُعطيها مختص طبي بينما تسترخي.' },
+      { n: '03', t: 'النتيجة', b: 'يشعر كثيرون بالأثر سريعاً، ويلاحظ آخرون الفائدة الكاملة خلال 24 ساعة.' }
+    ]
+  };
+
+  FAQS = {
+    en: [
+      { q: 'How long does a session take?', a: 'Most infusions take about 45–90 minutes depending on the protocol. You can relax, read, or work during your drip.' },
+      { q: 'Does it hurt?', a: 'Only a small pinch when the line is placed. A medical professional stays with you throughout the session.' },
+      { q: 'How often should I come?', a: 'It depends on your goal — many protocols run weekly for 4–6 weeks, then monthly maintenance. Your clinician will recommend a schedule.' },
+      { q: 'Is it safe?', a: 'Every drip is prepared and administered by licensed medical staff after an individual assessment, using official Liquivida® USA formulas.' },
+      { q: 'Clinic or home?', a: 'Invita is available at partner clinics and as a home service by appointment in Baghdad.' }
+    ],
+    ar: [
+      { q: 'كم تستغرق الجلسة؟', a: 'تستغرق معظم الجلسات نحو 45–90 دقيقة حسب البروتوكول. يمكنك الاسترخاء أو القراءة أو العمل أثناء الجلسة.' },
+      { q: 'هل يؤلم؟', a: 'مجرد وخزة بسيطة عند تركيب الأنبوب. يبقى مختص طبي معك طوال الجلسة.' },
+      { q: 'كم مرة يجب أن أحضر؟', a: 'يعتمد على هدفك — كثير من البروتوكولات أسبوعية لمدة 4–6 أسابيع ثم صيانة شهرية. يوصي طبيبك بالجدول المناسب.' },
+      { q: 'هل هو آمن؟', a: 'يُحضَّر كل علاج ويُعطى بإشراف كادر طبي مرخّص بعد تقييم فردي، باستخدام صيغ Liquivida® المعتمدة.' },
+      { q: 'في العيادة أم المنزل؟', a: 'إنفيتا متوفرة في العيادات الشريكة وكخدمة منزلية بموعد مسبق في بغداد.' }
+    ]
+  };
+
+  SLOGANS = {
+    'energy-boost': { en: 'Your all-day energy, restored.', ar: 'طاقتك طوال اليوم، مُستعادة.' },
+    'immune-boost': { en: 'Defend. Recover. Thrive.', ar: 'دفاعك أقوى، وتعافيك أسرع.' },
+    'hair-skin-nails': { en: 'Beauty that grows from within.', ar: 'جمالٌ ينمو من الداخل.' },
+    'panthenol-b5': { en: 'Deep hydration, real radiance.', ar: 'ترطيب عميق، وإشراقة حقيقية.' },
+    'myers-cocktail': { en: 'The original wellness reset.', ar: 'إعادة ضبط العافية الأصلية.' },
+    'dopamin-booster': { en: 'Think sharper. Focus longer.', ar: 'تركيزٌ أوضح، لوقتٍ أطول.' },
+    'skin-radiance': { en: 'A glow that speaks for itself.', ar: 'إشراقة تتحدث عن نفسها.' },
+    'nad-plus': { en: 'Recharge your cells. Turn back time.', ar: 'اشحن خلاياك، واستعد حيويتك.' },
+    'weight-loss': { en: 'Burn smarter, not harder.', ar: 'احرق بذكاء، لا بمجهود.' },
+    'fertility-libido': { en: 'Vitality, balance, desire.', ar: 'حيوية، وتوازن، ورغبة.' },
+    'cola-drip-iron': { en: 'Rebuild your energy from the blood up.', ar: 'طاقتك تبدأ من دمك.' },
+    'jet-fuel': { en: 'High-octane fuel for body and mind.', ar: 'وقود عالي الأداء للجسم والذهن.' },
+    'edta-chelation': { en: 'Cleanse deep. Protect your heart.', ar: 'تنقية عميقة، وحماية لقلبك.' }
+  };
+
+  EV = { 'energy-boost': 'fatigue', 'myers-cocktail': 'fatigue', 'jet-fuel': 'fatigue', 'nad-plus': 'fatigue', 'skin-radiance': 'skin' };
+
+  EVTYPES = {
+    fatigue: {
+      en: { body: 'The nutrients in this drip are covered by a peer-reviewed literature review our scientific partner Liquivida published in the journal Nutrients (2023): 50 of the 60 included studies showed significant benefits of nutrient therapy on fatigue. In clinic, energy is scored on the validated Fatigue Assessment Scale before treatment and 48 hours after.',
+        stats: [ { v: '75%', l: 'improved their energy scoring after one session' }, { v: '25%', l: 'had complete resolution of fatigue symptoms' } ] },
+      ar: { body: 'المغذيات في هذه التركيبة مشمولة بمراجعة علمية محكّمة نشرها شريكنا العلمي «ليكويفيدا» في مجلة Nutrients عام 2023: أظهرت 50 من أصل 60 دراسة مدرجة فائدة ذات دلالة إحصائية للعلاج بالمغذيات في تخفيف الإرهاق. وفي العيادة، تُقاس الطاقة بمقياس تقييم الإرهاق المعتمد قبل الجلسة وبعدها بـ48 ساعة.',
+        stats: [ { v: '75%', l: 'تحسّنت درجات الطاقة لديهم بعد جلسة واحدة' }, { v: '25%', l: 'زالت أعراض الإرهاق لديهم كلياً' } ] }
+    },
+    skin: {
+      en: { body: 'Glutathione with vitamin C — the exact pairing in this drip — is the subject of documented case studies by our scientific partner Liquivida: an eight-week hyperpigmentation protocol and a 12-week eczema series, both with photographic follow-up and no adverse events reported.',
+        stats: [ { v: '8 wks', l: 'hyperpigmentation protocol — perceived improvement in tone and quality' }, { v: '12 wks', l: 'documented eczema case series with before-and-after photography' } ] },
+      ar: { body: 'الغلوتاثيون مع فيتامين C — وهو المزيج نفسه في هذه التركيبة — موضوع دراسات حالة موثّقة لدى شريكنا العلمي «ليكويفيدا»: بروتوكول ثمانية أسابيع لفرط التصبّغ وسلسلة 12 أسبوعاً للإكزيما، وكلاهما بمتابعة فوتوغرافية ودون أعراض جانبية مسجّلة.',
+        stats: [ { v: '8 أسابيع', l: 'بروتوكول فرط التصبّغ — تحسّن ملحوظ في اللون والجودة' }, { v: '12 أسبوعاً', l: 'سلسلة حالات إكزيما موثّقة بصور قبل وبعد' } ] }
+    }
+  };
+
+  state = { lang: null, slug: null, openFaq: null };
+
+  componentDidMount() {
+    this._onHash = () => { this.setState({ slug: this._readSlug(), openFaq: null }); try { window.scrollTo(0, 0); } catch (e) {} };
+    window.addEventListener('hashchange', this._onHash);
+    const saved = localStorage.getItem('invita-lang');
+    if (saved === 'ar' || saved === 'en') this.setState({ lang: saved });
+    this._reduce = !!(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches);
+    this._driveMarquees();
+    requestAnimationFrame(() => this._initFx());
+  }
+  componentWillUnmount() {
+    window.removeEventListener('hashchange', this._onHash);
+    if (this._onScroll) window.removeEventListener('scroll', this._onScroll);
+    if (this._io) this._io.disconnect();
+  }
+  componentDidUpdate(pp, ps) {
+    if (ps.slug !== this.state.slug || ps.lang !== this.state.lang) {
+      requestAnimationFrame(() => this._runCounts());
+    }
+  }
+
+  _getRoot() { return this._root || document; }
+
+  // Reveal, scroll progress and the sticky booking bar are driven purely by CSS
+  // scroll-timeline animations (see helmet <style>) — the DC reconciler reverts
+  // direct element.style mutations, so JS must not own that state.
+  _initFx() { this._runCounts(); }
+
+  _runCounts() {
+    const root = this._getRoot();
+    root.querySelectorAll('[data-countup]').forEach(el => {
+      const target = parseFloat(el.getAttribute('data-target') || '0');
+      const pre = el.getAttribute('data-pre') || '', suf = el.getAttribute('data-suf') || '';
+      if (this._reduce) { el.textContent = pre + target.toLocaleString('en-US') + suf; return; }
+      const dur = 1100, t0 = performance.now();
+      const step = (now) => {
+        const k = Math.min(1, (now - t0) / dur), e = 1 - Math.pow(1 - k, 3);
+        el.textContent = pre + Math.round(target * e).toLocaleString('en-US') + suf;
+        if (k < 1) requestAnimationFrame(step);
+      };
+      requestAnimationFrame(step);
+    });
+  }
+
+  _readSlug() {
+    const h = (location.hash || '').replace(/^#/, '').trim();
+    return this.DRIPS[h] ? h : this.ORDER[0];
+  }
+
+
+  _driveMarquees() {
+    if (this._mrf) return;
+    const off = new WeakMap();
+    let last = Date.now();
+    const ch = new MessageChannel();
+    ch.port1.onmessage = () => {
+      const now = Date.now();
+      const dt = (now - last) / 1000;
+      if (dt >= 0.03) {
+        last = now;
+        const d = Math.min(dt, 0.1);
+        document.querySelectorAll('[data-marquee]').forEach((el) => {
+          const sp = parseFloat(el.getAttribute('data-marquee')) || 60;
+          let o = (off.get(el) || 0) - sp * d;
+          const half = el.scrollWidth / 2;
+          if (half > 0 && -o >= half) o += half;
+          off.set(el, o);
+          if (el.style.animation !== 'none') el.style.animation = 'none';
+          el.style.transform = 'translate3d(' + o + 'px,0,0)';
+        });
+        const cel = this._celebEl;
+        if (cel && this._celebTarget != null) {
+          const diff = this._celebTarget - cel.scrollLeft;
+          cel.scrollLeft += Math.sign(diff) * Math.min(Math.abs(diff), 900 * d);
+          if (Math.abs(diff) < 2) { cel.scrollLeft = this._celebTarget; this._celebTarget = null; }
+        }
+      }
+      ch.port2.postMessage(0);
+    };
+    this._mrf = ch;
+    ch.port2.postMessage(0);
+  }
+
+  renderVals() {
+    const ar = (this.state.lang || this.props.lang || 'en') === 'ar';
+    const t = this.UI[ar ? 'ar' : 'en'];
+    const slug = this.state.slug || this._readSlug();
+    const raw = this.DRIPS[slug];
+    const loc = ar ? raw.ar : raw.en;
+    const idx = this.ORDER.indexOf(slug);
+    const prevSlug = this.ORDER[(idx - 1 + this.ORDER.length) % this.ORDER.length];
+    const nextSlug = this.ORDER[(idx + 1) % this.ORDER.length];
+    const R = 'opacity:0;transform:translateY(30px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)';
+    const ingredients = raw.formula.split(' · ');
+    const evType = this.EV[slug];
+    const ev = evType ? this.EVTYPES[evType][ar ? 'ar' : 'en'] : null;
+    const priceStr = raw.price.toLocaleString('en-US');
+    return {
+      rootRef: (el) => { this._root = el; },
+      artRef: (el) => { this._art = el; },
+      dir: ar ? 'rtl' : 'ltr', arrow: ar ? '←' : '→', arrowPrev: ar ? '→' : '←', arrowNext: ar ? '←' : '→',
+      navOpen: !!this.state.navOpen, navToggle: () => this.setState({ navOpen: !this.state.navOpen }), navClose: () => this.setState({ navOpen: false }),
+      langLabel: ar ? 'EN' : 'عربي', t,
+      toggleLang: () => { const nx = ar ? 'en' : 'ar'; try { localStorage.setItem('invita-lang', nx); } catch (e) {} this.setState({ lang: nx }); },
+      bagEl: React.createElement('img', { src: (this.BAGS || {})[slug] || 'assets/bag-' + slug + '.png', alt: raw.name + ' IV bag', style: { display: 'block', height: 'auto', width: '100%', maxWidth: '100%', maxHeight: '100%', objectFit: 'contain', filter: 'drop-shadow(0 2px 1px rgba(255,255,255,.5)) drop-shadow(0 14px 22px rgba(15,35,65,.28)) drop-shadow(0 34px 52px rgba(15,35,65,.36)) drop-shadow(0 0 40px rgba(217,179,68,.32)) saturate(1.08) contrast(1.04)' } }),
+      vialEl: React.createElement('img', { src: 'assets/vial-' + slug + '.png', alt: raw.name + ' vial', style: { display: 'block', height: 'clamp(130px,17vw,190px)', maxWidth: '34%', width: 'auto', objectFit: 'contain', filter: 'drop-shadow(0 18px 28px rgba(0,0,0,.5))', marginBottom: '4px' } }),
+      slogan: (this.SLOGANS[slug] || this.SLOGANS['energy-boost'])[ar ? 'ar' : 'en'],
+      waBook: 'https://wa.me/9647748885559?text=' + encodeURIComponent(ar ? 'مرحباً، أود حجز جلسة ' + raw.name + '.' : "Hi! I'd like to book the " + raw.name + ' IV drip.'),
+      ingredients, ingredientsx2: ingredients.concat(ingredients),
+      hasEvidence: !!ev, evBody: ev ? ev.body : '', evStats: ev ? ev.stats : [],
+      priceNum: raw.price, minNum: raw.min,
+      pricePre: ar ? 'من ' : 'from ', priceSuf: ar ? ' د.ع' : ' IQD',
+      priceDisplay: (ar ? 'من ' : 'from ') + priceStr + (ar ? ' د.ع' : ' IQD'),
+      minSuf: ar ? ' دقيقة' : ' min', minDisplay: raw.min + (ar ? ' دقيقة' : ' min'),
+      d: {
+        name: raw.name, tag: loc.tag, desc: loc.desc, formula: raw.formula,
+        tierLabel: this.TIERS[ar ? 'ar' : 'en'][raw.tier],
+        price: (ar ? 'من ' : 'from ') + priceStr + (ar ? ' د.ع' : ' IQD'),
+        goodFor: loc.goodFor, hasNote: !!loc.note, note: loc.note || ''
+      },
+      benefitCards: loc.benefits.map((b, i) => ({ n: String(i + 1).padStart(2, '0'), t: b, style: R + ';transition-delay:' + (i * 90) + 'ms' })),
+      stepCards: this.STEPS[ar ? 'ar' : 'en'].map((s, i) => ({ n: s.n, t: s.t, b: s.b, style: R + ';transition-delay:' + (i * 110) + 'ms' })),
+      faqs: this.FAQS[ar ? 'ar' : 'en'].map((f, i) => {
+        const open = this.state.openFaq === i;
+        return {
+          q: f.q, a: f.a, open,
+          signStyle: 'color:#C3A15A;font-size:22px;flex:none;line-height:1;transition:transform .3s ease;transform:rotate(' + (open ? '45deg' : '0deg') + ')',
+          panelStyle: 'overflow:hidden;transition:max-height .45s cubic-bezier(.2,.7,.2,1),opacity .35s ease;max-height:' + (open ? '260px' : '0') + ';opacity:' + (open ? '1' : '0'),
+          toggle: () => this.setState((st) => ({ openFaq: st.openFaq === i ? null : i }))
+        };
+      }),
+      related: this.ORDER.filter(s => s !== slug).map(s => {
+        const r = this.DRIPS[s];
+        return {
+          name: r.name, href: 'Invita Drip.dc.html#' + s, tier: this.TIERS[ar ? 'ar' : 'en'][r.tier],
+          price: (ar ? 'من ' : 'from ') + r.price.toLocaleString('en-US') + (ar ? ' د.ع' : ' IQD'),
+          imgEl: React.createElement('img', { src: 'assets/bag-' + s + '.png', alt: r.name, style: { height: '150px', width: 'auto', objectFit: 'contain', display: 'block' } })
+        };
+      }),
+      prevName: this.DRIPS[prevSlug].name, nextName: this.DRIPS[nextSlug].name,
+      prevHref: 'Invita Drip.dc.html#' + prevSlug, nextHref: 'Invita Drip.dc.html#' + nextSlug
+    };
+  }
+}
+</script>
+</body>
+</html>
