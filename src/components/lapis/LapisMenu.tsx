@@ -45,7 +45,7 @@ export function DripMenu() {
               <h2>{l.menu.title}</h2>
               <p className="lb-lead">{l.menu.lead}</p>
             </div>
-            <div className="lb-seg" role="group" aria-label="Filter by tier">
+            <div className="lb-seg" role="group" aria-label={l.menu.filterLabel}>
               {opts.map((o) => (
                 <button key={o.id} type="button" aria-pressed={tier === o.id} onClick={() => setTier(o.id)}>
                   {o.label}
@@ -181,7 +181,7 @@ export function Proof() {
             <div className="lb-quotes">
               {l.quotes.items.map((q) => (
                 <figure key={q.text} className="lb-quote">
-                  <Stars />
+                  <Stars label={l.quotes.starsLabel} />
                   <blockquote>{q.text}</blockquote>
                   <figcaption>{q.who}</figcaption>
                 </figure>

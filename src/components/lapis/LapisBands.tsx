@@ -2,11 +2,11 @@
 
 import { useEffect, useRef, useState, type SyntheticEvent } from "react";
 import Image from "next/image";
-import { BRAND, DOCTOR_PHOTOS, DOCTOR_REELS } from "@/data/lapis-home";
+import { DOCTOR_PHOTOS, DOCTOR_REELS } from "@/data/lapis-home";
 import { Kicker, Marquee, useLapis } from "./shared";
 
 function BandMark() {
-  return <div aria-hidden="true" className="lb-band-mark" style={{ backgroundImage: `url('${BRAND.markGold}')` }} />;
+  return <div aria-hidden="true" className="lb-band-mark" />;
 }
 
 /** Doctors of Baghdad — Arabic heading in both locales (as designed), photo marquee, 4 reels. */
@@ -138,15 +138,14 @@ const STAT_NUMS = [null, 37, 5000, 12] as const;
 export function StatsBand() {
   const { l } = useLapis();
   const ref = useRef<HTMLElement>(null);
-  const [p, setP] = useState(0);
+  // Server HTML carries the final numbers (no "0+" without JS); the client rewinds and counts up.
+  const [p, setP] = useState(1);
 
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || typeof IntersectionObserver === "undefined") {
-      setP(1);
-      return;
-    }
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches || typeof IntersectionObserver === "undefined") return;
+    setP(0);
     let raf = 0;
     const io = new IntersectionObserver(
       ([entry]) => {

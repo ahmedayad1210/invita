@@ -102,9 +102,9 @@ export function Marquee({
   );
 }
 
-export function Stars() {
+export function Stars({ label }: { label: string }) {
   return (
-    <div className="lb-stars" role="img" aria-label="5-star review">
+    <div className="lb-stars" role="img" aria-label={label}>
       {[0, 1, 2, 3, 4].map((i) => (
         <span key={i} />
       ))}

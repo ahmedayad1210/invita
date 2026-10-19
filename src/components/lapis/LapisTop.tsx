@@ -13,6 +13,31 @@ export function LapisNav() {
   const [open, setOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
 
+  // Mark JS as running (the reveal fallback only hides sections once JS can show them again),
+  // and drive the scroll progress bar where scroll-driven animations aren't supported.
+  useEffect(() => {
+    const root = navRef.current?.closest(".lb");
+    root?.classList.add("lb-js");
+    if (CSS.supports("animation-timeline: scroll()")) return;
+    const bar = root?.querySelector<HTMLElement>(".lb-prog");
+    if (!bar) return;
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.transform = `scaleX(${max > 0 ? Math.min(window.scrollY / max, 1) : 0})`;
+    };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(update); };
+    update();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+    };
+  }, []);
+
   useEffect(() => {
     if (!open) return;
     const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
@@ -152,5 +177,21 @@ export function TrustStrip() {
         </div>
       </div>
     </section>
+  );
+}
+
+/** Pink October awareness strip (shown only while the campaign is active). */
+export function AwarenessStrip() {
+  const { l } = useLapis();
+  return (
+    <aside className="lb-aware" aria-label={l.pink.label}>
+      <svg viewBox="0 0 16 22" aria-hidden="true">
+        <path
+          d="M8 1.5c2.3 0 3.6 1.7 3.6 3.6 0 1.6-.8 3.2-2.1 5.1l5 9.3-2.6 1.1L8 12.9 4.1 20.6 1.5 19.5l5-9.3C5.2 8.3 4.4 6.7 4.4 5.1 4.4 3.2 5.7 1.5 8 1.5Zm0 2.4c-.8 0-1.3.6-1.3 1.3 0 .8.5 1.9 1.3 3.2.8-1.3 1.3-2.4 1.3-3.2 0-.7-.5-1.3-1.3-1.3Z"
+          fill="#E0709B"
+        />
+      </svg>
+      <p><strong>{l.pink.label}.</strong> {l.pink.body}</p>
+    </aside>
   );
 }

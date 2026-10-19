@@ -12,11 +12,20 @@
   --lb-ink: #171A20;
   --lb-gold: #C3A15A;
   --lb-gold-700: #8A6E2E;
+  --lb-gold-rgb: 195, 161, 90;
+  --lb-gold-light: #E8D5A6;
+  --lb-gold-mid: #D6B771;
+  --lb-gold-dark: #B08F45;
+  --lb-gold-deep: #A88742;
+  --lb-tag-bg: #F0E2B4;
+  --lb-tag-fg: #6C5716;
+  --lb-chip-bg: #E7E3D4;
+  --lb-mark-url: url("/images/invita/brand/logo-mark-gold.png");
   --lb-accent-100: #E2E7F3;
   --lb-accent-300: #93A8D8;
   --lb-accent-800: #071630;
   --lb-kicker: #6B5320;
-  --lb-divider: color-mix(in srgb, #8A6E2E 32%, transparent);
+  --lb-divider: color-mix(in srgb, var(--lb-gold-700) 32%, transparent);
   --lb-gutter: clamp(20px, 5vw, 72px);
   --lb-inset: clamp(6px, 1vw, 14px);
   --lb-panel-radius: clamp(22px, 3vw, 36px);
@@ -59,7 +68,7 @@
 .lb-prog {
   position: fixed; top: 0; inset-inline-start: 0; height: 3px; width: 100%; z-index: 90; pointer-events: none;
   transform: scaleX(0); transform-origin: 0 50%;
-  background: linear-gradient(90deg, #8A6E2E, #C3A15A 55%, #E8D5A6);
+  background: linear-gradient(90deg, var(--lb-gold-700), var(--lb-gold) 55%, var(--lb-gold-light));
 }
 [dir="rtl"] .lb-prog { transform-origin: 100% 50%; }
 
@@ -68,8 +77,8 @@
 .lb-pad { padding-block: clamp(48px, 6vw, 88px); }
 .lb-pad-sm { padding-block: clamp(44px, 5vw, 72px); }
 .lb-hr { display: block; width: 64px; height: 2px; border: 0; margin: 0; border-radius: 2px; transform-origin: 0 50%;
-  background: linear-gradient(to right, color-mix(in srgb, #8A6E2E 60%, transparent), color-mix(in srgb, #8A6E2E 14%, transparent)); }
-[dir="rtl"] .lb-hr { transform-origin: 100% 50%; background: linear-gradient(to left, color-mix(in srgb, #8A6E2E 60%, transparent), color-mix(in srgb, #8A6E2E 14%, transparent)); }
+  background: linear-gradient(to right, color-mix(in srgb, var(--lb-gold-700) 60%, transparent), color-mix(in srgb, var(--lb-gold-700) 14%, transparent)); }
+[dir="rtl"] .lb-hr { transform-origin: 100% 50%; background: linear-gradient(to left, color-mix(in srgb, var(--lb-gold-700) 60%, transparent), color-mix(in srgb, var(--lb-gold-700) 14%, transparent)); }
 .lb-rule { border-top: 2px solid var(--lb-divider); }
 .lb-rule-1 { border-top: 1px solid var(--lb-divider); }
 .lb-sub { margin-top: clamp(36px, 4.5vw, 64px); padding-top: clamp(30px, 3.5vw, 44px); border-top: 1px solid var(--lb-divider); }
@@ -95,7 +104,7 @@
 .lb-btn:active { transform: none; }
 .lb-btn[disabled] { opacity: .45; cursor: not-allowed; transform: none; box-shadow: none; }
 .lb .lb-btn-ink, .lb .lb-btn-ink:hover { background: #0D2551; color: #F2EDE3; }
-.lb .lb-btn-gold, .lb .lb-btn-gold:hover { background: var(--lb-gold); color: #0D2551; box-shadow: 0 8px 24px rgba(195, 161, 90, .35), inset 0 1px 0 rgba(255, 255, 255, .4); }
+.lb .lb-btn-gold, .lb .lb-btn-gold:hover { background: var(--lb-gold); color: #0D2551; box-shadow: 0 8px 24px rgba(var(--lb-gold-rgb), .35), inset 0 1px 0 rgba(255, 255, 255, .4); }
 .lb .lb-btn-line, .lb .lb-btn-line:hover { background: transparent; color: #0D2551; border-color: var(--lb-divider); }
 .lb .lb-btn-glass, .lb .lb-btn-glass:hover { color: #F2EDE3; border-color: rgba(240, 237, 228, .3); background: rgba(255, 255, 255, .06); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); }
 .lb .lb-btn-quiet, .lb .lb-btn-quiet:hover { color: rgba(240, 237, 228, .75); background: transparent; }
@@ -127,7 +136,7 @@
   position: sticky; top: 12px; z-index: 60; margin: 12px auto 0; max-width: min(1200px, calc(100% - 24px));
   display: flex; align-items: center; gap: clamp(12px, 2vw, 26px); padding: 10px clamp(14px, 2vw, 24px);
   border-radius: 999px; border: 1px solid color-mix(in srgb, #0D2551 10%, transparent);
-  background: color-mix(in srgb, #FAF6EE 62%, transparent);
+  background: color-mix(in srgb, var(--lb-surface-2) 62%, transparent);
   backdrop-filter: blur(20px) saturate(1.4); -webkit-backdrop-filter: blur(20px) saturate(1.4);
   box-shadow: 0 10px 40px rgba(13, 37, 81, .08), inset 0 1px 0 rgba(255, 255, 255, .6);
 }
@@ -143,7 +152,7 @@
 .lb-nav-toggle { display: none; width: 38px; height: 38px; border-radius: 999px; border: 1px solid var(--lb-divider); background: transparent; color: #0D2551; font-size: 18px; line-height: 1; cursor: pointer; align-items: center; justify-content: center; }
 .lb-nav-drop {
   position: absolute; top: calc(100% + 8px); inset-inline: 0; display: flex; flex-direction: column; padding: 8px 20px 16px;
-  background: #FAF6EE; border-radius: 22px; border: 1px solid color-mix(in srgb, #0D2551 10%, transparent); box-shadow: 0 24px 48px rgba(6, 16, 30, .18);
+  background: var(--lb-surface-2); border-radius: 22px; border: 1px solid color-mix(in srgb, #0D2551 10%, transparent); box-shadow: 0 24px 48px rgba(6, 16, 30, .18);
 }
 .lb .lb-nav-drop a { padding: 13px 2px; color: #0D2551; text-decoration: none; font-weight: 700; font-size: 15px; border-bottom: 1px solid color-mix(in srgb, #0D2551 16%, transparent); }
 .lb .lb-nav-drop a:last-child { border-bottom: 0; }
@@ -161,13 +170,13 @@
 .lb-hero-floor { position: absolute; inset: 0; background: linear-gradient(to top, #081426 0%, transparent 24%); }
 .lb-hero::before {
   content: ""; position: absolute; width: 70vmax; height: 70vmax; inset-inline-end: -20vmax; top: -30vmax; border-radius: 50%; z-index: 1;
-  background: radial-gradient(circle, rgba(195, 161, 90, .34), rgba(195, 161, 90, 0) 62%);
+  background: radial-gradient(circle, rgba(var(--lb-gold-rgb), .34), rgba(var(--lb-gold-rgb), 0) 62%);
   filter: blur(40px); mix-blend-mode: screen; pointer-events: none; animation: lbAurora 22s ease-in-out infinite;
 }
 .lb-hero-body { position: relative; z-index: 2; max-width: 1200px; width: 100%; margin: auto auto 0; padding: clamp(72px, 11vh, 132px) var(--lb-gutter) clamp(28px, 4vh, 44px); }
 .lb-hero-badge {
   display: inline-flex; align-items: center; gap: 10px; margin: 0 0 22px; padding: 8px 16px; border-radius: 999px;
-  border: 1px solid rgba(195, 161, 90, .45); background: rgba(195, 161, 90, .08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(var(--lb-gold-rgb), .45); background: rgba(var(--lb-gold-rgb), .08); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
   font-weight: 700; font-size: 11.5px; letter-spacing: .18em; text-transform: uppercase; color: var(--lb-gold);
 }
 [dir="rtl"] .lb-hero-badge { font-size: 13px; }
@@ -202,8 +211,8 @@
   position: relative; overflow: hidden; isolation: isolate; background: var(--lb-band); color: #F2EDE3;
   margin: var(--lb-inset); border-radius: var(--lb-panel-radius);
 }
-.lb-band::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; background-image: radial-gradient(rgba(195, 161, 90, .09) 1px, transparent 1px); background-size: 4px 4px; mix-blend-mode: overlay; opacity: .55; }
-.lb-band-mark { position: absolute; inset: 0; z-index: 0; background-size: 150px; background-repeat: repeat; opacity: .05; pointer-events: none; }
+.lb-band::after { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; background-image: radial-gradient(rgba(var(--lb-gold-rgb), .09) 1px, transparent 1px); background-size: 4px 4px; mix-blend-mode: overlay; opacity: .55; }
+.lb-band-mark { position: absolute; inset: 0; z-index: 0; background-image: var(--lb-mark-url); background-size: 150px; background-repeat: repeat; opacity: .05; pointer-events: none; }
 .lb-band > *:not(.lb-band-mark) { position: relative; z-index: 1; }
 .lb-band h2 { color: #F2EDE3; }
 .lb-gold { color: var(--lb-gold); }
@@ -231,7 +240,7 @@
 .lb-reels-head i:last-child { background: linear-gradient(to left, transparent, var(--lb-gold)); }
 .lb-reels-head p { font-size: 12.5px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase; color: var(--lb-gold); }
 .lb-reels { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 16px; padding-bottom: clamp(48px, 6vw, 80px); }
-.lb-reel { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 9 / 16; background: #061229; border: 1px solid rgba(195, 161, 90, .28); box-shadow: 0 18px 44px rgba(0, 0, 0, .45); }
+.lb-reel { position: relative; border-radius: 18px; overflow: hidden; aspect-ratio: 9 / 16; background: #061229; border: 1px solid rgba(var(--lb-gold-rgb), .28); box-shadow: 0 18px 44px rgba(0, 0, 0, .45); }
 .lb-reel video { display: block; width: 100%; height: 100%; object-fit: cover; background: #061229; }
 
 /* ── What you get ── */
@@ -248,8 +257,8 @@
 
 /* ── Stats ── */
 .lb-stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 32px 24px; }
-.lb-stat { border-top: 1px solid rgba(195, 161, 90, .35); padding-top: 18px; }
-.lb-stat-val { font-weight: 800; font-size: clamp(34px, 3.6vw, 50px); line-height: 1; background: linear-gradient(160deg, #E8D5A6, #C3A15A 55%, #A88742); -webkit-background-clip: text; background-clip: text; color: transparent !important; }
+.lb-stat { border-top: 1px solid rgba(var(--lb-gold-rgb), .35); padding-top: 18px; }
+.lb-stat-val { font-weight: 800; font-size: clamp(34px, 3.6vw, 50px); line-height: 1; background: linear-gradient(160deg, var(--lb-gold-light), var(--lb-gold) 55%, var(--lb-gold-deep)); -webkit-background-clip: text; background-clip: text; color: transparent !important; }
 .lb-stat-label { font-size: 13px; letter-spacing: .06em; text-transform: uppercase; color: rgba(240, 237, 228, .75) !important; margin-top: 12px !important; max-width: 22ch; }
 .lb-band .lb-kicker { color: var(--lb-gold); }
 
@@ -266,7 +275,7 @@
   box-shadow: 0 6px 18px rgba(15, 35, 65, .08);
   transition: transform .45s var(--lb-ease), box-shadow .45s var(--lb-ease), border-color .35s ease;
 }
-.lb-card:hover { transform: translateY(-6px) scale(1.01); border-color: color-mix(in srgb, #8A6E2E 60%, transparent); box-shadow: 0 26px 52px rgba(15, 35, 65, .15), 0 0 0 1px color-mix(in srgb, #8A6E2E 30%, transparent); }
+.lb-card:hover { transform: translateY(-6px) scale(1.01); border-color: color-mix(in srgb, var(--lb-gold-700) 60%, transparent); box-shadow: 0 26px 52px rgba(15, 35, 65, .15), 0 0 0 1px color-mix(in srgb, var(--lb-gold-700) 30%, transparent); }
 /* Square until the 9:16 story art is added (design: aspect-ratio 9/16). */
 .lb-drip-art { position: relative; display: block; aspect-ratio: 1; background: #0D2551; overflow: hidden; border-radius: 18px 18px 0 0; }
 .lb-drip-art.contain { background: #EAE3D8; }
@@ -299,7 +308,7 @@
 .lb-celeb:hover .lb-celeb-img { transform: translateY(-5px); }
 .lb-celeb-img img { object-fit: cover; object-position: top; transition: transform 1.2s cubic-bezier(.16, .7, .2, 1); }
 .lb-celeb:hover .lb-celeb-img img { transform: scale(1.05); }
-.lb-celeb figcaption { display: flex; flex-direction: column; gap: 2px; margin-top: 12px; padding: 10px 18px; background: #E7E3D4; border-radius: 0 16px 16px 16px; width: fit-content; }
+.lb-celeb figcaption { display: flex; flex-direction: column; gap: 2px; margin-top: 12px; padding: 10px 18px; background: var(--lb-chip-bg); border-radius: 0 16px 16px 16px; width: fit-content; }
 [dir="rtl"] .lb-celeb figcaption { border-radius: 16px 0 16px 16px; }
 .lb-celeb strong { font-weight: 700; font-size: 14.5px; }
 .lb-celeb span { font-size: 12.5px; color: color-mix(in srgb, var(--lb-text) 60%, transparent); }
@@ -413,7 +422,7 @@
 .lb-tier-card.featured { border-top: 3px solid var(--lb-gold); }
 .lb-tier-card header { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; flex-wrap: wrap; padding-top: 16px; }
 .lb .lb-tier-card h3 { font-size: 22px; }
-.lb-tier-tag { font-size: 11px; padding: 3px 10px; border-radius: 999px; background: #F0E2B4; color: #6C5716; }
+.lb-tier-tag { font-size: 11px; padding: 3px 10px; border-radius: 999px; background: var(--lb-tag-bg); color: var(--lb-tag-fg); }
 .lb-perk { font-size: 14.5px; line-height: 1.55; margin-bottom: 10px !important; display: flex; gap: 10px; align-items: baseline; }
 .lb-dna { border-top: 2px solid var(--lb-divider); padding: 26px 0 clamp(40px, 5vw, 64px); display: flex; flex-wrap: wrap; gap: 16px clamp(24px, 4vw, 56px); align-items: baseline; }
 
@@ -427,7 +436,7 @@
 .lb-faq details p { padding: 0 0 20px; max-width: 66ch; font-size: 15px; line-height: 1.7; color: color-mix(in srgb, var(--lb-text) 80%, transparent); }
 
 /* ── Poster close ── */
-.lb-poster { position: relative; overflow: hidden; isolation: isolate; margin: var(--lb-inset); border-radius: var(--lb-panel-radius); background: linear-gradient(150deg, #D6B771, #C3A15A 45%, #B08F45); color: #0D2551; }
+.lb-poster { position: relative; overflow: hidden; isolation: isolate; margin: var(--lb-inset); border-radius: var(--lb-panel-radius); background: linear-gradient(150deg, var(--lb-gold-mid), var(--lb-gold) 45%, var(--lb-gold-dark)); color: #0D2551; }
 .lb-poster .lb-band-mark { background-size: 170px; opacity: .06; }
 .lb .lb-poster h2 { font-size: clamp(32px, 4.4vw, 58px); line-height: 1.12; margin: 0; }
 [dir="rtl"] .lb .lb-poster h2 { line-height: 1.32; }
@@ -451,8 +460,9 @@
 }
 /* IntersectionObserver fallback (see useReveal) */
 @supports not (animation-timeline: view()) {
-  .lb-reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--lb-ease), transform .8s var(--lb-ease); }
-  .lb-reveal.is-in { opacity: 1; transform: none; }
+  /* Only hide once JS is running (.lb-js), so no-JS visitors and crawlers see every section. */
+  .lb.lb-js .lb-reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s var(--lb-ease), transform .8s var(--lb-ease); }
+  .lb.lb-js .lb-reveal.is-in { opacity: 1; transform: none; }
 }
 
 @keyframes lbUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: none; } }
@@ -495,3 +505,36 @@
 @media (max-width: 400px) {
   .lb-btn { white-space: normal; text-align: center; max-width: 100%; }
 }
+
+/* ─────────────────────────────────────────────
+   Campaign: Pink October (Breast Cancer Awareness Month)
+   Turned on by data-campaign="pink" on .lb (see src/lib/invita/campaign.ts).
+   Champagne accents become ribbon pink, bone becomes blush; lapis stays as the ink.
+───────────────────────────────────────────── */
+.lb[data-campaign="pink"] {
+  --lb-bg: #F9EFF2;
+  --lb-surface: #F2DDE4;
+  --lb-surface-2: #FEF7F9;
+  --lb-gold: #E0709B;          /* ribbon pink — CTA fills, rules, dots */
+  --lb-gold-700: #A62B5C;      /* deep rose — text and links on blush (AA) */
+  --lb-gold-rgb: 224, 112, 155;
+  --lb-gold-light: #F7C6D7;
+  --lb-gold-mid: #EC93B5;
+  --lb-gold-dark: #C9527F;
+  --lb-gold-deep: #B4426F;
+  --lb-kicker: #8E2350;
+  --lb-tag-bg: #F9D7E3;
+  --lb-tag-fg: #8E2350;
+  --lb-chip-bg: #F3E1E7;
+  --lb-accent-100: #FBE3EB;
+  --lb-mark-url: url("/images/invita/brand/logo-mark-pink.png");
+}
+.lb[data-campaign="pink"] ::selection { background: #F7C6D7; color: var(--lb-text); }
+
+/* Awareness strip above the nav */
+.lb-aware {
+  position: relative; z-index: 61; display: flex; align-items: center; justify-content: center; gap: 10px;
+  padding: 9px var(--lb-gutter); background: #0D2551; color: #FDEAF1; font-size: 13.5px; line-height: 1.45; text-align: center;
+}
+.lb-aware svg { flex: none; width: 16px; height: 22px; }
+.lb-aware strong { color: #F7C6D7; font-weight: 700; }

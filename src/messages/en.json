@@ -340,7 +340,8 @@
           "text": "“The fact that these are Liquivida USA formulas — the same ones used in America — makes a huge difference. You feel the quality.”",
           "who": "Client, Baghdad · 5-star review"
         }
-      ]
+      ],
+      "starsLabel": "5-star review"
     },
     "ticker": [
       "Memory & Focus",
@@ -380,7 +381,8 @@
       "bestFor": "Best for",
       "formula": "Clinical formula",
       "details": "View full details",
-      "disclaimer": "Price includes a complimentary medical assessment. Your clinician may recommend adjustments based on your individual needs."
+      "disclaimer": "Price includes a complimentary medical assessment. Your clinician may recommend adjustments based on your individual needs.",
+      "filterLabel": "Filter by tier"
     },
     "tiers": {
       "Signature": "Signature",
@@ -689,6 +691,10 @@
     "currency": "IQD",
     "langLabel": "عربي",
     "menuBtn": "Menu",
-    "bookMsg": "Hi! I'd like to book the {name} IV drip."
+    "bookMsg": "Hi! I'd like to book the {name} IV drip.",
+    "pink": {
+      "label": "Pink October",
+      "body": "October is Breast Cancer Awareness Month. Early detection saves lives, so talk to your doctor about screening."
+    }
   }
 }
