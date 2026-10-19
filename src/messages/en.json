@@ -271,14 +271,14 @@
       "book": "Book your appointment"
     },
     "promo": {
-      "body": "Book a session — get a complimentary wellness assessment.",
+      "body": "Book a session and get a free wellness assessment.",
       "cta": "Book now"
     },
     "hero": {
       "badge": "Registered with the Iraqi Ministry of Health",
       "l1": "The leading company behind",
       "l2": "modern IV therapy in Iraq.",
-      "sub": "IV solutions designed to the latest international protocols — for health, wellness, and performance.",
+      "sub": "IV solutions designed to the latest international protocols, for health, wellness, and performance.",
       "ctaBook": "Book your appointment",
       "ctaMenu": "Explore the drip menu",
       "ctaClinics": "For clinics & partners",
@@ -291,8 +291,8 @@
     },
     "trust": {
       "title": "Iraq’s first registered IV drips brand.",
-      "sub": "A registered pharmaceutical brand distributed exclusively through licensed medical offices — every formulation GMP-tested to international standards.",
-      "liqui": "Premium IV therapy by Liquivida® USA"
+      "sub": "A registered pharmaceutical brand sold only through licensed medical offices. Every formulation is GMP-tested to international standards.",
+      "liqui": "IV therapy by Liquivida® USA"
     },
     "get": [
       {
@@ -316,11 +316,11 @@
       "kicker": "The Invita standard",
       "title": "What sets Invita apart.",
       "items": [
-        "Iraq’s first officially registered IV therapy brand — operating under Ministry of Health regulations",
-        "Official Liquivida® licensed partner — Baghdad’s authorised distributor of USA clinical protocols",
+        "Iraq’s first officially registered IV therapy brand, operating under Ministry of Health regulations",
+        "Official licensed Liquivida® partner and Baghdad’s authorised distributor of its US clinical protocols",
         "Manufactured under international pharmaceutical standards for quality and sterility",
         "American IV Association verified partner",
-        "A medical professional with you through the whole session — transparent IQD pricing, no hidden fees",
+        "A medical professional stays with you for the whole session, and prices are listed in IQD with no hidden fees",
         "Clinical training and supply for 37+ healthcare providers nationwide"
       ]
     },
@@ -330,15 +330,15 @@
       "items": [
         {
           "text": "“The IV Radiance drip was unlike anything I’ve tried before. My skin looked incredible and I felt re-energised from the inside out.”",
-          "who": "Client, Baghdad — 5-star review"
+          "who": "Client, Baghdad · 5-star review"
         },
         {
           "text": "“I’ve been to IV clinics abroad and was thrilled to finally have this level of quality right here in Baghdad. The VIP drip gave me energy I hadn’t felt in years.”",
-          "who": "Client, Baghdad — 5-star review"
+          "who": "Client, Baghdad · 5-star review"
         },
         {
           "text": "“The fact that these are Liquivida USA formulas — the same ones used in America — makes a huge difference. You feel the quality.”",
-          "who": "Client, Baghdad — 5-star review"
+          "who": "Client, Baghdad · 5-star review"
         }
       ]
     },
@@ -363,7 +363,7 @@
       "Anti-Aging"
     ],
     "stats": {
-      "kicker": "By the numbers — a growing healthcare network",
+      "kicker": "Our healthcare network in numbers",
       "labels": [
         "Officially registered IV brand in Iraq",
         "Healthcare providers in network",
@@ -374,7 +374,7 @@
     "menu": {
       "kicker": "The Invita catalogue",
       "title": "Thirteen Liquivida® protocols.",
-      "lead": "Every protocol begins with a private medical consultation. Filter by tier, open a row for the clinical formula, book in one tap.",
+      "lead": "Every protocol begins with a private medical consultation. Filter by tier, then book straight from the card.",
       "all": "All",
       "book": "Book",
       "bestFor": "Best for",
@@ -391,7 +391,7 @@
     "matcher": {
       "kicker": "Personalised matching",
       "title": "Which drip fits you?",
-      "lead": "Pick a goal — we recommend the Invita protocols that match.",
+      "lead": "Pick a goal and we’ll suggest the Invita protocols that fit it.",
       "resultsTitle": "Your recommended protocols"
     },
     "how": {
@@ -406,12 +406,12 @@
         {
           "n": "02",
           "title": "Infuse",
-          "body": "Your customised IV drip is administered by a trained medical professional. You relax while a precision blend of nutrients enters your bloodstream directly — bypassing the digestive system entirely."
+          "body": "A trained medical professional gives you a drip tailored to your consultation. You relax while the nutrients go straight into your bloodstream, without passing through the digestive system."
         },
         {
           "n": "03",
           "title": "Feel it",
-          "body": "Because vitamins and minerals go straight into circulation, results are fast. Most clients feel increased energy, clarity, and wellbeing within hours — not days."
+          "body": "Vitamins and minerals delivered straight into circulation act quickly. Most clients notice more energy, clarity, and wellbeing within hours."
         }
       ]
     },
@@ -419,26 +419,26 @@
       "more": "Published research & case studies",
       "kicker": "The science",
       "title": "100% absorption. Zero digestive loss.",
-      "copy": "When vitamins are taken orally, the gastrointestinal tract limits how much your body can absorb. IV therapy delivers nutrients directly into circulation — fully, and fast.",
-      "ivLabel": "IV infusion — direct to the bloodstream",
+      "copy": "Vitamins taken by mouth have to pass through the gut, which limits how much your body absorbs. An IV puts nutrients directly into circulation, so the full dose reaches you.",
+      "ivLabel": "IV infusion, direct to the bloodstream",
       "ivVal": "100%",
-      "oralLabel": "Oral supplements — limited by digestion",
+      "oralLabel": "Oral supplements, limited by digestion",
       "oralVal": "10–30%",
       "props": [
         {
           "n": "01",
           "t": "100% absorption",
-          "b": "Oral supplements deliver only 10–30% of their nutrients. IV therapy delivers directly into the bloodstream — fully absorbed, zero digestive loss."
+          "b": "Oral supplements deliver only 10–30% of their nutrients. An IV goes straight into the bloodstream, so nothing is lost to digestion."
         },
         {
           "n": "02",
           "t": "Liquivida® USA formulas",
-          "b": "Every drip we administer is a clinically developed Liquivida® formula — the same trusted protocols used across the United States, now in Baghdad."
+          "b": "Every drip we give is a clinically developed Liquivida® formula, the same protocols used across the United States and now available in Baghdad."
         },
         {
           "n": "03",
           "t": "Medical grade & safe",
-          "b": "All treatments are prescribed by a qualified medical professional after a comprehensive health consultation, using pharmaceutical-grade ingredients."
+          "b": "A qualified medical professional prescribes every treatment after a full health consultation. All ingredients are pharmaceutical grade."
         },
         {
           "n": "04",
@@ -450,17 +450,17 @@
     "visit": {
       "kicker": "The visit",
       "title": "A private suite in Al-Mansour. Or your home.",
-      "copy": "No waiting-room chaos. Refreshments, a calm private space, and a medical professional with you through the whole session — before, during, and after.",
-      "suiteName": "Invita Suite — Al-Mansour",
+      "copy": "You won’t sit in a crowded waiting room. We offer refreshments and a quiet private space, and a medical professional stays with you before, during, and after the session.",
+      "suiteName": "Invita Suite, Al-Mansour",
       "suiteDesc": "Private infusion suites. By appointment only.",
-      "homeName": "At-Home Service",
-      "homeDesc": "Licensed nurse visits across Baghdad. Premium add-on.",
+      "homeName": "At-home service",
+      "homeDesc": "Licensed nurses visit you anywhere in Baghdad. Available as a premium add-on.",
       "hours": "Sun–Thu 9:00–20:00 · Fri 14:00–20:00 · Sat 10:00–18:00"
     },
     "booking": {
       "kicker": "Concierge booking",
       "title": "Book your consultation.",
-      "lead": "You are not buying a product — you are starting a medically guided wellness experience, with a complimentary assessment before any treatment.",
+      "lead": "This is medically guided care, and it starts with a free assessment before any treatment.",
       "steps": [
         "Your protocol",
         "Your visit",
@@ -482,6 +482,7 @@
       "change": "Change",
       "confTitle": "Request received",
       "confBody": "Our medical team will confirm your appointment on WhatsApp within 24 hours. Keep your booking reference.",
+      "confNote": "If WhatsApp didn’t open, tap “Chat on WhatsApp” to send your request. We only receive it once you send it.",
       "refL": "Booking reference",
       "sumProtocol": "Protocol",
       "sumWhere": "Where",
@@ -496,17 +497,17 @@
     },
     "certs": {
       "kicker": "Certifications",
-      "title": "Certified as a top IV drip pharmaceutical facility.",
-      "lead": "Our IV formulas are produced in internationally certified pharmaceutical facilities — quality and environmental management standards you can verify yourself.",
-      "c1": "Medical devices — quality management systems. The international standard for pharmaceutical and medical manufacturing quality.",
-      "c2": "Environmental management systems — certified responsible, controlled production environments.",
+      "title": "Made in certified pharmaceutical facilities.",
+      "lead": "Our IV formulas are produced in pharmaceutical facilities certified to international quality and environmental standards. You can check the certificates yourself.",
+      "c1": "Quality management systems for medical devices: the international standard for pharmaceutical and medical manufacturing quality.",
+      "c2": "Environmental management systems, certifying responsible and controlled production.",
       "view": "View certificate (PDF)",
       "cta": "Ask us about our certifications"
     },
     "b2b": {
       "kicker": "For clinics & partners",
-      "title": "Serious healthcare, supplied.",
-      "copy": "We are not a beauty spa or a vitamin bar. Invita is a serious healthcare company — clinical education, administration protocols, regulatory compliance, and a trusted supply chain included.",
+      "title": "Supply and training for clinics.",
+      "copy": "Invita is a healthcare company, not a spa or a vitamin bar. Partners get clinical education, administration protocols, help with regulatory compliance, and a reliable supply chain.",
       "stat": "37+",
       "statL": "Healthcare providers already in the Invita network",
       "points": [
@@ -561,19 +562,19 @@
     },
     "dna": {
       "kicker": "Invita DNA Lab",
-      "title": "Genomic intelligence.",
-      "copy": "DNA panels with private interpretation — nutrition, longevity, and pharmacogenomics.",
+      "title": "Genetic testing.",
+      "copy": "DNA panels for nutrition, longevity, and pharmacogenomics, with a private consultation to explain your results.",
       "link": "Talk to our medical team"
     },
     "video": {
       "kicker": "On screen",
       "title": "Discover your next infusion.",
-      "lead": "Every formula, its ingredients, and its benefits — in two minutes."
+      "lead": "Every formula, with its ingredients and benefits, in two minutes."
     },
     "celebs": {
       "kicker": "Global wellness",
       "title": "Celebrities love IV drips.",
-      "lead": "From athletes and artists to wellness pioneers — IV therapy has become a trusted ritual for energy, recovery, and glow.",
+      "lead": "Athletes, artists, and wellness figures use IV therapy regularly for energy, recovery, and skin.",
       "note": "Public figures photographed during IV wellness sessions at leading clinics across the region.",
       "prev": "Scroll back",
       "next": "Scroll forward"
@@ -585,19 +586,19 @@
     },
     "faq": {
       "kicker": "Questions",
-      "title": "Questions, answered plainly.",
+      "title": "Common questions",
       "items": [
         {
           "q": "Is IV drip therapy safe?",
-          "a": "Yes. All Invita IV protocols are Liquivida® USA formulas developed by board-certified emergency physicians and pharmacists. Every treatment is administered by trained medical professionals, and a safety consultation before treatment ensures we select the right protocol for you."
+          "a": "Yes. All Invita IV protocols are Liquivida® USA formulas developed by board-certified emergency physicians and pharmacists. Trained medical professionals give every treatment, and a safety consultation beforehand lets us choose the right protocol for you."
         },
         {
           "q": "How long does a session take?",
           "a": "A typical IV drip session takes 30–60 minutes. NAD+ protocols run about 90 minutes. This follows a short 15-minute medical consultation where we review your health history and goals."
         },
         {
-          "q": "I already take vitamins — why IV?",
-          "a": "When vitamins are taken orally, the gastrointestinal tract limits absorption — often just 10–30%. IV therapy delivers nutrients directly into the bloodstream at 100% absorption. If you want to actually feel the difference, IV is the superior method."
+          "q": "I already take vitamins. Why IV?",
+          "a": "Vitamins taken by mouth are limited by the gut, which often absorbs just 10–30%. IV therapy delivers nutrients directly into the bloodstream at 100% absorption. If you want to feel the difference, IV works better."
         },
         {
           "q": "How often should I come in?",
@@ -605,15 +606,15 @@
         },
         {
           "q": "Does it really work?",
-          "a": "Yes — benefits are fast and tangible because nutrients bypass the digestive system and enter your bloodstream immediately. Reported results include more energy and mental clarity, stronger immunity, faster athletic recovery, better sleep, improved mood, healthier skin, and jet-lag or hangover relief."
+          "a": "Yes. Nutrients skip the digestive system and reach your bloodstream right away, so the effects are quick and noticeable. Clients report more energy and mental clarity, stronger immunity, faster athletic recovery, better sleep, improved mood, healthier skin, and jet-lag or hangover relief."
         },
         {
           "q": "Who can receive IV therapy?",
-          "a": "Most healthy adults are eligible. Our pre-treatment consultation follows medical eligibility criteria to ensure the therapy is appropriate and safe for each individual. Invita’s treatments optimise wellness — they do not treat or diagnose medical conditions."
+          "a": "Most healthy adults are eligible. Our pre-treatment consultation follows medical eligibility criteria to make sure the therapy is safe and suitable for you. Invita’s treatments support wellness; they do not diagnose or treat medical conditions."
         },
         {
           "q": "What should I expect when I arrive?",
-          "a": "You’ll be welcomed by our team, offered refreshments, and settled into a comfortable private space. A medical professional will be with you throughout your session and available for questions before, during, and after."
+          "a": "Our team will welcome you, offer refreshments, and settle you into a comfortable private space. A medical professional stays with you throughout the session and can answer questions at any point."
         }
       ]
     },
@@ -624,7 +625,7 @@
       "ctaPartner": "Become a partner"
     },
     "footer": {
-      "tagline": "Iraq’s Leading IV Therapy Company",
+      "tagline": "Iraq’s leading IV therapy company",
       "contact": "Contact",
       "hours": "Hours",
       "explore": "Explore",
@@ -661,12 +662,12 @@
         }
       ],
       "disclaimer": "All treatments are administered by licensed medical professionals. Invita operates under Iraqi Ministry of Health regulations.",
-      "copyright": "© 2026 Invita — Official Liquivida® USA distributor, Baghdad."
+      "copyright": "© 2026 Invita, official Liquivida® USA distributor, Baghdad."
     },
     "partnersFilm": {
       "kicker": "Our partners",
       "title": "Trusted by clinics across Iraq.",
-      "copy": "Watch how Invita partners with clinics, hospitals, and physicians — training, supply, and clinical support under one roof.",
+      "copy": "Watch how Invita works with clinics, hospitals, and physicians on training, supply, and clinical support.",
       "btn": "Visit our partners page"
     },
     "doctors": {

@@ -38,17 +38,14 @@ export function DoctorsBand() {
     return () => io.disconnect();
   }, []);
 
-  // Playing one reel with sound pauses the others.
-  const onPlay = (e: SyntheticEvent<HTMLVideoElement>) => {
+  // A reel playing with sound pauses the others. Reels autoplay muted, so unmuting one
+  // fires volumechange rather than play — handle both.
+  const soloIfAudible = (e: SyntheticEvent<HTMLVideoElement>) => {
     const current = e.currentTarget;
-    document.querySelectorAll("video").forEach((v) => {
-      if (v !== current && !v.muted) v.pause();
+    if (current.muted || current.paused) return;
+    reelsRef.current?.querySelectorAll("video").forEach((v) => {
+      if (v !== current) v.pause();
     });
-    if (!current.muted) {
-      document.querySelectorAll<HTMLVideoElement>(".lb-reel video").forEach((v) => {
-        if (v !== current) v.pause();
-      });
-    }
   };
 
   return (
@@ -89,7 +86,8 @@ export function DoctorsBand() {
                 playsInline
                 controls
                 preload="metadata"
-                onPlay={onPlay}
+                onPlay={soloIfAudible}
+                onVolumeChange={soloIfAudible}
               />
             </div>
           ))}

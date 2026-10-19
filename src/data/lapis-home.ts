@@ -2,7 +2,6 @@
 // Source: docs/design_handoff_invita_site/Invita Home.dc.html (DRIPS, GOALS, CELEBS, DOCTOR_CARDS).
 
 import { getLiquividaDrip } from "@/lib/invita/liquivida-drips";
-import { DRIP_INFOGRAPHIC_IDS } from "@/lib/invita/content-curation";
 import { getProtocolDripImage, DRIP_IMAGE_FALLBACK } from "@/lib/invita/drip-images";
 
 export const WHATSAPP_NUMBER = "9647748885559";
@@ -96,10 +95,24 @@ export function dripHref(slug: string): string {
 }
 
 /**
- * Square post art per drip — the shared drip → poster map (studio infographics).
+ * Square post art per drip (studio infographics, each checked by eye against its drip).
+ * Kept local to Home so the menu is right regardless of the shared catalogue map;
+ * keep in step with DRIP_INFOGRAPHIC_IDS in content-curation.ts.
  * The design's 9:16 story art isn't in the repo yet; these are the matching square posts.
  */
-const DRIP_POST = DRIP_INFOGRAPHIC_IDS;
+const DRIP_POST: Record<string, string> = {
+  "energy-boost": "iv-09",
+  "immune-boost": "iv-10",
+  "hair-skin-nails": "iv-11",
+  "panthenol-b5": "iv-12",
+  "myers-cocktail": "iv-13",
+  "fertility-libido": "iv-14",
+  "cola-drip-iron": "iv-15",
+  "jet-fuel": "iv-16",
+  "edta-chelation": "iv-17",
+  "dopamin-booster": "iv-18",
+  "nad-plus": "iv-08",
+};
 /** Posts that live in the clinic folder rather than the infographics set. */
 const DRIP_POST_PATH: Record<string, string> = {
   "skin-radiance": "/images/invita/clinic/photo-2026-04-22-21-08-56-2.webp",

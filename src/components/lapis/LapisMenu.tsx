@@ -120,6 +120,8 @@ export function Proof() {
     };
     el.addEventListener("pointerenter", onEnter);
     el.addEventListener("pointerleave", onLeave);
+    el.addEventListener("focusin", onEnter);
+    el.addEventListener("focusout", onLeave);
     el.addEventListener("touchstart", onTouch, { passive: true });
     const id = setInterval(() => {
       if (hold.current || document.hidden) return;
@@ -132,6 +134,8 @@ export function Proof() {
       clearTimeout(touchTimer);
       el.removeEventListener("pointerenter", onEnter);
       el.removeEventListener("pointerleave", onLeave);
+      el.removeEventListener("focusin", onEnter);
+      el.removeEventListener("focusout", onLeave);
       el.removeEventListener("touchstart", onTouch);
     };
   }, [ar]);

@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { BRAND, WHATSAPP_BOOK_URL, WHATSAPP_URL } from "@/data/lapis-home";
@@ -11,6 +11,21 @@ import { useLapis } from "./shared";
 export function LapisNav() {
   const { l, ar, setLocale } = useLapis();
   const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (!open) return;
+    const onKey = (e: KeyboardEvent) => { if (e.key === "Escape") setOpen(false); };
+    const onDown = (e: PointerEvent) => {
+      if (!navRef.current?.contains(e.target as Node)) setOpen(false);
+    };
+    document.addEventListener("keydown", onKey);
+    document.addEventListener("pointerdown", onDown);
+    return () => {
+      document.removeEventListener("keydown", onKey);
+      document.removeEventListener("pointerdown", onDown);
+    };
+  }, [open]);
   const links = [
     { href: "/iv-therapy", label: l.nav.menu },
     { href: "/science", label: l.nav.science },
@@ -19,7 +34,7 @@ export function LapisNav() {
   ];
 
   return (
-    <nav className="lb-nav" aria-label="Main">
+    <nav ref={navRef} className="lb-nav" aria-label="Main">
       <Link href="/" className="lb-nav-brand" aria-label="Invita — IV Vitamins Therapy">
         <Image src={BRAND.mark} alt="" width={34} height={34} style={{ height: 34, width: "auto" }} priority />
         <Image src={BRAND.wordmark} alt="Invita" width={96} height={19} style={{ height: 19, width: "auto" }} priority />

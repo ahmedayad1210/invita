@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
@@ -22,6 +22,8 @@ export function Booking() {
   const { l, ar, arrow, fmtPrice } = useLapis();
   const b = l.booking;
   const topRef = useRef<HTMLDivElement>(null);
+  const stepHeadingRef = useRef<HTMLHeadingElement>(null);
+  const movedStep = useRef(false);
   const [step, setStep] = useState(1);
   const [drip, setDrip] = useState<string | null>(null);
   const [loc, setLoc] = useState<Loc | null>(null);
@@ -34,9 +36,17 @@ export function Booking() {
   const [ref, setRef] = useState<string | null>(null);
 
   const go = (n: number) => {
+    movedStep.current = true;
     setStep(n);
-    topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    topRef.current?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
   };
+
+  // Each step replaces the control that had focus, so hand focus to the new step's heading.
+  useEffect(() => {
+    if (!movedStep.current) return;
+    stepHeadingRef.current?.focus({ preventScroll: true });
+  }, [step]);
 
   const sel = DRIPS.find((d) => d.slug === drip);
   const locs = [
@@ -51,7 +61,6 @@ export function Booking() {
     dt.setHours(12, 0, 0, 0);
     return dt;
   });
-  const dayNum = day ? new Date(day).getDate() : 0;
   const cantSchedule = !(loc && day && time);
   const when = day
     ? `${new Intl.DateTimeFormat(dateLocale, { weekday: "long", day: "numeric", month: "long" }).format(new Date(day))} · ${time ?? ""}`
@@ -64,15 +73,17 @@ export function Booking() {
     { k: b.sumWhen, v: when },
     { k: b.sumName, v: name },
   ];
-  const message = [
-    `${b.kicker} · ${ref ?? ""}`,
-    ...summary.slice(1).map((r) => `${r.k}: ${r.v}`),
-    `${b.phoneL}: ${phone}`,
-    note.trim() ? `${b.noteL}: ${note.trim()}` : null,
-  ]
-    .filter(Boolean)
-    .join("\n");
-  const confirmedHref = whatsappWithText(message);
+  const bookingHref = (reference: string) =>
+    whatsappWithText(
+      [
+        `${b.kicker} · ${reference}`,
+        ...summary.slice(1).map((r) => `${r.k}: ${r.v}`),
+        `${b.phoneL}: ${phone}`,
+        note.trim() ? `${b.noteL}: ${note.trim()}` : null,
+      ]
+        .filter(Boolean)
+        .join("\n"),
+    );
 
   const submit = (e: FormEvent) => {
     e.preventDefault();
@@ -82,7 +93,11 @@ export function Booking() {
       return;
     }
     setErr(false);
-    setRef(`INV-${1000 + Math.floor(Math.random() * 9000)}`);
+    const reference = `INV-${Date.now().toString(36).slice(-5).toUpperCase()}`;
+    setRef(reference);
+    // Nothing reaches the clinic until the WhatsApp message is sent, so open it now
+    // (still inside the submit gesture); step 4 keeps a button in case it was blocked.
+    window.open(bookingHref(reference), "_blank", "noopener");
     go(4);
   };
 
@@ -114,10 +129,10 @@ export function Booking() {
             </ol>
               <p className="lb-note" style={{ fontSize: 12, marginTop: 18 }}>{b.trust}</p>
             </div>
-            <div className="lb-book-main" aria-live="polite">
+            <div className="lb-book-main">
               {step === 1 && (
                 <>
-                  <h3>{b.chooseTitle}</h3>
+                  <h3 ref={stepHeadingRef} tabIndex={-1}>{b.chooseTitle}</h3>
                   <div className="lb-opts" style={{ gap: 10 }}>
                     {DRIPS.map((d) => (
                       <button
@@ -138,7 +153,7 @@ export function Booking() {
               {step === 2 && (
                 <>
                   <div style={{ display: "flex", justifyContent: "space-between", gap: 16, alignItems: "baseline", flexWrap: "wrap", marginBottom: 18 }}>
-                    <h3 style={{ margin: 0 }}>{sel ? `${sel.name} — ${fmtPrice(sel.price)}` : ""}</h3>
+                    <h3 ref={stepHeadingRef} tabIndex={-1} style={{ margin: 0 }}>{sel ? `${sel.name} — ${fmtPrice(sel.price)}` : ""}</h3>
                     <button type="button" className="lb-btn lb-btn-line" onClick={() => go(1)}>{b.change}</button>
                   </div>
                   <p className="lb-book-label">{b.locTitle}</p>
@@ -164,15 +179,12 @@ export function Booking() {
                   </div>
                   <p className="lb-book-label">{b.timeTitle}</p>
                   <div className="lb-opts" style={{ marginBottom: 28 }}>
-                    {SLOTS.map((s, i) => {
-                      // Two slots per day are shown as taken, as in the design.
-                      const off = !day || i === (dayNum * 5) % 12 || i === (dayNum * 5 + 4) % 12;
-                      return (
-                        <button key={s} type="button" className="lb-chip lb-tnum" disabled={off} aria-pressed={time === s} onClick={() => setTime(s)}>
-                          {s}
-                        </button>
-                      );
-                    })}
+                    {/* No live availability yet — every slot is a preference the team confirms on WhatsApp. */}
+                    {SLOTS.map((s) => (
+                      <button key={s} type="button" className="lb-chip lb-tnum" disabled={!day} aria-pressed={time === s} onClick={() => setTime(s)}>
+                        {s}
+                      </button>
+                    ))}
                   </div>
                   <button type="button" className="lb-btn lb-btn-ink" disabled={cantSchedule} onClick={() => go(3)}>
                     {b.continue} <span aria-hidden="true">{arrow}</span>
@@ -182,7 +194,7 @@ export function Booking() {
 
               {step === 3 && (
                 <>
-                  <h3>{b.detailsTitle}</h3>
+                  <h3 ref={stepHeadingRef} tabIndex={-1}>{b.detailsTitle}</h3>
                   <form onSubmit={submit} noValidate style={{ display: "flex", flexDirection: "column", gap: 16, maxWidth: 460 }}>
                     <div className="lb-field">
                       <label htmlFor="bk-name">{b.nameL} <span aria-hidden="true">*</span></label>
@@ -221,9 +233,10 @@ export function Booking() {
                 <>
                   <div style={{ display: "flex", alignItems: "center", gap: 14, marginBottom: 8 }}>
                     <span className="lb-check" aria-hidden="true">✓</span>
-                    <h3 style={{ fontSize: 24, margin: 0 }}>{b.confTitle}</h3>
+                    <h3 ref={stepHeadingRef} tabIndex={-1} style={{ fontSize: 24, margin: 0 }}>{b.confTitle}</h3>
                   </div>
-                  <p className="lb-lead" style={{ fontSize: 15, maxWidth: "52ch", marginBottom: 20 }}>{b.confBody}</p>
+                  <p className="lb-lead" style={{ fontSize: 15, maxWidth: "52ch", marginBottom: 8 }}>{b.confBody}</p>
+                  <p className="lb-note" style={{ marginBottom: 20 }}>{b.confNote}</p>
                   <div className="lb-sum">
                     {summary.map((r) => (
                       <div key={r.k}>
@@ -233,7 +246,7 @@ export function Booking() {
                     ))}
                   </div>
                   <div style={{ display: "flex", gap: 12, flexWrap: "wrap", marginTop: 24 }}>
-                    <a href={confirmedHref} target="_blank" rel="noopener" className="lb-btn lb-btn-ink lb-btn-primary">{b.whatsapp}</a>
+                    <a href={bookingHref(ref ?? "")} target="_blank" rel="noopener" className="lb-btn lb-btn-ink lb-btn-primary">{b.whatsapp}</a>
                     <button type="button" className="lb-btn lb-btn-line" onClick={reset}>{b.again}</button>
                   </div>
                 </>

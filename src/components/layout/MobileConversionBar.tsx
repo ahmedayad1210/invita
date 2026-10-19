@@ -12,7 +12,8 @@ export default function MobileConversionBar() {
   const pathname = usePathname();
   const { t } = useLocale();
 
-  if (HIDDEN_PREFIXES.some((p) => pathname.startsWith(p))) {
+  // Home (Lapis redesign) has its own WhatsApp booking CTAs.
+  if (pathname === "/" || HIDDEN_PREFIXES.some((p) => pathname.startsWith(p))) {
     return null;
   }
 
